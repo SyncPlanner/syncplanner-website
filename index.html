@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Le Cheveux Texturé — En cours de création</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ivoire: #F6F1E7;
+    --olive: #5B6B45;
+    --olive-fonce: #3E4A30;
+    --sauge: #C9CEAE;
+    --bois: #8B6F4E;
+    --charbon: #33322B;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    height: 100%;
+  }
+
+  body {
+    background-color: var(--ivoire);
+    color: var(--charbon);
+    font-family: 'Jost', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* Motif de fond : mèches ondulées, discret */
+  .texture-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    opacity: 0.55;
+    pointer-events: none;
+  }
+
+  main {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 6vh 6vw;
+  }
+
+  .monogram {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 2.2rem;
+  }
+
+  .eyebrow {
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    font-size: 0.78rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--bois);
+    margin-bottom: 1.4rem;
+  }
+
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: clamp(2.6rem, 6vw, 4.6rem);
+    letter-spacing: 0.03em;
+    color: var(--olive-fonce);
+    line-height: 1.08;
+    margin-bottom: 1.6rem;
+  }
+
+  h1 em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--olive);
+  }
+
+  .divider {
+    width: 46px;
+    height: 1px;
+    background-color: var(--bois);
+    margin: 0 auto 1.8rem;
+  }
+
+  p.intro {
+    font-size: 1.02rem;
+    font-weight: 300;
+    color: var(--charbon);
+    max-width: 480px;
+    line-height: 1.8;
+    opacity: 0.85;
+  }
+
+  footer {
+    position: relative;
+    z-index: 1;
+    border-top: 1px solid rgba(139, 111, 78, 0.25);
+    padding: 2.4rem 6vw 2.6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .contact-label {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--olive);
+    opacity: 0.75;
+  }
+
+  .contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.8rem;
+    font-size: 0.95rem;
+  }
+
+  .contact-links a {
+    color: var(--olive-fonce);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.25s ease, color 0.25s ease;
+    padding-bottom: 2px;
+  }
+
+  .contact-links a:hover {
+    border-color: var(--bois);
+    color: var(--bois);
+  }
+
+  .credit {
+    font-size: 0.72rem;
+    color: var(--charbon);
+    opacity: 0.4;
+    letter-spacing: 0.05em;
+    margin-top: 0.4rem;
+  }
+
+  @media (max-width: 480px) {
+    .contact-links { gap: 1.2rem 1.6rem; }
+  }
+</style>
+</head>
+<body>
+
+  <svg class="texture-bg" viewBox="0 0 1200 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <path d="M -50 150 Q 100 80, 250 150 T 550 150 T 850 150 T 1150 150" stroke="#C9CEAE" stroke-width="2" fill="none" opacity="0.5"/>
+    <path d="M -50 220 Q 100 150, 250 220 T 550 220 T 850 220 T 1150 220" stroke="#C9CEAE" stroke-width="1.5" fill="none" opacity="0.35"/>
+    <path d="M -50 700 Q 100 630, 250 700 T 550 700 T 850 700 T 1150 700" stroke="#C9CEAE" stroke-width="2" fill="none" opacity="0.5"/>
+    <path d="M -50 770 Q 100 700, 250 770 T 550 770 T 850 770 T 1150 770" stroke="#C9CEAE" stroke-width="1.5" fill="none" opacity="0.35"/>
+    <path d="M -50 850 Q 100 780, 250 850 T 550 850 T 850 850 T 1150 850" stroke="#8B6F4E" stroke-width="1" fill="none" opacity="0.2"/>
+  </svg>
+
+  <main>
+    <svg class="monogram" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+      <path d="M8 12 Q 20 4, 32 12 T 56 12" stroke="#5B6B45" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <path d="M8 32 Q 20 24, 32 32 T 56 32" stroke="#8B6F4E" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <path d="M8 52 Q 20 44, 32 52 T 56 52" stroke="#5B6B45" stroke-width="2" fill="none" stroke-linecap="round"/>
+    </svg>
+
+    <p class="eyebrow">Studio capillaire</p>
+    <h1>Le Cheveux <em>Texturé</em></h1>
+    <div class="divider"></div>
+    <p class="intro">Notre boutique prend racine. Un espace pensé pour sublimer les cheveux texturés, entre matières naturelles et savoir-faire minutieux, ouvrira bientôt ses portes.</p>
+  </main>
+
+  <footer>
+    <p class="contact-label">Nous contacter</p>
+    <div class="contact-links">
+      <a href="mailto:contact@lecheveuxtexture.fr">contact@lecheveuxtexture.fr</a>
+      <a href="tel:+33600000000">06 00 00 00 00</a>
+      <a href="https://instagram.com/lecheveuxtexture" target="_blank" rel="noopener">@lecheveuxtexture</a>
+    </div>
+    <p class="credit">Le Cheveux Texturé — Saint-Maximin-la-Sainte-Baume</p>
+  </footer>
+
+</body>
+</html>
