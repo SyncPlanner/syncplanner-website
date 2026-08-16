@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SYNC.PLANNER — Guide d'utilisation</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --noir:#0A0910;--violet:#7C3AED;--violet2:#A78BFA;--or:#D4AF6A;--creme:#F0EEF8;--texte:#C4C0E8;--sidebar-w:240px; }
+body { font-family:'Inter',sans-serif;background:var(--noir);color:var(--creme);line-height:1.7; }
+.sidebar { position:fixed;top:0;left:0;width:var(--sidebar-w);height:100vh;background:#0D0C1A;border-right:1px solid #1E1C38;overflow-y:auto;padding-bottom:32px;z-index:10; }
+.sidebar-header { padding:20px;border-bottom:1px solid #1E1C38;margin-bottom:12px; }
+.back-link { display:flex;align-items:center;gap:6px;font-size:12px;color:#5B5880;text-decoration:none;margin-bottom:14px;transition:color 0.15s; }
+.back-link:hover { color:var(--texte); }
+.logo-row { display:flex;align-items:flex-start;justify-content:space-between;gap:8px; }
+.sidebar-logo { font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:700;color:var(--creme); }
+.sidebar-logo span { color:var(--violet); }
+.sidebar-logo small { display:block;font-size:11px;color:#5B5880;font-weight:400;margin-top:2px; }
+.lang-sw { display:flex;align-items:center;gap:2px;background:rgba(42,39,80,0.6);border:1px solid #2A2750;border-radius:7px;padding:3px;flex-shrink:0; }
+.lbtn { background:none;border:none;font-size:15px;cursor:pointer;padding:3px 5px;border-radius:5px;transition:background 0.15s; }
+.lbtn.active { background:rgba(124,58,237,0.35); }
+.nav-section { padding:12px 20px 4px;font-size:9px;font-weight:700;color:#4B4870;text-transform:uppercase;letter-spacing:0.14em; }
+.nav-link { display:block;padding:7px 20px;font-size:13px;color:var(--texte);text-decoration:none;border-left:2px solid transparent;transition:all 0.12s; }
+.nav-link:hover { color:var(--creme);background:rgba(124,58,237,0.06);border-left-color:rgba(124,58,237,0.4); }
+.nav-link.active { color:var(--violet2);background:rgba(124,58,237,0.1);border-left-color:var(--violet); }
+.main { margin-left:var(--sidebar-w);padding:52px 64px 80px;max-width:calc(var(--sidebar-w) + 780px); }
+.page-header { margin-bottom:48px; }
+.page-header h1 { font-family:'Space Grotesk',sans-serif;font-size:34px;font-weight:700;letter-spacing:-0.02em;margin-bottom:8px; }
+.page-header p { font-size:15px;color:var(--texte);margin-bottom:20px; }
+.search-hint { display:inline-flex;align-items:center;gap:8px;background:#13122A;border:1px solid #2A2750;border-radius:8px;padding:7px 14px;font-size:12px;color:#7B78A8; }
+.kbd { background:#2A2750;border:1px solid #3D3A60;border-radius:4px;padding:1px 6px;font-size:11px;font-family:monospace;color:var(--creme); }
+.doc-section { margin-bottom:64px;scroll-margin-top:24px; }
+.section-header { display:flex;align-items:center;gap:12px;margin-bottom:10px; }
+.section-emoji { font-size:26px; }
+.section-title { font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:700;letter-spacing:-0.01em; }
+.section-intro { font-size:14px;color:var(--texte);margin-bottom:24px;line-height:1.75;max-width:640px; }
+.divider { border:none;border-top:1px solid #1E1C38;margin:52px 0; }
+/* Profile cards */
+.profile-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:32px; }
+.profile-card { background:#13122A;border:1px solid #2A2750;border-radius:12px;padding:20px;transition:border-color 0.2s; }
+.profile-card:hover { border-color:var(--violet); }
+.profile-icon { font-size:28px;margin-bottom:10px; }
+.profile-title { font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:700;color:var(--creme);margin-bottom:6px; }
+.profile-desc { font-size:12px;color:var(--texte);line-height:1.6; }
+.profile-tag { display:inline-block;background:rgba(124,58,237,0.15);border:1px solid rgba(124,58,237,0.3);border-radius:4px;padding:2px 8px;font-size:10px;color:var(--violet2);margin-top:8px; }
+/* Steps */
+.steps { display:flex;flex-direction:column;gap:10px;margin-bottom:20px; }
+.step { display:flex;gap:14px;align-items:flex-start;background:#13122A;border:1px solid #1E1C38;border-radius:10px;padding:13px 16px; }
+.step-num { width:24px;height:24px;border-radius:50%;background:var(--violet);color:white;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:'Space Grotesk',sans-serif;margin-top:1px; }
+.step-body { flex:1; }
+.step-title { font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:600;color:var(--creme);margin-bottom:2px; }
+.step-text { font-size:13px;color:var(--texte);line-height:1.6; }
+/* Feat list */
+.feat-list { display:flex;flex-direction:column;gap:8px;margin-bottom:20px; }
+.feat-item { display:flex;gap:12px;align-items:flex-start;background:#13122A;border:1px solid #1E1C38;border-radius:8px;padding:11px 14px; }
+.feat-icon { font-size:16px;flex-shrink:0;margin-top:1px; }
+.feat-text { font-size:13px;color:var(--texte);line-height:1.6; }
+.feat-text strong { color:var(--creme); }
+/* Info/warn */
+.info-box { background:#1A1050;border:1px solid rgba(124,58,237,0.25);border-radius:10px;padding:13px 16px;font-size:13px;color:#C4B5FD;line-height:1.65;margin-bottom:18px; }
+.info-box strong { color:var(--creme); }
+.warn-box { background:rgba(251,146,60,0.07);border:1px solid rgba(251,146,60,0.25);border-radius:10px;padding:13px 16px;font-size:13px;color:#FCD34D;line-height:1.65;margin-bottom:18px; }
+.warn-box strong { color:#FDE68A; }
+/* Status badges */
+.status-grid { display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:20px; }
+.status-pill { display:flex;align-items:center;gap:6px;padding:7px 10px;border-radius:7px; }
+.status-dot { width:6px;height:6px;border-radius:50%;flex-shrink:0; }
+/* UI Mockup */
+.ui-mock { background:#13122A;border:1px solid #2A2750;border-radius:12px;overflow:hidden;margin-bottom:18px; }
+.ui-bar { padding:9px 14px;background:#0F0E1A;border-bottom:1px solid #1E1C38;display:flex;align-items:center;gap:6px; }
+.ui-dot { width:8px;height:8px;border-radius:50%; }
+.ui-label { font-family:'Space Grotesk',sans-serif;font-size:10px;color:#4B4870;margin-left:8px;letter-spacing:0.08em;text-transform:uppercase; }
+.ui-body { padding:18px; }
+.btn-m { display:inline-flex;align-items:center;gap:5px;background:var(--violet);color:white;border-radius:6px;padding:6px 12px;font-size:11px;font-weight:600;font-family:'Space Grotesk',sans-serif; }
+.btn-sm { display:inline-flex;align-items:center;gap:4px;background:#1A1838;border:1px solid #2A2750;color:var(--texte);border-radius:5px;padding:4px 9px;font-size:11px;font-weight:500; }
+.tag-c { display:inline-flex;align-items:center;gap:5px;background:rgba(212,175,106,0.15);border:1px solid rgba(212,175,106,0.3);border-radius:4px;padding:2px 8px;font-size:11px;color:var(--or); }
+.hint { font-size:11px;color:#4B4870;margin-top:8px; }
+code { background:#1E1C38;border-radius:4px;padding:1px 5px;font-size:12px;color:var(--violet2);font-family:monospace; }
+.bonus-tag { display:inline-flex;align-items:center;gap:5px;background:rgba(212,175,106,0.12);border:1px solid rgba(212,175,106,0.3);border-radius:100px;padding:3px 10px;font-size:10px;font-weight:700;color:var(--or);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:10px; }
+.page-footer { text-align:center;padding:36px 0 0;font-size:12px;color:#4B4870;border-top:1px solid #1E1C38; }
+.page-footer a { color:#5B5880;text-decoration:none; }
+@media(max-width:900px){
+  .sidebar{position:relative;width:100%;height:auto;border-right:none;border-bottom:1px solid #1E1C38;}
+  .main{margin-left:0;padding:32px 24px;max-width:100%;}
+  .profile-grid{grid-template-columns:1fr;}
+  .status-grid{grid-template-columns:repeat(2,1fr);}
+}
+</style>
+</head>
+<body>
+
+<nav class="sidebar">
+  <div class="sidebar-header">
+    <a href="/" class="back-link">← syncplanner.app</a>
+    <div class="logo-row">
+      <div class="sidebar-logo">SYNC<span>.</span>PLANNER<small>Guide d'utilisation</small></div>
+      <div class="lang-sw">
+        <button class="lbtn active" onclick="window.location.href='help.html'" title="Français">🇫🇷</button>
+        <button class="lbtn" onclick="window.location.href='help-en.html'" title="English">🇬🇧</button>
+      </div>
+    </div>
+  </div>
+  <div class="nav-section">Pour commencer</div>
+  <a href="#profils" class="nav-link">👤 Profils compositeurs</a>
+  <a href="#workflow" class="nav-link">🔄 Workflow complet</a>
+  <div class="nav-section">Fonctionnalités</div>
+  <a href="#projets" class="nav-link">🎵 Projets & Albums</a>
+  <a href="#tracks" class="nav-link">🎚️ Suivi des tracks</a>
+  <a href="#kanban" class="nav-link">🗂️ Kanban</a>
+  <a href="#calendrier" class="nav-link">📅 Calendrier</a>
+  <a href="#gallery" class="nav-link">🖼️ Gallery</a>
+  <a href="#clients" class="nav-link">🏢 Clients & Éditeurs</a>
+  <a href="#stats" class="nav-link">📊 Statistiques</a>
+  <a href="#archivage" class="nav-link">📦 Archivage</a>
+  <a href="#recyclage" class="nav-link">♻️ Recyclage</a>
+  <div class="nav-section">Bonus</div>
+  <a href="#ia" class="nav-link">🤖 Assistant IA</a>
+  <div class="nav-section">Installation</div>
+  <a href="#mac" class="nav-link">Mac</a>
+  <a href="#windows" class="nav-link">Windows</a>
+  <a href="#activation" class="nav-link">🔑 Activation</a>
+  <div class="nav-section">Support</div>
+  <a href="#contact" class="nav-link">📧 Contact</a>
+</nav>
+
+<main class="main">
+
+  <div class="page-header">
+    <h1>Guide d'utilisation</h1>
+    <p>Tout ce qu'il faut savoir pour utiliser SYNC.PLANNER au quotidien.</p>
+    <div class="search-hint">Rechercher : <span class="kbd">⌘</span>+<span class="kbd">F</span> ou <span class="kbd">Ctrl</span>+<span class="kbd">F</span></div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- PROFILS -->
+  <section class="doc-section" id="profils">
+    <div class="section-header"><span class="section-emoji">👤</span><h2 class="section-title">Profils compositeurs</h2></div>
+    <p class="section-intro">SYNC.PLANNER s'adapte à tout type de compositeur professionnel. Voici comment l'app se configure naturellement selon le profil.</p>
+    <div class="profile-grid">
+      <div class="profile-card">
+        <div class="profile-icon">🎼</div>
+        <div class="profile-title">Compositeur Library</div>
+        <div class="profile-desc">Produit des albums thématiques pour plusieurs éditeurs simultanément. Gère des briefs avec deadline, valide track par track.</div>
+        <div class="profile-tag">Album = Brief éditeur</div>
+      </div>
+      <div class="profile-card">
+        <div class="profile-icon">🎬</div>
+        <div class="profile-title">Compositeur Film</div>
+        <div class="profile-desc">Compose pour un film ou une série. Chaque projet a un titre unique, un réalisateur/producteur comme client, et une deadline de livraison.</div>
+        <div class="profile-tag">Album = Titre du film</div>
+      </div>
+      <div class="profile-card">
+        <div class="profile-icon">🎮</div>
+        <div class="profile-title">Compositeur Jeux Vidéo</div>
+        <div class="profile-desc">Compose la bande sonore d'un jeu. Le titre du projet = le nom du jeu. Les tracks correspondent aux scènes, niveaux ou ambiances.</div>
+        <div class="profile-tag">Album = Nom du jeu</div>
+      </div>
+    </div>
+    <div class="info-box">
+      💡 Peu importe le profil, le fonctionnement est identique — <strong>un projet = une commande</strong>, avec des tracks à produire, une deadline et un client associé.
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- WORKFLOW -->
+  <section class="doc-section" id="workflow">
+    <div class="section-header"><span class="section-emoji">🔄</span><h2 class="section-title">Workflow complet</h2></div>
+    <p class="section-intro">De la réception d'un brief à la livraison finale — voici comment SYNC.PLANNER accompagne chaque étape.</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-title">Créer le projet</div>
+          <div class="step-text">Cliquer sur "+ Nouveau projet". Renseigner le titre (ex: "Neon Horizon", "Le Grand Bleu", "Shadow Realm"), le client/éditeur, la deadline et le nombre de tracks attendues.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <div class="step-title">Ajouter les informations</div>
+          <div class="step-text">Utiliser 🔗 Liens pour centraliser les fichiers de référence (Dropbox, Drive...), 📝 Notes pour les instructions du client, et 🖼️ Cover pour ajouter une pochette visuelle.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <div class="step-title">Composer et faire avancer les statuts</div>
+          <div class="step-text">Pour chaque track : faire passer le statut de "Composition" → "Envoyée" → "Mix" → "Validée" ou "Livrée". La barre de progression se met à jour automatiquement.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <div class="step-title">Surveiller les deadlines</div>
+          <div class="step-text">Les alertes 🔔 signalent les projets urgents. La vue Calendrier montre toutes les deadlines sur le mois. Le Dashboard affiche les projets par ordre d'urgence.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-body">
+          <div class="step-title">Archiver et recycler</div>
+          <div class="step-text">Une fois livré, archiver le projet pour garder la vue propre. Les tracks refusées peuvent être marquées disponibles et réutilisées sur un autre projet.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- PROJETS -->
+  <section class="doc-section" id="projets">
+    <div class="section-header"><span class="section-emoji">🎵</span><h2 class="section-title">Projets & Albums</h2></div>
+    <p class="section-intro">Un projet contient toutes les informations d'une commande : tracks, deadline, client, liens, notes et cover.</p>
+
+    <div class="ui-mock">
+      <div class="ui-bar"><div class="ui-dot" style="background:#F87171"></div><div class="ui-dot" style="background:#FBBF24"></div><div class="ui-dot" style="background:#10B981"></div><span class="ui-label">Projets & Albums</span></div>
+      <div class="ui-body">
+        <div style="display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap">
+          <span class="btn-m">+ Nouveau projet</span>
+          <span class="btn-sm">📁 Dossier album</span>
+          <span class="btn-sm">🔍 Rechercher</span>
+        </div>
+        <div style="background:#1A1838;border:1px solid #2A2750;border-radius:10px;padding:13px">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;flex-wrap:wrap">
+            <div style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;color:var(--creme);flex:1">Neon Horizon</div>
+            <span class="tag-c">Label Sync</span>
+            <span class="btn-sm">🔗 Liens</span>
+            <span class="btn-sm">📝 Notes</span>
+            <span class="btn-sm">🖼️ Cover</span>
+          </div>
+          <div style="height:4px;background:#2A2750;border-radius:100px;overflow:hidden;margin-bottom:6px"><div style="height:100%;width:72%;background:#A78BFA;border-radius:100px"></div></div>
+          <div style="font-size:11px;color:#5B5880">72% · 4 tracks · Deadline : 15 sept 2026</div>
+        </div>
+        <p class="hint">↑ Les boutons 🔗 📝 🖼️ permettent d'enrichir chaque projet</p>
+      </div>
+    </div>
+
+    <div class="feat-list">
+      <div class="feat-item"><div class="feat-icon">🔗</div><div class="feat-text"><strong>Liens</strong> — Ajouter des liens Dropbox, WeTransfer, Drive, YouTube... pour centraliser toutes les ressources du projet.</div></div>
+      <div class="feat-item"><div class="feat-icon">📝</div><div class="feat-text"><strong>Notes</strong> — Champ libre pour les instructions du client, le brief, les remarques importantes.</div></div>
+      <div class="feat-item"><div class="feat-icon">🖼️</div><div class="feat-text"><strong>Cover</strong> — Ajouter une image de couverture à l'album. Elle sera visible dans la vue Gallery.</div></div>
+      <div class="feat-item"><div class="feat-icon">📁</div><div class="feat-text"><strong>Importer un dossier</strong> — Le bouton "📁 Dossier album" importe les fichiers d'un dossier existant pour créer les tracks automatiquement.</div></div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- TRACKS -->
+  <section class="doc-section" id="tracks">
+    <div class="section-header"><span class="section-emoji">🎚️</span><h2 class="section-title">Suivi des tracks</h2></div>
+    <p class="section-intro">Chaque track a un statut qui reflète son avancement. Changer un statut met à jour la progression du projet en temps réel.</p>
+
+    <div class="status-grid">
+      <div class="status-pill" style="background:#0C4A6E22;border:1px solid #38BDF833"><div class="status-dot" style="background:#38BDF8"></div><span style="color:#38BDF8;font-size:12px;font-weight:600">Composition</span></div>
+      <div class="status-pill" style="background:#1E3A5F22;border:1px solid #60A5FA33"><div class="status-dot" style="background:#60A5FA"></div><span style="color:#60A5FA;font-size:12px;font-weight:600">Envoyée</span></div>
+      <div class="status-pill" style="background:#43140722;border:1px solid #FB923C33"><div class="status-dot" style="background:#FB923C"></div><span style="color:#FB923C;font-size:12px;font-weight:600">Révision</span></div>
+      <div class="status-pill" style="background:#2D1B6922;border:1px solid #A78BFA33"><div class="status-dot" style="background:#A78BFA"></div><span style="color:#A78BFA;font-size:12px;font-weight:600">Mix</span></div>
+      <div class="status-pill" style="background:#2D1B6922;border:1px solid #A78BFA33"><div class="status-dot" style="background:#A78BFA"></div><span style="color:#A78BFA;font-size:12px;font-weight:600">Mix envoyé</span></div>
+      <div class="status-pill" style="background:#06402B22;border:1px solid #10B98133"><div class="status-dot" style="background:#10B981"></div><span style="color:#10B981;font-size:12px;font-weight:600">Validée ✓</span></div>
+      <div class="status-pill" style="background:#06402B22;border:1px solid #10B98133"><div class="status-dot" style="background:#10B981"></div><span style="color:#10B981;font-size:12px;font-weight:600">Livrée ✓</span></div>
+      <div class="status-pill" style="background:#45091222;border:1px solid #F8717133"><div class="status-dot" style="background:#F87171"></div><span style="color:#F87171;font-size:12px;font-weight:600">Refusée</span></div>
+    </div>
+    <div class="info-box">💡 <strong>Validée</strong> et <strong>Livrée</strong> comptent dans la progression. <strong>Refusée</strong> peut être recyclée vers un autre projet via le bouton ♻️.</div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- KANBAN -->
+  <section class="doc-section" id="kanban">
+    <div class="section-header"><span class="section-emoji">🗂️</span><h2 class="section-title">Vue Kanban</h2></div>
+    <p class="section-intro">Le Kanban affiche toutes les tracks du mois organisées par colonne de statut. Une vue d'ensemble pour voir d'un coup d'œil ce qui est en cours, ce qui est bloqué et ce qui est livré.</p>
+
+    <div class="ui-mock">
+      <div class="ui-bar"><div class="ui-dot" style="background:#F87171"></div><div class="ui-dot" style="background:#FBBF24"></div><div class="ui-dot" style="background:#10B981"></div><span class="ui-label">Kanban — Août 2026</span></div>
+      <div class="ui-body" style="overflow-x:auto">
+        <div style="display:grid;grid-template-columns:repeat(5,minmax(130px,1fr));gap:10px;min-width:600px">
+          <!-- Compo -->
+          <div style="background:#0D0C1A;border:1px solid #1E1C38;border-radius:8px;padding:12px">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+              <span style="font-size:10px;font-weight:700;color:#38BDF8;text-transform:uppercase;letter-spacing:0.08em">🎹 Compo</span>
+              <span style="background:#0C4A6E;color:#38BDF8;font-size:10px;font-weight:700;padding:1px 6px;border-radius:100px">3</span>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:6px">
+              <div style="background:#1A1838;border:1px solid #2A2750;border-radius:6px;padding:8px"><div style="font-size:11px;color:#E2E0F0;font-weight:600">Urban Bass 01</div><div style="font-size:10px;color:#5B5880;margin-top:2px">Music Co.</div></div>
+              <div style="background:#1A1838;border:1px solid #2A2750;border-radius:6px;padding:8px"><div style="font-size:11px;color:#E2E0F0;font-weight:600">Shadow Realm 02</div><div style="font-size:10px;color:#5B5880;margin-top:2px">GameSound</div></div>
+              <div style="background:#1A1838;border:1px solid #2A2750;border-radius:6px;padding:8px"><div style="font-size:11px;color:#E2E0F0;font-weight:600">Dark Matter 01</div><div style="font-size:10px;color:#5B5880;margin-top:2px">Label Sync</div></div>
+            </div>
+          </div>
+          <!-- Envoyée -->
+          <div style="background:#0D0C1A;border:1px solid #1E1C38;border-radius:8px;padding:12px">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+              <span style="font-size:10px;font-weight:700;color:#60A5FA;text-transform:uppercase;letter-spacing:0.08em">📤 Envoyée</span>
+              <span style="background:#1E3A5F;color:#60A5FA;font-size:10px;font-weight:700;padding:1px 6px;border-radius:100px">2</span>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:6px">
+              <div style="background:#1A1838;border:1px solid #2A2750;border-radius:6px;padding:8px"><div style="font-size:11px;color:#E2E0F0;font-weight:600">Neon City 01</div><div style="font-size:10px;color:#5B5880;margin-top:2px">Label Sync</div></div>
+              <div style="background:#1A1838;border:1px solid #2A2750;border-radius:6px;padding:8px"><div style="font-size:11px;color:#E2E0F0;font-weight:600">Le Grand Bleu 03</div><div style="font-size:10px;color:#5B5880;margin-top:2px">Ciné Prod</div></div>
+            </div>
+          </div>
+          <!-- Révision -->
+          <div style="background:#0D0C1A;border:1px solid #1E1C38;border-radius:8px;padding:12px">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+              <span style="font-size:10px;font-weight:700;color:#FB923C;text-transform:uppercase;letter-spacing:0.08em">🔄 Révision</span>
+              <span style="background:#431407;color:#FB923C;font-size:10px;font-weight:700;padding:1px 6px;border-radius:100px">1</span>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:6px">
+              <div style="background:#1A1838;border:1px solid #FB923C33;border-radius:6px;padding:8px"><div style="font-size:11px;color:#E2E0F0;font-weight:600">Quiet Storm 02</div><div style="font-size:10px;color:#5B5880;margin-top:2px">Studio Brief</div></div>
+            </div>
+          </div>
+          <!-- Mix -->
+          <div style="background:#0D0C1A;border:1px solid #1E1C38;border-radius:8px;padding:12px">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+              <span style="font-size:10px;font-weight:700;color:#A78BFA;text-transform:uppercase;letter-spacing:0.08em">🎚️ Mix</span>
+              <span style="background:#2D1B69;color:#A78BFA;font-size:10px;font-weight:700;padding:1px 6px;border-radius:100px">2</span>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:6px">
+              <div style="background:#1A1838;border:1px solid #2A2750;border-radius:6px;padding:8px"><div style="font-size:11px;color:#E2E0F0;font-weight:600">Neon City 03</div><div style="font-size:10px;color:#5B5880;margin-top:2px">Label Sync</div></div>
+              <div style="background:#1A1838;border:1px solid #2A2750;border-radius:6px;padding:8px"><div style="font-size:11px;color:#E2E0F0;font-weight:600">Shadow Realm 01</div><div style="font-size:10px;color:#5B5880;margin-top:2px">GameSound</div></div>
+            </div>
+          </div>
+          <!-- Livré -->
+          <div style="background:#0D0C1A;border:1px solid #1E1C38;border-radius:8px;padding:12px">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+              <span style="font-size:10px;font-weight:700;color:#10B981;text-transform:uppercase;letter-spacing:0.08em">✅ Livré</span>
+              <span style="background:#064E3B;color:#10B981;font-size:10px;font-weight:700;padding:1px 6px;border-radius:100px">4</span>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:6px">
+              <div style="background:#1A1838;border:1px solid #2A2750;border-radius:6px;padding:8px"><div style="font-size:11px;color:#E2E0F0;font-weight:600">Neon City 02</div><div style="font-size:10px;color:#5B5880;margin-top:2px">Label Sync</div></div>
+              <div style="background:#1A1838;border:1px solid #2A2750;border-radius:6px;padding:8px"><div style="font-size:11px;color:#E2E0F0;font-weight:600">Urban Bass 03</div><div style="font-size:10px;color:#5B5880;margin-top:2px">Music Co.</div></div>
+              <div style="background:#1A1838;border:1px solid #2A2750;border-radius:6px;padding:8px"><div style="font-size:11px;color:#E2E0F0;font-weight:600">Pulse 01</div><div style="font-size:10px;color:#5B5880;margin-top:2px">Studio Brief</div></div>
+              <div style="background:#1A1838;border:1px solid #2A2750;border-radius:6px;padding:8px"><div style="font-size:11px;color:#E2E0F0;font-weight:600">Le Grand Bleu 01</div><div style="font-size:10px;color:#5B5880;margin-top:2px">Ciné Prod</div></div>
+            </div>
+          </div>
+        </div>
+        <p class="hint" style="margin-top:10px">↑ Toutes les tracks du mois organisées par statut — chaque carte = une track, avec son projet et son client</p>
+      </div>
+    </div>
+
+    <div class="feat-list">
+      <div class="feat-item"><div class="feat-icon">👁️</div><div class="feat-text"><strong>Vue mensuelle</strong> — Le Kanban affiche toutes les tracks du mois en cours, tous projets confondus.</div></div>
+      <div class="feat-item"><div class="feat-icon">🎯</div><div class="feat-text"><strong>Identifier les blocages</strong> — D'un coup d'œil, voir ce qui est en révision ou en attente de retour client.</div></div>
+      <div class="feat-item"><div class="feat-icon">📊</div><div class="feat-text"><strong>Compteurs par colonne</strong> — Le badge de chaque colonne indique combien de tracks sont dans cet état ce mois-ci.</div></div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- CALENDRIER -->
+  <section class="doc-section" id="calendrier">
+    <div class="section-header"><span class="section-emoji">📅</span><h2 class="section-title">Calendrier</h2></div>
+    <p class="section-intro">La vue Calendrier affiche toutes les deadlines des projets sur un calendrier mensuel. Idéal pour planifier et anticiper les surcharges.</p>
+    <div class="feat-list">
+      <div class="feat-item"><div class="feat-icon">📅</div><div class="feat-text"><strong>Deadlines visibles</strong> — Chaque deadline apparaît sur le bon jour avec le nom du client associé.</div></div>
+      <div class="feat-item"><div class="feat-icon">⚠️</div><div class="feat-text"><strong>Alertes colorées</strong> — Les deadlines proches apparaissent en orange/rouge selon l'urgence.</div></div>
+      <div class="feat-item"><div class="feat-icon">◀️▶️</div><div class="feat-text"><strong>Navigation</strong> — Naviguer d'un mois à l'autre pour voir les deadlines futures ou passées.</div></div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- GALLERY -->
+  <section class="doc-section" id="gallery">
+    <div class="section-header"><span class="section-emoji">🖼️</span><h2 class="section-title">Gallery</h2></div>
+    <p class="section-intro">La vue Gallery affiche tous les projets sous forme de pochettes visuelles. Survoler une pochette affiche les tracks, cliquer ouvre le projet.</p>
+
+    <div class="ui-mock">
+      <div class="ui-bar"><div class="ui-dot" style="background:#F87171"></div><div class="ui-dot" style="background:#FBBF24"></div><div class="ui-dot" style="background:#10B981"></div><span class="ui-label">Gallery</span></div>
+      <div style="padding:18px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
+        <div style="border-radius:10px;overflow:hidden;border:1px solid #10B98133;cursor:pointer;position:relative" onmouseenter="this.querySelector('.ov').style.opacity='1'" onmouseleave="this.querySelector('.ov').style.opacity='0'">
+          <div style="height:100px;background:linear-gradient(135deg,#064E3B,#10B981);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:3px"><div style="font-size:24px">🎵</div><div style="font-family:'Space Grotesk',sans-serif;font-size:10px;font-weight:700;color:white">Neon Horizon</div></div>
+          <div style="padding:7px 10px;background:#1A1838"><div style="display:flex;justify-content:space-between;margin-bottom:4px"><span style="font-size:9px;color:#5B5880">Label Sync</span><span style="font-size:9px;font-weight:700;color:#10B981">100%</span></div><div style="height:3px;background:#2A2750;border-radius:100px"><div style="height:100%;width:100%;background:#10B981;border-radius:100px"></div></div></div>
+          <div class="ov" style="position:absolute;inset:0;background:rgba(10,9,16,0.9);opacity:0;transition:opacity 0.2s;padding:10px"><div style="font-size:9px;font-weight:700;color:#10B981;margin-bottom:5px">4 tracks</div><div style="font-size:10px;color:#E2E0F0;margin-bottom:2px">✅ Neon City Intro</div><div style="font-size:10px;color:#E2E0F0;margin-bottom:2px">✅ Drive By Night</div><div style="font-size:10px;color:#E2E0F0;margin-bottom:2px">✅ Pulse</div><div style="font-size:10px;color:#E2E0F0">✅ Outro Fade</div></div>
+        </div>
+        <div style="border-radius:10px;overflow:hidden;border:1px solid #A78BFA33;cursor:pointer;position:relative" onmouseenter="this.querySelector('.ov').style.opacity='1'" onmouseleave="this.querySelector('.ov').style.opacity='0'">
+          <div style="height:100px;background:linear-gradient(135deg,#1A0800,#C2410C);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:3px"><div style="font-size:24px">🎬</div><div style="font-family:'Space Grotesk',sans-serif;font-size:10px;font-weight:700;color:white">Le Grand Bleu</div></div>
+          <div style="padding:7px 10px;background:#1A1838"><div style="display:flex;justify-content:space-between;margin-bottom:4px"><span style="font-size:9px;color:#5B5880">Ciné Prod</span><span style="font-size:9px;font-weight:700;color:#A78BFA">60%</span></div><div style="height:3px;background:#2A2750;border-radius:100px"><div style="height:100%;width:60%;background:#A78BFA;border-radius:100px"></div></div></div>
+          <div class="ov" style="position:absolute;inset:0;background:rgba(10,9,16,0.9);opacity:0;transition:opacity 0.2s;padding:10px"><div style="font-size:9px;font-weight:700;color:#A78BFA;margin-bottom:5px">3 tracks</div><div style="font-size:10px;color:#E2E0F0;margin-bottom:2px">✅ Main Theme</div><div style="font-size:10px;color:#E2E0F0;margin-bottom:2px">🎚️ Underwater</div><div style="font-size:10px;color:#E2E0F0">🎹 End Credits</div></div>
+        </div>
+        <div style="border-radius:10px;overflow:hidden;border:1px solid #60A5FA33;cursor:pointer;position:relative" onmouseenter="this.querySelector('.ov').style.opacity='1'" onmouseleave="this.querySelector('.ov').style.opacity='0'">
+          <div style="height:100px;background:linear-gradient(135deg,#0C1A4A,#1E40AF);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:3px"><div style="font-size:24px">🎮</div><div style="font-family:'Space Grotesk',sans-serif;font-size:10px;font-weight:700;color:white">Shadow Realm</div></div>
+          <div style="padding:7px 10px;background:#1A1838"><div style="display:flex;justify-content:space-between;margin-bottom:4px"><span style="font-size:9px;color:#5B5880">GameSound</span><span style="font-size:9px;font-weight:700;color:#F87171">⚠️ J-3</span></div><div style="height:3px;background:#2A2750;border-radius:100px"><div style="height:100%;width:20%;background:#FB923C;border-radius:100px"></div></div></div>
+          <div class="ov" style="position:absolute;inset:0;background:rgba(10,9,16,0.9);opacity:0;transition:opacity 0.2s;padding:10px"><div style="font-size:9px;font-weight:700;color:#F87171;margin-bottom:5px">2 tracks</div><div style="font-size:10px;color:#E2E0F0;margin-bottom:2px">🎹 Boss Battle</div><div style="font-size:10px;color:#E2E0F0">🎹 Final Level</div></div>
+        </div>
+      </div>
+      <p class="hint" style="padding:0 18px 12px;text-align:center">Survoler une pochette pour voir les tracks · Cliquer pour ouvrir le projet</p>
+    </div>
+
+    <div class="feat-list">
+      <div class="feat-item"><div class="feat-icon">🎨</div><div class="feat-text"><strong>Couleur automatique</strong> — La couleur de chaque pochette reflète l'avancement. Vert = terminé, violet = en cours, orange = urgent.</div></div>
+      <div class="feat-item"><div class="feat-icon">🖼️</div><div class="feat-text"><strong>Cover personnalisée</strong> — Ajouter une image via le bouton "🖼️ Cover" dans le projet pour personnaliser la pochette.</div></div>
+      <div class="feat-item"><div class="feat-icon">👆</div><div class="feat-text"><strong>Survol</strong> — Passer la souris sur une pochette affiche instantanément la liste des tracks et leur statut.</div></div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- CLIENTS -->
+  <section class="doc-section" id="clients">
+    <div class="section-header"><span class="section-emoji">🏢</span><h2 class="section-title">Clients & Éditeurs</h2></div>
+    <p class="section-intro">L'onglet Éditeurs centralise toutes les informations sur les clients avec leurs statistiques de collaboration.</p>
+
+    <div class="ui-mock">
+      <div class="ui-bar"><div class="ui-dot" style="background:#F87171"></div><div class="ui-dot" style="background:#FBBF24"></div><div class="ui-dot" style="background:#10B981"></div><span class="ui-label">Clients & Éditeurs</span></div>
+      <div class="ui-body">
+        <!-- Stats globales éditeurs -->
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px">
+          <div style="background:#1A1838;border:1px solid #2A2750;border-radius:8px;padding:10px;text-align:center"><div style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;color:#C4B5FD">4</div><div style="font-size:9px;color:#5B5880;text-transform:uppercase;letter-spacing:0.06em;margin-top:2px">Clients</div></div>
+          <div style="background:#1A1838;border:1px solid #2A2750;border-radius:8px;padding:10px;text-align:center"><div style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;color:#10B981">47</div><div style="font-size:9px;color:#5B5880;text-transform:uppercase;letter-spacing:0.06em;margin-top:2px">Validées</div></div>
+          <div style="background:#1A1838;border:1px solid #2A2750;border-radius:8px;padding:10px;text-align:center"><div style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;color:#FBBF24">68%</div><div style="font-size:9px;color:#5B5880;text-transform:uppercase;letter-spacing:0.06em;margin-top:2px">Taux moyen</div></div>
+          <div style="background:#1A1838;border:1px solid #2A2750;border-radius:8px;padding:10px;text-align:center"><div style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;color:#60A5FA">5</div><div style="font-size:9px;color:#5B5880;text-transform:uppercase;letter-spacing:0.06em;margin-top:2px">En attente</div></div>
+        </div>
+        <!-- Clients liste -->
+        <div style="display:flex;flex-direction:column;gap:7px">
+          <div style="background:#1A1838;border:1px solid #2A2750;border-radius:8px;padding:12px;display:flex;align-items:center;gap:12px">
+            <div style="flex:1"><div style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;color:var(--creme)">Label Sync</div><div style="font-size:10px;color:#5B5880;margin-top:2px">4 albums · 28 tracks soumises</div></div>
+            <span class="btn-sm">📇</span>
+            <div style="min-width:80px"><div style="display:flex;justify-content:space-between;margin-bottom:3px"><span style="font-size:10px;color:#5B5880">Taux</span><span style="font-size:10px;font-weight:700;color:#10B981">75%</span></div><div style="height:4px;background:#2A2750;border-radius:100px"><div style="height:100%;width:75%;background:#10B981;border-radius:100px"></div></div></div>
+          </div>
+          <div style="background:#1A1838;border:1px solid #2A2750;border-radius:8px;padding:12px;display:flex;align-items:center;gap:12px">
+            <div style="flex:1"><div style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;color:var(--creme)">Ciné Prod</div><div style="font-size:10px;color:#5B5880;margin-top:2px">2 films · 14 tracks soumises</div></div>
+            <span class="btn-sm">📇</span>
+            <div style="min-width:80px"><div style="display:flex;justify-content:space-between;margin-bottom:3px"><span style="font-size:10px;color:#5B5880">Taux</span><span style="font-size:10px;font-weight:700;color:#FBBF24">64%</span></div><div style="height:4px;background:#2A2750;border-radius:100px"><div style="height:100%;width:64%;background:#FBBF24;border-radius:100px"></div></div></div>
+          </div>
+          <div style="background:#1A1838;border:1px solid #2A2750;border-radius:8px;padding:12px;display:flex;align-items:center;gap:12px">
+            <div style="flex:1"><div style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;color:var(--creme)">GameSound</div><div style="font-size:10px;color:#5B5880;margin-top:2px">1 jeu · 8 tracks soumises</div></div>
+            <span class="btn-sm">📇</span>
+            <div style="min-width:80px"><div style="display:flex;justify-content:space-between;margin-bottom:3px"><span style="font-size:10px;color:#5B5880">Taux</span><span style="font-size:10px;font-weight:700;color:#60A5FA">50%</span></div><div style="height:4px;background:#2A2750;border-radius:100px"><div style="height:100%;width:50%;background:#60A5FA;border-radius:100px"></div></div></div>
+          </div>
+        </div>
+        <p class="hint" style="margin-top:8px">↑ Le bouton 📇 ouvre la fiche complète : email, téléphone, lien de soumission, notes...</p>
+      </div>
+    </div>
+
+    <div class="feat-list">
+      <div class="feat-item"><div class="feat-icon">📇</div><div class="feat-text"><strong>Fiche contact</strong> — Email principal/secondaire, téléphone, contact référent, lien de soumission, conditions de la collaboration, notes libres.</div></div>
+      <div class="feat-item"><div class="feat-icon">📊</div><div class="feat-text"><strong>Taux de validation par éditeur</strong> — SYNC.PLANNER calcule automatiquement le pourcentage de tracks validées par rapport aux tracks soumises, pour chaque client.</div></div>
+      <div class="feat-item"><div class="feat-icon">📈</div><div class="feat-text"><strong>Historique de production</strong> — L'accordéon de chaque client affiche l'historique de collaboration par année et par mois.</div></div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- STATS -->
+  <section class="doc-section" id="stats">
+    <div class="section-header"><span class="section-emoji">📊</span><h2 class="section-title">Statistiques</h2></div>
+    <p class="section-intro">Vue globale de la production avec statistiques par collaborateur, par éditeur, et sur l'ensemble de l'année.</p>
+
+    <!-- Stats globales -->
+    <h3 style="font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600;color:var(--creme);margin-bottom:12px">Vue globale annuelle</h3>
+    <div class="ui-mock">
+      <div class="ui-bar"><div class="ui-dot" style="background:#F87171"></div><div class="ui-dot" style="background:#FBBF24"></div><div class="ui-dot" style="background:#10B981"></div><span class="ui-label">Statistiques 2026</span></div>
+      <div class="ui-body">
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:16px">
+          <div style="background:#1A1838;border:1px solid #2A2750;border-radius:8px;padding:10px;text-align:center"><div style="font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:700;color:#C4B5FD">58</div><div style="font-size:9px;color:#5B5880;text-transform:uppercase;letter-spacing:0.06em;margin-top:2px">Total tracks</div></div>
+          <div style="background:#1A1838;border:1px solid #2A2750;border-radius:8px;padding:10px;text-align:center"><div style="font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:700;color:#10B981">39</div><div style="font-size:9px;color:#5B5880;text-transform:uppercase;letter-spacing:0.06em;margin-top:2px">Validées</div></div>
+          <div style="background:#1A1838;border:1px solid #2A2750;border-radius:8px;padding:10px;text-align:center"><div style="font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:700;color:#F87171">8</div><div style="font-size:9px;color:#5B5880;text-transform:uppercase;letter-spacing:0.06em;margin-top:2px">Refusées</div></div>
+          <div style="background:#1A1838;border:1px solid #2A2750;border-radius:8px;padding:10px;text-align:center"><div style="font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:700;color:#FBBF24">67%</div><div style="font-size:9px;color:#5B5880;text-transform:uppercase;letter-spacing:0.06em;margin-top:2px">Taux valid.</div></div>
+        </div>
+        <!-- Graphique mensuel -->
+        <div style="background:#1A1838;border:1px solid #1E1C38;border-radius:8px;padding:14px">
+          <div style="font-size:10px;font-weight:700;color:#9D99C8;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:12px">Production mensuelle 2026</div>
+          <div style="display:flex;gap:4px;align-items:flex-end;height:80px">
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:3px"><div style="width:100%;background:#7C3AED;border-radius:2px 2px 0 0;height:25px;opacity:0.5"></div><div style="font-size:7px;color:#4B4870">Jan</div></div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:3px"><div style="width:100%;background:#7C3AED;border-radius:2px 2px 0 0;height:38px;opacity:0.5"></div><div style="font-size:7px;color:#4B4870">Fév</div></div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:3px"><div style="width:100%;background:#7C3AED;border-radius:2px 2px 0 0;height:32px;opacity:0.5"></div><div style="font-size:7px;color:#4B4870">Mar</div></div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:3px"><div style="width:100%;background:#7C3AED;border-radius:2px 2px 0 0;height:52px;opacity:0.5"></div><div style="font-size:7px;color:#4B4870">Avr</div></div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:3px"><div style="width:100%;background:#7C3AED;border-radius:2px 2px 0 0;height:44px;opacity:0.5"></div><div style="font-size:7px;color:#4B4870">Mai</div></div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:3px"><div style="width:100%;background:#7C3AED;border-radius:2px 2px 0 0;height:58px;opacity:0.5"></div><div style="font-size:7px;color:#4B4870">Jun</div></div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:3px"><div style="width:100%;background:#7C3AED;border-radius:2px 2px 0 0;height:38px;opacity:0.5"></div><div style="font-size:7px;color:#4B4870">Jul</div></div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:3px"><div style="width:100%;background:#7C3AED;border-radius:2px 2px 0 0;height:65px;opacity:0.5"></div><div style="font-size:7px;color:#4B4870">Aoû</div></div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:3px"><div style="font-size:7px;color:#2A2750">Sep</div></div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:3px"><div style="font-size:7px;color:#2A2750">Oct</div></div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:3px"><div style="font-size:7px;color:#2A2750">Nov</div></div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:3px"><div style="font-size:7px;color:#2A2750">Déc</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats par collaborateur -->
+    <h3 style="font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600;color:var(--creme);margin:24px 0 12px">Stats par collaborateur</h3>
+    <div class="ui-mock">
+      <div class="ui-bar"><div class="ui-dot" style="background:#F87171"></div><div class="ui-dot" style="background:#FBBF24"></div><div class="ui-dot" style="background:#10B981"></div><span class="ui-label">Collaborateurs</span></div>
+      <div class="ui-body">
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div style="background:#1A1838;border:1px solid #2A2750;border-radius:8px;padding:12px;display:flex;align-items:center;gap:12px">
+            <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#7C3AED,#A78BFA);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:white;flex-shrink:0;font-family:'Space Grotesk',sans-serif">J</div>
+            <div style="flex:1"><div style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;color:var(--creme)">Joeffrey L.</div><div style="font-size:10px;color:#5B5880;margin-top:1px">Compositeur principal</div></div>
+            <div style="text-align:right"><div style="font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:700;color:#10B981">32</div><div style="font-size:9px;color:#5B5880">tracks</div></div>
+            <div style="min-width:70px"><div style="display:flex;justify-content:space-between;margin-bottom:3px"><span style="font-size:9px;color:#5B5880">Valid.</span><span style="font-size:9px;font-weight:700;color:#10B981">72%</span></div><div style="height:4px;background:#2A2750;border-radius:100px"><div style="height:100%;width:72%;background:#10B981;border-radius:100px"></div></div></div>
+          </div>
+          <div style="background:#1A1838;border:1px solid #2A2750;border-radius:8px;padding:12px;display:flex;align-items:center;gap:12px">
+            <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#0C4A6E,#38BDF8);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:white;flex-shrink:0;font-family:'Space Grotesk',sans-serif">M</div>
+            <div style="flex:1"><div style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;color:var(--creme)">Marc D.</div><div style="font-size:10px;color:#5B5880;margin-top:1px">Co-compositeur</div></div>
+            <div style="text-align:right"><div style="font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:700;color:#FBBF24">18</div><div style="font-size:9px;color:#5B5880">tracks</div></div>
+            <div style="min-width:70px"><div style="display:flex;justify-content:space-between;margin-bottom:3px"><span style="font-size:9px;color:#5B5880">Valid.</span><span style="font-size:9px;font-weight:700;color:#FBBF24">61%</span></div><div style="height:4px;background:#2A2750;border-radius:100px"><div style="height:100%;width:61%;background:#FBBF24;border-radius:100px"></div></div></div>
+          </div>
+          <div style="background:#1A1838;border:1px solid #2A2750;border-radius:8px;padding:12px;display:flex;align-items:center;gap:12px">
+            <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#064E3B,#10B981);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:white;flex-shrink:0;font-family:'Space Grotesk',sans-serif">S</div>
+            <div style="flex:1"><div style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;color:var(--creme)">Sophie R.</div><div style="font-size:10px;color:#5B5880;margin-top:1px">Arrangements</div></div>
+            <div style="text-align:right"><div style="font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:700;color:#60A5FA">8</div><div style="font-size:9px;color:#5B5880">tracks</div></div>
+            <div style="min-width:70px"><div style="display:flex;justify-content:space-between;margin-bottom:3px"><span style="font-size:9px;color:#5B5880">Valid.</span><span style="font-size:9px;font-weight:700;color:#60A5FA">55%</span></div><div style="height:4px;background:#2A2750;border-radius:100px"><div style="height:100%;width:55%;background:#60A5FA;border-radius:100px"></div></div></div>
+          </div>
+        </div>
+        <p class="hint" style="margin-top:8px">↑ Nombre de tracks composées et taux de validation par collaborateur</p>
+      </div>
+    </div>
+
+    <div class="feat-list">
+      <div class="feat-item"><div class="feat-icon">👥</div><div class="feat-text"><strong>Stats par collaborateur</strong> — Voir qui a composé combien de tracks et quel est son taux de validation sur la période.</div></div>
+      <div class="feat-item"><div class="feat-icon">🏢</div><div class="feat-text"><strong>Stats par éditeur</strong> — Performance par client : nombre de tracks soumises, validées, taux de validation.</div></div>
+      <div class="feat-item"><div class="feat-icon">📅</div><div class="feat-text"><strong>Vue annuelle</strong> — Graphique de production mois par mois pour l'année en cours.</div></div>
+      <div class="feat-item"><div class="feat-icon">🏆</div><div class="feat-text"><strong>Objectifs</strong> — Définir des cibles de production annuelles et suivre la progression en temps réel.</div></div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ARCHIVAGE -->
+  <section class="doc-section" id="archivage">
+    <div class="section-header"><span class="section-emoji">📦</span><h2 class="section-title">Archivage</h2></div>
+    <p class="section-intro">Les projets terminés peuvent être archivés pour garder la vue principale propre, sans perdre les données.</p>
+    <div class="feat-list">
+      <div class="feat-item"><div class="feat-icon">📦</div><div class="feat-text"><strong>Archiver</strong> — Options du projet → "Archiver". Le projet disparaît de la vue principale mais reste accessible via le filtre "Archivés".</div></div>
+      <div class="feat-item"><div class="feat-icon">↩️</div><div class="feat-text"><strong>Désarchiver</strong> — Un projet archivé peut être remis en actif à tout moment.</div></div>
+    </div>
+    <div class="info-box">💡 Les projets archivés restent comptabilisés dans les statistiques globales et l'historique de production.</div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- RECYCLAGE -->
+  <section class="doc-section" id="recyclage">
+    <div class="section-header"><span class="section-emoji">♻️</span><h2 class="section-title">Recyclage de tracks</h2></div>
+    <p class="section-intro">Une track refusée n'est pas perdue. Elle peut être marquée disponible et transférée vers un autre projet.</p>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Marquer comme disponible</div><div class="step-text">Sur une track refusée, cliquer "Disponible". Elle apparaît dans les alertes 🔔 avec un badge orange.</div></div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Transférer</div><div class="step-text">Cliquer sur 🔀 → choisir un album existant ou créer un nouveau → confirmer le transfert.</div></div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-body"><div class="step-title">Historique conservé</div><div class="step-text">La track affiche "(créée pour Album X)" pour garder la trace de son origine.</div></div></div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- IA -->
+  <section class="doc-section" id="ia">
+    <span class="bonus-tag">🎁 Bonus optionnel</span>
+    <div class="section-header"><span class="section-emoji">🤖</span><h2 class="section-title">Assistant IA</h2></div>
+    <p class="section-intro">SYNC.PLANNER peut se connecter à Claude, GPT-4o ou Mistral via clé API personnelle pour créer des projets, modifier des statuts ou analyser la production en langage naturel.</p>
+    <div class="warn-box">⚠️ <strong>Fonctionnalité optionnelle</strong> — Nécessite un compte et une clé API chez le fournisseur choisi. L'utilisation consomme des tokens facturés directement par le fournisseur. Les conversations ne sont pas conservées entre les sessions.</div>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Créer une clé API</div><div class="step-text"><a href="https://console.anthropic.com" target="_blank" style="color:var(--violet2)">console.anthropic.com</a> (Claude) · <a href="https://platform.openai.com" target="_blank" style="color:var(--violet2)">platform.openai.com</a> (GPT-4o) · <a href="https://console.mistral.ai" target="_blank" style="color:var(--violet2)">console.mistral.ai</a> (Mistral)</div></div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Configurer dans l'app</div><div class="step-text">Onglet 🤖 → sélectionner le fournisseur → coller la clé API → cliquer "Tester".</div></div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-body"><div class="step-title">Exemple d'utilisation</div><div class="step-text">"Crée un album Sony Music avec 8 tracks deadline 30 septembre" → l'album est créé instantanément dans l'app.</div></div></div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- INSTALLATION -->
+  <section class="doc-section" id="mac">
+    <div class="section-header"><span class="section-emoji">💻</span><h2 class="section-title">Installation — Mac</h2></div>
+    <p class="section-intro">SYNC.PLANNER est disponible en fichier <strong>.dmg</strong> pour Mac Intel (x64). Compatible macOS 10.13+.</p>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Télécharger</div><div class="step-text">Depuis <a href="/" style="color:var(--violet2)">syncplanner.app</a>, cliquer sur "Mac — Télécharger".</div></div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Ouvrir le DMG</div><div class="step-text">Double-cliquer sur le .dmg, puis glisser SYNC.PLANNER dans le dossier Applications.</div></div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-body"><div class="step-title">Lancer</div><div class="step-text">Ouvrir SYNC.PLANNER depuis Applications ou le Launchpad.</div></div></div>
+    </div>
+    <div class="warn-box">⚠️ <strong>Alerte sécurité macOS</strong> — Si macOS bloque l'ouverture : clic droit sur l'app → "Ouvrir" → "Ouvrir quand même". Cette étape n'est nécessaire qu'une seule fois.</div>
+  </section>
+
+  <section class="doc-section" id="windows">
+    <div class="section-header"><span class="section-emoji">🖥️</span><h2 class="section-title">Installation — Windows</h2></div>
+    <p class="section-intro">SYNC.PLANNER est disponible en installateur <strong>.exe</strong> pour Windows 10/11 (x64).</p>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Télécharger</div><div class="step-text">Depuis <a href="/" style="color:var(--violet2)">syncplanner.app</a>, cliquer sur "Windows — Télécharger".</div></div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Installer</div><div class="step-text">Double-cliquer sur <code>SYNC.PLANNER Setup 1.0.0.exe</code> et suivre les étapes.</div></div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-body"><div class="step-title">Lancer</div><div class="step-text">SYNC.PLANNER est accessible depuis le bureau ou le menu Démarrer.</div></div></div>
+    </div>
+  </section>
+
+  <section class="doc-section" id="activation">
+    <div class="section-header"><span class="section-emoji">🔑</span><h2 class="section-title">Activation de la licence</h2></div>
+    <p class="section-intro">Après avoir souscrit sur syncplanner.app, la licence s'active en quelques secondes depuis l'app.</p>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Ouvrir SYNC.PLANNER</div><div class="step-text">Le bandeau "Mode d'essai" apparaît en haut. Cliquer sur "⭐ Passer en Pro →".</div></div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Entrer l'email</div><div class="step-text">Saisir l'email utilisé lors du paiement sur Stripe.</div></div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-body"><div class="step-title">Activer</div><div class="step-text">Cliquer "Activer ma licence" → accès Pro déverrouillé instantanément.</div></div></div>
+    </div>
+    <div class="info-box">💡 <strong>Sans internet</strong> — une fois activée, la licence fonctionne hors ligne sans problème.</div>
+  </section>
+
+  <hr class="divider">
+
+  <section class="doc-section" id="contact">
+    <div class="section-header"><span class="section-emoji">📧</span><h2 class="section-title">Contact & Support</h2></div>
+    <p class="section-intro">Pour toute question, envoyer un email à <a href="mailto:contact@syncplanner.app" style="color:var(--violet2)">contact@syncplanner.app</a>. Réponse sous 24h.</p>
+    <div class="info-box">💡 Pour les bugs, préciser la version (Mac ou Windows) et décrire le problème rencontré.</div>
+  </section>
+
+  <div class="page-footer">© 2026 SYNC.PLANNER · <a href="/">syncplanner.app</a></div>
+
+</main>
+
+<script>
+const sections = document.querySelectorAll('.doc-section');
+const navLinks = document.querySelectorAll('.nav-link');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) {
+      navLinks.forEach(l => l.classList.remove('active'));
+      const a = document.querySelector(`.nav-link[href="#${entry.target.id}"]`);
+      if(a) a.classList.add('active');
+    }
+  });
+}, { rootMargin:'-20% 0px -70% 0px' });
+sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
