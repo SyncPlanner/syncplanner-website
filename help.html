@@ -248,7 +248,6 @@ code { background:#1E1C38;border-radius:4px;padding:1px 5px;font-size:12px;color
       <div class="ui-body">
         <div style="display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap">
           <span class="btn-m">+ Nouveau projet</span>
-          <span class="btn-sm">📁 Dossier album</span>
           <span class="btn-sm">🔍 Rechercher</span>
         </div>
         <div style="background:#1A1838;border:1px solid #2A2750;border-radius:10px;padding:13px">
@@ -270,7 +269,7 @@ code { background:#1E1C38;border-radius:4px;padding:1px 5px;font-size:12px;color
       <div class="feat-item"><div class="feat-icon">🔗</div><div class="feat-text"><strong>Liens</strong> — Ajouter des liens Dropbox, WeTransfer, Drive, YouTube... pour centraliser toutes les ressources du projet.</div></div>
       <div class="feat-item"><div class="feat-icon">📝</div><div class="feat-text"><strong>Notes</strong> — Champ libre pour les instructions du client, le brief, les remarques importantes.</div></div>
       <div class="feat-item"><div class="feat-icon">🖼️</div><div class="feat-text"><strong>Cover</strong> — Ajouter une image de couverture à l'album. Elle sera visible dans la vue Gallery.</div></div>
-      <div class="feat-item"><div class="feat-icon">📁</div><div class="feat-text"><strong>Importer un dossier</strong> — Le bouton "📁 Dossier album" importe les fichiers d'un dossier existant pour créer les tracks automatiquement.</div></div>
+      <div class="feat-item"><div class="feat-icon">📁</div><div class="feat-text"><strong>Importer un dossier</strong> — Dans la zone d'import (Dashboard), le bouton "📁 Sélectionner un dossier album" importe les fichiers d'un dossier existant pour créer les tracks automatiquement.</div></div>
     </div>
   </section>
 
@@ -334,6 +333,46 @@ code { background:#1E1C38;border-radius:4px;padding:1px 5px;font-size:12px;color
     </div>
 
     <div class="info-box">💡 <strong>Validée</strong> et <strong>Livrée</strong> comptent dans la progression. <strong>Refusée</strong> peut être recyclée vers un autre projet via le bouton ♻️.</div>
+
+    <!-- DEMO NOUVELLE TRACK -->
+    <div class="demo-box">
+      <div class="demo-bar">🎮 Démo interactive — ajoutez une track avec ses métadonnées <span>DEMO</span></div>
+      <div class="demo-body">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px">
+          <div>
+            <label style="font-size:10px;color:#5B5880;text-transform:uppercase;letter-spacing:0.08em;display:block;margin-bottom:4px">Titre</label>
+            <input class="demo-input" id="nt-title" placeholder="Dark Pulse 01">
+          </div>
+          <div>
+            <label style="font-size:10px;color:#5B5880;text-transform:uppercase;letter-spacing:0.08em;display:block;margin-bottom:4px">BPM</label>
+            <input class="demo-input" id="nt-bpm" type="number" placeholder="128" min="60" max="200">
+          </div>
+          <div>
+            <label style="font-size:10px;color:#5B5880;text-transform:uppercase;letter-spacing:0.08em;display:block;margin-bottom:4px">Tonalité</label>
+            <input class="demo-input" id="nt-key" placeholder="Am, C, F#m…">
+          </div>
+          <div>
+            <label style="font-size:10px;color:#5B5880;text-transform:uppercase;letter-spacing:0.08em;display:block;margin-bottom:4px">Durée</label>
+            <input class="demo-input" id="nt-dur" placeholder="2:45">
+          </div>
+        </div>
+        <div style="margin-bottom:12px">
+          <label style="font-size:10px;color:#5B5880;text-transform:uppercase;letter-spacing:0.08em;display:block;margin-bottom:6px">Mood / Style</label>
+          <div style="display:flex;gap:6px;flex-wrap:wrap" id="mood-chips">
+            <span onclick="toggleMood(this)" style="padding:4px 10px;border-radius:100px;font-size:11px;font-weight:600;border:1px solid #2A2750;color:#7B78A8;cursor:pointer;transition:all 0.15s">Epic</span>
+            <span onclick="toggleMood(this)" style="padding:4px 10px;border-radius:100px;font-size:11px;font-weight:600;border:1px solid #2A2750;color:#7B78A8;cursor:pointer;transition:all 0.15s">Dark</span>
+            <span onclick="toggleMood(this)" style="padding:4px 10px;border-radius:100px;font-size:11px;font-weight:600;border:1px solid #2A2750;color:#7B78A8;cursor:pointer;transition:all 0.15s">Tension</span>
+            <span onclick="toggleMood(this)" style="padding:4px 10px;border-radius:100px;font-size:11px;font-weight:600;border:1px solid #2A2750;color:#7B78A8;cursor:pointer;transition:all 0.15s">Action</span>
+            <span onclick="toggleMood(this)" style="padding:4px 10px;border-radius:100px;font-size:11px;font-weight:600;border:1px solid #2A2750;color:#7B78A8;cursor:pointer;transition:all 0.15s">Ambient</span>
+            <span onclick="toggleMood(this)" style="padding:4px 10px;border-radius:100px;font-size:11px;font-weight:600;border:1px solid #2A2750;color:#7B78A8;cursor:pointer;transition:all 0.15s">Emotional</span>
+            <span onclick="toggleMood(this)" style="padding:4px 10px;border-radius:100px;font-size:11px;font-weight:600;border:1px solid #2A2750;color:#7B78A8;cursor:pointer;transition:all 0.15s">Upbeat</span>
+            <span onclick="toggleMood(this)" style="padding:4px 10px;border-radius:100px;font-size:11px;font-weight:600;border:1px solid #2A2750;color:#7B78A8;cursor:pointer;transition:all 0.15s">Cinematic</span>
+          </div>
+        </div>
+        <button class="demo-btn" style="width:100%;justify-content:center" onclick="demoAddTrack()">+ Ajouter la track</button>
+        <div id="nt-result" class="demo-result"></div>
+      </div>
+    </div>
   </section>
 
   <hr class="divider">
@@ -461,69 +500,36 @@ code { background:#1E1C38;border-radius:4px;padding:1px 5px;font-size:12px;color
     <div class="section-header"><span class="section-emoji">🗂️</span><h2 class="section-title">Vue Kanban</h2></div>
     <p class="section-intro">Le Kanban affiche toutes les tracks du mois organisées par colonne de statut. Une vue d'ensemble pour voir d'un coup d'œil ce qui est en cours, ce qui est bloqué et ce qui est livré.</p>
 
-    <div class="ui-mock">
-      <div class="ui-bar"><div class="ui-dot" style="background:#F87171"></div><div class="ui-dot" style="background:#FBBF24"></div><div class="ui-dot" style="background:#10B981"></div><span class="ui-label">Kanban — Août 2026</span></div>
-      <div class="ui-body" style="overflow-x:auto">
-        <div style="display:grid;grid-template-columns:repeat(5,minmax(130px,1fr));gap:10px;min-width:600px">
-          <!-- Compo -->
-          <div style="background:#0D0C1A;border:1px solid #1E1C38;border-radius:8px;padding:12px">
-            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
-              <span style="font-size:10px;font-weight:700;color:#38BDF8;text-transform:uppercase;letter-spacing:0.08em">🎹 Compo</span>
-              <span style="background:#0C4A6E;color:#38BDF8;font-size:10px;font-weight:700;padding:1px 6px;border-radius:100px">3</span>
-            </div>
-            <div style="display:flex;flex-direction:column;gap:6px">
-              <div style="background:#1A1838;border:1px solid #2A2750;border-radius:6px;padding:8px"><div style="font-size:11px;color:#E2E0F0;font-weight:600">Urban Bass 01</div><div style="font-size:10px;color:#5B5880;margin-top:2px">Music Co.</div></div>
-              <div style="background:#1A1838;border:1px solid #2A2750;border-radius:6px;padding:8px"><div style="font-size:11px;color:#E2E0F0;font-weight:600">Shadow Realm 02</div><div style="font-size:10px;color:#5B5880;margin-top:2px">GameSound</div></div>
-              <div style="background:#1A1838;border:1px solid #2A2750;border-radius:6px;padding:8px"><div style="font-size:11px;color:#E2E0F0;font-weight:600">Dark Matter 01</div><div style="font-size:10px;color:#5B5880;margin-top:2px">Label Sync</div></div>
+    <!-- DEMO KANBAN INTERACTIVE -->
+    <div class="demo-box">
+      <div class="demo-bar">🎮 Démo interactive — déplacez les tracks entre les colonnes <span>DEMO</span></div>
+      <div class="demo-body" style="overflow-x:auto">
+        <div style="display:grid;grid-template-columns:repeat(4,minmax(140px,1fr));gap:8px;min-width:560px" id="kanban-demo">
+          <div class="kanban-col" id="kcol-compo" ondragover="event.preventDefault()" ondrop="kDrop(event,'compo')" style="background:#0D0C1A;border:1px solid #1E1C38;border-radius:8px;padding:10px;min-height:120px">
+            <div style="display:flex;justify-content:space-between;margin-bottom:8px"><span style="font-size:10px;font-weight:700;color:#38BDF8">🎹 COMPO</span><span class="kanban-count" id="kc-compo" style="background:#0C4A6E;color:#38BDF8;font-size:10px;font-weight:700;padding:1px 6px;border-radius:100px">2</span></div>
+            <div id="kcol-compo-cards">
+              <div class="kcard" draggable="true" ondragstart="kDrag(event,'k1')" id="k1" data-col="compo" style="background:#1A1838;border:1px solid #2A2750;border-radius:6px;padding:8px;margin-bottom:6px;cursor:grab"><div style="font-size:11px;color:#E2E0F0;font-weight:600">Urban Bass 01</div><div style="font-size:10px;color:#5B5880">Music Co.</div></div>
+              <div class="kcard" draggable="true" ondragstart="kDrag(event,'k2')" id="k2" data-col="compo" style="background:#1A1838;border:1px solid #2A2750;border-radius:6px;padding:8px;margin-bottom:6px;cursor:grab"><div style="font-size:11px;color:#E2E0F0;font-weight:600">Dark Matter 01</div><div style="font-size:10px;color:#5B5880">Label Sync</div></div>
             </div>
           </div>
-          <!-- Envoyée -->
-          <div style="background:#0D0C1A;border:1px solid #1E1C38;border-radius:8px;padding:12px">
-            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
-              <span style="font-size:10px;font-weight:700;color:#60A5FA;text-transform:uppercase;letter-spacing:0.08em">📤 Envoyée</span>
-              <span style="background:#1E3A5F;color:#60A5FA;font-size:10px;font-weight:700;padding:1px 6px;border-radius:100px">2</span>
-            </div>
-            <div style="display:flex;flex-direction:column;gap:6px">
-              <div style="background:#1A1838;border:1px solid #2A2750;border-radius:6px;padding:8px"><div style="font-size:11px;color:#E2E0F0;font-weight:600">Neon City 01</div><div style="font-size:10px;color:#5B5880;margin-top:2px">Label Sync</div></div>
-              <div style="background:#1A1838;border:1px solid #2A2750;border-radius:6px;padding:8px"><div style="font-size:11px;color:#E2E0F0;font-weight:600">Le Grand Bleu 03</div><div style="font-size:10px;color:#5B5880;margin-top:2px">Ciné Prod</div></div>
+          <div class="kanban-col" id="kcol-sent" ondragover="event.preventDefault()" ondrop="kDrop(event,'sent')" style="background:#0D0C1A;border:1px solid #1E1C38;border-radius:8px;padding:10px;min-height:120px">
+            <div style="display:flex;justify-content:space-between;margin-bottom:8px"><span style="font-size:10px;font-weight:700;color:#60A5FA">📤 ENVOYÉE</span><span class="kanban-count" id="kc-sent" style="background:#1E3A5F;color:#60A5FA;font-size:10px;font-weight:700;padding:1px 6px;border-radius:100px">1</span></div>
+            <div id="kcol-sent-cards">
+              <div class="kcard" draggable="true" ondragstart="kDrag(event,'k3')" id="k3" data-col="sent" style="background:#1A1838;border:1px solid #2A2750;border-radius:6px;padding:8px;margin-bottom:6px;cursor:grab"><div style="font-size:11px;color:#E2E0F0;font-weight:600">Neon City 01</div><div style="font-size:10px;color:#5B5880">Label Sync</div></div>
             </div>
           </div>
-          <!-- Révision -->
-          <div style="background:#0D0C1A;border:1px solid #1E1C38;border-radius:8px;padding:12px">
-            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
-              <span style="font-size:10px;font-weight:700;color:#FB923C;text-transform:uppercase;letter-spacing:0.08em">🔄 Révision</span>
-              <span style="background:#431407;color:#FB923C;font-size:10px;font-weight:700;padding:1px 6px;border-radius:100px">1</span>
-            </div>
-            <div style="display:flex;flex-direction:column;gap:6px">
-              <div style="background:#1A1838;border:1px solid #FB923C33;border-radius:6px;padding:8px"><div style="font-size:11px;color:#E2E0F0;font-weight:600">Quiet Storm 02</div><div style="font-size:10px;color:#5B5880;margin-top:2px">Studio Brief</div></div>
-            </div>
+          <div class="kanban-col" id="kcol-rev" ondragover="event.preventDefault()" ondrop="kDrop(event,'rev')" style="background:#0D0C1A;border:1px solid #1E1C38;border-radius:8px;padding:10px;min-height:120px">
+            <div style="display:flex;justify-content:space-between;margin-bottom:8px"><span style="font-size:10px;font-weight:700;color:#FB923C">🔄 RÉVISION</span><span class="kanban-count" id="kc-rev" style="background:#431407;color:#FB923C;font-size:10px;font-weight:700;padding:1px 6px;border-radius:100px">0</span></div>
+            <div id="kcol-rev-cards"></div>
           </div>
-          <!-- Mix -->
-          <div style="background:#0D0C1A;border:1px solid #1E1C38;border-radius:8px;padding:12px">
-            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
-              <span style="font-size:10px;font-weight:700;color:#A78BFA;text-transform:uppercase;letter-spacing:0.08em">🎚️ Mix</span>
-              <span style="background:#2D1B69;color:#A78BFA;font-size:10px;font-weight:700;padding:1px 6px;border-radius:100px">2</span>
-            </div>
-            <div style="display:flex;flex-direction:column;gap:6px">
-              <div style="background:#1A1838;border:1px solid #2A2750;border-radius:6px;padding:8px"><div style="font-size:11px;color:#E2E0F0;font-weight:600">Neon City 03</div><div style="font-size:10px;color:#5B5880;margin-top:2px">Label Sync</div></div>
-              <div style="background:#1A1838;border:1px solid #2A2750;border-radius:6px;padding:8px"><div style="font-size:11px;color:#E2E0F0;font-weight:600">Shadow Realm 01</div><div style="font-size:10px;color:#5B5880;margin-top:2px">GameSound</div></div>
-            </div>
-          </div>
-          <!-- Livré -->
-          <div style="background:#0D0C1A;border:1px solid #1E1C38;border-radius:8px;padding:12px">
-            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
-              <span style="font-size:10px;font-weight:700;color:#10B981;text-transform:uppercase;letter-spacing:0.08em">✅ Livré</span>
-              <span style="background:#064E3B;color:#10B981;font-size:10px;font-weight:700;padding:1px 6px;border-radius:100px">4</span>
-            </div>
-            <div style="display:flex;flex-direction:column;gap:6px">
-              <div style="background:#1A1838;border:1px solid #2A2750;border-radius:6px;padding:8px"><div style="font-size:11px;color:#E2E0F0;font-weight:600">Neon City 02</div><div style="font-size:10px;color:#5B5880;margin-top:2px">Label Sync</div></div>
-              <div style="background:#1A1838;border:1px solid #2A2750;border-radius:6px;padding:8px"><div style="font-size:11px;color:#E2E0F0;font-weight:600">Urban Bass 03</div><div style="font-size:10px;color:#5B5880;margin-top:2px">Music Co.</div></div>
-              <div style="background:#1A1838;border:1px solid #2A2750;border-radius:6px;padding:8px"><div style="font-size:11px;color:#E2E0F0;font-weight:600">Pulse 01</div><div style="font-size:10px;color:#5B5880;margin-top:2px">Studio Brief</div></div>
-              <div style="background:#1A1838;border:1px solid #2A2750;border-radius:6px;padding:8px"><div style="font-size:11px;color:#E2E0F0;font-weight:600">Le Grand Bleu 01</div><div style="font-size:10px;color:#5B5880;margin-top:2px">Ciné Prod</div></div>
+          <div class="kanban-col" id="kcol-done" ondragover="event.preventDefault()" ondrop="kDrop(event,'done')" style="background:#0D0C1A;border:1px solid #1E1C38;border-radius:8px;padding:10px;min-height:120px">
+            <div style="display:flex;justify-content:space-between;margin-bottom:8px"><span style="font-size:10px;font-weight:700;color:#10B981">✅ LIVRÉ</span><span class="kanban-count" id="kc-done" style="background:#064E3B;color:#10B981;font-size:10px;font-weight:700;padding:1px 6px;border-radius:100px">1</span></div>
+            <div id="kcol-done-cards">
+              <div class="kcard" draggable="true" ondragstart="kDrag(event,'k4')" id="k4" data-col="done" style="background:#1A1838;border:1px solid #2A2750;border-radius:6px;padding:8px;margin-bottom:6px;cursor:grab"><div style="font-size:11px;color:#E2E0F0;font-weight:600">Pulse 01</div><div style="font-size:10px;color:#5B5880">Studio Brief</div></div>
             </div>
           </div>
         </div>
-        <p class="hint" style="margin-top:10px">↑ Toutes les tracks du mois organisées par statut — chaque carte = une track, avec son projet et son client</p>
+        <p class="hint" style="margin-top:10px">👆 Glissez les cartes d'une colonne à l'autre pour simuler un changement de statut</p>
       </div>
     </div>
 
@@ -544,6 +550,34 @@ code { background:#1E1C38;border-radius:4px;padding:1px 5px;font-size:12px;color
       <div class="feat-item"><div class="feat-icon">📅</div><div class="feat-text"><strong>Deadlines visibles</strong> — Chaque deadline apparaît sur le bon jour avec le nom du client associé.</div></div>
       <div class="feat-item"><div class="feat-icon">⚠️</div><div class="feat-text"><strong>Alertes colorées</strong> — Les deadlines proches apparaissent en orange/rouge selon l'urgence.</div></div>
       <div class="feat-item"><div class="feat-icon">◀️▶️</div><div class="feat-text"><strong>Navigation</strong> — Naviguer d'un mois à l'autre pour voir les deadlines futures ou passées.</div></div>
+    </div>
+
+    <!-- DEMO CALENDRIER -->
+    <div class="demo-box">
+      <div class="demo-bar">🎮 Démo interactive — mini calendrier avec deadlines <span>DEMO</span></div>
+      <div class="demo-body">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+          <button class="demo-btn-sm" onclick="calPrev()">◀</button>
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:700;color:var(--creme)" id="cal-month-label">Août 2026</div>
+          <button class="demo-btn-sm" onclick="calNext()">▶</button>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:3px;margin-bottom:4px">
+          <div style="text-align:center;font-size:10px;color:#5B5880;font-weight:600;padding:4px">L</div>
+          <div style="text-align:center;font-size:10px;color:#5B5880;font-weight:600;padding:4px">M</div>
+          <div style="text-align:center;font-size:10px;color:#5B5880;font-weight:600;padding:4px">M</div>
+          <div style="text-align:center;font-size:10px;color:#5B5880;font-weight:600;padding:4px">J</div>
+          <div style="text-align:center;font-size:10px;color:#5B5880;font-weight:600;padding:4px">V</div>
+          <div style="text-align:center;font-size:10px;color:#5B5880;font-weight:600;padding:4px">S</div>
+          <div style="text-align:center;font-size:10px;color:#5B5880;font-weight:600;padding:4px">D</div>
+        </div>
+        <div id="cal-grid" style="display:grid;grid-template-columns:repeat(7,1fr);gap:3px"></div>
+        <div style="display:flex;gap:12px;margin-top:10px;flex-wrap:wrap">
+          <span style="font-size:11px;color:#F87171">🔴 Deadline urgente</span>
+          <span style="font-size:11px;color:#FBBF24">🟡 Deadline proche</span>
+          <span style="font-size:11px;color:#10B981">🟢 Deadline OK</span>
+        </div>
+        <p class="hint" style="margin-top:8px">👆 Naviguez entre les mois avec les flèches</p>
+      </div>
     </div>
   </section>
 
@@ -703,6 +737,46 @@ code { background:#1E1C38;border-radius:4px;padding:1px 5px;font-size:12px;color
       <div class="feat-item"><div class="feat-icon">📅</div><div class="feat-text"><strong>Vue annuelle</strong> — Graphique de production mois par mois pour l'année en cours.</div></div>
       <div class="feat-item"><div class="feat-icon">🏆</div><div class="feat-text"><strong>Objectifs</strong> — Définir des cibles de production annuelles et suivre la progression en temps réel.</div></div>
     </div>
+
+    <!-- DEMO STATS ANIMEES -->
+    <div class="demo-box">
+      <div class="demo-bar">🎮 Démo interactive — chiffres clés d'un compositeur sync <span>DEMO</span></div>
+      <div class="demo-body">
+        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:16px">
+          <div style="background:#13122A;border:1px solid #2A2750;border-radius:10px;padding:16px;text-align:center">
+            <div style="font-family:'Space Grotesk',sans-serif;font-size:32px;font-weight:700;color:#A78BFA" id="stat-tracks">0</div>
+            <div style="font-size:11px;color:#5B5880;margin-top:4px">tracks produites</div>
+          </div>
+          <div style="background:#13122A;border:1px solid #2A2750;border-radius:10px;padding:16px;text-align:center">
+            <div style="font-family:'Space Grotesk',sans-serif;font-size:32px;font-weight:700;color:#10B981" id="stat-valid">0</div>
+            <div style="font-size:11px;color:#5B5880;margin-top:4px">validées par les éditeurs</div>
+          </div>
+          <div style="background:#13122A;border:1px solid #2A2750;border-radius:10px;padding:16px;text-align:center">
+            <div style="font-family:'Space Grotesk',sans-serif;font-size:32px;font-weight:700;color:#60A5FA" id="stat-collabs">0</div>
+            <div style="font-size:11px;color:#5B5880;margin-top:4px">collaborateurs</div>
+          </div>
+          <div style="background:#13122A;border:1px solid #2A2750;border-radius:10px;padding:16px;text-align:center">
+            <div style="font-family:'Space Grotesk',sans-serif;font-size:32px;font-weight:700;color:#D4AF6A" id="stat-pubs">0</div>
+            <div style="font-size:11px;color:#5B5880;margin-top:4px">éditeurs actifs</div>
+          </div>
+        </div>
+        <!-- Mini graphique -->
+        <div style="background:#13122A;border:1px solid #2A2750;border-radius:10px;padding:14px">
+          <div style="font-size:10px;color:#5B5880;margin-bottom:8px;text-transform:uppercase;letter-spacing:0.08em">Production mensuelle 2026</div>
+          <div style="display:flex;gap:3px;align-items:flex-end;height:60px">
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:2px"><div style="width:100%;background:#7C3AED;border-radius:2px 2px 0 0;height:18px;opacity:0.7" class="stat-bar"></div><div style="font-size:8px;color:#4B4870">J</div></div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:2px"><div style="width:100%;background:#7C3AED;border-radius:2px 2px 0 0;height:26px;opacity:0.7" class="stat-bar"></div><div style="font-size:8px;color:#4B4870">F</div></div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:2px"><div style="width:100%;background:#7C3AED;border-radius:2px 2px 0 0;height:22px;opacity:0.7" class="stat-bar"></div><div style="font-size:8px;color:#4B4870">M</div></div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:2px"><div style="width:100%;background:#7C3AED;border-radius:2px 2px 0 0;height:34px;opacity:0.7" class="stat-bar"></div><div style="font-size:8px;color:#4B4870">A</div></div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:2px"><div style="width:100%;background:#7C3AED;border-radius:2px 2px 0 0;height:28px;opacity:0.7" class="stat-bar"></div><div style="font-size:8px;color:#4B4870">M</div></div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:2px"><div style="width:100%;background:#7C3AED;border-radius:2px 2px 0 0;height:38px;opacity:0.7" class="stat-bar"></div><div style="font-size:8px;color:#4B4870">J</div></div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:2px"><div style="width:100%;background:#7C3AED;border-radius:2px 2px 0 0;height:24px;opacity:0.7" class="stat-bar"></div><div style="font-size:8px;color:#4B4870">J</div></div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:2px"><div style="width:100%;background:#7C3AED;border-radius:2px 2px 0 0;height:42px;opacity:0.7" class="stat-bar"></div><div style="font-size:8px;color:#4B4870">A</div></div>
+          </div>
+        </div>
+        <button class="demo-btn" style="width:100%;margin-top:12px;justify-content:center" onclick="animateStats()">▶ Animer les chiffres</button>
+      </div>
+    </div>
   </section>
 
   <hr class="divider">
@@ -762,7 +836,8 @@ code { background:#1E1C38;border-radius:4px;padding:1px 5px;font-size:12px;color
 
   <section class="doc-section" id="windows">
     <div class="section-header"><span class="section-emoji">🖥️</span><h2 class="section-title">Installation — Windows</h2></div>
-    <p class="section-intro">SYNC.PLANNER est disponible en installateur <strong>.exe</strong> pour Windows 10/11 (x64).</p>
+    <div class="warn-box">🚧 <strong>Windows en cours de développement</strong> — La version Windows de SYNC.PLANNER est actuellement en cours de développement. Elle sera disponible prochainement. En attendant, l'app est disponible sur Mac.</div>
+    <p class="section-intro" style="margin-top:12px">Pour être notifié de la sortie Windows, contactez-nous à <a href="mailto:contact@syncplanner.app" style="color:var(--violet2)">contact@syncplanner.app</a>.</p>
     <div class="steps">
       <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Télécharger</div><div class="step-text">Depuis <a href="/" style="color:var(--violet2)">syncplanner.app</a>, cliquer sur "Windows — Télécharger".</div></div></div>
       <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Installer</div><div class="step-text">Double-cliquer sur <code>SYNC.PLANNER Setup 1.0.0.exe</code> et suivre les étapes.</div></div></div>
@@ -808,8 +883,122 @@ const observer = new IntersectionObserver((entries) => {
 sections.forEach(s => observer.observe(s));
 
 // ═══════════════════════════════
-// DÉMOS INTERACTIVES
+// DEMO KANBAN — Drag & Drop
 // ═══════════════════════════════
+let draggedCard = null;
+
+function kDrag(e, id) {
+  draggedCard = id;
+  e.dataTransfer.effectAllowed = 'move';
+}
+
+function kDrop(e, col) {
+  e.preventDefault();
+  if(!draggedCard) return;
+  const card = document.getElementById(draggedCard);
+  if(!card) return;
+  const oldCol = card.dataset.col;
+  card.dataset.col = col;
+  document.getElementById(`kcol-${col}-cards`).appendChild(card);
+  updateKanbanCounts();
+  draggedCard = null;
+}
+
+function updateKanbanCounts() {
+  ['compo','sent','rev','done'].forEach(col => {
+    const cards = document.getElementById(`kcol-${col}-cards`);
+    const count = document.getElementById(`kc-${col}`);
+    if(cards && count) count.textContent = cards.children.length;
+  });
+}
+
+// ═══════════════════════════════
+// DEMO CALENDRIER
+// ═══════════════════════════════
+const CAL_DEADLINES = {
+  '2026-08': [{day:8,label:'Label Sync',color:'#F87171'},{day:15,label:'GameSound',color:'#FBBF24'},{day:25,label:'Ciné Prod',color:'#10B981'}],
+  '2026-09': [{day:5,label:'Music Co.',color:'#FBBF24'},{day:18,label:'Label Sync',color:'#10B981'},{day:28,label:'Studio Brief',color:'#F87171'}],
+  '2026-10': [{day:3,label:'GameSound',color:'#10B981'},{day:22,label:'Ciné Prod',color:'#FBBF24'}],
+  '2026-07': [{day:10,label:'Label Sync',color:'#10B981'},{day:20,label:'Music Co.',color:'#10B981'},{day:31,label:'Studio Brief',color:'#10B981'}],
+};
+let calYear = 2026, calMonth = 7; // 0-indexed
+
+function renderCal() {
+  const months = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
+  const label = document.getElementById('cal-month-label');
+  if(label) label.textContent = `${months[calMonth]} ${calYear}`;
+  const grid = document.getElementById('cal-grid');
+  if(!grid) return;
+  const firstDay = new Date(calYear, calMonth, 1).getDay();
+  const offset = firstDay === 0 ? 6 : firstDay - 1;
+  const daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
+  const key = `${calYear}-${String(calMonth+1).padStart(2,'0')}`;
+  const deadlines = CAL_DEADLINES[key] || [];
+  let html = '';
+  for(let i = 0; i < offset; i++) html += '<div></div>';
+  for(let d = 1; d <= daysInMonth; d++) {
+    const dl = deadlines.find(x => x.day === d);
+    html += `<div style="min-height:36px;border-radius:6px;padding:3px;background:${dl ? dl.color+'22' : 'transparent'};border:1px solid ${dl ? dl.color+'44' : 'transparent'};position:relative">
+      <div style="font-size:11px;color:${dl ? dl.color : '#4B4870'};font-weight:${dl?'700':'400'};text-align:center">${d}</div>
+      ${dl ? `<div style="font-size:8px;color:${dl.color};text-align:center;line-height:1.2;margin-top:1px">${dl.label}</div>` : ''}
+    </div>`;
+  }
+  grid.innerHTML = html;
+}
+
+function calPrev() { calMonth--; if(calMonth < 0){calMonth=11;calYear--;} renderCal(); }
+function calNext() { calMonth++; if(calMonth > 11){calMonth=0;calYear++;} renderCal(); }
+
+// ═══════════════════════════════
+// DEMO NOUVELLE TRACK
+// ═══════════════════════════════
+function toggleMood(el) {
+  const active = el.style.background === 'rgba(124, 58, 237, 0.2)';
+  el.style.background = active ? 'transparent' : 'rgba(124,58,237,0.2)';
+  el.style.borderColor = active ? '#2A2750' : '#7C3AED';
+  el.style.color = active ? '#7B78A8' : '#A78BFA';
+}
+
+function demoAddTrack() {
+  const title = document.getElementById('nt-title').value || 'Dark Pulse 01';
+  const bpm = document.getElementById('nt-bpm').value || '128';
+  const key = document.getElementById('nt-key').value || 'Am';
+  const dur = document.getElementById('nt-dur').value || '2:45';
+  const moods = [...document.querySelectorAll('#mood-chips span')]
+    .filter(el => el.style.background === 'rgba(124, 58, 237, 0.2)')
+    .map(el => el.textContent);
+  const result = document.getElementById('nt-result');
+  if(result) {
+    result.style.display = 'block';
+    result.innerHTML = `✅ Track ajoutée — <strong>${title}</strong><br>
+      <span style="font-size:11px;color:#7B78A8">BPM: ${bpm} · Tonalité: ${key} · Durée: ${dur}${moods.length ? ' · ' + moods.join(', ') : ''}</span>`;
+    setTimeout(() => { result.style.display = 'none'; }, 3000);
+  }
+}
+
+// ═══════════════════════════════
+// DEMO STATS ANIMÉES
+// ═══════════════════════════════
+function animateStats() {
+  const targets = {tracks:150, valid:89, collabs:6, pubs:12};
+  const duration = 1500;
+  const start = Date.now();
+  function tick() {
+    const elapsed = Date.now() - start;
+    const progress = Math.min(elapsed / duration, 1);
+    const ease = 1 - Math.pow(1 - progress, 3);
+    Object.entries(targets).forEach(([key, target]) => {
+      const el = document.getElementById(`stat-${key}`);
+      if(el) el.textContent = Math.round(target * ease);
+    });
+    if(progress < 1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+
+// Init
+renderCal();
+animateStats();
 
 // Demo Tracks — statuts cycliques
 const STATUSES = [
