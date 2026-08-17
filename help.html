@@ -86,6 +86,30 @@ code { background:#1E1C38;border-radius:4px;padding:1px 5px;font-size:12px;color
   .profile-grid{grid-template-columns:1fr;}
   .status-grid{grid-template-columns:repeat(2,1fr);}
 }
+/* Interactive demos */
+.demo-box { background:#0D0C1A;border:1px solid #2A2750;border-radius:14px;overflow:hidden;margin-bottom:20px; }
+.demo-bar { padding:8px 14px;background:#0A0910;border-bottom:1px solid #1E1C38;display:flex;align-items:center;gap:6px;font-size:10px;color:#4B4870;text-transform:uppercase;letter-spacing:0.1em; }
+.demo-bar span { margin-left:auto;background:rgba(124,58,237,0.2);color:#A78BFA;border-radius:4px;padding:2px 8px;font-size:10px;font-weight:700 }
+.demo-body { padding:16px; }
+.demo-btn { display:inline-flex;align-items:center;gap:5px;background:var(--violet);color:white;border:none;border-radius:7px;padding:7px 14px;font-size:12px;font-weight:700;cursor:pointer;font-family:'Space Grotesk',sans-serif;transition:opacity 0.15s; }
+.demo-btn:hover { opacity:0.85; }
+.demo-btn-sm { display:inline-flex;align-items:center;gap:4px;background:#1A1838;border:1px solid #2A2750;color:var(--texte);border-radius:5px;padding:4px 10px;font-size:11px;font-weight:500;cursor:pointer;transition:all 0.15s; }
+.demo-btn-sm:hover { border-color:var(--violet);color:var(--violet2); }
+.demo-btn-green { background:rgba(16,185,129,0.15);border:1px solid rgba(16,185,129,0.3);color:#10B981;border-radius:6px;padding:5px 12px;font-size:11px;font-weight:600;cursor:pointer;transition:all 0.15s; }
+.demo-track { display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;background:#13122A;margin-bottom:6px;cursor:pointer;transition:background 0.15s; }
+.demo-track:hover { background:#1A1838; }
+.demo-dot { width:8px;height:8px;border-radius:50%;flex-shrink:0; }
+.demo-tag { font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px; }
+.demo-input { background:#13122A;border:1px solid #2A2750;border-radius:7px;color:var(--creme);font-size:13px;padding:8px 12px;width:100%;font-family:'Inter',sans-serif;outline:none;transition:border-color 0.15s; }
+.demo-input:focus { border-color:var(--violet); }
+.demo-result { background:#13122A;border:1px solid #10B98133;border-radius:8px;padding:12px;margin-top:10px;font-size:13px;color:#10B981;display:none; }
+.demo-alert { background:#450A0A;border-left:3px solid #F87171;border-radius:6px;padding:10px 14px;font-size:12px;color:#FCA5A5;margin-top:8px; }
+.demo-alert-blue { background:#1A2035;border-left:3px solid #60A5FA;border-radius:6px;padding:10px 14px;font-size:12px;color:#BFDBFE;margin-top:8px; }
+.demo-popup { display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:100;align-items:center;justify-content:center; }
+.demo-popup.open { display:flex; }
+.demo-popup-inner { background:#1A1838;border:1px solid #7C3AED;border-radius:14px;padding:24px;max-width:340px;width:90%; }
+.anim-pulse { animation:pulse 2s infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.6} }
 </style>
 </head>
 <body>
@@ -107,6 +131,8 @@ code { background:#1E1C38;border-radius:4px;padding:1px 5px;font-size:12px;color
   <div class="nav-section">Fonctionnalités</div>
   <a href="#projets" class="nav-link">🎵 Projets & Albums</a>
   <a href="#tracks" class="nav-link">🎚️ Suivi des tracks</a>
+  <a href="#relance" class="nav-link">📩 Relance éditeur</a>
+  <a href="#email" class="nav-link">✉️ Email automatique</a>
   <a href="#kanban" class="nav-link">🗂️ Kanban</a>
   <a href="#calendrier" class="nav-link">📅 Calendrier</a>
   <a href="#gallery" class="nav-link">🖼️ Gallery</a>
@@ -114,6 +140,7 @@ code { background:#1E1C38;border-radius:4px;padding:1px 5px;font-size:12px;color
   <a href="#stats" class="nav-link">📊 Statistiques</a>
   <a href="#archivage" class="nav-link">📦 Archivage</a>
   <a href="#recyclage" class="nav-link">♻️ Recyclage</a>
+  <a href="#parametres" class="nav-link">⚙️ Paramètres</a>
   <div class="nav-section">Bonus</div>
   <a href="#ia" class="nav-link">🤖 Assistant IA</a>
   <div class="nav-section">Installation</div>
@@ -264,7 +291,167 @@ code { background:#1E1C38;border-radius:4px;padding:1px 5px;font-size:12px;color
       <div class="status-pill" style="background:#06402B22;border:1px solid #10B98133"><div class="status-dot" style="background:#10B981"></div><span style="color:#10B981;font-size:12px;font-weight:600">Livrée ✓</span></div>
       <div class="status-pill" style="background:#45091222;border:1px solid #F8717133"><div class="status-dot" style="background:#F87171"></div><span style="color:#F87171;font-size:12px;font-weight:600">Refusée</span></div>
     </div>
+
+    <!-- DEMO INTERACTIVE TRACKS -->
+    <div class="demo-box">
+      <div class="demo-bar">🎮 Démo interactive — cliquez sur une track pour changer son statut <span>DEMO</span></div>
+      <div class="demo-body">
+        <div style="font-size:11px;color:#5B5880;margin-bottom:12px">Album : Neon Horizon · 4 tracks</div>
+        <div id="demo-tracks">
+          <div class="demo-track" onclick="demoNextStatus(0)">
+            <div class="demo-dot" id="dt0-dot" style="background:#38BDF8"></div>
+            <div style="flex:1;font-size:13px;color:var(--creme)">Track 01 — Pulse Drive</div>
+            <span class="demo-tag" id="dt0-tag" style="background:#0C4A6E22;color:#38BDF8;border:1px solid #38BDF833">Composition</span>
+          </div>
+          <div class="demo-track" onclick="demoNextStatus(1)">
+            <div class="demo-dot" id="dt1-dot" style="background:#60A5FA"></div>
+            <div style="flex:1;font-size:13px;color:var(--creme)">Track 02 — Shadow Sync</div>
+            <span class="demo-tag" id="dt1-tag" style="background:#1E3A5F22;color:#60A5FA;border:1px solid #60A5FA33">Envoyée</span>
+          </div>
+          <div class="demo-track" onclick="demoNextStatus(2)">
+            <div class="demo-dot" id="dt2-dot" style="background:#FB923C"></div>
+            <div style="flex:1;font-size:13px;color:var(--creme)">Track 03 — Neon Rush</div>
+            <span class="demo-tag" id="dt2-tag" style="background:#43140722;color:#FB923C;border:1px solid #FB923C33">Révision</span>
+          </div>
+          <div class="demo-track" onclick="demoNextStatus(3)">
+            <div class="demo-dot" id="dt3-dot" style="background:#10B981"></div>
+            <div style="flex:1;font-size:13px;color:var(--creme)">Track 04 — Cyber Wave</div>
+            <span class="demo-tag" id="dt3-tag" style="background:#06402B22;color:#10B981;border:1px solid #10B98133">Validée ✓</span>
+          </div>
+        </div>
+        <!-- Barre de progression -->
+        <div style="margin-top:14px">
+          <div style="display:flex;justify-content:space-between;font-size:11px;color:#5B5880;margin-bottom:4px">
+            <span>Progression album</span>
+            <span id="demo-prog-txt">25%</span>
+          </div>
+          <div style="height:5px;background:#2A2750;border-radius:100px;overflow:hidden">
+            <div id="demo-prog-bar" style="height:100%;width:25%;background:#A78BFA;border-radius:100px;transition:width 0.4s"></div>
+          </div>
+        </div>
+        <p class="hint" style="margin-top:8px">👆 Cliquez sur une track pour faire avancer son statut</p>
+      </div>
+    </div>
+
     <div class="info-box">💡 <strong>Validée</strong> et <strong>Livrée</strong> comptent dans la progression. <strong>Refusée</strong> peut être recyclée vers un autre projet via le bouton ♻️.</div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- RELANCE ÉDITEUR -->
+  <section class="doc-section" id="relance">
+    <div class="section-header"><span class="section-emoji">📩</span><h2 class="section-title">Relance éditeur</h2></div>
+    <p class="section-intro">SYNC.PLANNER vous alerte automatiquement quand un éditeur tarde à répondre — que ce soit sur un album entier ou sur une track spécifique.</p>
+
+    <h3 style="font-size:16px;font-weight:700;margin:20px 0 10px">Relance par album</h3>
+    <p style="font-size:14px;color:var(--texte);line-height:1.75;margin-bottom:16px">Dans chaque projet, la section <strong>Relance éditeur</strong> vous permet de renseigner la date de votre dernier contact avec l'éditeur et le délai avant alerte (ex: 15 jours). Si l'éditeur ne répond pas dans ce délai, une alerte rouge apparaît dans le <strong>Briefing</strong>.</p>
+
+    <h3 style="font-size:16px;font-weight:700;margin:20px 0 10px">Relance par track</h3>
+    <p style="font-size:14px;color:var(--texte);line-height:1.75;margin-bottom:16px">Chaque track dispose de sa propre date de relance dans la colonne de droite. Vous pouvez définir un délai personnalisé par track. L'indicateur passe en rouge 🚨 quand le délai est dépassé.</p>
+
+    <h3 style="font-size:16px;font-weight:700;margin:20px 0 10px">Réponse reçue</h3>
+    <p style="font-size:14px;color:var(--texte);line-height:1.75;margin-bottom:16px">Quand l'éditeur répond, cliquez sur <strong>✅ Réponse reçue</strong> — un popup s'ouvre pour saisir la date de réponse. L'alerte disparaît immédiatement. Vous pouvez réinitialiser si besoin.</p>
+
+    <!-- DEMO RELANCE -->
+    <div class="demo-box">
+      <div class="demo-bar">🎮 Démo interactive — simulez une alerte de relance <span>DEMO</span></div>
+      <div class="demo-body">
+        <div style="margin-bottom:12px">
+          <div style="font-size:11px;color:#5B5880;margin-bottom:8px">Album : Neon Horizon · Éditeur : Label Sync</div>
+          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+            <div>
+              <div style="font-size:10px;color:#5B5880;margin-bottom:3px">Dernière relance</div>
+              <div style="font-size:12px;color:#60A5FA;font-weight:600">15 juil. 2026</div>
+            </div>
+            <div>
+              <div style="font-size:10px;color:#5B5880;margin-bottom:3px">Alerte après</div>
+              <div style="font-size:12px;color:var(--creme);font-weight:600">15 jours</div>
+            </div>
+          </div>
+        </div>
+        <div id="demo-relance-alert" class="demo-alert">🚨 <strong>32 jours sans réponse</strong> — Label Sync · Neon Horizon</div>
+        <div id="demo-relance-ok" style="display:none;background:#064E3B22;border:1px solid #10B98133;border-radius:6px;padding:10px 14px;font-size:12px;color:#10B981;margin-top:8px">✅ Réponse reçue le 17 août 2026</div>
+        <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap">
+          <button class="demo-btn-green" onclick="demoRelanceReply()">✅ Réponse reçue</button>
+          <button class="demo-btn-sm" onclick="demoRelanceReset()">↩ Réinitialiser</button>
+        </div>
+        <p class="hint" style="margin-top:8px">👆 Cliquez "Réponse reçue" pour voir l'alerte disparaître</p>
+      </div>
+    </div>
+
+    <div class="info-box">💡 Dans le <strong>Briefing</strong>, toutes les relances en attente apparaissent groupées par album — avec les tracks indentées en dessous. Un bouton ✉️ permet d'envoyer directement l'email de relance.</div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- EMAIL AUTOMATIQUE -->
+  <section class="doc-section" id="email">
+    <div class="section-header"><span class="section-emoji">✉️</span><h2 class="section-title">Email automatique de relance</h2></div>
+    <p class="section-intro">Envoyez un email de relance professionnel en un clic — avec l'objet, le corps et la signature pré-remplis automatiquement.</p>
+
+    <h3 style="font-size:16px;font-weight:700;margin:20px 0 10px">Comment ça marche</h3>
+    <p style="font-size:14px;color:var(--texte);line-height:1.75;margin-bottom:16px">Sur chaque track, un bouton <strong>✉️ Envoyer email de relance</strong> apparaît. En cliquant, votre client mail s'ouvre avec :</p>
+    <ul style="font-size:14px;color:var(--texte);line-height:2;padding-left:20px;margin-bottom:16px">
+      <li>L'adresse email de l'éditeur pré-remplie</li>
+      <li>L'objet : <em>Relance — Nom de la track / Nom de l'album</em></li>
+      <li>Le corps du message avec le nom du contact et votre signature</li>
+    </ul>
+
+    <h3 style="font-size:16px;font-weight:700;margin:20px 0 10px">Client mail</h3>
+    <p style="font-size:14px;color:var(--texte);line-height:1.75;margin-bottom:16px">Dans <strong>Paramètres → Client mail</strong>, choisissez votre client mail préféré :</p>
+    <ul style="font-size:14px;color:var(--texte);line-height:2;padding-left:20px;margin-bottom:16px">
+      <li><strong>📬 Mail.app</strong> — ouvre directement Apple Mail avec tout pré-rempli</li>
+      <li><strong>📧 Gmail</strong> — nécessite de configurer Gmail comme client mail par défaut dans Chrome</li>
+      <li><strong>📋 Copier</strong> — copie le mail dans le presse-papier</li>
+    </ul>
+
+    <div class="info-box">💡 Si l'email de l'éditeur n'est pas renseigné, un popup vous propose de l'ajouter directement — il sera automatiquement sauvegardé dans la fiche éditeur.</div>
+
+    <!-- DEMO EMAIL -->
+    <div class="demo-box">
+      <div class="demo-bar">🎮 Démo interactive — prévisualisez un email de relance <span>DEMO</span></div>
+      <div class="demo-body">
+        <div class="demo-track" style="cursor:default;margin-bottom:12px">
+          <div class="demo-dot" style="background:#60A5FA"></div>
+          <div style="flex:1;font-size:13px;color:var(--creme)">Track 02 — Shadow Sync</div>
+          <span class="demo-tag" style="background:#1E3A5F22;color:#60A5FA;border:1px solid #60A5FA33">Envoyée</span>
+          <button class="demo-btn" style="font-size:11px;padding:5px 10px;margin-left:8px" onclick="demoShowEmail()">✉️ Relancer</button>
+        </div>
+        <div id="demo-email-preview" style="display:none;background:#13122A;border:1px solid #2A2750;border-radius:10px;padding:16px;font-size:12px;line-height:1.8">
+          <div style="color:#5B5880;margin-bottom:8px">
+            <strong style="color:var(--creme)">À :</strong> contact@labelsync.com<br>
+            <strong style="color:var(--creme)">Objet :</strong> Relance — Shadow Sync / Neon Horizon
+          </div>
+          <div style="border-top:1px solid #2A2750;padding-top:10px;color:var(--texte)">
+            Bonjour Marie,<br><br>
+            J'espère que tu vas bien. Je me permets de te relancer concernant la track "Shadow Sync" soumise pour l'album "Neon Horizon".<br><br>
+            Je voulais savoir si tu avais eu l'occasion de l'écouter et si tu avais des retours à me faire.<br><br>
+            N'hésite pas à me faire signe — je reste disponible pour tout ajustement.<br><br>
+            Cordialement,<br><br>
+            <span style="color:#A78BFA">Jean Dupont<br>Mon Studio Music<br>+33 6 00 00 00 00</span>
+          </div>
+        </div>
+        <p class="hint" id="demo-email-hint">👆 Cliquez "✉️ Relancer" pour prévisualiser l'email généré</p>
+      </div>
+    </div>
+
+  <hr class="divider">
+
+  <!-- PARAMÈTRES -->
+  <section class="doc-section" id="parametres">
+    <div class="section-header"><span class="section-emoji">⚙️</span><h2 class="section-title">Paramètres</h2></div>
+    <p class="section-intro">La page Paramètres centralise toutes vos préférences personnelles — profil, client mail et modèle d'email.</p>
+
+    <h3 style="font-size:16px;font-weight:700;margin:20px 0 10px">👤 Profil compositeur</h3>
+    <p style="font-size:14px;color:var(--texte);line-height:1.75;margin-bottom:16px">Renseignez vos informations personnelles : prénom, nom, structure, téléphone, site web. Ces informations servent à signer automatiquement vos emails de relance.</p>
+
+    <h3 style="font-size:16px;font-weight:700;margin:20px 0 10px">✉️ Client mail</h3>
+    <p style="font-size:14px;color:var(--texte);line-height:1.75;margin-bottom:16px">Choisissez comment envoyer vos emails de relance : Mail.app, Gmail ou Copier dans le presse-papier.</p>
+
+    <h3 style="font-size:16px;font-weight:700;margin:20px 0 10px">📝 Modèle de mail</h3>
+    <p style="font-size:14px;color:var(--texte);line-height:1.75;margin-bottom:16px">Personnalisez le texte de vos emails de relance en FR et EN. Utilisez les variables <code style="background:#1A1838;padding:2px 6px;border-radius:4px;color:#A78BFA">{contact}</code> <code style="background:#1A1838;padding:2px 6px;border-radius:4px;color:#A78BFA">{track}</code> <code style="background:#1A1838;padding:2px 6px;border-radius:4px;color:#A78BFA">{album}</code> pour personnaliser chaque email automatiquement.</p>
+
+    <div class="info-box">💡 Un bouton <strong>↩ Restaurer le texte par défaut</strong> vous permet de revenir au modèle original à tout moment.</div>
   </section>
 
   <hr class="divider">
@@ -619,6 +806,72 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { rootMargin:'-20% 0px -70% 0px' });
 sections.forEach(s => observer.observe(s));
+
+// ═══════════════════════════════
+// DÉMOS INTERACTIVES
+// ═══════════════════════════════
+
+// Demo Tracks — statuts cycliques
+const STATUSES = [
+  {label:'Composition', color:'#38BDF8', bg:'#0C4A6E22', border:'#38BDF833'},
+  {label:'Envoyée',     color:'#60A5FA', bg:'#1E3A5F22', border:'#60A5FA33'},
+  {label:'Révision',    color:'#FB923C', bg:'#43140722', border:'#FB923C33'},
+  {label:'Mix',         color:'#A78BFA', bg:'#2D1B6922', border:'#A78BFA33'},
+  {label:'Validée ✓',   color:'#10B981', bg:'#06402B22', border:'#10B98133'},
+  {label:'Livrée ✓',    color:'#10B981', bg:'#06402B22', border:'#10B98133'},
+  {label:'Refusée',     color:'#F87171', bg:'#45091222', border:'#F8717133'},
+];
+const demoStatusIdx = [0, 1, 2, 3];
+
+function demoNextStatus(i) {
+  demoStatusIdx[i] = (demoStatusIdx[i] + 1) % STATUSES.length;
+  const s = STATUSES[demoStatusIdx[i]];
+  const dot = document.getElementById(`dt${i}-dot`);
+  const tag = document.getElementById(`dt${i}-tag`);
+  if(dot) dot.style.background = s.color;
+  if(tag) {
+    tag.textContent = s.label;
+    tag.style.color = s.color;
+    tag.style.background = s.bg;
+    tag.style.border = `1px solid ${s.border}`;
+  }
+  updateDemoProgress();
+}
+
+function updateDemoProgress() {
+  const validated = demoStatusIdx.filter(i => i === 4 || i === 5).length;
+  const pct = Math.round((validated / 4) * 100);
+  const bar = document.getElementById('demo-prog-bar');
+  const txt = document.getElementById('demo-prog-txt');
+  if(bar) bar.style.width = pct + '%';
+  if(txt) txt.textContent = pct + '%';
+}
+
+// Demo Relance
+function demoRelanceReply() {
+  const alert = document.getElementById('demo-relance-alert');
+  const ok = document.getElementById('demo-relance-ok');
+  if(alert) alert.style.display = 'none';
+  if(ok) ok.style.display = 'block';
+}
+function demoRelanceReset() {
+  const alert = document.getElementById('demo-relance-alert');
+  const ok = document.getElementById('demo-relance-ok');
+  if(alert) alert.style.display = 'block';
+  if(ok) ok.style.display = 'none';
+}
+
+// Demo Email
+function demoShowEmail() {
+  const preview = document.getElementById('demo-email-preview');
+  const hint = document.getElementById('demo-email-hint');
+  if(preview) {
+    preview.style.display = preview.style.display === 'none' ? 'block' : 'none';
+    if(hint) hint.textContent = preview.style.display === 'block' 
+      ? '👆 Voici l\'email qui sera envoyé à l\'éditeur — cliquez à nouveau pour fermer'
+      : '👆 Cliquez "✉️ Relancer" pour prévisualiser l\'email généré';
+  }
+}
 </script>
 </body>
 </html>

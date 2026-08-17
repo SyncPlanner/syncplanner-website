@@ -144,6 +144,13 @@
       <a href="https://github.com/SyncPlanner/syncplanner-app/releases/download/v1.0.0/SYNC.PLANNER-1.0.0.dmg" class="btn-primary" id="btn-mac">Mac — Télécharger</a>
       <span class="btn-primary btn-win" id="btn-win" style="opacity:0.45;cursor:not-allowed;pointer-events:none">Windows — En développement</span>
     </div>
+    <div style="margin-top:14px">
+      <a href="/help" id="btn-demo" style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#A78BFA;text-decoration:none;border:1px solid rgba(167,139,250,0.25);border-radius:8px;padding:8px 16px;background:rgba(124,58,237,0.08);transition:all 0.2s"
+        onmouseover="this.style.background='rgba(124,58,237,0.18)';this.style.borderColor='rgba(167,139,250,0.5)'"
+        onmouseout="this.style.background='rgba(124,58,237,0.08)';this.style.borderColor='rgba(167,139,250,0.25)'">
+        🎮 <span id="btn-demo-txt">Explorer les fonctionnalités — démo interactive</span>
+      </a>
+    </div>
     <div class="hero-note" id="hero-note">✓ Aucune carte bancaire requise &nbsp;·&nbsp; ✓ Données 100% locales &nbsp;·&nbsp; ✓ Mac & PC</div>
   </div>
 </section>
@@ -464,7 +471,7 @@ const T = {
     "hero-h1":"Fini le<br>désordre.<br><span style='color:var(--violet)'>Reste focus.</span>",
     "hero-sub":"Beaucoup de tracks en cours, plusieurs clients, des deadlines qui s'accumulent — ça peut vite devenir le foutoir. SYNC.PLANNER centralise tout au même endroit pour ne rien oublier.",
     "hero-sub2":"SYNC.PLANNER est un outil de gestion de projets pour compositeurs professionnels — library, film, jeux vidéo, publicité.",
-    "btn-mac":"Mac — Télécharger","btn-win":"Windows — En développement",
+    "btn-mac":"Mac — Télécharger","btn-win":"Windows — En développement","btn-demo-txt":"Explorer les fonctionnalités — démo interactive",
     "hero-note":"✓ Aucune carte bancaire requise &nbsp;·&nbsp; ✓ Données 100% locales &nbsp;·&nbsp; ✓ Mac & PC",
     "problem-eyebrow":"Le problème","problem-title":"Trop d'outils,<br><em>pas assez de clarté.</em>",
     "problem-body":"Un Google Sheet pour les deadlines, un autre pour les tracks, des notes éparpillées, des mails avec les clients... Résultat : des relances oubliées, des deadlines ratées, de la confusion. SYNC.PLANNER regroupe tout en un seul endroit, clair et structuré.",
@@ -517,7 +524,7 @@ const T = {
     "hero-h1":"No more<br>chaos.<br><span style='color:var(--violet)'>Stay focused.</span>",
     "hero-sub":"Lots of tracks in progress, multiple clients, deadlines piling up — it can get messy fast. SYNC.PLANNER keeps everything in one place so nothing slips through.",
     "hero-sub2":"SYNC.PLANNER is a project management tool for professional composers — library, film, video games, advertising.",
-    "btn-mac":"Mac — Download","btn-win":"Windows — In development",
+    "btn-mac":"Mac — Download","btn-win":"Windows — In development","btn-demo-txt":"Explore features — interactive demo",
     "hero-note":"✓ No credit card required &nbsp;·&nbsp; ✓ 100% local data &nbsp;·&nbsp; ✓ Mac & PC",
     "problem-eyebrow":"The problem","problem-title":"Too many tools,<br><em>not enough clarity.</em>",
     "problem-body":"A Google Sheet for deadlines, another for tracks, scattered notes, emails with clients... Result: missed follow-ups, late deliveries, confusion. SYNC.PLANNER brings everything together in one clear, structured place.",
@@ -575,6 +582,9 @@ function setLang(lang) {
     const el = document.getElementById(id);
     if(el) el.innerHTML = t[id];
   });
+  // Update demo link based on language
+  const demoBtn = document.getElementById('btn-demo');
+  if(demoBtn) demoBtn.href = lang === 'en' ? '/help-en' : '/help';
   // Update demo tabs
   document.querySelectorAll('.demo-tab').forEach(tab => {
     const key = lang === 'fr' ? 'data-fr' : 'data-en';
