@@ -11,6 +11,7 @@
 <meta name="author" content="SYNC.PLANNER">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://syncplanner.app">
+<link rel="sitemap" type="application/xml" href="/sitemap.xml">
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website">
@@ -590,7 +591,7 @@
   </div>
   <div class="faq-item">
     <div class="faq-q" onclick="toggleFaq(this)"><span id="faq6-q">L'assistant IA a-t-il accès à mes données ?</span><span class="faq-arrow">▼</span></div>
-    <div class="faq-a" id="faq6-a">L'assistant IA utilise une clé API personnelle (Claude, GPT-4o ou Mistral). Les données sont envoyées directement au fournisseur choisi — elles ne transitent pas par les serveurs SYNC.PLANNER.</div>
+    <div class="faq-a" id="faq6-a">L'assistant IA utilise une clé API personnelle (Claude, GPT-4o ou Mistral). Les données sont envoyées directement au fournisseur choisi — elles ne transitent pas par les serveurs SYNC.PLANNER. L'historique de conversation est conservé pendant la session en cours. Entre les sessions, l'IA mémorise localement sur votre Mac vos habitudes de travail — ces données ne quittent jamais votre ordinateur.</div>
   </div>
   <div class="faq-item">
     <div class="faq-q" onclick="toggleFaq(this)"><span id="faq7-q">Sur Mac, une alerte de sécurité apparaît — que faire ?</span><span class="faq-arrow">▼</span></div>
@@ -599,6 +600,22 @@
   <div class="faq-item">
     <div class="faq-q" onclick="toggleFaq(this)"><span id="faq5-q">Et si j'ai un problème ?</span><span class="faq-arrow">▼</span></div>
     <div class="faq-a" id="faq5-a">Il suffit d'envoyer un mail à contact@syncplanner.app Réponse sous 24h.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)"><span id="faq8-q">SYNC.PLANNER remplace-t-il des outils comme DropCue ou Sync Warehouse ?</span><span class="faq-arrow">▼</span></div>
+    <div class="faq-a" id="faq8-a">Non — ces outils sont complémentaires. DropCue, DISCO et Sync Warehouse sont des outils de partage et de soumission vers les music supervisors et bibliothèques musicales. SYNC.PLANNER gère la production interne : la création des albums, le suivi des tracks, les deadlines avec les éditeurs et les relances. SYNC.PLANNER s'utilise avant de pitcher — pour être parfaitement organisé quand vient le moment de soumettre.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)"><span id="faq9-q">Qu'est-ce que la musique sync et à qui s'adresse cet outil ?</span><span class="faq-arrow">▼</span></div>
+    <div class="faq-a" id="faq9-a">La musique sync (ou synchronisation musicale) désigne l'utilisation d'une musique dans un contenu audiovisuel : films, séries TV, jeux vidéo, publicités, documentaires. Les compositeurs qui produisent de la musique sync travaillent en général avec des éditeurs ou bibliothèques musicales (music libraries) qui leur envoient des briefs avec des deadlines précises. SYNC.PLANNER est conçu pour ces compositeurs professionnels qui gèrent plusieurs albums et dizaines de tracks simultanément.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)"><span id="faq10-q">Comment fonctionne le workflow de production musicale dans SYNC.PLANNER ?</span><span class="faq-arrow">▼</span></div>
+    <div class="faq-a" id="faq10-a">Le workflow est simple et calqué sur la réalité du compositeur sync : vous créez un projet (album) pour chaque commande d'un éditeur, vous ajoutez vos tracks avec leur statut (Composition → Envoyée → Révision → Mix → Livrée), et vous définissez une deadline. SYNC.PLANNER calcule automatiquement la progression de chaque album, vous alerte quand une deadline approche, et vous rappelle de relancer les éditeurs qui n'ont pas répondu. L'assistant IA peut ensuite analyser votre production et vous aider à prioriser vos tâches.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)"><span id="faq11-q">Peut-on gérer plusieurs éditeurs et plusieurs albums simultanément ?</span><span class="faq-arrow">▼</span></div>
+    <div class="faq-a" id="faq11-a">Oui — c'est exactement pour ça que SYNC.PLANNER a été conçu. Vous pouvez gérer un nombre illimité d'albums avec des éditeurs différents, chacun avec sa propre deadline, ses tracks et ses statuts de relance. La vue Kanban mensuelle vous donne une vision globale de toutes vos tracks en cours, tous éditeurs confondus. Les statistiques vous permettent de comparer vos taux de validation par éditeur pour identifier les collaborations les plus fructueuses.</div>
   </div>
 </div>
 
@@ -715,10 +732,14 @@ const T = {
     "faq3-q":"Je peux annuler à tout moment ?","faq3-a":"Oui, sans conditions. L'annulation se fait en un clic depuis l'espace Stripe. L'accès reste actif jusqu'à la fin de la période payée.",
     "faq4-q":"C'est quoi le plan Lifetime exactement ?","faq4-a":"Un paiement unique de 149€ donne un accès permanent à SYNC.PLANNER, ainsi qu'aux futures versions de l'application.",
     "faq5-q":"Et si j'ai un problème ?","faq5-a":"Il suffit d'envoyer un mail à contact@syncplanner.app Réponse sous 24h.",
+    "faq8-q":"SYNC.PLANNER remplace-t-il des outils comme DropCue ou Sync Warehouse ?","faq8-a":"Non — ces outils sont complémentaires. DropCue, DISCO et Sync Warehouse sont des outils de partage et soumission vers les music supervisors et bibliothèques musicales. SYNC.PLANNER gère la production interne : création des albums, suivi des tracks, deadlines éditeurs et relances. SYNC.PLANNER s'utilise avant de pitcher.",
+    "faq9-q":"Qu'est-ce que la musique sync et à qui s'adresse cet outil ?","faq9-a":"La musique sync (synchronisation musicale) désigne l'utilisation d'une musique dans un contenu audiovisuel : films, séries TV, jeux vidéo, publicités. Les compositeurs sync travaillent avec des éditeurs ou bibliothèques musicales qui envoient des briefs avec deadlines. SYNC.PLANNER est conçu pour ces compositeurs qui gèrent plusieurs albums et dizaines de tracks simultanément.",
+    "faq10-q":"Comment fonctionne le workflow de production musicale dans SYNC.PLANNER ?","faq10-a":"Créez un projet (album) pour chaque commande d'un éditeur, ajoutez vos tracks avec leur statut (Composition → Envoyée → Révision → Mix → Livrée), définissez une deadline. SYNC.PLANNER calcule la progression, vous alerte sur les deadlines proches et vous rappelle de relancer les éditeurs. L'assistant IA analyse votre production et vous aide à prioriser.",
+    "faq11-q":"Peut-on gérer plusieurs éditeurs et albums simultanément ?","faq11-a":"Oui — c'est exactement pour ça que SYNC.PLANNER a été conçu. Nombre illimité d'albums avec différents éditeurs, chacun avec sa deadline et ses statuts de relance. La vue Kanban mensuelle donne une vision globale de toutes vos tracks. Les statistiques comparent vos taux de validation par éditeur.",
     "cta-final-title":"Gérez vos <span style='color:var(--violet2)'>projets musicaux</span><br>sans vous perdre.",
     "cta-final-sub":"14 jours d'essai gratuit, sans carte bancaire. Le temps de voir si SYNC.PLANNER correspond au workflow.",
     "cta-final-mac":"Mac — Télécharger","cta-final-win":"Windows — En développement",
-    "footer-legal":"Mentions légales","footer-cgv":"CGV","feat7-title":"🎁 Bonus — Assistant IA intégré","feat7-body":"Fonctionnalité optionnelle. SYNC.PLANNER peut se connecter à Claude, GPT-4o ou Mistral via clé API personnelle. L'assistant connaît les projets en cours et peut créer des albums, modifier des statuts ou analyser la production en langage naturel. Nécessite un compte et une clé API chez le fournisseur choisi. Les conversations ne sont pas conservées entre les sessions.","faq6-q":"L'assistant IA a-t-il accès à mes données ?","faq6-a":"L'assistant IA utilise une clé API personnelle (Claude, GPT-4o ou Mistral). Les données sont envoyées directement au fournisseur choisi — elles ne transitent pas par les serveurs SYNC.PLANNER. Les conversations ne sont pas conservées entre les sessions : chaque nouvelle conversation repart de zéro.",
+    "footer-legal":"Mentions légales","footer-cgv":"CGV","feat7-title":"🎁 Bonus — Assistant IA intégré","feat7-body":"Fonctionnalité optionnelle. SYNC.PLANNER peut se connecter à Claude, GPT-4o ou Mistral via clé API personnelle. L'assistant connaît les projets en cours et peut créer des albums, modifier des statuts ou analyser la production en langage naturel. Nécessite un compte et une clé API chez le fournisseur choisi. La mémoire de vos habitudes est conservée localement sur votre Mac.","faq6-q":"L'assistant IA a-t-il accès à mes données ?","faq6-a":"L'assistant IA utilise une clé API personnelle (Claude, GPT-4o ou Mistral). Les données sont envoyées directement au fournisseur choisi — elles ne transitent pas par les serveurs SYNC.PLANNER. L'historique est conservé pendant la session. Entre les sessions, l'IA mémorise localement vos habitudes de travail sur votre Mac — ces données ne quittent jamais votre ordinateur.",
   },
   en: {
     "seo-eyebrow":"Why SYNC.PLANNER",
@@ -795,10 +816,14 @@ const T = {
     "faq3-q":"Can I cancel anytime?","faq3-a":"Yes, no strings attached. Cancel in one click from your Stripe dashboard. Access stays active until the end of the paid period.",
     "faq4-q":"What is the Lifetime plan exactly?","faq4-a":"A one-time payment of €149 gives permanent access to SYNC.PLANNER, including all future versions.",
     "faq5-q":"What if I have a problem?","faq5-a":"Just send an email to contact@syncplanner.app Reply within 24h.",
+    "faq8-q":"Does SYNC.PLANNER replace tools like DropCue or Sync Warehouse?","faq8-a":"No — these tools are complementary. DropCue, DISCO and Sync Warehouse are sharing and submission tools for music supervisors and music libraries. SYNC.PLANNER manages internal production: album creation, track tracking, publisher deadlines and follow-ups. SYNC.PLANNER is used before pitching — to be perfectly organized when the time comes to submit.",
+    "faq9-q":"What is sync music and who is this tool for?","faq9-a":"Sync music (music synchronization) refers to the use of music in audiovisual content: films, TV series, video games, advertising. Sync composers typically work with publishers or music libraries that send them briefs with specific deadlines. SYNC.PLANNER is designed for professional composers managing multiple albums and dozens of tracks simultaneously.",
+    "faq10-q":"How does the music production workflow work in SYNC.PLANNER?","faq10-a":"Create a project (album) for each publisher order, add your tracks with their status (Composition → Sent → Revision → Mix → Delivered), set a deadline. SYNC.PLANNER automatically calculates progress, alerts you when deadlines approach, and reminds you to follow up with publishers who haven't responded. The AI assistant can analyze your production and help you prioritize tasks.",
+    "faq11-q":"Can you manage multiple publishers and albums simultaneously?","faq11-a":"Yes — that's exactly what SYNC.PLANNER was designed for. Unlimited albums with different publishers, each with its own deadline, tracks and follow-up statuses. The monthly Kanban view gives a global overview of all your tracks. Statistics let you compare your validation rates by publisher to identify the most productive collaborations.",
     "cta-final-title":"Manage your <span style='color:var(--violet2)'>music projects</span><br>without losing track.",
     "cta-final-sub":"14-day free trial, no credit card. See if SYNC.PLANNER fits your workflow.",
     "cta-final-mac":"Mac — Download","cta-final-win":"Windows — In development",
-    "footer-legal":"Legal notice","footer-cgv":"Terms","feat7-title":"🎁 Bonus — Built-in AI assistant","feat7-body":"Optional feature. SYNC.PLANNER can connect to Claude, GPT-4o or Mistral via personal API key. The assistant knows current projects and can create albums, update statuses or analyze production in plain language. Requires an account and API key from the chosen provider. Conversations are not saved between sessions.","faq6-q":"Does the AI assistant have access to my data?","faq6-a":"The AI assistant uses a personal API key (Claude, GPT-4o or Mistral). Data is sent directly to the chosen provider — it does not pass through SYNC.PLANNER servers. Conversations are not saved between sessions: each new session starts fresh.",
+    "footer-legal":"Legal notice","footer-cgv":"Terms","feat7-title":"🎁 Bonus — Built-in AI assistant","feat7-body":"Optional feature. SYNC.PLANNER can connect to Claude, GPT-4o or Mistral via personal API key. The assistant knows current projects and can create albums, update statuses or analyze production in plain language. Requires an account and API key from the chosen provider. Work habit memory is stored locally on your Mac.","faq6-q":"Does the AI assistant have access to my data?","faq6-a":"The AI assistant uses a personal API key (Claude, GPT-4o or Mistral). Data is sent directly to the chosen provider — it does not pass through SYNC.PLANNER servers. Conversation history is kept during the current session. Between sessions, the AI stores your work habits locally on your Mac — this data never leaves your computer.",
   }
 };
 
