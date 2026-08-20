@@ -1,451 +1,927 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="fr">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Author" content="SYNC.PLANNER">
-  <meta name="Description" content="SYNC.PLANNER est le logiciel de gestion de projets musicaux pour compositeurs de music library, film, TV et jeux vidéo — débutants ambitieux ou confirmés. Gérez vos albums, tracks, deadlines, relances éditeurs et obtenez un assistant IA spécialisé sync. Mac, 9€/mois.">
-  <meta name="Keywords" content="compositeur sync, logiciel compositeur, gestion projet musical, sync music composer, production music management, library music composer, film TV game music, deadlines compositeur, relance éditeur, sync planner, music project manager, compositeur professionnel">
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2299.7">
-  <style type="text/css">
-    body {background-color: #0a090e}
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 16.0px 'Helvetica Neue'; color: #ece9f6; -webkit-text-stroke: #ece9f6}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 18.0px '.Apple Color Emoji UI'; color: #000000; color: rgba(0, 0, 0, 0.85); -webkit-text-stroke: rgba(0, 0, 0, 0.85); background-color: #6715e8; background-color: rgba(103, 21, 232, 0.3)}
-    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 18.0px '.Apple Color Emoji UI'; color: #000000; color: rgba(0, 0, 0, 0.85); -webkit-text-stroke: rgba(0, 0, 0, 0.85)}
-    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px 'Helvetica Neue'; color: #ffffff; -webkit-text-stroke: #ffffff; background-color: #6715e8}
-    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Helvetica Neue'; color: #ece9f6; -webkit-text-stroke: #ece9f6; min-height: 15.0px}
-    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Helvetica Neue'; color: #9571f8; -webkit-text-stroke: #9571f8}
-    p.p8 {margin: 0.0px 0.0px 16.0px 0.0px; font: 16.0px 'Helvetica Neue'; color: #b7b1e2; -webkit-text-stroke: #b7b1e2}
-    p.p9 {margin: 0.0px 0.0px 44.0px 0.0px; font: 15.0px 'Helvetica Neue'; color: #49446d; -webkit-text-stroke: #49446d}
-    p.p10 {margin: 0.0px 0.0px 0.0px 0.0px; font: 15.0px 'Helvetica Neue'; color: #ffffff; -webkit-text-stroke: #ffffff}
-    p.p11 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px 'Helvetica Neue'; color: #9571f8; -webkit-text-stroke: #9571f8; min-height: 16.0px}
-    p.p12 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px 'Helvetica Neue'; color: #9571f8; -webkit-text-stroke: #9571f8}
-    p.p13 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Helvetica Neue'; color: #3a365d; -webkit-text-stroke: #3a365d}
-    p.p14 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 11.0px 'Helvetica Neue'; color: #3a365d; -webkit-text-stroke: #3a365d}
-    p.p15 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 11.0px 'Helvetica Neue'; color: #c9a057; -webkit-text-stroke: #c9a057}
-    p.p17 {margin: 0.0px 0.0px 0.0px 0.0px; font: 15.0px 'Helvetica Neue'; color: #ece9f6; -webkit-text-stroke: #ece9f6}
-    p.p18 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px 'Helvetica Neue'; color: #686397; -webkit-text-stroke: #686397}
-    p.p19 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 13.0px 'Helvetica Neue'; color: #3a365d; -webkit-text-stroke: #3a365d}
-    p.p20 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 16.0px 'Helvetica Neue'; color: #b7b1e2; -webkit-text-stroke: #b7b1e2}
-    p.p22 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Helvetica Neue'; color: #ece9f6; -webkit-text-stroke: #ece9f6; background-color: #f3595e; min-height: 15.0px}
-    p.p23 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Helvetica Neue'; color: #ece9f6; -webkit-text-stroke: #ece9f6; background-color: #f9b31d; min-height: 15.0px}
-    p.p24 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Helvetica Neue'; color: #ece9f6; -webkit-text-stroke: #ece9f6; background-color: #1bae6e; min-height: 15.0px}
-    p.p25 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px 'Helvetica Neue'; color: #ece9f6; -webkit-text-stroke: #ece9f6}
-    p.p26 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Helvetica Neue'; color: #49446d; -webkit-text-stroke: #49446d}
-    p.p27 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: right; font: 12.0px 'Helvetica Neue'; color: #1bae6e; -webkit-text-stroke: #1bae6e}
-    p.p28 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 11.0px 'Helvetica Neue'; color: #1bae6e; -webkit-text-stroke: #1bae6e; background-color: #0b3e2d}
-    p.p29 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Helvetica Neue'; color: #ece9f6; -webkit-text-stroke: #ece9f6; background-color: #9571f8; min-height: 15.0px}
-    p.p30 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: right; font: 12.0px 'Helvetica Neue'; color: #9571f8; -webkit-text-stroke: #9571f8}
-    p.p31 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 11.0px 'Helvetica Neue'; color: #9571f8; -webkit-text-stroke: #9571f8; background-color: #210f56}
-    p.p32 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Helvetica Neue'; color: #ece9f6; -webkit-text-stroke: #ece9f6; background-color: #4f91f8; min-height: 15.0px}
-    p.p33 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: right; font: 12.0px 'Helvetica Neue'; color: #4f91f8; -webkit-text-stroke: #4f91f8}
-    p.p34 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 11.0px 'Helvetica Neue'; color: #4f91f8; -webkit-text-stroke: #4f91f8; background-color: #172b4c}
-    p.p35 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Helvetica Neue'; color: #ece9f6; -webkit-text-stroke: #ece9f6; background-color: #f87e2f; min-height: 15.0px}
-    p.p36 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: right; font: 12.0px 'Helvetica Neue'; color: #f87e2f; -webkit-text-stroke: #f87e2f}
-    p.p37 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 11.0px 'Helvetica Neue'; color: #f3595e; -webkit-text-stroke: #f3595e; background-color: #330f09}
-    p.p38 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px 'Helvetica Neue'; color: #b7b1e2; -webkit-text-stroke: #b7b1e2}
-    p.p42 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px 'Helvetica Neue'; color: #49446d; -webkit-text-stroke: #49446d}
-    p.p43 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 13.0px 'Helvetica Neue'; color: #9571f8; -webkit-text-stroke: #9571f8}
-    p.p44 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 13.0px 'Helvetica Neue'; color: #49446d; -webkit-text-stroke: #49446d}
-    p.p45 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px 'Helvetica Neue'; color: #b7b1e2; -webkit-text-stroke: #b7b1e2}
-    p.p46 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 13.0px '.Apple Color Emoji UI'; color: #1bae6e; -webkit-text-stroke: #1bae6e}
-    p.p47 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 13.0px '.Apple Color Emoji UI'; color: #f3595e; -webkit-text-stroke: #f3595e}
-    p.p48 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 13.0px 'Helvetica Neue'; color: #f9b31d; -webkit-text-stroke: #f9b31d}
-    p.p49 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 13.0px 'Helvetica Neue'; color: #1bae6e; -webkit-text-stroke: #1bae6e}
-    p.p50 {margin: 0.0px 60.0px 0.0px 60.0px; text-align: center; text-indent: -60.0px; font: 15.0px 'Helvetica Neue'; color: #b7b1e2; -webkit-text-stroke: #b7b1e2}
-    p.p51 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 13.0px 'Helvetica Neue'; color: #b7a2fc; -webkit-text-stroke: #b7a2fc; background-color: #210f56}
-    p.p52 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 13.0px 'Helvetica Neue'; color: #686397; -webkit-text-stroke: #686397; background-color: #0f0e1f}
-    p.p53 {margin: 0.0px 0.0px 0.0px 0.0px; font: 11.0px 'Helvetica Neue'; color: #3a365d; -webkit-text-stroke: #3a365d}
-    p.p54 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 26.0px 'Helvetica Neue'; color: #b7a2fc; -webkit-text-stroke: #b7a2fc}
-    p.p55 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 10.0px 'Helvetica Neue'; color: #49446d; -webkit-text-stroke: #49446d}
-    p.p56 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 26.0px 'Helvetica Neue'; color: #1bae6e; -webkit-text-stroke: #1bae6e}
-    p.p57 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 26.0px 'Helvetica Neue'; color: #f9b31d; -webkit-text-stroke: #f9b31d}
-    p.p58 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 26.0px 'Helvetica Neue'; color: #4f91f8; -webkit-text-stroke: #4f91f8}
-    p.p59 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px '.Apple Color Emoji UI'; color: #ece9f6; -webkit-text-stroke: #ece9f6}
-    p.p60 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Helvetica Neue'; color: #f3595e; -webkit-text-stroke: #f3595e}
-    p.p61 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px 'Helvetica Neue'; color: #ece9f6; -webkit-text-stroke: #ece9f6}
-    p.p62 {margin: 0.0px 0.0px 0.0px 0.0px; font: 10.0px 'Helvetica Neue'; color: #49446d; -webkit-text-stroke: #49446d}
-    p.p63 {margin: 0.0px 0.0px 0.0px 0.0px; font: 11.0px 'Helvetica Neue'; color: #1bae6e; -webkit-text-stroke: #1bae6e}
-    p.p64 {margin: 0.0px 0.0px 0.0px 0.0px; font: 11.0px 'Helvetica Neue'; color: #9571f8; -webkit-text-stroke: #9571f8}
-    p.p65 {margin: 0.0px 0.0px 0.0px 0.0px; font: 11.0px 'Helvetica Neue'; color: #4f91f8; -webkit-text-stroke: #4f91f8}
-    p.p66 {margin: 0.0px 0.0px 0.0px 0.0px; font: 11.0px 'Helvetica Neue'; color: #f87e2f; -webkit-text-stroke: #f87e2f}
-    p.p67 {margin: 0.0px 0.0px 0.0px 0.0px; font: 10.0px 'Helvetica Neue'; color: #f3595e; -webkit-text-stroke: #f3595e; background-color: #34080a}
-    p.p68 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 15.0px 'Helvetica Neue'; color: #b7b1e2; -webkit-text-stroke: #b7b1e2}
-    p.p69 {margin: 0.0px 0.0px 0.0px 0.0px; font: 11.0px 'Helvetica Neue'; color: #c9a057; -webkit-text-stroke: #c9a057}
-    p.p70 {margin: 0.0px 0.0px 0.0px 0.0px; font: 44.0px 'Helvetica Neue'; color: #ece9f6; -webkit-text-stroke: #ece9f6}
-    p.p72 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 14.0px 'Helvetica Neue'; color: #9571f8; -webkit-text-stroke: #9571f8}
-    p.p73 {margin: 0.0px 0.0px 0.0px 0.0px; font: 10.0px 'Helvetica Neue'; color: #ffffff; -webkit-text-stroke: #ffffff; background-color: #6715e8}
-    p.p74 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px 'Helvetica Neue'; color: #b7b1e2; -webkit-text-stroke: #b7b1e2; background-color: #0f0e1f}
-    p.p75 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 14.0px 'Helvetica Neue'; color: #ffffff; -webkit-text-stroke: #ffffff; background-color: #6715e8}
-    p.p77 {margin: 0.0px 0.0px 0.0px 0.0px; font: 15.0px 'Helvetica Neue'; color: #9571f8; -webkit-text-stroke: #9571f8}
-    p.p79 {margin: 0.0px 0.0px 40.0px 0.0px; text-align: center; font: 16.0px 'Helvetica Neue'; color: #b7b1e2; -webkit-text-stroke: #b7b1e2}
-    p.p80 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 15.0px 'Helvetica Neue'; color: #ffffff; -webkit-text-stroke: #ffffff}
-    p.p81 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 12.0px 'Helvetica Neue'; color: #3a365d; -webkit-text-stroke: #3a365d}
-    p.p82 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 11.0px 'Helvetica Neue'; color: #1f1c3f; -webkit-text-stroke: #1f1c3f}
-    li.li71 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 13.0px 'Helvetica Neue'; color: #b7b1e2; -webkit-text-stroke: #b7b1e2}
-    span.s1 {font-kerning: none; background-color: rgba(10, 9, 14, 0.85)}
-    span.s2 {font-kerning: none; color: #6715e8; background-color: rgba(10, 9, 14, 0.85); -webkit-text-stroke: 0px #6715e8}
-    span.s3 {font-kerning: none}
-    span.s4 {font-kerning: none; background-color: rgba(31, 28, 63, 0.6)}
-    span.s5 {font-kerning: none; background-color: rgba(103, 21, 232, 0.12)}
-    span.s6 {font-kerning: none; color: #6715e8; -webkit-text-stroke: 0px #6715e8}
-    span.s7 {font-kerning: none; background-color: #6715e8}
-    span.s8 {font: 12.0px 'Helvetica Neue'; font-kerning: none; color: #ece9f6; -webkit-text-stroke: 0px #ece9f6}
-    span.s9 {font-kerning: none; background-color: #210f56}
-    span.s10 {font-kerning: none; background-color: rgba(103, 21, 232, 0.078)}
-    span.s11 {font: 11.0px '.Apple Color Emoji UI'; font-kerning: none}
-    span.s12 {font-kerning: none; background-color: #0a090e}
-    span.s13 {font-kerning: none; color: #ece9f6; background-color: #0a090e; -webkit-text-stroke: 0px #ece9f6}
-    span.s14 {font-kerning: none; color: #ece9f6; -webkit-text-stroke: 0px #ece9f6}
-    span.s15 {font-kerning: none; background-color: #0f0e1f}
-    span.s16 {font-kerning: none; background-color: #0c0b14}
-    span.s17 {font-kerning: none; color: #ece9f6; background-color: #0c0b14; -webkit-text-stroke: 0px #ece9f6}
-    span.s18 {font-kerning: none; color: #9571f8; background-color: #0c0b14; -webkit-text-stroke: 0px #9571f8}
-    span.s19 {font-kerning: none; background-color: #0d0c14}
-    span.s20 {font-kerning: none; color: #9571f8; -webkit-text-stroke: 0px #9571f8}
-    span.s21 {font-kerning: none; background-color: #14093f}
-    span.s22 {font-kerning: none; color: #9571f8; background-color: #0a090e; -webkit-text-stroke: 0px #9571f8}
-    span.s23 {font: 13.0px '.Apple Color Emoji UI'; font-kerning: none}
-    span.s24 {font-kerning: none; background-color: #14122a}
-    span.s25 {font-kerning: none; background-color: #21090a}
-    span.s26 {font: 10.0px '.Apple Color Emoji UI'; font-kerning: none}
-    span.s27 {font: 20.0px 'Helvetica Neue'; font-kerning: none; color: #b7b1e2; background-color: #0f0e1f; -webkit-text-stroke: 0px #b7b1e2}
-    span.s28 {background-color: #0f0e1f; -webkit-text-stroke: 0px #000000}
-    span.s29 {font: 12.0px 'Helvetica Neue'; font-kerning: none; color: #ece9f6; background-color: #0f0e1f; -webkit-text-stroke: 0px #ece9f6}
-    span.s30 {font: 14.0px 'Helvetica Neue'; font-kerning: none; color: #9571f8; -webkit-text-stroke: 0px #9571f8}
-    span.s31 {font: 20.0px 'Helvetica Neue'; font-kerning: none; color: #b7b1e2; -webkit-text-stroke: 0px #b7b1e2}
-    span.s32 {-webkit-text-stroke: 0px #000000}
-    span.s33 {font: 14.0px 'Helvetica Neue'; font-kerning: none; color: #ffffff; background-color: #6715e8; -webkit-text-stroke: 0px #ffffff}
-    span.s34 {font: 12.0px 'Helvetica Neue'; font-kerning: none; color: #3a365d; background-color: transparent; -webkit-text-stroke: 0px #3a365d}
-    table.t1 {border-collapse: collapse}
-    td.td1 {width: 155.1px; padding: 10.0px 10.0px 10.0px 10.0px}
-    td.td2 {width: 122.6px; padding: 10.0px 10.0px 10.0px 10.0px}
-    td.td3 {width: 101.7px; padding: 10.0px 10.0px 10.0px 10.0px}
-    td.td4 {width: 113.1px; padding: 10.0px 10.0px 10.0px 10.0px}
-    td.td5 {width: 121.5px; padding: 10.0px 10.0px 10.0px 10.0px}
-    ul.ul1 {list-style-type: none}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SYNC.PLANNER — Logiciel de gestion de projets pour compositeurs sync | Film, TV, Jeux vidéo</title>
+
+<!-- SEO Primary -->
+<meta name="description" content="SYNC.PLANNER est le logiciel de gestion de projets musicaux pour compositeurs de music library, film, TV et jeux vidéo — débutants ambitieux ou confirmés. Gérez vos albums, tracks, deadlines, relances éditeurs et obtenez un assistant IA spécialisé sync. Mac, 9€/mois.">
+<meta name="keywords" content="compositeur sync, logiciel compositeur, gestion projet musical, sync music composer, production music management, library music composer, film TV game music, deadlines compositeur, relance éditeur, sync planner, music project manager, compositeur professionnel">
+<meta name="author" content="SYNC.PLANNER">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://syncplanner.app">
+<link rel="sitemap" type="application/xml" href="/sitemap.xml">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://syncplanner.app">
+<meta property="og:title" content="SYNC.PLANNER — Logiciel de gestion pour compositeurs sync">
+<meta property="og:description" content="Gérez vos albums, tracks, deadlines et relances éditeurs. L'outil conçu par et pour les compositeurs sync professionnels (library, film, TV, jeux vidéo). Essai gratuit 14 jours.">
+<meta property="og:image" content="https://syncplanner.app/og-image.png">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:site_name" content="SYNC.PLANNER">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://syncplanner.app">
+<meta name="twitter:title" content="SYNC.PLANNER — Logiciel de gestion pour compositeurs sync">
+<meta name="twitter:description" content="Gérez vos albums, tracks, deadlines et relances éditeurs. Conçu pour les compositeurs sync professionnels.">
+<meta name="twitter:image" content="https://syncplanner.app/og-image.png">
+
+<!-- Schema.org JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "SYNC.PLANNER",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "macOS",
+  "description": "Logiciel de gestion de projets musicaux pour compositeurs de music library, film, TV et jeux vidéo. Gérez albums, tracks, deadlines et relances éditeurs avec un assistant IA spécialisé.",
+  "url": "https://syncplanner.app",
+  "offers": [
+    {
+      "@type": "Offer",
+      "price": "9",
+      "priceCurrency": "EUR",
+      "name": "Mensuel",
+      "billingPeriod": "Month"
+    },
+    {
+      "@type": "Offer",
+      "price": "90",
+      "priceCurrency": "EUR",
+      "name": "Annuel",
+      "billingPeriod": "Year"
+    },
+    {
+      "@type": "Offer",
+      "price": "149",
+      "priceCurrency": "EUR",
+      "name": "Lifetime"
+    }
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5",
+    "reviewCount": "1"
+  },
+  "keywords": "compositeur sync, gestion projet musical, sync music, library music, film TV game music, deadlines compositeur"
+}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root { --noir:#0A0910;--violet:#7C3AED;--violet2:#A78BFA;--or:#D4AF6A;--creme:#F0EEF8;--gris:#2A2750;--texte:#C4C0E8; }
+  html { scroll-behavior: smooth; }
+  body { font-family:'Inter',sans-serif;background:var(--noir);color:var(--creme);overflow-x:hidden;line-height:1.6; }
+  nav { position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 60px;display:flex;align-items:center;justify-content:space-between;background:rgba(10,9,16,0.85);backdrop-filter:blur(20px);border-bottom:1px solid rgba(42,39,80,0.5); }
+  .nav-left { display:flex;align-items:center;gap:16px; }
+  .nav-logo { font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:700;color:var(--creme);letter-spacing:0.04em; }
+  .nav-logo span { color:var(--violet); }
+  .lang-switcher { display:flex;align-items:center;gap:4px;background:rgba(42,39,80,0.6);border:1px solid #2A2750;border-radius:8px;padding:4px; }
+  .lang-btn { background:none;border:none;font-size:18px;cursor:pointer;padding:4px 6px;border-radius:6px;transition:background 0.15s;line-height:1; }
+  .lang-btn.active { background:rgba(124,58,237,0.3); }
+  .lang-btn:hover { background:rgba(124,58,237,0.2); }
+  .nav-links { display:flex;gap:32px; }
+  .nav-links a { font-size:13px;color:var(--texte);text-decoration:none;transition:color 0.15s; }
+  .nav-links a:hover { color:var(--creme); }
+  .nav-cta { padding:9px 22px;background:var(--violet);color:white;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none; }
+  .hero { min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 60px 80px;position:relative;overflow:hidden; }
+  .hero-bg { position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse 70% 60% at 65% 50%,#3b1d8a1a 0%,transparent 70%); }
+  .hero-grid { position:absolute;inset:0;z-index:0;background-image:linear-gradient(rgba(124,58,237,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(124,58,237,0.03) 1px,transparent 1px);background-size:60px 60px; }
+  .hero-content { position:relative;z-index:1;max-width:680px; }
+  .hero-badge { display:inline-flex;align-items:center;gap:8px;background:rgba(124,58,237,0.12);border:1px solid rgba(124,58,237,0.35);border-radius:100px;padding:6px 16px;font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:600;color:var(--violet2);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:28px; }
+  .hero-badge::before { content:'';width:6px;height:6px;border-radius:50%;background:var(--violet2);animation:blink 2s ease-in-out infinite; }
+  @keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+  .hero h1 { font-family:'Space Grotesk',sans-serif;font-size:clamp(40px,6vw,76px);font-weight:700;line-height:1.0;letter-spacing:-0.03em;color:var(--creme);margin-bottom:24px; }
+  .hero h1 span { color:var(--violet); }
+  .hero-sub { font-size:clamp(16px,2vw,19px);color:var(--texte);margin-bottom:16px;max-width:540px;line-height:1.7; }
+  .hero-sub2 { font-size:15px;color:#5B5880;margin-bottom:44px;max-width:480px;line-height:1.6; }
+  .hero-btns { display:flex;gap:14px;flex-wrap:wrap;margin-bottom:24px; }
+  .btn-primary { display:inline-flex;align-items:center;gap:8px;padding:15px 32px;background:var(--violet);color:white;border-radius:10px;font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600;text-decoration:none;box-shadow:0 8px 24px rgba(124,58,237,0.35);transition:transform 0.2s,box-shadow 0.2s; }
+  .btn-primary:hover { transform:translateY(-2px);box-shadow:0 12px 32px rgba(124,58,237,0.5); }
+  .btn-win { background:#2D1B69;box-shadow:0 8px 24px rgba(45,27,105,0.4); }
+  .btn-secondary { display:inline-flex;align-items:center;gap:8px;padding:15px 28px;background:transparent;color:var(--violet2);border:1px solid rgba(167,139,250,0.4);border-radius:10px;font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600;text-decoration:none;transition:border-color 0.2s; }
+  .btn-secondary:hover { border-color:var(--violet2); }
+  .hero-note { font-size:12px;color:#4B4870; }
+  .eyebrow { font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--or);margin-bottom:16px; }
+  .section-title { font-family:'Space Grotesk',sans-serif;font-size:clamp(28px,4vw,46px);font-weight:700;line-height:1.1;letter-spacing:-0.02em;color:var(--creme);margin-bottom:16px; }
+  .section-title em { color:var(--violet2);font-style:normal; }
+  .problem { padding:100px 60px;background:#0D0C1A;border-top:1px solid #1E1C38;text-align:center; }
+  .problem-inner { max-width:680px;margin:0 auto; }
+  .problem p { font-size:16px;color:var(--texte);line-height:1.75; }
+  .preview { padding:80px 60px;background:#0D0C1A; }
+  .preview-header { text-align:center;margin-bottom:40px; }
+  .preview-inner { max-width:800px;margin:0 auto;background:#13122A;border:1px solid #2A2750;border-radius:16px;overflow:hidden; }
+  .preview-bar { padding:14px 18px;background:#0F0E1A;border-bottom:1px solid #1E1C38;display:flex;align-items:center;gap:8px; }
+  .dot { width:10px;height:10px;border-radius:50%; }
+  .preview-title { font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:600;color:#4B4870;letter-spacing:0.1em;text-transform:uppercase;margin-left:8px; }
+  .preview-content { padding:24px; }
+  .album-row { display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid #1E1C38; }
+  .album-row:last-child { border-bottom:none; }
+  .album-name { font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:600;color:var(--creme);flex:1; }
+  .album-edit { font-size:12px;color:#5B5880;min-width:90px; }
+  .album-bar-wrap { flex:1;height:6px;background:#2A2750;border-radius:100px;overflow:visible; }
+  .album-bar { height:100%;border-radius:100px;width:0%;transition:width 1.2s cubic-bezier(.22,.68,0,1.2); }
+  .album-pct { font-size:12px;font-weight:700;min-width:36px;text-align:right; }
+  .album-deadline { font-size:11px;padding:3px 10px;border-radius:100px;font-weight:600;min-width:70px;text-align:center; }
+  .features { padding:100px 60px; }
+  .features-header { text-align:center;margin-bottom:56px; }
+  .features-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#1E1C38;border:1px solid #1E1C38;border-radius:16px;overflow:hidden;max-width:1000px;margin:0 auto; } .features-grid .feat:last-child { grid-column:1/-1; }
+  .feat { background:#13122A;padding:36px 28px;transition:background 0.2s; }
+  .feat:hover { background:#1A1838; }
+  .feat-icon { width:44px;height:44px;background:rgba(124,58,237,0.12);border:1px solid rgba(124,58,237,0.2);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px; }
+  .feat-icon svg { width:22px;height:22px; }
+  .feat-title { font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:600;color:var(--creme);margin-bottom:10px; }
+  .feat-body { font-size:14px;color:var(--texte);line-height:1.65; }
+  .demo-tab { padding:9px 18px;background:#13122A;border:1px solid #2A2750;border-radius:8px;font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:600;color:#7B78A8;cursor:pointer;transition:all 0.15s; }
+  .demo-tab:hover { border-color:#7C3AED;color:#C4B5FD; }
+  .demo-tab.active { background:#2D1B69;border-color:#7C3AED;color:#C4B5FD; }
+  .pricing { padding:100px 60px;text-align:center; }
+  .pricing-cards { display:flex;gap:20px;justify-content:center;margin-top:48px;flex-wrap:wrap; }
+  .price-card { background:#13122A;border:1px solid #2A2750;border-radius:18px;padding:36px 28px;min-width:220px;max-width:255px;position:relative;transition:transform 0.2s;text-align:left;display:flex;flex-direction:column; }
+  .price-card:hover { transform:translateY(-4px); }
+  .price-card.featured { border-color:var(--violet);background:linear-gradient(160deg,#1A1050,#13122A); }
+  .price-badge { position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--violet);color:white;font-size:10px;font-weight:700;padding:3px 14px;border-radius:100px;letter-spacing:0.08em;text-transform:uppercase;white-space:nowrap; }
+  .price-tier { font-size:11px;font-weight:600;color:var(--or);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:14px; }
+  .price-amount { font-family:'Space Grotesk',sans-serif;font-size:44px;font-weight:700;color:var(--creme);line-height:1; }
+  .price-amount sup { font-size:20px;font-weight:400;color:var(--texte);vertical-align:top;margin-top:8px; }
+  .price-period { font-size:13px;color:var(--texte);margin-top:4px;margin-bottom:22px; }
+  .price-note { font-size:11px;color:#4B4870;text-align:center;margin-bottom:16px;margin-top:-8px; }
+  .price-items { list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:26px;flex:1; }
+  .price-items li { font-size:13px;color:var(--texte);display:flex;gap:8px;align-items:flex-start; }
+  .price-items li::before { content:'✓';color:#10B981;font-weight:700;flex-shrink:0; }
+  .price-cta { display:block;padding:13px;text-align:center;border-radius:9px;font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:600;text-decoration:none;cursor:pointer;border:none;transition:opacity 0.2s;margin-top:auto; }
+  .price-cta:hover { opacity:0.85; }
+  .cta-main { background:var(--violet);color:white; }
+  .cta-outline { background:transparent;color:var(--violet2);border:1px solid rgba(167,139,250,0.4); }
+  .faq { padding:80px 60px;max-width:700px;margin:0 auto; }
+  .faq h2 { font-family:'Space Grotesk',sans-serif;font-size:32px;font-weight:700;color:var(--creme);margin-bottom:40px;text-align:center; }
+  .faq-item { border-bottom:1px solid #1E1C38;padding:20px 0; }
+  .faq-q { font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600;color:var(--creme);cursor:pointer;display:flex;justify-content:space-between;align-items:center; }
+  .faq-a { font-size:14px;color:var(--texte);line-height:1.7;margin-top:12px;display:none; }
+  .faq-item.open .faq-a { display:block; }
+  .faq-arrow { transition:transform 0.2s;color:var(--violet2); }
+  .faq-item.open .faq-arrow { transform:rotate(180deg); }
+  .cta-final { text-align:center;padding:100px 60px;background:radial-gradient(ellipse 60% 80% at 50% 50%,#2D0A6A18 0%,transparent 70%);border-top:1px solid #1E1C38; }
+  .cta-final h2 { font-family:'Space Grotesk',sans-serif;font-size:clamp(30px,5vw,56px);font-weight:700;line-height:1.1;letter-spacing:-0.02em;color:var(--creme);margin-bottom:16px; }
+  .cta-final h2 span { color:var(--violet2); }
+  .cta-final p { font-size:16px;color:var(--texte);margin-bottom:40px; }
+  footer { padding:32px 60px;border-top:1px solid #1E1C38;display:flex;justify-content:space-between;align-items:center;font-size:12px;color:#4B4870; }
+  footer a { color:#4B4870;text-decoration:none; }
+  footer a:hover { color:var(--texte); }
+  @media(max-width:900px){
+    nav{padding:16px 24px;} .nav-links{display:none;}
+    .hero,.problem,.preview,.features,.pricing,.cta-final{padding:60px 24px;}
+    .features-grid{grid-template-columns:1fr;}
+    .pricing-cards{flex-direction:column;align-items:center;}
+    footer{flex-direction:column;gap:12px;text-align:center;padding:24px;}
+  }
+</style>
 </head>
 <body>
-<p class="p1"><span class="s1">SYNC</span><span class="s2">.</span><span class="s1">PLANNER</span></p>
-<p class="p2"><span class="s3">🇫🇷</span></p>
-<p class="p3"><span class="s4">🇬🇧</span></p>
-<p class="p4"><span class="s3">Télécharger — 14j gratuit</span></p>
-<p class="p5"><span class="s3"></span><br></p>
-<p class="p5"><span class="s3"></span><br></p>
-<p class="p6"><span class="s5">POUR LES COMPOSITEURS EXIGEANTS</span></p>
-<h1 style="margin: 0.0px 0.0px 24.0px 0.0px; font: 48.0px 'Helvetica Neue'; color: #ece9f6; -webkit-text-stroke: #ece9f6"><span class="s3">Fini le<br>
-désordre.<br>
-</span><span class="s6">Reste focus.</span></h1>
-<p class="p8"><span class="s3">Beaucoup de tracks en cours, plusieurs clients, des deadlines qui s'accumulent — ça peut vite devenir le foutoir. SYNC.PLANNER centralise tout au même endroit pour ne rien oublier.</span></p>
-<p class="p9"><span class="s3">SYNC.PLANNER est l'outil de gestion de projets pour tous les compositeurs — sync TV, film, jeux vidéo, publicité, library. Débutant ambitieux ou compositeur confirmé, gérez vos tracks, deadlines et éditeurs depuis un seul endroit.</span></p>
-<p class="p10"><span class="s7"><a href="https://github.com/SyncPlanner/syncplanner-app/releases/download/v1.0.2/SYNC.PLANNER-1.0.2.dmg">Mac — Télécharger</a></span><span class="s8"> </span><span class="s9">Windows — En développement</span></p>
-<p class="p11"><span class="s3"><a href="file:///help"></a></span><br></p>
-<p class="p12"><span class="s10"><a href="file:///help">Explorer les fonctionnalités — démo interactive<span class="s3"></span></a></span></p>
-<p class="p13"><span class="s3">✓ Aucune carte bancaire requise  ·  ✓ Données 100% locales  ·  ✓ Mac &amp; PC</span></p>
-<p class="p14"><span class="s11">🔄</span><span class="s3"> Application en constante évolution — mises à jour régulières incluses</span></p>
-<p class="p15"><span class="s12">POUR QUI</span></p>
-<h2 style="margin: 0.0px 0.0px 16.0px 0.0px; text-align: center; font: 32.0px 'Helvetica Neue'; color: #9571f8; -webkit-text-stroke: #9571f8"><span class="s13">Fait pour vous si</span><span class="s14"><br>
-</span><span class="s12">vous composez pour...</span></h2>
-<p class="p5"><span class="s3"></span><br></p>
-<p class="p17"><span class="s15">Library / Sync</span></p>
-<p class="p18"><span class="s15">Plusieurs albums en parallèle, des éditeurs différents, des deadlines qui s'accumulent — SYNC.PLANNER est fait pour vous.</span></p>
-<p class="p5"><span class="s3"></span><br></p>
-<p class="p17"><span class="s15">Jeux vidéo</span></p>
-<p class="p18"><span class="s15">Packs de tracks par niveau, briefs techniques précis, versions loop/sting — suivez chaque livraison sans vous perdre.</span></p>
-<p class="p5"><span class="s3"></span><br></p>
-<p class="p17"><span class="s15">Film &amp; TV</span></p>
-<p class="p18"><span class="s15">Révisions, allers-retours avec les réalisateurs, versions alternatives — chaque statut est tracé et chaque deadline est visible.</span></p>
-<p class="p5"><span class="s3"></span><br></p>
-<p class="p17"><span class="s15">Publicité</span></p>
-<p class="p18"><span class="s15">Briefs clients avec contraintes (30s, 60s), versions multiples, deadlines courtes — gérez tout depuis un seul outil.</span></p>
-<p class="p19"><span class="s12">TV · Film · Jeux vidéo · Publicité · Library — SYNC.PLANNER s'adapte à tous les formats et workflows, y compris les versions multiples (60s, 30s, 15s, sting).</span></p>
-<p class="p15"><span class="s16">LE PROBLÈME</span></p>
-<h2 style="margin: 0.0px 0.0px 16.0px 0.0px; text-align: center; font: 32.0px 'Helvetica Neue'; color: #9571f8; -webkit-text-stroke: #9571f8"><span class="s17">Trop d'outils,</span><span class="s14"><br>
-</span><span class="s16">pas assez de clarté.</span></h2>
-<p class="p20"><span class="s16">Un Google Sheet pour les deadlines, un autre pour les tracks, des notes éparpillées, des mails avec les clients... Résultat : des relances oubliées, des deadlines ratées, de la confusion. SYNC.PLANNER regroupe tout en un seul endroit, clair et structuré.</span></p>
-<p class="p15"><span class="s16">L'OUTIL</span></p>
-<h2 style="margin: 0.0px 0.0px 16.0px 0.0px; text-align: center; font: 32.0px 'Helvetica Neue'; color: #ece9f6; -webkit-text-stroke: #ece9f6"><span class="s16">Une vue d'ensemble,</span><span class="s3"><br>
-</span><span class="s18">claire et lisible</span></h2>
-<p class="p22"><span class="s3"></span><br></p>
-<p class="p23"><span class="s3"></span><br></p>
-<p class="p24"><span class="s3"></span><br></p>
-<p class="p13"><span class="s19">SYNC.PLANNER</span></p>
-<p class="p25"><span class="s15">Neon Horizon</span></p>
-<p class="p26"><span class="s15">Label Sync</span></p>
-<p class="p24"><span class="s3"></span><br></p>
-<p class="p27"><span class="s15">100%</span></p>
-<p class="p28"><span class="s3">✓ Livré</span></p>
-<p class="p25"><span class="s15">Quiet Storm EP</span></p>
-<p class="p26"><span class="s15">Studio Brief</span></p>
-<p class="p29"><span class="s3"></span><br></p>
-<p class="p30"><span class="s15">72%</span></p>
-<p class="p31"><span class="s3">J-12</span></p>
-<p class="p25"><span class="s15">Urban Frequencies</span></p>
-<p class="p26"><span class="s15">Music Co.</span></p>
-<p class="p32"><span class="s3"></span><br></p>
-<p class="p33"><span class="s15">35%</span></p>
-<p class="p34"><span class="s3">J-28</span></p>
-<p class="p25"><span class="s15">Dark Matter</span></p>
-<p class="p26"><span class="s15">Label Sync</span></p>
-<p class="p35"><span class="s3"></span><br></p>
-<p class="p36"><span class="s15">15%</span></p>
-<p class="p37"><span class="s11">⚠️</span><span class="s3"> J-3</span></p>
-<p class="p15"><span class="s3">FONCTIONNALITÉS</span></p>
-<h2 style="margin: 0.0px 0.0px 16.0px 0.0px; text-align: center; font: 32.0px 'Helvetica Neue'; color: #ece9f6; -webkit-text-stroke: #ece9f6"><span class="s3">Ce que ça fait<br>
-</span><span class="s20">concrètement</span></h2>
-<p class="p5"><span class="s3"></span><br></p>
-<p class="p1"><span class="s15">Deadlines sous contrôle</span></p>
-<p class="p38"><span class="s15">Une vue claire de ce qui est urgent, de ce qui est en cours, et de ce qui a déjà été livré. Plus de mauvaises surprises.</span></p>
-<p class="p5"><span class="s3"></span><br></p>
-<p class="p1"><span class="s15">Suivi de chaque track</span></p>
-<p class="p38"><span class="s15">Composition, révision, mix, livraison — chaque track dispose de son propre statut. La progression de chaque projet est visible en temps réel.</span></p>
-<p class="p5"><span class="s3"></span><br></p>
-<p class="p1"><span class="s15">Gestion des clients</span></p>
-<p class="p38"><span class="s15">Coordonnées, taux de validation, historique de collaboration. Toutes les informations sur les clients et éditeurs centralisées en un seul endroit.</span></p>
-<p class="p5"><span class="s3"></span><br></p>
-<p class="p1"><span class="s15">Stats de production</span></p>
-<p class="p38"><span class="s15">Nombre de tracks produites, taux de validation par client, évolution mensuelle. Des données concrètes pour mieux organiser la production.</span></p>
-<p class="p5"><span class="s3"></span><br></p>
-<p class="p1"><span class="s15">Tracks refusées recyclées</span></p>
-<p class="p38"><span class="s15">Une track refusée peut être réutilisée. SYNC.PLANNER permet de la marquer disponible et de la transférer vers un autre projet.</span></p>
-<p class="p5"><span class="s3"></span><br></p>
-<p class="p1"><span class="s15">100% local et privé</span></p>
-<p class="p38"><span class="s15">Toutes les données restent sur l'ordinateur de l'utilisateur. Aucun cloud, aucun serveur tiers. Confidentialité totale.</span></p>
-<p class="p5"><span class="s3"></span><br></p>
-<p class="p1"><span class="s21">Assistant IA intégré</span></p>
-<p class="p38"><span class="s21">SYNC.PLANNER intègre un assistant connecté à Claude, GPT-4o ou Mistral via clé API personnelle. Il connaît tous les projets et peut créer des albums, modifier des statuts ou analyser la production directement depuis l'app — en langage naturel.</span></p>
-<p class="p15"><span class="s12">POURQUOI SYNC.PLANNER</span></p>
-<h2 style="margin: 0.0px 0.0px 48.0px 0.0px; text-align: center; font: 32.0px 'Helvetica Neue'; color: #ece9f6; -webkit-text-stroke: #ece9f6"><span class="s12">L'outil que les compositeurs</span><span class="s3"><br>
-</span><span class="s22">attendaient vraiment</span></h2>
-<h3 style="margin: 0.0px 0.0px 12.0px 0.0px; font: 18.0px 'Helvetica Neue'; color: #ece9f6; -webkit-text-stroke: #ece9f6"><span class="s12">Conçu pour la musique sync</span></h3>
-<p class="p38"><span class="s12">SYNC.PLANNER est le seul outil de gestion de projets conçu spécifiquement pour les compositeurs de musique sync — library, film, TV, jeux vidéo et publicité. Contrairement aux outils génériques comme Notion ou Trello, il comprend le workflow réel d'un compositeur professionnel : albums, tracks, éditeurs, deadlines et relances.</span></p>
-<h3 style="margin: 0.0px 0.0px 12.0px 0.0px; font: 18.0px 'Helvetica Neue'; color: #ece9f6; -webkit-text-stroke: #ece9f6"><span class="s12">Vos données restent chez vous</span></h3>
-<p class="p38"><span class="s12">100% local. Aucun cloud, aucune donnée audio envoyée. Vos projets, tracks et informations clients restent sur votre Mac. Pas d'abonnement cloud à 30€/mois, pas de risque de fuite de données. SYNC.PLANNER fonctionne même hors connexion.</span></p>
-<h3 style="margin: 0.0px 0.0px 12.0px 0.0px; font: 18.0px 'Helvetica Neue'; color: #ece9f6; -webkit-text-stroke: #ece9f6"><span class="s12">Relances éditeurs automatisées</span></h3>
-<p class="p38"><span class="s12">Les éditeurs peuvent mettre des semaines ou des mois à répondre. SYNC.PLANNER surveille automatiquement vos relances — par album et par track. Quand le délai est dépassé, une alerte apparaît et un email de relance professionnel est prêt à envoyer en un clic, avec votre signature et le contexte complet.</span></p>
-<h3 style="margin: 0.0px 0.0px 12.0px 0.0px; font: 18.0px 'Helvetica Neue'; color: #ece9f6; -webkit-text-stroke: #ece9f6"><span class="s12">Un assistant IA en bonus</span></h3>
-<p class="p38"><span class="s12">SYNC.PLANNER fonctionne parfaitement sans IA — les alertes de deadlines, les relances et le suivi des tracks sont entièrement automatisés. Pour ceux qui le souhaitent, un assistant IA optionnel peut être connecté via clé API personnelle (Claude, GPT-4o ou Mistral). Il connaît vos projets et peut analyser vos risques, générer une checklist de livraison ou chercher des briefs sync en temps réel.</span></p>
-<h3 style="margin: 0.0px 0.0px 24.0px 0.0px; text-align: center; font: 20.0px 'Helvetica Neue'; color: #ece9f6; -webkit-text-stroke: #ece9f6"><span class="s15">SYNC.PLANNER vs les alternatives</span></h3>
-<table cellspacing="0" cellpadding="0" class="t1">
-  <tbody>
-    <tr>
-      <td valign="middle" class="td1">
-        <p class="p42"><span class="s15">Fonctionnalité</span></p>
-      </td>
-      <td valign="middle" class="td2">
-        <p class="p43"><span class="s15">SYNC.PLANNER</span></p>
-      </td>
-      <td valign="middle" class="td3">
-        <p class="p44"><span class="s15">Notion/Trello</span></p>
-      </td>
-      <td valign="middle" class="td4">
-        <p class="p44"><span class="s15">Sync Warehouse</span></p>
-      </td>
-      <td valign="middle" class="td5">
-        <p class="p44"><span class="s15">DropCue/DISCO</span></p>
-      </td>
-    </tr>
-    <tr>
-      <td valign="middle" class="td1">
-        <p class="p45"><span class="s15">Gestion albums &amp; tracks</span></p>
-      </td>
-      <td valign="middle" class="td2">
-        <p class="p46"><span class="s15">✅</span></p>
-      </td>
-      <td valign="middle" class="td3">
-        <p class="p47"><span class="s15">❌</span></p>
-      </td>
-      <td valign="middle" class="td4">
-        <p class="p48"><span class="s15">Partiel</span></p>
-      </td>
-      <td valign="middle" class="td5">
-        <p class="p47"><span class="s15">❌</span></p>
-      </td>
-    </tr>
-    <tr>
-      <td valign="middle" class="td1">
-        <p class="p45"><span class="s15">Relances éditeurs</span></p>
-      </td>
-      <td valign="middle" class="td2">
-        <p class="p46"><span class="s15">✅</span></p>
-      </td>
-      <td valign="middle" class="td3">
-        <p class="p47"><span class="s15">❌</span></p>
-      </td>
-      <td valign="middle" class="td4">
-        <p class="p48"><span class="s15">Basique</span></p>
-      </td>
-      <td valign="middle" class="td5">
-        <p class="p47"><span class="s15">❌</span></p>
-      </td>
-    </tr>
-    <tr>
-      <td valign="middle" class="td1">
-        <p class="p45"><span class="s15">IA coach production</span></p>
-      </td>
-      <td valign="middle" class="td2">
-        <p class="p46"><span class="s15">✅</span></p>
-      </td>
-      <td valign="middle" class="td3">
-        <p class="p47"><span class="s15">❌</span></p>
-      </td>
-      <td valign="middle" class="td4">
-        <p class="p47"><span class="s15">❌</span></p>
-      </td>
-      <td valign="middle" class="td5">
-        <p class="p47"><span class="s15">❌</span></p>
-      </td>
-    </tr>
-    <tr>
-      <td valign="middle" class="td1">
-        <p class="p45"><span class="s15">100% local &amp; privé</span></p>
-      </td>
-      <td valign="middle" class="td2">
-        <p class="p46"><span class="s15">✅</span></p>
-      </td>
-      <td valign="middle" class="td3">
-        <p class="p47"><span class="s15">❌</span></p>
-      </td>
-      <td valign="middle" class="td4">
-        <p class="p47"><span class="s15">❌</span></p>
-      </td>
-      <td valign="middle" class="td5">
-        <p class="p47"><span class="s15">❌</span></p>
-      </td>
-    </tr>
-    <tr>
-      <td valign="middle" class="td1">
-        <p class="p45"><span class="s15">Prix</span></p>
-      </td>
-      <td valign="middle" class="td2">
-        <p class="p49"><span class="s15">9€/mois</span></p>
-      </td>
-      <td valign="middle" class="td3">
-        <p class="p44"><span class="s15">10-20€/mois</span></p>
-      </td>
-      <td valign="middle" class="td4">
-        <p class="p44"><span class="s15">9-19$/mois</span></p>
-      </td>
-      <td valign="middle" class="td5">
-        <p class="p44"><span class="s15">5-30$/mois</span></p>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<h3 style="margin: 0.0px 0.0px 24.0px 0.0px; text-align: center; font: 20.0px 'Helvetica Neue'; color: #ece9f6; -webkit-text-stroke: #ece9f6"><span class="s12">SYNC.PLANNER est fait pour vous si...</span></h3>
-<p class="p5"><span class="s3"></span><br></p>
-<p class="p25"><span class="s15">Compositeur library</span></p>
-<p class="p45"><span class="s15">Vous gérez plusieurs albums simultanément pour différents éditeurs avec des deadlines serrées.</span></p>
-<p class="p5"><span class="s3"></span><br></p>
-<p class="p25"><span class="s15">Compositeur jeux vidéo</span></p>
-<p class="p45"><span class="s15">Vous livrez des packs de tracks avec des statuts différents et des briefs techniques précis.</span></p>
-<p class="p5"><span class="s3"></span><br></p>
-<p class="p25"><span class="s15">Compositeur film &amp; TV</span></p>
-<p class="p45"><span class="s15">Vous collaborez avec des réalisateurs et producteurs et avez besoin de suivre chaque révision.</span></p>
-<p class="p5"><span class="s3"></span><br></p>
-<p class="p25"><span class="s15">Compositeur pub</span></p>
-<p class="p45"><span class="s15">Vous gérez des briefs clients avec des contraintes de durée (30s, 60s) et des versions multiples.</span></p>
-<p class="p15"><span class="s16">TOUR DE L'APPLICATION</span></p>
-<h2 style="margin: 0.0px 0.0px 16.0px 0.0px; text-align: center; font: 32.0px 'Helvetica Neue'; color: #ece9f6; -webkit-text-stroke: #ece9f6"><span class="s16">Toutes les vues,</span><span class="s3"><br>
-</span><span class="s18">dans le détail</span></h2>
-<p class="p50"><span class="s16">Voici à quoi ressemble SYNC.PLANNER au quotidien.</span></p>
-<p class="p51"><span class="s23">🏠</span><span class="s3"> Dashboard</span></p>
-<p class="p52"><span class="s23">🗂️</span><span class="s3"> Kanban</span></p>
-<p class="p52"><span class="s23">📅</span><span class="s3"> Calendrier</span></p>
-<p class="p52"><span class="s23">🏢</span><span class="s3"> Clients &amp; Éditeurs</span></p>
-<p class="p52"><span class="s23">📊</span><span class="s3"> Statistiques</span></p>
-<p class="p22"><span class="s3"></span><br></p>
-<p class="p23"><span class="s3"></span><br></p>
-<p class="p24"><span class="s3"></span><br></p>
-<p class="p53"><span class="s19">SYNC.PLANNER — DASHBOARD</span></p>
-<p class="p54"><span class="s24">9</span></p>
-<p class="p55"><span class="s24">ALBUMS ACTIFS</span></p>
-<p class="p56"><span class="s24">39</span></p>
-<p class="p55"><span class="s24">VALIDÉES</span></p>
-<p class="p57"><span class="s24">67%</span></p>
-<p class="p55"><span class="s24">TAUX VALID.</span></p>
-<p class="p58"><span class="s24">58</span></p>
-<p class="p55"><span class="s24">TOTAL TRACKS</span></p>
-<p class="p59"><span class="s25">⚠️</span></p>
-<p class="p60"><span class="s25">2 deadlines urgentes — Dark Matter (J-3) · Urban Bass (J-6)</span></p>
-<p class="p61"><span class="s24">Neon Horizon</span></p>
-<p class="p62"><span class="s24">Label Sync</span></p>
-<p class="p63"><span class="s24">100%</span></p>
-<p class="p24"><span class="s3"></span><br></p>
-<p class="p61"><span class="s24">Quiet Storm EP</span></p>
-<p class="p62"><span class="s24">Studio Brief</span></p>
-<p class="p64"><span class="s24">72%</span></p>
-<p class="p29"><span class="s3"></span><br></p>
-<p class="p61"><span class="s24">Urban Frequencies</span></p>
-<p class="p62"><span class="s24">Music Co.</span></p>
-<p class="p65"><span class="s24">35%</span></p>
-<p class="p32"><span class="s3"></span><br></p>
-<p class="p61"><span class="s24">Dark Matter</span></p>
-<p class="p62"><span class="s24">Label Sync</span></p>
-<p class="p66"><span class="s24">15%</span></p>
-<p class="p67"><span class="s26">⚠️</span><span class="s3"> J-3</span></p>
-<p class="p35"><span class="s3"></span><br></p>
-<p class="p15"><span class="s3">TARIFS</span></p>
-<h2 style="margin: 0.0px 0.0px 16.0px 0.0px; text-align: center; font: 32.0px 'Helvetica Neue'; color: #9571f8; -webkit-text-stroke: #9571f8"><span class="s14">Simple.<br>
-</span><span class="s3">Sans surprise.</span></h2>
-<p class="p68"><span class="s3">14 jours d'essai gratuit. Aucune carte bancaire requise pour commencer.</span></p>
-<p class="p69"><span class="s15">MENSUEL</span></p>
-<p class="p70"><span class="s27">€</span><span class="s15">9</span></p>
-<p class="p45"><span class="s15">par mois · résiliable à tout moment</span></p>
-<ul class="ul1">
-  <li class="li71"><span class="s28"></span><span class="s15">Albums et tracks illimités</span><span class="s29"> </span><span class="s15">Gestion des clients</span><span class="s29"> </span><span class="s15">Stats complètes</span><span class="s29"> </span><span class="s15">Kanban &amp; Calendrier</span><span class="s29"> </span><span class="s15">Mac &amp; PC</span></li>
-</ul>
-<p class="p72"><span class="s15"><a href="https://buy.stripe.com/test_4gMaEXcya0Cc8EdaLW2ZO02">Commencer<span class="s30"></span></a></span></p>
-<p class="p73"><span class="s26">⭐</span><span class="s3"> LE PLUS POPULAIRE</span></p>
-<p class="p69"><span class="s3">ANNUEL</span></p>
-<p class="p70"><span class="s31">€</span><span class="s3">7,5</span></p>
-<p class="p74"><span class="s3">par mois · résiliable à tout moment</span></p>
-<p class="p45"><span class="s15">Soit 90 euros annuel.</span></p>
-<ul class="ul1">
-  <li class="li71"><span class="s32"></span><span class="s3">Tout du plan mensuel</span><span class="s8"> </span><span class="s3">Mises à jour incluses</span><span class="s8"> </span><span class="s3">Support prioritaire</span></li>
-</ul>
-<p class="p75"><span class="s3"><a href="https://buy.stripe.com/test_eVqcN52XAet26w54ny2ZO01">Commencer<span class="s33"></span></a></span></p>
-<p class="p69"><span class="s15">LIFETIME</span></p>
-<p class="p70"><span class="s27">€</span><span class="s15">149</span></p>
-<p class="p45"><span class="s15">paiement unique · accès à vie</span></p>
-<ul class="ul1">
-  <li class="li71"><span class="s28"></span><span class="s15">Tout du plan annuel</span><span class="s29"> </span><span class="s15">Accès aux futures versions</span><span class="s29"> </span><span class="s15">Un seul paiement</span></li>
-</ul>
-<p class="p72"><span class="s15"><a href="https://buy.stripe.com/test_6oU00j69M3Oog6F3ju2ZO00">Commencer<span class="s30"></span></a></span></p>
-<h2 style="margin: 0.0px 0.0px 40.0px 0.0px; text-align: center; font: 32.0px 'Helvetica Neue'; color: #ece9f6; -webkit-text-stroke: #ece9f6"><span class="s3">Questions fréquentes</span></h2>
-<p class="p17"><span class="s3">Est-ce que mes données sont en sécurité ?</span></p>
-<p class="p77"><span class="s3">▼</span></p>
-<p class="p17"><span class="s3">Ça fonctionne sur Mac et PC ?</span></p>
-<p class="p77"><span class="s3">▼</span></p>
-<p class="p17"><span class="s3">Je peux annuler à tout moment ?</span></p>
-<p class="p77"><span class="s3">▼</span></p>
-<p class="p17"><span class="s3">C'est quoi le plan Lifetime exactement ?</span></p>
-<p class="p77"><span class="s3">▼</span></p>
-<p class="p17"><span class="s3">L'assistant IA a-t-il accès à mes données ?</span></p>
-<p class="p77"><span class="s3">▼</span></p>
-<p class="p17"><span class="s3">Sur Mac, une alerte de sécurité apparaît — que faire ?</span></p>
-<p class="p77"><span class="s3">▼</span></p>
-<p class="p17"><span class="s3">Et si j'ai un problème ?</span></p>
-<p class="p77"><span class="s3">▼</span></p>
-<p class="p17"><span class="s3">SYNC.PLANNER remplace-t-il des outils comme DropCue ou Sync Warehouse ?</span></p>
-<p class="p77"><span class="s3">▼</span></p>
-<p class="p17"><span class="s3">Qu'est-ce que la musique sync et à qui s'adresse cet outil ?</span></p>
-<p class="p77"><span class="s3">▼</span></p>
-<p class="p17"><span class="s3">Comment fonctionne le workflow de production musicale dans SYNC.PLANNER ?</span></p>
-<p class="p77"><span class="s3">▼</span></p>
-<p class="p17"><span class="s3">Peut-on gérer plusieurs éditeurs et plusieurs albums simultanément ?</span></p>
-<p class="p77"><span class="s3">▼</span></p>
-<h2 style="margin: 0.0px 0.0px 16.0px 0.0px; text-align: center; font: 40.0px 'Helvetica Neue'; color: #ece9f6; -webkit-text-stroke: #ece9f6"><span class="s3">Gérez vos </span><span class="s20">projets musicaux</span><span class="s3"><br>
-sans vous perdre.</span></h2>
-<p class="p79"><span class="s3">14 jours d'essai gratuit, sans carte bancaire. Le temps de voir si SYNC.PLANNER correspond au workflow.</span></p>
-<p class="p80"><span class="s7"><a href="https://github.com/SyncPlanner/syncplanner-app/releases/download/v1.0.2/SYNC.PLANNER-1.0.2.dmg">Mac — Télécharger</a></span><span class="s8"> </span><span class="s9">Windows — En développement</span></p>
-<p class="p81"><span class="s3">© 2026 SYNC.PLANNER</span></p>
-<p class="p82"><span class="s3">Logiciel de gestion pour compositeurs sync · music library · publisher · production music · sync licensing · bibliothèque musicale · éditeur musical</span></p>
-<p class="p81"><span class="s3"><a href="mailto:contact@syncplanner.app">Contact<span class="s34"></span></a></span></p>
-<p class="p81"><span class="s3">Mentions légales</span></p>
-<p class="p81"><span class="s3">CGV</span></p>
+
+<nav>
+  <div class="nav-left">
+    <div class="nav-logo">SYNC<span>.</span>PLANNER</div>
+    <div class="lang-switcher">
+      <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')" title="Français">🇫🇷</button>
+      <button class="lang-btn" id="btn-en" onclick="setLang('en')" title="English">🇬🇧</button>
+    </div>
+  </div>
+  <div class="nav-links">
+    <a href="#features" id="nav-features">Fonctionnalités</a>
+    <a href="#pricing" id="nav-pricing">Tarifs</a>
+    <a href="#faq" id="nav-faq">FAQ</a>
+  </div>
+  <a href="#pricing" class="nav-cta" id="nav-cta">Télécharger — 14j gratuit</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-badge" id="hero-badge">Pour les compositeurs exigeants</div>
+    <h1 id="hero-h1">Fini le<br>désordre.<br><span>Reste focus.</span></h1>
+    <p class="hero-sub" id="hero-sub">Beaucoup de tracks en cours, plusieurs clients, des deadlines qui s'accumulent — ça peut vite devenir le foutoir. SYNC.PLANNER centralise tout au même endroit pour ne rien oublier.</p>
+    <p class="hero-sub2" id="hero-sub2">SYNC.PLANNER est l'outil de gestion de projets pour tous les compositeurs — sync TV, film, jeux vidéo, publicité, library. Débutant ambitieux ou compositeur confirmé, gérez vos tracks, deadlines et éditeurs depuis un seul endroit.</p>
+    <div class="hero-btns">
+      <a href="https://github.com/SyncPlanner/syncplanner-app/releases/download/v1.0.2/SYNC.PLANNER-1.0.2.dmg" class="btn-primary" id="btn-mac">Mac — Télécharger</a>
+      <span class="btn-primary btn-win" id="btn-win" style="opacity:0.45;cursor:not-allowed;pointer-events:none">Windows — En développement</span>
+    </div>
+    <div style="margin-top:14px">
+      <a href="/help" id="btn-demo" style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#A78BFA;text-decoration:none;border:1px solid rgba(167,139,250,0.25);border-radius:8px;padding:8px 16px;background:rgba(124,58,237,0.08);transition:all 0.2s"
+        onmouseover="this.style.background='rgba(124,58,237,0.18)';this.style.borderColor='rgba(167,139,250,0.5)'"
+        onmouseout="this.style.background='rgba(124,58,237,0.08)';this.style.borderColor='rgba(167,139,250,0.25)'">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" style="vertical-align:middle"><polygon points="5 3 19 12 5 21 5 3"/></svg> <span id="btn-demo-txt">Explorer les fonctionnalités — démo interactive</span>
+      </a>
+    </div>
+    <div class="hero-note" id="hero-note">✓ Aucune carte bancaire requise &nbsp;·&nbsp; ✓ Données 100% locales &nbsp;·&nbsp; ✓ Mac & PC</div>
+    <div style="margin-top:10px;font-size:11px;color:#4B4870;text-align:center" id="hero-evolving">🔄 Application en constante évolution — mises à jour régulières incluses</div>
+  </div>
+</section>
+
+<!-- POUR QUI -->
+<section style="padding:60px 60px;background:#0A0910;border-top:1px solid #1E1C38">
+  <div style="max-width:1000px;margin:0 auto">
+    <div style="text-align:center;margin-bottom:40px">
+      <div class="eyebrow" id="forwhom-eyebrow">Pour qui</div>
+      <h2 class="section-title" id="forwhom-title">Fait pour vous si<br><em>vous composez pour...</em></h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
+
+      <!-- Library -->
+      <div style="background:#13122A;border:1px solid #2A2750;border-top:3px solid #A78BFA;border-radius:14px;padding:24px;transition:transform 0.2s" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
+        <div style="width:46px;height:46px;background:rgba(167,139,250,0.12);border:1px solid rgba(167,139,250,0.25);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="1.6" stroke-linecap="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+        </div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:700;color:#F0EEF8;margin-bottom:8px" id="fw1-title">Library / Sync</div>
+        <div style="font-size:13px;color:#7B78A8;line-height:1.65" id="fw1-body">Plusieurs albums en parallèle, des éditeurs différents, des deadlines qui s'accumulent — SYNC.PLANNER est fait pour vous.</div>
+      </div>
+
+      <!-- Jeux vidéo -->
+      <div style="background:#13122A;border:1px solid #2A2750;border-top:3px solid #60A5FA;border-radius:14px;padding:24px;transition:transform 0.2s" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
+        <div style="width:46px;height:46px;background:rgba(96,165,250,0.12);border:1px solid rgba(96,165,250,0.25);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="1.6" stroke-linecap="round"><rect x="2" y="6" width="20" height="12" rx="4"/><path d="M6 12h4M8 10v4"/><circle cx="16" cy="11" r="1.2" fill="#60A5FA"/><circle cx="18" cy="13" r="1.2" fill="#60A5FA"/></svg>
+        </div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:700;color:#F0EEF8;margin-bottom:8px" id="fw2-title">Jeux vidéo</div>
+        <div style="font-size:13px;color:#7B78A8;line-height:1.65" id="fw2-body">Packs de tracks par niveau, briefs techniques précis, versions loop/sting — suivez chaque livraison sans vous perdre.</div>
+      </div>
+
+      <!-- Film & TV -->
+      <div style="background:#13122A;border:1px solid #2A2750;border-top:3px solid #34D399;border-radius:14px;padding:24px;transition:transform 0.2s" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
+        <div style="width:46px;height:46px;background:rgba(52,211,153,0.12);border:1px solid rgba(52,211,153,0.25);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="1.6" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:700;color:#F0EEF8;margin-bottom:8px" id="fw3-title">Film & TV</div>
+        <div style="font-size:13px;color:#7B78A8;line-height:1.65" id="fw3-body">Révisions, allers-retours avec les réalisateurs, versions alternatives — chaque statut est tracé et chaque deadline est visible.</div>
+      </div>
+
+      <!-- Pub -->
+      <div style="background:#13122A;border:1px solid #2A2750;border-top:3px solid #FBBF24;border-radius:14px;padding:24px;transition:transform 0.2s" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
+        <div style="width:46px;height:46px;background:rgba(251,191,36,0.12);border:1px solid rgba(251,191,36,0.25);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FBBF24" stroke-width="1.6" stroke-linecap="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:700;color:#F0EEF8;margin-bottom:8px" id="fw4-title">Publicité</div>
+        <div style="font-size:13px;color:#7B78A8;line-height:1.65" id="fw4-body">Briefs clients avec contraintes (30s, 60s), versions multiples, deadlines courtes — gérez tout depuis un seul outil.</div>
+      </div>
+
+    </div>
+    <div style="text-align:center;margin-top:20px;font-size:13px;color:#4B4870" id="fw-note">TV · Film · Jeux vidéo · Publicité · Library — SYNC.PLANNER s'adapte à tous les formats et workflows, y compris les versions multiples (60s, 30s, 15s, sting).</div>
+  </div>
+</section>
+
+<div class="problem">
+  <div class="problem-inner">
+    <div class="eyebrow" id="problem-eyebrow">Le problème</div>
+    <h2 class="section-title" id="problem-title">Trop d'outils,<br><em>pas assez de clarté.</em></h2>
+    <p id="problem-body">Un Google Sheet pour les deadlines, un autre pour les tracks, des notes éparpillées, des mails avec les clients... Résultat : des relances oubliées, des deadlines ratées, de la confusion. SYNC.PLANNER regroupe tout en un seul endroit, clair et structuré.</p>
+  </div>
+</div>
+
+<div class="preview" id="features">
+  <div class="preview-header">
+    <div class="eyebrow" id="preview-eyebrow">L'outil</div>
+    <h2 class="section-title" id="preview-title">Une vue d'ensemble,<br><em>claire et lisible</em></h2>
+  </div>
+  <div class="preview-inner">
+    <div class="preview-bar">
+      <div class="dot" style="background:#F87171"></div>
+      <div class="dot" style="background:#FBBF24"></div>
+      <div class="dot" style="background:#10B981"></div>
+      <div class="preview-title">SYNC.PLANNER</div>
+    </div>
+    <div class="preview-content">
+      <div class="album-row">
+        <div class="album-name">Neon Horizon</div>
+        <div class="album-edit">Label Sync</div>
+        <div class="album-bar-wrap"><div class="album-bar" data-w="100" style="background:#10B981"></div></div>
+        <div class="album-pct" style="color:#10B981">100%</div>
+        <div class="album-deadline" style="background:#064E3B;color:#10B981" id="badge-done">✓ Livré</div>
+      </div>
+      <div class="album-row">
+        <div class="album-name">Quiet Storm EP</div>
+        <div class="album-edit">Studio Brief</div>
+        <div class="album-bar-wrap"><div class="album-bar" data-w="72" style="background:#A78BFA"></div></div>
+        <div class="album-pct" style="color:#A78BFA">72%</div>
+        <div class="album-deadline" style="background:#2D1B69;color:#A78BFA" id="badge-j12">J-12</div>
+      </div>
+      <div class="album-row">
+        <div class="album-name">Urban Frequencies</div>
+        <div class="album-edit">Music Co.</div>
+        <div class="album-bar-wrap"><div class="album-bar" data-w="35" style="background:#60A5FA"></div></div>
+        <div class="album-pct" style="color:#60A5FA">35%</div>
+        <div class="album-deadline" style="background:#1E3A5F;color:#60A5FA" id="badge-j28">J-28</div>
+      </div>
+      <div class="album-row">
+        <div class="album-name">Dark Matter</div>
+        <div class="album-edit">Label Sync</div>
+        <div class="album-bar-wrap"><div class="album-bar" data-w="15" style="background:#FB923C"></div></div>
+        <div class="album-pct" style="color:#FB923C">15%</div>
+        <div class="album-deadline" style="background:#431407;color:#F87171" id="badge-j3b">⚠️ J-3</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="features">
+  <div class="features-header">
+    <div class="eyebrow" id="features-eyebrow">Fonctionnalités</div>
+    <h2 class="section-title" id="features-title">Ce que ça fait<br><em>concrètement</em></h2>
+  </div>
+  <div class="features-grid">
+    <div class="feat"><div class="feat-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="1.6" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="16" y1="2" x2="16" y2="6"/></svg></div><div class="feat-title" id="feat1-title">Deadlines sous contrôle</div><div class="feat-body" id="feat1-body">Une vue claire de ce qui est urgent, de ce qui est en cours, et de ce qui a déjà été livré. Plus de mauvaises surprises.</div></div>
+    <div class="feat"><div class="feat-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="1.6" stroke-linecap="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div><div class="feat-title" id="feat2-title">Suivi de chaque track</div><div class="feat-body" id="feat2-body">Composition, révision, mix, livraison — chaque track dispose de son propre statut. La progression de chaque projet est visible en temps réel.</div></div>
+    <div class="feat"><div class="feat-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="1.6" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><div class="feat-title" id="feat3-title">Gestion des clients</div><div class="feat-body" id="feat3-body">Coordonnées, taux de validation, historique de collaboration. Toutes les informations sur les clients et éditeurs centralisées en un seul endroit.</div></div>
+    <div class="feat"><div class="feat-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="1.6" stroke-linecap="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg></div><div class="feat-title" id="feat4-title">Stats de production</div><div class="feat-body" id="feat4-body">Nombre de tracks produites, taux de validation par client, évolution mensuelle. Des données concrètes pour mieux organiser la production.</div></div>
+    <div class="feat"><div class="feat-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="1.6" stroke-linecap="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-3.51"/></svg></div><div class="feat-title" id="feat5-title">Tracks refusées recyclées</div><div class="feat-body" id="feat5-body">Une track refusée peut être réutilisée. SYNC.PLANNER permet de la marquer disponible et de la transférer vers un autre projet.</div></div>
+    <div class="feat"><div class="feat-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="1.6" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div><div class="feat-title" id="feat6-title">100% local et privé</div><div class="feat-body" id="feat6-body">Toutes les données restent sur l'ordinateur de l'utilisateur. Aucun cloud, aucun serveur tiers. Confidentialité totale.</div></div>
+    <div class="feat" style="grid-column:1/-1;background:#1A1050;border-top:1px solid #7C3AED44"><div class="feat-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="1.6" stroke-linecap="round"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/></svg></div><div class="feat-title" id="feat7-title">Assistant IA intégré</div><div class="feat-body" id="feat7-body">SYNC.PLANNER intègre un assistant connecté à Claude, GPT-4o ou Mistral via clé API personnelle. Il connaît tous les projets et peut créer des albums, modifier des statuts ou analyser la production directement depuis l'app — en langage naturel.</div></div>
+  </div>
+</section>
+
+<!-- SEO CONTENT SECTION -->
+<section style="padding:100px 60px;background:#0A0910;border-top:1px solid #1E1C38">
+  <div style="max-width:800px;margin:0 auto">
+    <div class="eyebrow" style="text-align:center;margin-bottom:16px" id="seo-eyebrow">Pourquoi SYNC.PLANNER</div>
+    <h2 class="section-title" style="text-align:center;margin-bottom:48px" id="seo-title">L'outil que les compositeurs<br><em>attendaient vraiment</em></h2>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-bottom:60px">
+      <div>
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;color:var(--creme);margin-bottom:12px" id="seo-h3-1">Conçu pour la musique sync</h3>
+        <p style="font-size:14px;color:var(--texte);line-height:1.8" id="seo-p1">SYNC.PLANNER est le seul outil de gestion de projets conçu spécifiquement pour les compositeurs de musique sync — library, film, TV, jeux vidéo et publicité. Contrairement aux outils génériques comme Notion ou Trello, il comprend le workflow réel d'un compositeur professionnel : albums, tracks, éditeurs, deadlines et relances.</p>
+      </div>
+      <div>
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;color:var(--creme);margin-bottom:12px" id="seo-h3-2">Vos données restent chez vous</h3>
+        <p style="font-size:14px;color:var(--texte);line-height:1.8" id="seo-p2">100% local. Aucun cloud, aucune donnée audio envoyée. Vos projets, tracks et informations clients restent sur votre Mac. Pas d'abonnement cloud à 30€/mois, pas de risque de fuite de données. SYNC.PLANNER fonctionne même hors connexion.</p>
+      </div>
+      <div>
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;color:var(--creme);margin-bottom:12px" id="seo-h3-3">Relances éditeurs automatisées</h3>
+        <p style="font-size:14px;color:var(--texte);line-height:1.8" id="seo-p3">Les éditeurs peuvent mettre des semaines ou des mois à répondre. SYNC.PLANNER surveille automatiquement vos relances — par album et par track. Quand le délai est dépassé, une alerte apparaît et un email de relance professionnel est prêt à envoyer en un clic, avec votre signature et le contexte complet.</p>
+      </div>
+      <div>
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;color:var(--creme);margin-bottom:12px" id="seo-h3-4">Un assistant IA en bonus</h3>
+        <p style="font-size:14px;color:var(--texte);line-height:1.8" id="seo-p4">SYNC.PLANNER fonctionne parfaitement sans IA — les alertes de deadlines, les relances et le suivi des tracks sont entièrement automatisés. Pour ceux qui le souhaitent, un assistant IA optionnel peut être connecté via clé API personnelle (Claude, GPT-4o ou Mistral). Il connaît vos projets et peut analyser vos risques, générer une checklist de livraison ou chercher des briefs sync en temps réel.</p>
+      </div>
+    </div>
+
+    <!-- Comparaison -->
+    <div style="background:#13122A;border:1px solid #2A2750;border-radius:16px;padding:32px;margin-bottom:60px">
+      <h3 style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;color:var(--creme);margin-bottom:24px;text-align:center" id="seo-compare-title">SYNC.PLANNER vs les alternatives</h3>
+      <div style="overflow-x:auto">
+        <table style="width:100%;border-collapse:collapse;font-size:13px">
+          <thead>
+            <tr style="border-bottom:1px solid #2A2750">
+              <th style="text-align:left;padding:10px;color:#5B5880;font-weight:600" id="seo-th-feature">Fonctionnalité</th>
+              <th style="text-align:center;padding:10px;color:#A78BFA;font-weight:700">SYNC.PLANNER</th>
+              <th style="text-align:center;padding:10px;color:#5B5880">Notion/Trello</th>
+              <th style="text-align:center;padding:10px;color:#5B5880">Sync Warehouse</th>
+              <th style="text-align:center;padding:10px;color:#5B5880">DropCue/DISCO</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid #1E1C38">
+              <td style="padding:10px;color:var(--texte)" id="seo-row1">Gestion albums & tracks</td>
+              <td style="text-align:center;padding:10px;color:#10B981">✅</td>
+              <td style="text-align:center;padding:10px;color:#F87171">❌</td>
+              <td style="text-align:center;padding:10px;color:#FBBF24">Partiel</td>
+              <td style="text-align:center;padding:10px;color:#F87171">❌</td>
+            </tr>
+            <tr style="border-bottom:1px solid #1E1C38">
+              <td style="padding:10px;color:var(--texte)" id="seo-row2">Relances éditeurs</td>
+              <td style="text-align:center;padding:10px;color:#10B981">✅</td>
+              <td style="text-align:center;padding:10px;color:#F87171">❌</td>
+              <td style="text-align:center;padding:10px;color:#FBBF24">Basique</td>
+              <td style="text-align:center;padding:10px;color:#F87171">❌</td>
+            </tr>
+            <tr style="border-bottom:1px solid #1E1C38">
+              <td style="padding:10px;color:var(--texte)" id="seo-row3">IA coach production</td>
+              <td style="text-align:center;padding:10px;color:#10B981">✅</td>
+              <td style="text-align:center;padding:10px;color:#F87171">❌</td>
+              <td style="text-align:center;padding:10px;color:#F87171">❌</td>
+              <td style="text-align:center;padding:10px;color:#F87171">❌</td>
+            </tr>
+            <tr style="border-bottom:1px solid #1E1C38">
+              <td style="padding:10px;color:var(--texte)" id="seo-row4">100% local & privé</td>
+              <td style="text-align:center;padding:10px;color:#10B981">✅</td>
+              <td style="text-align:center;padding:10px;color:#F87171">❌</td>
+              <td style="text-align:center;padding:10px;color:#F87171">❌</td>
+              <td style="text-align:center;padding:10px;color:#F87171">❌</td>
+            </tr>
+            <tr>
+              <td style="padding:10px;color:var(--texte)" id="seo-row5">Prix</td>
+              <td style="text-align:center;padding:10px;color:#10B981;font-weight:700">9€/mois</td>
+              <td style="text-align:center;padding:10px;color:#5B5880">10-20€/mois</td>
+              <td style="text-align:center;padding:10px;color:#5B5880">9-19$/mois</td>
+              <td style="text-align:center;padding:10px;color:#5B5880">5-30$/mois</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Pour qui -->
+    <div style="text-align:center">
+      <h3 style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;color:var(--creme);margin-bottom:24px" id="seo-forwhom-title">SYNC.PLANNER est fait pour vous si...</h3>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;text-align:left">
+        <div style="background:#13122A;border:1px solid #2A2750;border-radius:12px;padding:20px">
+          <div style="margin-bottom:12px"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="2"/><path d="M7 2v20M17 2v20M2 12h20M2 7h5M2 17h5M17 7h5M17 17h5"/></svg></div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:600;color:var(--creme);margin-bottom:6px" id="seo-for1-title">Compositeur library</div>
+          <div style="font-size:13px;color:var(--texte)" id="seo-for1-body">Vous gérez plusieurs albums simultanément pour différents éditeurs avec des deadlines serrées.</div>
+        </div>
+        <div style="background:#13122A;border:1px solid #2A2750;border-radius:12px;padding:20px">
+          <div style="margin-bottom:12px"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="6" width="20" height="12" rx="4"/><path d="M6 12h4M8 10v4"/><circle cx="16" cy="11" r="1" fill="#60A5FA"/><circle cx="18" cy="13" r="1" fill="#60A5FA"/></svg></div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:600;color:var(--creme);margin-bottom:6px" id="seo-for2-title">Compositeur jeux vidéo</div>
+          <div style="font-size:13px;color:var(--texte)" id="seo-for2-body">Vous livrez des packs de tracks avec des statuts différents et des briefs techniques précis.</div>
+        </div>
+        <div style="background:#13122A;border:1px solid #2A2750;border-radius:12px;padding:20px">
+          <div style="margin-bottom:12px"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:600;color:var(--creme);margin-bottom:6px" id="seo-for3-title">Compositeur film & TV</div>
+          <div style="font-size:13px;color:var(--texte)" id="seo-for3-body">Vous collaborez avec des réalisateurs et producteurs et avez besoin de suivre chaque révision.</div>
+        </div>
+        <div style="background:#13122A;border:1px solid #2A2750;border-radius:12px;padding:20px">
+          <div style="margin-bottom:12px"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FBBF24" stroke-width="1.5" stroke-linecap="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:600;color:var(--creme);margin-bottom:6px" id="seo-for4-title">Compositeur pub</div>
+          <div style="font-size:13px;color:var(--texte)" id="seo-for4-body">Vous gérez des briefs clients avec des contraintes de durée (30s, 60s) et des versions multiples.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEMO SECTION -->
+<section style="padding:100px 60px;background:#0D0C1A;border-top:1px solid #1E1C38" id="demo">
+  <div style="text-align:center;margin-bottom:56px">
+    <div class="eyebrow" id="demo-eyebrow">Tour de l'application</div>
+    <h2 class="section-title" id="demo-title">Toutes les vues,<br><em>dans le détail</em></h2>
+    <p style="color:var(--texte);font-size:15px;max-width:560px;margin:0 auto" id="demo-sub">Voici à quoi ressemble SYNC.PLANNER au quotidien.</p>
+  </div>
+  <div style="display:flex;justify-content:center;gap:8px;margin-bottom:32px;flex-wrap:wrap">
+    <button onclick="showDemo('dashboard')" id="tab-dashboard" class="demo-tab active" data-fr="🏠 Dashboard" data-en="🏠 Dashboard">🏠 Dashboard</button>
+    <button onclick="showDemo('kanban')" id="tab-kanban" class="demo-tab" data-fr="🗂️ Kanban" data-en="🗂️ Kanban">🗂️ Kanban</button>
+    <button onclick="showDemo('calendar')" id="tab-calendar" class="demo-tab" data-fr="📅 Calendrier" data-en="📅 Calendar">📅 Calendrier</button>
+    <button onclick="showDemo('publishers')" id="tab-publishers" class="demo-tab" data-fr="🏢 Clients & Éditeurs" data-en="🏢 Clients & Publishers">🏢 Clients & Éditeurs</button>
+    <button onclick="showDemo('stats')" id="tab-stats" class="demo-tab" data-fr="📊 Statistiques" data-en="📊 Statistics">📊 Statistiques</button>
+  </div>
+  <div style="max-width:900px;margin:0 auto;background:#13122A;border:1px solid #2A2750;border-radius:16px;overflow:hidden">
+    <div style="padding:12px 18px;background:#0F0E1A;border-bottom:1px solid #1E1C38;display:flex;align-items:center;gap:8px">
+      <div style="width:10px;height:10px;border-radius:50%;background:#F87171"></div>
+      <div style="width:10px;height:10px;border-radius:50%;background:#FBBF24"></div>
+      <div style="width:10px;height:10px;border-radius:50%;background:#10B981"></div>
+      <div id="demo-title-bar" style="font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:600;color:#4B4870;letter-spacing:0.1em;text-transform:uppercase;margin-left:8px">SYNC.PLANNER — Dashboard</div>
+    </div>
+    <!-- DASHBOARD -->
+    <div id="demo-dashboard" class="demo-panel" style="padding:24px">
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px">
+        <div style="background:#1A1838;border:1px solid #2A2750;border-radius:10px;padding:16px;text-align:center"><div style="font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:700;color:#C4B5FD">9</div><div style="font-size:10px;color:#5B5880;margin-top:4px;text-transform:uppercase;letter-spacing:0.06em" id="dash-stat1">Albums actifs</div></div>
+        <div style="background:#1A1838;border:1px solid #2A2750;border-radius:10px;padding:16px;text-align:center"><div style="font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:700;color:#10B981">39</div><div style="font-size:10px;color:#5B5880;margin-top:4px;text-transform:uppercase;letter-spacing:0.06em" id="dash-stat2">Validées</div></div>
+        <div style="background:#1A1838;border:1px solid #2A2750;border-radius:10px;padding:16px;text-align:center"><div style="font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:700;color:#FBBF24">67%</div><div style="font-size:10px;color:#5B5880;margin-top:4px;text-transform:uppercase;letter-spacing:0.06em" id="dash-stat3">Taux valid.</div></div>
+        <div style="background:#1A1838;border:1px solid #2A2750;border-radius:10px;padding:16px;text-align:center"><div style="font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:700;color:#60A5FA">58</div><div style="font-size:10px;color:#5B5880;margin-top:4px;text-transform:uppercase;letter-spacing:0.06em" id="dash-stat4">Total tracks</div></div>
+      </div>
+      <div style="background:#2D0A0A;border:1px solid #F87171;border-radius:8px;padding:12px 16px;margin-bottom:16px;display:flex;align-items:center;gap:10px">
+        <span>⚠️</span><div style="font-size:12px;color:#F87171;font-weight:600" id="dash-alert">2 deadlines urgentes — Dark Matter (J-3) · Urban Bass (J-6)</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <div style="background:#1A1838;border:1px solid #2A2750;border-radius:10px;padding:14px"><div style="display:flex;align-items:center;gap:12px;margin-bottom:8px"><div style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;color:#F0EEF8;flex:1">Neon Horizon</div><div style="font-size:10px;color:#5B5880">Label Sync</div><div style="font-size:11px;font-weight:700;color:#10B981">100%</div></div><div style="height:4px;background:#2A2750;border-radius:100px;overflow:visible"><div style="height:100%;width:100%;background:#10B981;border-radius:100px;box-shadow:0 0 8px rgba(16,185,129,0.6)"></div></div></div>
+        <div style="background:#1A1838;border:1px solid #2A2750;border-radius:10px;padding:14px"><div style="display:flex;align-items:center;gap:12px;margin-bottom:8px"><div style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;color:#F0EEF8;flex:1">Quiet Storm EP</div><div style="font-size:10px;color:#5B5880">Studio Brief</div><div style="font-size:11px;font-weight:700;color:#A78BFA">72%</div></div><div style="height:4px;background:#2A2750;border-radius:100px"><div style="height:100%;width:72%;background:#A78BFA;border-radius:100px"></div></div></div>
+        <div style="background:#1A1838;border:1px solid #2A2750;border-radius:10px;padding:14px"><div style="display:flex;align-items:center;gap:12px;margin-bottom:8px"><div style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;color:#F0EEF8;flex:1">Urban Frequencies</div><div style="font-size:10px;color:#5B5880">Music Co.</div><div style="font-size:11px;font-weight:700;color:#60A5FA">35%</div></div><div style="height:4px;background:#2A2750;border-radius:100px"><div style="height:100%;width:35%;background:#60A5FA;border-radius:100px"></div></div></div>
+        <div style="background:#1A1838;border-left:3px solid #F87171;border-top:1px solid #2A2750;border-right:1px solid #2A2750;border-bottom:1px solid #2A2750;border-radius:10px;padding:14px"><div style="display:flex;align-items:center;gap:12px;margin-bottom:8px"><div style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;color:#F0EEF8;flex:1">Dark Matter</div><div style="font-size:10px;color:#5B5880">Label Sync</div><div style="font-size:11px;font-weight:700;color:#FB923C">15%</div><div style="font-size:10px;background:#450A0A;color:#F87171;padding:2px 8px;border-radius:4px;font-weight:700" id="badge-j3">⚠️ J-3</div></div><div style="height:4px;background:#2A2750;border-radius:100px"><div style="height:100%;width:15%;background:#FB923C;border-radius:100px"></div></div></div>
+      </div>
+    </div>
+    <!-- KANBAN -->
+    <div id="demo-kanban" class="demo-panel" style="display:none;padding:24px;overflow-x:auto">
+      <div style="display:grid;grid-template-columns:repeat(5,minmax(140px,1fr));gap:12px">
+        <div style="background:#13122A;border:1px solid #1E1C38;border-radius:10px;padding:14px"><div style="font-size:10px;font-weight:700;color:#38BDF8;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center"><span id="k-compo">🎹 Compo</span><span style="background:#0C4A6E;color:#38BDF8;padding:1px 7px;border-radius:100px">3</span></div><div style="display:flex;flex-direction:column;gap:8px"><div style="background:#1A1838;border:1px solid #2A2750;border-radius:7px;padding:10px"><div style="font-size:12px;color:#E2E0F0">Urban Bass 01</div><div style="font-size:10px;color:#5B5880;margin-top:4px">Music Co.</div></div><div style="background:#1A1838;border:1px solid #2A2750;border-radius:7px;padding:10px"><div style="font-size:12px;color:#E2E0F0">Dark Matter 02</div><div style="font-size:10px;color:#5B5880;margin-top:4px">Label Sync</div></div><div style="background:#1A1838;border:1px solid #2A2750;border-radius:7px;padding:10px"><div style="font-size:12px;color:#E2E0F0">Pulse 03</div><div style="font-size:10px;color:#5B5880;margin-top:4px">Studio Brief</div></div></div></div>
+        <div style="background:#13122A;border:1px solid #1E1C38;border-radius:10px;padding:14px"><div style="font-size:10px;font-weight:700;color:#60A5FA;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center"><span id="k-sent">📤 Envoyée</span><span style="background:#1E3A5F;color:#60A5FA;padding:1px 7px;border-radius:100px">2</span></div><div style="display:flex;flex-direction:column;gap:8px"><div style="background:#1A1838;border:1px solid #2A2750;border-radius:7px;padding:10px"><div style="font-size:12px;color:#E2E0F0">Neon City 01</div><div style="font-size:10px;color:#5B5880;margin-top:4px">Label Sync</div></div><div style="background:#1A1838;border:1px solid #2A2750;border-radius:7px;padding:10px"><div style="font-size:12px;color:#E2E0F0">Drive By 04</div><div style="font-size:10px;color:#5B5880;margin-top:4px">Studio Brief</div></div></div></div>
+        <div style="background:#13122A;border:1px solid #1E1C38;border-radius:10px;padding:14px"><div style="font-size:10px;font-weight:700;color:#FB923C;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center"><span id="k-rev">🔄 Révision</span><span style="background:#431407;color:#FB923C;padding:1px 7px;border-radius:100px">1</span></div><div style="display:flex;flex-direction:column;gap:8px"><div style="background:#1A1838;border:1px solid #FB923C33;border-radius:7px;padding:10px"><div style="font-size:12px;color:#E2E0F0">Quiet Storm 02</div><div style="font-size:10px;color:#5B5880;margin-top:4px">Music Co.</div></div></div></div>
+        <div style="background:#13122A;border:1px solid #1E1C38;border-radius:10px;padding:14px"><div style="font-size:10px;font-weight:700;color:#A78BFA;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center"><span id="k-mix">🎚️ Mix</span><span style="background:#2D1B69;color:#A78BFA;padding:1px 7px;border-radius:100px">2</span></div><div style="display:flex;flex-direction:column;gap:8px"><div style="background:#1A1838;border:1px solid #2A2750;border-radius:7px;padding:10px"><div style="font-size:12px;color:#E2E0F0">Neon City 03</div><div style="font-size:10px;color:#5B5880;margin-top:4px">Label Sync</div></div><div style="background:#1A1838;border:1px solid #2A2750;border-radius:7px;padding:10px"><div style="font-size:12px;color:#E2E0F0">Storm 01</div><div style="font-size:10px;color:#5B5880;margin-top:4px">Studio Brief</div></div></div></div>
+        <div style="background:#13122A;border:1px solid #1E1C38;border-radius:10px;padding:14px"><div style="font-size:10px;font-weight:700;color:#10B981;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center"><span id="k-del">✅ Livré</span><span style="background:#064E3B;color:#10B981;padding:1px 7px;border-radius:100px">4</span></div><div style="display:flex;flex-direction:column;gap:8px"><div style="background:#1A1838;border:1px solid #2A2750;border-radius:7px;padding:10px"><div style="font-size:12px;color:#E2E0F0">Neon City 02</div><div style="font-size:10px;color:#5B5880;margin-top:4px">Label Sync</div></div><div style="background:#1A1838;border:1px solid #2A2750;border-radius:7px;padding:10px"><div style="font-size:12px;color:#E2E0F0">Urban Bass 03</div><div style="font-size:10px;color:#5B5880;margin-top:4px">Music Co.</div></div><div style="background:#1A1838;border:1px solid #2A2750;border-radius:7px;padding:10px"><div style="font-size:12px;color:#E2E0F0">Pulse 01</div><div style="font-size:10px;color:#5B5880;margin-top:4px">Studio Brief</div></div><div style="background:#1A1838;border:1px solid #2A2750;border-radius:7px;padding:10px"><div style="font-size:12px;color:#E2E0F0">Dark Matter 01</div><div style="font-size:10px;color:#5B5880;margin-top:4px">Label Sync</div></div></div></div>
+      </div>
+    </div>
+    <!-- CALENDRIER -->
+    <div id="demo-calendar" class="demo-panel" style="display:none;padding:24px">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px">
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:700;color:#F0EEF8" id="cal-month">Août 2026</div>
+        <div style="display:flex;gap:8px"><div style="padding:4px 12px;background:#1E1C38;border-radius:6px;font-size:12px;color:#7B78A8;cursor:pointer">←</div><div style="padding:4px 12px;background:#7C3AED;border-radius:6px;font-size:12px;color:white" id="cal-today">Aujourd'hui</div><div style="padding:4px 12px;background:#1E1C38;border-radius:6px;font-size:12px;color:#7B78A8;cursor:pointer">→</div></div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:1px;background:#1E1C38;border:1px solid #1E1C38;border-radius:10px;overflow:hidden">
+        <div style="background:#0F0E1A;padding:8px;text-align:center;font-size:10px;font-weight:700;color:#5B5880" id="cal-d1">Lun</div>
+        <div style="background:#0F0E1A;padding:8px;text-align:center;font-size:10px;font-weight:700;color:#5B5880" id="cal-d2">Mar</div>
+        <div style="background:#0F0E1A;padding:8px;text-align:center;font-size:10px;font-weight:700;color:#5B5880" id="cal-d3">Mer</div>
+        <div style="background:#0F0E1A;padding:8px;text-align:center;font-size:10px;font-weight:700;color:#5B5880" id="cal-d4">Jeu</div>
+        <div style="background:#0F0E1A;padding:8px;text-align:center;font-size:10px;font-weight:700;color:#5B5880" id="cal-d5">Ven</div>
+        <div style="background:#0F0E1A;padding:8px;text-align:center;font-size:10px;font-weight:700;color:#5B5880" id="cal-d6">Sam</div>
+        <div style="background:#0F0E1A;padding:8px;text-align:center;font-size:10px;font-weight:700;color:#5B5880" id="cal-d7">Dim</div>
+        <div style="background:#13122A;padding:8px;min-height:64px"></div><div style="background:#13122A;padding:8px;min-height:64px"></div><div style="background:#13122A;padding:8px;min-height:64px"></div><div style="background:#13122A;padding:8px;min-height:64px"></div>
+        <div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#5B5880">1</div></div><div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#5B5880">2</div></div><div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#5B5880">3</div></div>
+        <div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#5B5880">4</div></div>
+        <div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#5B5880">5</div><div style="background:#7C3AED22;border:1px solid #7C3AED44;border-radius:4px;padding:2px 5px;font-size:9px;color:#A78BFA;margin-top:3px">📅 Label Sync</div></div>
+        <div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#5B5880">6</div></div><div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#5B5880">7</div></div><div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#5B5880">8</div></div><div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#5B5880">9</div></div><div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#5B5880">10</div></div>
+        <div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#5B5880">11</div></div>
+        <div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#5B5880">12</div><div style="background:#FB923C22;border:1px solid #FB923C44;border-radius:4px;padding:2px 5px;font-size:9px;color:#FB923C;margin-top:3px">📅 Music Co.</div></div>
+        <div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#5B5880">13</div></div><div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#5B5880">14</div></div>
+        <div style="background:#1A1050;border:1px solid #7C3AED;padding:8px;min-height:64px"><div style="font-size:11px;font-weight:700;color:#A78BFA">15</div></div>
+        <div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#5B5880">16</div></div><div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#5B5880">17</div></div>
+        <div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#5B5880">18</div><div style="background:#10B98122;border:1px solid #10B98144;border-radius:4px;padding:2px 5px;font-size:9px;color:#10B981;margin-top:3px">📅 Studio Brief</div></div>
+        <div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#5B5880">19</div></div><div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#5B5880">20</div></div><div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#5B5880">21</div></div>
+        <div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#5B5880">22</div><div style="background:#7C3AED22;border:1px solid #7C3AED44;border-radius:4px;padding:2px 5px;font-size:9px;color:#A78BFA;margin-top:3px">📅 Label Sync</div></div>
+        <div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#5B5880">23</div></div><div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#5B5880">24</div></div>
+        <div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#5B5880">25</div></div><div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#5B5880">26</div></div><div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#5B5880">27</div></div>
+        <div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#5B5880">28</div><div style="background:#FB923C22;border:1px solid #F8717144;border-radius:4px;padding:2px 5px;font-size:9px;color:#F87171;margin-top:3px">⚠️ Music Co.</div></div>
+        <div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#5B5880">29</div></div><div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#5B5880">30</div></div><div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#5B5880">31</div></div>
+      </div>
+    </div>
+    <!-- ÉDITEURS -->
+    <div id="demo-publishers" class="demo-panel" style="display:none;padding:24px">
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px">
+        <div style="background:#1A1838;border:1px solid #2A2750;border-radius:10px;padding:14px;text-align:center"><div style="font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:700;color:#C4B5FD">3</div><div style="font-size:10px;color:#5B5880;margin-top:4px;text-transform:uppercase;letter-spacing:0.06em" id="pub-stat1">Clients</div></div>
+        <div style="background:#1A1838;border:1px solid #2A2750;border-radius:10px;padding:14px;text-align:center"><div style="font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:700;color:#10B981">47</div><div style="font-size:10px;color:#5B5880;margin-top:4px;text-transform:uppercase;letter-spacing:0.06em" id="pub-stat2">Validées</div></div>
+        <div style="background:#1A1838;border:1px solid #2A2750;border-radius:10px;padding:14px;text-align:center"><div style="font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:700;color:#FBBF24">68%</div><div style="font-size:10px;color:#5B5880;margin-top:4px;text-transform:uppercase;letter-spacing:0.06em" id="pub-stat3">Taux moyen</div></div>
+        <div style="background:#1A1838;border:1px solid #2A2750;border-radius:10px;padding:14px;text-align:center"><div style="font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:700;color:#60A5FA">5</div><div style="font-size:10px;color:#5B5880;margin-top:4px;text-transform:uppercase;letter-spacing:0.06em" id="pub-stat4">En attente</div></div>
+      </div>
+      <div style="background:#1A1838;border:1px solid #2A2750;border-radius:10px;padding:16px;margin-bottom:10px;display:flex;align-items:center;gap:16px"><div style="flex:1"><div style="font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:700;color:#F0EEF8">Label Sync</div><div style="font-size:11px;color:#5B5880;margin-top:3px">4 albums · 28 tracks</div></div><div style="text-align:center;min-width:50px"><div style="font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;color:#10B981">21</div><div style="font-size:9px;color:#5B5880" id="pub-validated">validées</div></div><div style="min-width:90px"><div style="display:flex;justify-content:space-between;margin-bottom:4px"><span style="font-size:10px;color:#5B5880" id="pub-rate">Taux</span><span style="font-size:10px;font-weight:700;color:#10B981">75%</span></div><div style="height:5px;background:#2A2750;border-radius:100px;overflow:hidden"><div style="height:100%;width:75%;background:#10B981;border-radius:100px"></div></div></div><div style="color:#3D3A60;font-size:12px">▼</div></div>
+      <div style="background:#1A1838;border:1px solid #2A2750;border-radius:10px;padding:16px;margin-bottom:10px;display:flex;align-items:center;gap:16px"><div style="flex:1"><div style="font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:700;color:#F0EEF8">Studio Brief</div><div style="font-size:11px;color:#5B5880;margin-top:3px">3 albums · 18 tracks</div></div><div style="text-align:center;min-width:50px"><div style="font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;color:#10B981">11</div><div style="font-size:9px;color:#5B5880" id="pub-validated2">validées</div></div><div style="min-width:90px"><div style="display:flex;justify-content:space-between;margin-bottom:4px"><span style="font-size:10px;color:#5B5880" id="pub-rate2">Taux</span><span style="font-size:10px;font-weight:700;color:#FBBF24">61%</span></div><div style="height:5px;background:#2A2750;border-radius:100px;overflow:hidden"><div style="height:100%;width:61%;background:#FBBF24;border-radius:100px"></div></div></div><div style="color:#3D3A60;font-size:12px">▼</div></div>
+      <div style="background:#1A1838;border:1px solid #2A2750;border-radius:10px;padding:16px;display:flex;align-items:center;gap:16px"><div style="flex:1"><div style="font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:700;color:#F0EEF8">Music Co.</div><div style="font-size:11px;color:#5B5880;margin-top:3px">2 albums · 12 tracks</div></div><div style="text-align:center;min-width:50px"><div style="font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;color:#FBBF24">7</div><div style="font-size:9px;color:#5B5880" id="pub-validated3">validées</div></div><div style="min-width:90px"><div style="display:flex;justify-content:space-between;margin-bottom:4px"><span style="font-size:10px;color:#5B5880" id="pub-rate3">Taux</span><span style="font-size:10px;font-weight:700;color:#FBBF24">58%</span></div><div style="height:5px;background:#2A2750;border-radius:100px;overflow:hidden"><div style="height:100%;width:58%;background:#FBBF24;border-radius:100px"></div></div></div><div style="color:#3D3A60;font-size:12px">▼</div></div>
+    </div>
+    <!-- STATS -->
+    <div id="demo-stats" class="demo-panel" style="display:none;padding:24px">
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px">
+        <div style="background:#1A1838;border:1px solid #2A2750;border-radius:10px;padding:14px;text-align:center"><div style="font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:700;color:#C4B5FD">58</div><div style="font-size:10px;color:#5B5880;margin-top:4px;text-transform:uppercase;letter-spacing:0.06em" id="stat-total">Total tracks</div></div>
+        <div style="background:#1A1838;border:1px solid #2A2750;border-radius:10px;padding:14px;text-align:center"><div style="font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:700;color:#10B981">39</div><div style="font-size:10px;color:#5B5880;margin-top:4px;text-transform:uppercase;letter-spacing:0.06em" id="stat-val">Validées</div></div>
+        <div style="background:#1A1838;border:1px solid #2A2750;border-radius:10px;padding:14px;text-align:center"><div style="font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:700;color:#F87171">8</div><div style="font-size:10px;color:#5B5880;margin-top:4px;text-transform:uppercase;letter-spacing:0.06em" id="stat-ref">Refusées</div></div>
+        <div style="background:#1A1838;border:1px solid #2A2750;border-radius:10px;padding:14px;text-align:center"><div style="font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:700;color:#FBBF24">67%</div><div style="font-size:10px;color:#5B5880;margin-top:4px;text-transform:uppercase;letter-spacing:0.06em" id="stat-rate">Taux valid.</div></div>
+      </div>
+      <div style="background:#1A1838;border:1px solid #2A2750;border-radius:10px;padding:18px">
+        <div style="font-size:10px;font-weight:700;color:#9D99C8;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:16px" id="stat-chart-title">Production mensuelle 2026</div>
+        <div style="display:flex;gap:6px;align-items:flex-end;height:100px;padding-bottom:4px">
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:4px;height:100%"><div style="width:100%;background:#7C3AED;border-radius:3px 3px 0 0;height:32px;opacity:0.5"></div><div style="font-size:8px;color:#4B4870" id="m1">Jan</div></div>
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:4px;height:100%"><div style="width:100%;background:#7C3AED;border-radius:3px 3px 0 0;height:48px;opacity:0.5"></div><div style="font-size:8px;color:#4B4870" id="m2">Fév</div></div>
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:4px;height:100%"><div style="width:100%;background:#7C3AED;border-radius:3px 3px 0 0;height:40px;opacity:0.5"></div><div style="font-size:8px;color:#4B4870" id="m3">Mar</div></div>
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:4px;height:100%"><div style="width:100%;background:#7C3AED;border-radius:3px 3px 0 0;height:64px;opacity:0.5"></div><div style="font-size:8px;color:#4B4870" id="m4">Avr</div></div>
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:4px;height:100%"><div style="width:100%;background:#7C3AED;border-radius:3px 3px 0 0;height:56px;opacity:0.5"></div><div style="font-size:8px;color:#4B4870" id="m5">Mai</div></div>
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:4px;height:100%"><div style="width:100%;background:#7C3AED;border-radius:3px 3px 0 0;height:72px;opacity:0.5"></div><div style="font-size:8px;color:#4B4870" id="m6">Jun</div></div>
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:4px;height:100%"><div style="width:100%;background:#7C3AED;border-radius:3px 3px 0 0;height:48px;opacity:0.5"></div><div style="font-size:8px;color:#4B4870" id="m7">Jul</div></div>
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:4px;height:100%"><div style="width:100%;background:#7C3AED;border-radius:3px 3px 0 0;height:80px;opacity:0.5"></div><div style="font-size:8px;color:#4B4870" id="m8">Aoû</div></div>
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:4px;height:100%"><div style="font-size:8px;color:#2A2750" id="m9">Sep</div></div>
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:4px;height:100%"><div style="font-size:8px;color:#2A2750" id="m10">Oct</div></div>
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:4px;height:100%"><div style="font-size:8px;color:#2A2750" id="m11">Nov</div></div>
+          <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:4px;height:100%"><div style="font-size:8px;color:#2A2750" id="m12">Déc</div></div>
+        </div>
+        <div style="display:flex;gap:16px;margin-top:12px">
+          <div style="display:flex;align-items:center;gap:6px"><div style="width:10px;height:10px;border-radius:2px;background:#7C3AED;opacity:0.5"></div><span style="font-size:11px;color:#5B5880" id="chart-leg1">Produites</span></div>
+          <div style="display:flex;align-items:center;gap:6px"><div style="width:10px;height:10px;border-radius:2px;background:#10B981"></div><span style="font-size:11px;color:#5B5880" id="chart-leg2">Validées</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pricing" id="pricing">
+  <div class="eyebrow" id="pricing-eyebrow">Tarifs</div>
+  <h2 class="section-title" id="pricing-title">Simple.<br><em>Sans surprise.</em></h2>
+  <p style="color:var(--texte);font-size:15px;margin-top:12px" id="pricing-sub">14 jours d'essai gratuit. Aucune carte bancaire requise pour commencer.</p>
+  <div class="pricing-cards">
+    <div class="price-card">
+      <div class="price-tier" id="plan1-tier">Mensuel</div>
+      <div class="price-amount"><sup>€</sup><span id="plan1-price">9</span></div>
+      <div class="price-period" id="plan1-period">par mois · résiliable à tout moment</div>
+      <ul class="price-items" id="plan1-items">
+        <li id="feat-unlimited">Albums et tracks illimités</li>
+        <li id="feat-clients">Gestion des clients</li>
+        <li id="feat-stats">Stats complètes</li>
+        <li id="feat-kanban">Kanban & Calendrier</li>
+        <li>Mac & PC</li>
+      </ul>
+      <a href="https://buy.stripe.com/test_4gMaEXcya0Cc8EdaLW2ZO02" target="_blank" class="price-cta cta-outline" id="cta-btn1">Commencer</a>
+    </div>
+    <div class="price-card featured">
+      <div class="price-badge" id="price-badge-popular">⭐ Le plus populaire</div>
+      <div class="price-tier" id="plan2-tier">Annuel</div>
+      <div class="price-amount"><sup>€</sup><span id="plan2-price">7,5</span><span style="font-size:14px;font-weight:500;color:#7B78A8">/mois</span></div>
+      <div style="font-size:12px;color:#5B5880;margin-top:2px" id="plan2-period">soit 90€ par an · facturé en une fois</div>
+      <ul class="price-items">
+        <li id="feat-all">Tout du plan mensuel</li>
+        <li id="feat-updates">Mises à jour incluses</li>
+        <li id="feat-support">Support prioritaire</li>
+      </ul>
+      <a href="https://buy.stripe.com/test_eVqcN52XAet26w54ny2ZO01" target="_blank" class="price-cta cta-main" id="cta-btn2">Commencer</a>
+    </div>
+    <div class="price-card">
+      <div class="price-tier" id="plan3-tier">Lifetime</div>
+      <div class="price-amount"><sup>€</sup><span id="plan3-price">149</span></div>
+      <div class="price-period" id="plan3-period">paiement unique · accès à vie</div>
+      <ul class="price-items">
+        <li id="feat-all2">Tout du plan annuel</li>
+        <li id="feat-future">Accès aux futures versions</li>
+        <li id="feat-once">Un seul paiement</li>
+      </ul>
+      <a href="https://buy.stripe.com/test_6oU00j69M3Oog6F3ju2ZO00" target="_blank" class="price-cta cta-outline" id="cta-btn3">Commencer</a>
+    </div>
+  </div>
+</section>
+
+<div class="faq" id="faq">
+  <h2 id="faq-title">Questions fréquentes</h2>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)"><span id="faq1-q">Est-ce que mes données sont en sécurité ?</span><span class="faq-arrow">▼</span></div>
+    <div class="faq-a" id="faq1-a">Oui — toutes les données sont stockées localement sur l'ordinateur de l'utilisateur. Aucune donnée ne transite par nos serveurs, à l'exception de la vérification de licence.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)"><span id="faq2-q">Ça fonctionne sur Mac et PC ?</span><span class="faq-arrow">▼</span></div>
+    <div class="faq-a" id="faq2-a">Oui, SYNC.PLANNER est disponible sur Mac (.dmg) et Windows (.exe). Fonctionne sur Mac et PC.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)"><span id="faq3-q">Je peux annuler à tout moment ?</span><span class="faq-arrow">▼</span></div>
+    <div class="faq-a" id="faq3-a">Oui, sans conditions. L'annulation se fait en un clic depuis l'espace Stripe. L'accès reste actif jusqu'à la fin de la période payée.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)"><span id="faq4-q">C'est quoi le plan Lifetime exactement ?</span><span class="faq-arrow">▼</span></div>
+    <div class="faq-a" id="faq4-a">Un paiement unique de 149€ donne un accès permanent à SYNC.PLANNER, ainsi qu'aux futures versions de l'application.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)"><span id="faq6-q">L'assistant IA a-t-il accès à mes données ?</span><span class="faq-arrow">▼</span></div>
+    <div class="faq-a" id="faq6-a">L'assistant IA utilise une clé API personnelle (Claude, GPT-4o ou Mistral). Les données sont envoyées directement au fournisseur choisi — elles ne transitent pas par les serveurs SYNC.PLANNER. L'historique de conversation est conservé pendant la session en cours. Entre les sessions, l'IA mémorise localement sur votre Mac vos habitudes de travail — ces données ne quittent jamais votre ordinateur.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)"><span id="faq7-q">Sur Mac, une alerte de sécurité apparaît — que faire ?</span><span class="faq-arrow">▼</span></div>
+    <div class="faq-a" id="faq7-a">C'est une protection standard de macOS. Pour ouvrir SYNC.PLANNER : clic droit sur l'app → "Ouvrir" → "Ouvrir quand même". Cette étape n'est nécessaire qu'une seule fois.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)"><span id="faq5-q">Et si j'ai un problème ?</span><span class="faq-arrow">▼</span></div>
+    <div class="faq-a" id="faq5-a">Il suffit d'envoyer un mail à contact@syncplanner.app Réponse sous 24h.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)"><span id="faq8-q">SYNC.PLANNER remplace-t-il des outils comme DropCue ou Sync Warehouse ?</span><span class="faq-arrow">▼</span></div>
+    <div class="faq-a" id="faq8-a">Non — ces outils sont complémentaires. DropCue, DISCO et Sync Warehouse sont des outils de partage et de soumission vers les music supervisors et bibliothèques musicales. SYNC.PLANNER gère la production interne : la création des albums, le suivi des tracks, les deadlines avec les éditeurs et les relances. SYNC.PLANNER s'utilise avant de pitcher — pour être parfaitement organisé quand vient le moment de soumettre.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)"><span id="faq9-q">Qu'est-ce que la musique sync et à qui s'adresse cet outil ?</span><span class="faq-arrow">▼</span></div>
+    <div class="faq-a" id="faq9-a">La musique sync (ou synchronisation musicale) désigne l'utilisation d'une musique dans un contenu audiovisuel : films, séries TV, jeux vidéo, publicités, documentaires. Les compositeurs qui produisent de la musique sync travaillent en général avec des éditeurs ou bibliothèques musicales (music libraries) qui leur envoient des briefs avec des deadlines précises. SYNC.PLANNER est conçu pour tous les compositeurs qui travaillent sérieusement — qu'ils débutent ou soient déjà établis.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)"><span id="faq10-q">Comment fonctionne le workflow de production musicale dans SYNC.PLANNER ?</span><span class="faq-arrow">▼</span></div>
+    <div class="faq-a" id="faq10-a">Le workflow est simple et calqué sur la réalité du compositeur sync : vous créez un projet (album) pour chaque commande d'un éditeur, vous ajoutez vos tracks avec leur statut (Composition → Envoyée → Révision → Mix → Livrée), et vous définissez une deadline. SYNC.PLANNER calcule automatiquement la progression de chaque album, vous alerte quand une deadline approche, et vous rappelle de relancer les éditeurs qui n'ont pas répondu. L'assistant IA peut ensuite analyser votre production et vous aider à prioriser vos tâches.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)"><span id="faq11-q">Peut-on gérer plusieurs éditeurs et plusieurs albums simultanément ?</span><span class="faq-arrow">▼</span></div>
+    <div class="faq-a" id="faq11-a">Oui — c'est exactement pour ça que SYNC.PLANNER a été conçu. Vous pouvez gérer un nombre illimité d'albums avec des éditeurs différents, chacun avec sa propre deadline, ses tracks et ses statuts de relance. La vue Kanban mensuelle vous donne une vision globale de toutes vos tracks en cours, tous éditeurs confondus. Les statistiques vous permettent de comparer vos taux de validation par éditeur pour identifier les collaborations les plus fructueuses.</div>
+  </div>
+</div>
+
+<section class="cta-final">
+  <h2 id="cta-final-title">Gérez vos <span>projets musicaux</span><br>sans vous perdre.</h2>
+  <p id="cta-final-sub">14 jours d'essai gratuit, sans carte bancaire. Le temps de voir si SYNC.PLANNER correspond au workflow.</p>
+  <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+    <a href="https://github.com/SyncPlanner/syncplanner-app/releases/download/v1.0.2/SYNC.PLANNER-1.0.2.dmg" class="btn-primary" id="cta-final-mac">Mac — Télécharger</a>
+    <span class="btn-primary btn-win" id="cta-final-win" style="opacity:0.45;cursor:not-allowed;pointer-events:none">Windows — En développement</span>
+  </div>
+</section>
+
+<footer>
+  <div>© 2026 SYNC.PLANNER</div>
+  <div style="font-size:11px;color:#2A2750;text-align:center">Logiciel de gestion pour compositeurs sync · music library · publisher · production music · sync licensing · bibliothèque musicale · éditeur musical</div>
+  <div style="display:flex;gap:24px">
+    <a href="mailto:contact@syncplanner.app">Contact</a>
+    <a href="#" id="footer-legal">Mentions légales</a>
+    <a href="#" id="footer-cgv">CGV</a>
+  </div>
+</footer>
+
+<script>
+function toggleFaq(el) { el.parentElement.classList.toggle('open'); }
+
+function showDemo(tab) {
+  document.querySelectorAll('.demo-panel').forEach(p => p.style.display = 'none');
+  document.querySelectorAll('.demo-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('demo-' + tab).style.display = 'block';
+  document.getElementById('tab-' + tab).classList.add('active');
+  const lang = localStorage.getItem('site-lang') || 'fr';
+  const titles = {
+    dashboard: 'SYNC.PLANNER — Dashboard',
+    kanban: 'SYNC.PLANNER — Kanban',
+    calendar: lang === 'fr' ? 'SYNC.PLANNER — Calendrier' : 'SYNC.PLANNER — Calendar',
+    publishers: lang === 'fr' ? 'SYNC.PLANNER — Clients & Éditeurs' : 'SYNC.PLANNER — Clients & Publishers',
+    stats: lang === 'fr' ? 'SYNC.PLANNER — Statistiques' : 'SYNC.PLANNER — Statistics'
+  };
+  document.getElementById('demo-title-bar').textContent = titles[tab];
+}
+
+const T = {
+  fr: {
+        "forwhom-eyebrow":"Pour qui",
+    "forwhom-title":"Fait pour vous si<br><em>vous composez pour...</em>",
+    "fw1-title":"Library / Sync","fw1-body":"Plusieurs albums en parallèle, des éditeurs différents, des deadlines qui s'accumulent — SYNC.PLANNER est fait pour vous.",
+    "fw2-title":"Jeux vidéo","fw2-body":"Packs de tracks par niveau, briefs techniques précis, versions loop/sting — suivez chaque livraison sans vous perdre.",
+    "fw3-title":"Film & TV","fw3-body":"Révisions, allers-retours avec les réalisateurs, versions alternatives — chaque statut est tracé et chaque deadline est visible.",
+    "fw4-title":"Publicité","fw4-body":"Briefs clients avec contraintes (30s, 60s), versions multiples, deadlines courtes — gérez tout depuis un seul outil.",
+    "fw-note":"TV · Film · Jeux vidéo · Publicité · Library — SYNC.PLANNER s'adapte à tous les formats et workflows, y compris les versions multiples (60s, 30s, 15s, sting).",
+    "seo-eyebrow":"Pourquoi SYNC.PLANNER",
+    "seo-title":"L'outil que les compositeurs<br><em>attendaient vraiment</em>",
+    "seo-h3-1":"Conçu pour la musique sync",
+    "seo-p1":"SYNC.PLANNER est le seul outil de gestion de projets conçu spécifiquement pour les compositeurs de musique sync — library, film, TV, jeux vidéo et publicité. Contrairement aux outils génériques comme Notion ou Trello, il comprend le workflow réel d'un compositeur professionnel : albums, tracks, éditeurs, deadlines et relances.",
+    "seo-h3-2":"Vos données restent chez vous",
+    "seo-p2":"100% local. Aucun cloud, aucune donnée audio envoyée. Vos projets, tracks et informations clients restent sur votre Mac. Pas d'abonnement cloud à 30€/mois, pas de risque de fuite de données. SYNC.PLANNER fonctionne même hors connexion.",
+    "seo-h3-3":"Relances éditeurs automatisées",
+    "seo-p3":"Les éditeurs peuvent mettre des semaines ou des mois à répondre. SYNC.PLANNER surveille automatiquement vos relances — par album et par track. Quand le délai est dépassé, une alerte apparaît et un email de relance professionnel est prêt à envoyer en un clic, avec votre signature et le contexte complet.",
+    "seo-h3-4":"Un assistant IA en bonus",
+    "seo-p4":"SYNC.PLANNER fonctionne parfaitement sans IA — les alertes de deadlines, les relances et le suivi des tracks sont entièrement automatisés. Pour ceux qui le souhaitent, un assistant IA optionnel peut être connecté via clé API personnelle (Claude, GPT-4o ou Mistral). Il connaît vos projets et peut analyser vos risques, générer une checklist de livraison ou chercher des briefs sync en temps réel.",
+    "seo-compare-title":"SYNC.PLANNER vs les alternatives",
+    "seo-th-feature":"Fonctionnalité",
+    "seo-row1":"Gestion albums & tracks",
+    "seo-row2":"Relances éditeurs",
+    "seo-row3":"IA coach production",
+    "seo-row4":"100% local & privé",
+    "seo-row5":"Prix",
+    "seo-forwhom-title":"SYNC.PLANNER est fait pour vous si...",
+    "seo-for1-title":"Compositeur library",
+    "seo-for1-body":"Vous gérez plusieurs albums simultanément pour différents éditeurs avec des deadlines serrées.",
+    "seo-for2-title":"Compositeur jeux vidéo",
+    "seo-for2-body":"Vous livrez des packs de tracks avec des statuts différents et des briefs techniques précis.",
+    "seo-for3-title":"Compositeur film & TV",
+    "seo-for3-body":"Vous collaborez avec des réalisateurs et producteurs et avez besoin de suivre chaque révision.",
+    "seo-for4-title":"Compositeur pub",
+    "seo-for4-body":"Vous gérez des briefs clients avec des contraintes de durée (30s, 60s) et des versions multiples.",
+    "nav-features":"Fonctionnalités","nav-pricing":"Tarifs","nav-faq":"FAQ","nav-cta":"Télécharger — 14j gratuit",
+    "hero-badge":"Pour les compositeurs exigeants",
+    "hero-h1":"Fini le<br>désordre.<br><span style='color:var(--violet)'>Reste focus.</span>",
+    "hero-sub":"Beaucoup de tracks en cours, plusieurs clients, des deadlines qui s'accumulent — ça peut vite devenir le foutoir. SYNC.PLANNER centralise tout au même endroit pour ne rien oublier.",
+    "hero-sub2":"SYNC.PLANNER est l'outil de gestion de projets pour tous les compositeurs — sync TV, film, jeux vidéo, publicité, library. Débutant ambitieux ou compositeur confirmé, gérez vos tracks, deadlines et éditeurs depuis un seul endroit.",
+    "btn-mac":"Mac — Télécharger","btn-win":"Windows — En développement","btn-demo-txt":"Explorer les fonctionnalités — démo interactive",
+    "hero-note":"✓ Aucune carte bancaire requise &nbsp;·&nbsp; ✓ Données 100% locales &nbsp;·&nbsp; ✓ Mac & PC",
+    "hero-evolving":"🔄 Application en constante évolution — mises à jour régulières incluses",
+    "problem-eyebrow":"Le problème","problem-title":"Trop d'outils,<br><em>pas assez de clarté.</em>",
+    "problem-body":"Un Google Sheet pour les deadlines, un autre pour les tracks, des notes éparpillées, des mails avec les clients... Résultat : des relances oubliées, des deadlines ratées, de la confusion. SYNC.PLANNER regroupe tout en un seul endroit, clair et structuré.",
+    "preview-eyebrow":"L'outil","preview-title":"Une vue d'ensemble,<br><em>claire et lisible</em>",
+    "features-eyebrow":"Fonctionnalités","features-title":"Ce que ça fait<br><em>concrètement</em>",
+    "feat1-title":"Deadlines sous contrôle","feat1-body":"Une vue claire de ce qui est urgent, de ce qui est en cours, et de ce qui a déjà été livré. Plus de mauvaises surprises.",
+    "feat2-title":"Suivi de chaque track","feat2-body":"Composition, révision, mix, livraison — chaque track dispose de son propre statut. La progression de chaque projet est visible en temps réel.",
+    "feat3-title":"Gestion des clients","feat3-body":"Coordonnées, taux de validation, historique de collaboration. Toutes les informations sur les clients et éditeurs centralisées en un seul endroit.",
+    "feat4-title":"Stats de production","feat4-body":"Nombre de tracks produites, taux de validation par client, évolution mensuelle. Des données concrètes pour mieux organiser la production.",
+    "feat5-title":"Tracks refusées recyclées","feat5-body":"Une track refusée peut être réutilisée. SYNC.PLANNER permet de la marquer disponible et de la transférer vers un autre projet.",
+    "feat6-title":"100% local et privé","feat6-body":"Toutes les données restent sur l'ordinateur de l'utilisateur. Aucun cloud, aucun serveur tiers. Confidentialité totale.",
+    "demo-eyebrow":"Tour de l'application","demo-title":"Toutes les vues,<br><em>dans le détail</em>","demo-sub":"Voici à quoi ressemble SYNC.PLANNER au quotidien.",
+    "dash-stat1":"Albums actifs","dash-stat2":"Validées","dash-stat3":"Taux valid.","dash-stat4":"Total tracks",
+    "dash-alert":"2 deadlines urgentes — Dark Matter (J-3) · Urban Bass (J-6)",
+    "badge-done":"✓ Livré","badge-j12":"J-12","badge-j28":"J-28","badge-j3":"⚠️ J-3","badge-j3b":"⚠️ J-3",
+    "k-compo":"🎹 Compo","k-sent":"📤 Envoyée","k-rev":"🔄 Révision","k-mix":"🎚️ Mix","k-del":"✅ Livré",
+    "cal-month":"Août 2026","cal-today":"Aujourd'hui",
+    "cal-d1":"Lun","cal-d2":"Mar","cal-d3":"Mer","cal-d4":"Jeu","cal-d5":"Ven","cal-d6":"Sam","cal-d7":"Dim",
+    "pub-stat1":"Clients","pub-stat2":"Validées","pub-stat3":"Taux moyen","pub-stat4":"En attente",
+    "pub-validated":"validées","pub-validated2":"validées","pub-validated3":"validées",
+    "pub-rate":"Taux","pub-rate2":"Taux","pub-rate3":"Taux",
+    "stat-total":"Total tracks","stat-val":"Validées","stat-ref":"Refusées","stat-rate":"Taux valid.",
+    "stat-chart-title":"Production mensuelle 2026",
+    "m1":"Jan","m2":"Fév","m3":"Mar","m4":"Avr","m5":"Mai","m6":"Jun","m7":"Jul","m8":"Aoû","m9":"Sep","m10":"Oct","m11":"Nov","m12":"Déc",
+    "chart-leg1":"Produites","chart-leg2":"Validées",
+    "pricing-eyebrow":"Tarifs","pricing-title":"Simple.<br><em>Sans surprise.</em>",
+    "pricing-sub":"14 jours d'essai gratuit. Aucune carte bancaire requise pour commencer.",
+    "plan1-tier":"Mensuel","plan1-period":"par mois · résiliable à tout moment",
+    "plan2-tier":"Annuel","plan2-period":"soit 90€ par an · facturé en une fois",
+    "plan3-tier":"Lifetime","plan3-period":"paiement unique · accès à vie",
+    "price-badge-popular":"⭐ Le plus populaire",
+    "feat-unlimited":"Albums et tracks illimités","feat-clients":"Gestion des clients","feat-stats":"Stats complètes","feat-kanban":"Kanban & Calendrier",
+    "feat-all":"Tout du plan mensuel","feat-updates":"Mises à jour incluses","feat-support":"Support prioritaire",
+    "feat-all2":"Tout du plan annuel","feat-future":"Accès aux futures versions","feat-once":"Un seul paiement",
+    "cta-btn1":"Commencer","cta-btn2":"Commencer","cta-btn3":"Commencer",
+    "faq-title":"Questions fréquentes",
+    "faq1-q":"Est-ce que mes données sont en sécurité ?","faq1-a":"Oui — toutes les données sont stockées localement sur l'ordinateur de l'utilisateur. Aucune donnée ne transite par nos serveurs, à l'exception de la vérification de licence.",
+    "faq2-q":"Ça fonctionne sur Mac et PC ?","faq2-a":"Oui, SYNC.PLANNER est disponible sur Mac (.dmg) et Windows (.exe). Fonctionne sur Mac et PC.",
+    "faq3-q":"Je peux annuler à tout moment ?","faq3-a":"Oui, sans conditions. L'annulation se fait en un clic depuis l'espace Stripe. L'accès reste actif jusqu'à la fin de la période payée.",
+    "faq4-q":"C'est quoi le plan Lifetime exactement ?","faq4-a":"Un paiement unique de 149€ donne un accès permanent à SYNC.PLANNER, ainsi qu'aux futures versions de l'application.",
+    "faq5-q":"Et si j'ai un problème ?","faq5-a":"Il suffit d'envoyer un mail à contact@syncplanner.app Réponse sous 24h.",
+    "faq8-q":"SYNC.PLANNER remplace-t-il des outils comme DropCue ou Sync Warehouse ?","faq8-a":"Non — ces outils sont complémentaires. DropCue, DISCO et Sync Warehouse sont des outils de partage et soumission vers les music supervisors et bibliothèques musicales. SYNC.PLANNER gère la production interne : création des albums, suivi des tracks, deadlines éditeurs et relances. SYNC.PLANNER s'utilise avant de pitcher.",
+    "faq9-q":"Qu'est-ce que la musique sync et à qui s'adresse cet outil ?","faq9-a":"La musique sync (synchronisation musicale) désigne l'utilisation d'une musique dans un contenu audiovisuel : films, séries TV, jeux vidéo, publicités. Les compositeurs sync travaillent avec des éditeurs ou bibliothèques musicales qui envoient des briefs avec deadlines. SYNC.PLANNER est conçu pour ces compositeurs qui gèrent plusieurs albums et dizaines de tracks simultanément.",
+    "faq10-q":"Comment fonctionne le workflow de production musicale dans SYNC.PLANNER ?","faq10-a":"Créez un projet (album) pour chaque commande d'un éditeur, ajoutez vos tracks avec leur statut (Composition → Envoyée → Révision → Mix → Livrée), définissez une deadline. SYNC.PLANNER calcule la progression, vous alerte sur les deadlines proches et vous rappelle de relancer les éditeurs. L'assistant IA analyse votre production et vous aide à prioriser.",
+    "faq11-q":"Peut-on gérer plusieurs éditeurs et albums simultanément ?","faq11-a":"Oui — c'est exactement pour ça que SYNC.PLANNER a été conçu. Nombre illimité d'albums avec différents éditeurs, chacun avec sa deadline et ses statuts de relance. La vue Kanban mensuelle donne une vision globale de toutes vos tracks. Les statistiques comparent vos taux de validation par éditeur.",
+    "cta-final-title":"Gérez vos <span style='color:var(--violet2)'>projets musicaux</span><br>sans vous perdre.",
+    "cta-final-sub":"14 jours d'essai gratuit, sans carte bancaire. Le temps de voir si SYNC.PLANNER correspond au workflow.",
+    "cta-final-mac":"Mac — Télécharger","cta-final-win":"Windows — En développement",
+    "footer-legal":"Mentions légales","footer-cgv":"CGV","feat7-title":"🎁 Bonus — Assistant IA intégré","feat7-body":"Fonctionnalité optionnelle. SYNC.PLANNER peut se connecter à Claude, GPT-4o ou Mistral via clé API personnelle. L'assistant connaît les projets en cours et peut créer des albums, modifier des statuts ou analyser la production en langage naturel. Nécessite un compte et une clé API chez le fournisseur choisi. La mémoire de vos habitudes est conservée localement sur votre Mac.","faq6-q":"L'assistant IA a-t-il accès à mes données ?","faq6-a":"L'assistant IA utilise une clé API personnelle (Claude, GPT-4o ou Mistral). Les données sont envoyées directement au fournisseur choisi — elles ne transitent pas par les serveurs SYNC.PLANNER. L'historique est conservé pendant la session. Entre les sessions, l'IA mémorise localement vos habitudes de travail sur votre Mac — ces données ne quittent jamais votre ordinateur.",
+  },
+  en: {
+        "forwhom-eyebrow":"Who it's for",
+    "forwhom-title":"Built for you if<br><em>you compose for...</em>",
+    "fw1-title":"Library / Sync","fw1-body":"Multiple albums in parallel, different publishers, accumulating deadlines — SYNC.PLANNER is built for you.",
+    "fw2-title":"Video games","fw2-body":"Track packs per level, precise technical briefs, loop/sting versions — track every delivery without getting lost.",
+    "fw3-title":"Film & TV","fw3-body":"Revisions, back-and-forth with directors, alternative versions — every status is tracked and every deadline is visible.",
+    "fw4-title":"Advertising","fw4-body":"Client briefs with constraints (30s, 60s), multiple versions, tight deadlines — manage everything from one tool.",
+    "fw-note":"TV · Film · Video games · Advertising · Library — SYNC.PLANNER adapts to all formats and workflows, including multiple versions (60s, 30s, 15s, sting).",
+    "seo-eyebrow":"Why SYNC.PLANNER",
+    "seo-title":"The tool composers<br><em>actually needed</em>",
+    "seo-h3-1":"Built for sync music",
+    "seo-p1":"SYNC.PLANNER is the only project management tool built specifically for sync music composers — library, film, TV, video games and advertising. Unlike generic tools like Notion or Trello, it understands the real workflow of a professional composer: albums, tracks, publishers, deadlines and follow-ups.",
+    "seo-h3-2":"Your data stays with you",
+    "seo-p2":"100% local. No cloud, no audio data sent. Your projects, tracks and client information stay on your Mac. No €30/month cloud subscription, no risk of data leaks. SYNC.PLANNER works even offline.",
+    "seo-h3-3":"Automated publisher follow-ups",
+    "seo-p3":"Publishers can take weeks or months to respond. SYNC.PLANNER automatically monitors your follow-ups — per album and per track. When the deadline is exceeded, an alert appears and a professional follow-up email is ready to send in one click, with your signature and full context.",
+    "seo-h3-4":"An optional AI assistant",
+    "seo-p4":"SYNC.PLANNER works perfectly without AI — deadline alerts, follow-ups and track tracking are fully automated. For those who want it, an optional AI assistant can be connected via personal API key (Claude, GPT-4o or Mistral). It knows your projects and can analyze your risks, generate a delivery checklist or search for available sync briefs in real time.",
+    "seo-compare-title":"SYNC.PLANNER vs the alternatives",
+    "seo-th-feature":"Feature",
+    "seo-row1":"Album & track management",
+    "seo-row2":"Publisher follow-ups",
+    "seo-row3":"AI production coach",
+    "seo-row4":"100% local & private",
+    "seo-row5":"Price",
+    "seo-forwhom-title":"SYNC.PLANNER is made for you if...",
+    "seo-for1-title":"Library composer",
+    "seo-for1-body":"You manage multiple albums simultaneously for different publishers with tight deadlines.",
+    "seo-for2-title":"Video game composer",
+    "seo-for2-body":"You deliver track packs with different statuses and precise technical briefs.",
+    "seo-for3-title":"Film & TV composer",
+    "seo-for3-body":"You collaborate with directors and producers and need to track every revision.",
+    "seo-for4-title":"Ad composer",
+    "seo-for4-body":"You manage client briefs with duration constraints (30s, 60s) and multiple versions.",
+    "nav-features":"Features","nav-pricing":"Pricing","nav-faq":"FAQ","nav-cta":"Download — 14 days free",
+    "hero-badge":"For demanding composers",
+    "hero-h1":"No more<br>chaos.<br><span style='color:var(--violet)'>Stay focused.</span>",
+    "hero-sub":"Lots of tracks in progress, multiple clients, deadlines piling up — it can get messy fast. SYNC.PLANNER keeps everything in one place so nothing slips through.",
+    "hero-sub2":"SYNC.PLANNER is the project management tool for composers who work with publishers and music libraries — whether you're just starting out or already established.",
+    "btn-mac":"Mac — Download","btn-win":"Windows — In development","btn-demo-txt":"Explore features — interactive demo",
+    "hero-note":"✓ No credit card required &nbsp;·&nbsp; ✓ 100% local data &nbsp;·&nbsp; ✓ Mac & PC",
+    "hero-evolving":"🔄 Constantly evolving app — regular updates included",
+    "problem-eyebrow":"The problem","problem-title":"Too many tools,<br><em>not enough clarity.</em>",
+    "problem-body":"A Google Sheet for deadlines, another for tracks, scattered notes, emails with clients... Result: missed follow-ups, late deliveries, confusion. SYNC.PLANNER brings everything together in one clear, structured place.",
+    "preview-eyebrow":"The tool","preview-title":"Everything in one place,<br><em>clear and readable</em>",
+    "features-eyebrow":"Features","features-title":"What it actually<br><em>does</em>",
+    "feat1-title":"Deadlines under control","feat1-body":"A clear view of what's urgent, what's in progress, and what's already delivered. No more unpleasant surprises.",
+    "feat2-title":"Track every track","feat2-body":"Composition, revision, mix, delivery — each track has its own status. Every project's progress is visible in real time.",
+    "feat3-title":"Client management","feat3-body":"Contact details, validation rates, collaboration history. All client and publisher information in one place.",
+    "feat4-title":"Production stats","feat4-body":"Tracks produced, validation rate per client, monthly trends. Concrete data to better plan production.",
+    "feat5-title":"Recycle refused tracks","feat5-body":"A refused track isn't dead. Mark it available and transfer it to another project.",
+    "feat6-title":"100% local & private","feat6-body":"All data stays on the user's computer. No cloud, no third-party server. Total privacy.",
+    "demo-eyebrow":"App tour","demo-title":"Every view,<br><em>in detail</em>","demo-sub":"Here's what SYNC.PLANNER looks like day to day.",
+    "dash-stat1":"Active projects","dash-stat2":"Validated","dash-stat3":"Val. rate","dash-stat4":"Total tracks",
+    "dash-alert":"2 urgent deadlines — Dark Matter (D-3) · Urban Bass (D-6)",
+    "badge-done":"✓ Delivered","badge-j12":"D-12","badge-j28":"D-28","badge-j3":"⚠️ D-3","badge-j3b":"⚠️ D-3",
+    "k-compo":"🎹 Composing","k-sent":"📤 Sent","k-rev":"🔄 Revision","k-mix":"🎚️ Mix","k-del":"✅ Delivered",
+    "cal-month":"August 2026","cal-today":"Today",
+    "cal-d1":"Mon","cal-d2":"Tue","cal-d3":"Wed","cal-d4":"Thu","cal-d5":"Fri","cal-d6":"Sat","cal-d7":"Sun",
+    "pub-stat1":"Clients","pub-stat2":"Validated","pub-stat3":"Avg. rate","pub-stat4":"Pending",
+    "pub-validated":"validated","pub-validated2":"validated","pub-validated3":"validated",
+    "pub-rate":"Rate","pub-rate2":"Rate","pub-rate3":"Rate",
+    "stat-total":"Total tracks","stat-val":"Validated","stat-ref":"Refused","stat-rate":"Val. rate",
+    "stat-chart-title":"Monthly production 2026",
+    "m1":"Jan","m2":"Feb","m3":"Mar","m4":"Apr","m5":"May","m6":"Jun","m7":"Jul","m8":"Aug","m9":"Sep","m10":"Oct","m11":"Nov","m12":"Dec",
+    "chart-leg1":"Produced","chart-leg2":"Validated",
+    "pricing-eyebrow":"Pricing","pricing-title":"Simple.<br><em>No surprises.</em>",
+    "pricing-sub":"14-day free trial. No credit card required to get started.",
+    "plan1-tier":"Monthly","plan1-period":"per month · cancel anytime",
+    "plan2-tier":"Annual","plan2-period":"i.e. €90/year · billed at once",
+    "plan3-tier":"Lifetime","plan3-period":"one-time payment · lifetime access",
+    "price-badge-popular":"⭐ Most popular",
+    "feat-unlimited":"Unlimited projects & tracks","feat-clients":"Client management","feat-stats":"Full statistics","feat-kanban":"Kanban & Calendar",
+    "feat-all":"Everything in Monthly","feat-updates":"Updates included","feat-support":"Priority support",
+    "feat-all2":"Everything in Annual","feat-future":"Access to future versions","feat-once":"One-time payment",
+    "cta-btn1":"Get started","cta-btn2":"Get started","cta-btn3":"Get started",
+    "faq-title":"Frequently asked questions",
+    "faq1-q":"Is my data safe?","faq1-a":"Yes — all data is stored locally on the user's computer. Nothing passes through our servers except licence verification.",
+    "faq2-q":"Does it work on Mac and PC?","faq2-a":"Yes, SYNC.PLANNER is available on Mac (.dmg) and Windows (.exe). Works on both.",
+    "faq3-q":"Can I cancel anytime?","faq3-a":"Yes, no strings attached. Cancel in one click from your Stripe dashboard. Access stays active until the end of the paid period.",
+    "faq4-q":"What is the Lifetime plan exactly?","faq4-a":"A one-time payment of €149 gives permanent access to SYNC.PLANNER, including all future versions.",
+    "faq5-q":"What if I have a problem?","faq5-a":"Just send an email to contact@syncplanner.app Reply within 24h.",
+    "faq8-q":"Does SYNC.PLANNER replace tools like DropCue or Sync Warehouse?","faq8-a":"No — these tools are complementary. DropCue, DISCO and Sync Warehouse are sharing and submission tools for music supervisors and music libraries. SYNC.PLANNER manages internal production: album creation, track tracking, publisher deadlines and follow-ups. SYNC.PLANNER is used before pitching — to be perfectly organized when the time comes to submit.",
+    "faq9-q":"What is sync music and who is this tool for?","faq9-a":"Sync music (music synchronization) refers to the use of music in audiovisual content: films, TV series, video games, advertising. Sync composers typically work with publishers or music libraries that send them briefs with specific deadlines. SYNC.PLANNER is designed for professional composers managing multiple albums and dozens of tracks simultaneously.",
+    "faq10-q":"How does the music production workflow work in SYNC.PLANNER?","faq10-a":"Create a project (album) for each publisher order, add your tracks with their status (Composition → Sent → Revision → Mix → Delivered), set a deadline. SYNC.PLANNER automatically calculates progress, alerts you when deadlines approach, and reminds you to follow up with publishers who haven't responded. The AI assistant can analyze your production and help you prioritize tasks.",
+    "faq11-q":"Can you manage multiple publishers and albums simultaneously?","faq11-a":"Yes — that's exactly what SYNC.PLANNER was designed for. Unlimited albums with different publishers, each with its own deadline, tracks and follow-up statuses. The monthly Kanban view gives a global overview of all your tracks. Statistics let you compare your validation rates by publisher to identify the most productive collaborations.",
+    "cta-final-title":"Manage your <span style='color:var(--violet2)'>music projects</span><br>without losing track.",
+    "cta-final-sub":"14-day free trial, no credit card. See if SYNC.PLANNER fits your workflow.",
+    "cta-final-mac":"Mac — Download","cta-final-win":"Windows — In development",
+    "footer-legal":"Legal notice","footer-cgv":"Terms","feat7-title":"🎁 Bonus — Built-in AI assistant","feat7-body":"Optional feature. SYNC.PLANNER can connect to Claude, GPT-4o or Mistral via personal API key. The assistant knows current projects and can create albums, update statuses or analyze production in plain language. Requires an account and API key from the chosen provider. Work habit memory is stored locally on your Mac.","faq6-q":"Does the AI assistant have access to my data?","faq6-a":"The AI assistant uses a personal API key (Claude, GPT-4o or Mistral). Data is sent directly to the chosen provider — it does not pass through SYNC.PLANNER servers. Conversation history is kept during the current session. Between sessions, the AI stores your work habits locally on your Mac — this data never leaves your computer.",
+  }
+};
+
+function setLang(lang) {
+  localStorage.setItem('site-lang', lang);
+  document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  const t = T[lang];
+  Object.keys(t).forEach(id => {
+    const el = document.getElementById(id);
+    if(el) el.innerHTML = t[id];
+  });
+  // Update demo link based on language
+  const demoBtn = document.getElementById('btn-demo');
+  if(demoBtn) demoBtn.href = lang === 'en' ? '/help-en' : '/help';
+  // Update demo tabs
+  document.querySelectorAll('.demo-tab').forEach(tab => {
+    const key = lang === 'fr' ? 'data-fr' : 'data-en';
+    if(tab.getAttribute(key)) tab.textContent = tab.getAttribute(key);
+  });
+  document.title = lang === 'fr' ? 'SYNC.PLANNER — Gestion de projets pour compositeurs' : 'SYNC.PLANNER — Project Management for Composers';
+}
+
+window.addEventListener('load', () => {
+  const saved = localStorage.getItem('site-lang') || 'fr';
+  setLang(saved);
+  setTimeout(() => {
+    document.querySelectorAll('.album-bar').forEach(bar => {
+      bar.style.width = bar.dataset.w + '%';
+    });
+  }, 400);
+});
+</script>
 </body>
 </html>
