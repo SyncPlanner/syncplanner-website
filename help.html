@@ -3,1071 +3,942 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SYNC.PLANNER — Guide d'utilisation | Logiciel compositeur sync</title>
-<meta name="description" content="Guide complet de SYNC.PLANNER : gérez vos projets sync, tracks, deadlines et relances éditeurs. Tutoriels interactifs pour compositeurs library, film, TV et jeux vidéo.">
-<meta name="keywords" content="guide compositeur sync, tutoriel sync planner, gestion tracks musicales, deadlines compositeur, relance éditeur musique">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="https://syncplanner.app/help">
-<meta property="og:title" content="SYNC.PLANNER — Guide d'utilisation">
-<meta property="og:description" content="Guide complet pour gérer vos projets sync : albums, tracks, deadlines, relances éditeurs et assistant IA.">
-<meta property="og:url" content="https://syncplanner.app/help">
-<meta property="og:site_name" content="SYNC.PLANNER">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<title>SYNC.PLANNER — Guide d'utilisation</title>
+<meta name="description" content="Guide complet de SYNC.PLANNER : gérez vos projets sync, tracks, deadlines et relances éditeurs.">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-:root { --noir:#0A0910;--violet:#7C3AED;--violet2:#A78BFA;--or:#D4AF6A;--creme:#F0EEF8;--texte:#C4C0E8;--sidebar-w:240px; }
-body { font-family:'Inter',sans-serif;background:var(--noir);color:var(--creme);line-height:1.7; }
-.sidebar { position:fixed;top:0;left:0;width:var(--sidebar-w);height:100vh;background:#0D0C1A;border-right:1px solid #1E1C38;overflow-y:auto;padding-bottom:32px;z-index:10; }
-.sidebar-header { padding:20px;border-bottom:1px solid #1E1C38;margin-bottom:12px; }
-.back-link { display:flex;align-items:center;gap:6px;font-size:12px;color:#5B5880;text-decoration:none;margin-bottom:14px;transition:color 0.15s; }
-.back-link:hover { color:var(--texte); }
-.logo-row { display:flex;align-items:flex-start;justify-content:space-between;gap:8px; }
-.sidebar-logo { font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:700;color:var(--creme); }
-.sidebar-logo span { color:var(--violet); }
-.sidebar-logo small { display:block;font-size:11px;color:#5B5880;font-weight:400;margin-top:2px; }
-.lang-sw { display:flex;align-items:center;gap:2px;background:rgba(42,39,80,0.6);border:1px solid #2A2750;border-radius:7px;padding:3px;flex-shrink:0; }
-.lbtn { background:none;border:none;font-size:15px;cursor:pointer;padding:3px 5px;border-radius:5px;transition:background 0.15s; }
-.lbtn.active { background:rgba(124,58,237,0.35); }
-.nav-section { padding:12px 20px 4px;font-size:9px;font-weight:700;color:#4B4870;text-transform:uppercase;letter-spacing:0.14em; }
-.nav-link { display:block;padding:7px 20px;font-size:13px;color:var(--texte);text-decoration:none;border-left:2px solid transparent;transition:all 0.12s; }
-.nav-link:hover { color:var(--creme);background:rgba(124,58,237,0.06);border-left-color:rgba(124,58,237,0.4); }
-.nav-link.active { color:var(--violet2);background:rgba(124,58,237,0.1);border-left-color:var(--violet); }
-.main { margin-left:var(--sidebar-w);padding:52px 64px 80px;max-width:calc(var(--sidebar-w) + 780px); }
-.page-header { margin-bottom:48px; }
-.page-header h1 { font-family:'Space Grotesk',sans-serif;font-size:34px;font-weight:700;letter-spacing:-0.02em;margin-bottom:8px; }
-.page-header p { font-size:15px;color:var(--texte);margin-bottom:20px; }
-.search-hint { display:inline-flex;align-items:center;gap:8px;background:#13122A;border:1px solid #2A2750;border-radius:8px;padding:7px 14px;font-size:12px;color:#7B78A8; }
-.kbd { background:#2A2750;border:1px solid #3D3A60;border-radius:4px;padding:1px 6px;font-size:11px;font-family:monospace;color:var(--creme); }
-.doc-section { margin-bottom:64px;scroll-margin-top:24px; }
-.section-header { display:flex;align-items:center;gap:12px;margin-bottom:10px; }
-.section-emoji { font-size:26px; }
-.section-title { font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:700;letter-spacing:-0.01em; }
-.section-intro { font-size:14px;color:var(--texte);margin-bottom:24px;line-height:1.75;max-width:640px; }
-.divider { border:none;border-top:1px solid #1E1C38;margin:52px 0; }
-/* Profile cards */
-.profile-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:32px; }
-.profile-card { background:#13122A;border:1px solid #2A2750;border-radius:12px;padding:20px;transition:border-color 0.2s; }
-.profile-card:hover { border-color:var(--violet); }
-.profile-icon { font-size:28px;margin-bottom:10px; }
-.profile-title { font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:700;color:var(--creme);margin-bottom:6px; }
-.profile-desc { font-size:12px;color:var(--texte);line-height:1.6; }
-.profile-tag { display:inline-block;background:rgba(124,58,237,0.15);border:1px solid rgba(124,58,237,0.3);border-radius:4px;padding:2px 8px;font-size:10px;color:var(--violet2);margin-top:8px; }
-/* Steps */
-.steps { display:flex;flex-direction:column;gap:10px;margin-bottom:20px; }
-.step { display:flex;gap:14px;align-items:flex-start;background:#13122A;border:1px solid #1E1C38;border-radius:10px;padding:13px 16px; }
-.step-num { width:24px;height:24px;border-radius:50%;background:var(--violet);color:white;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:'Space Grotesk',sans-serif;margin-top:1px; }
-.step-body { flex:1; }
-.step-title { font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:600;color:var(--creme);margin-bottom:2px; }
-.step-text { font-size:13px;color:var(--texte);line-height:1.6; }
-/* Feat list */
-.feat-list { display:flex;flex-direction:column;gap:8px;margin-bottom:20px; }
-.feat-item { display:flex;gap:12px;align-items:flex-start;background:#13122A;border:1px solid #1E1C38;border-radius:8px;padding:11px 14px; }
-.feat-icon { font-size:16px;flex-shrink:0;margin-top:1px; }
-.feat-text { font-size:13px;color:var(--texte);line-height:1.6; }
-.feat-text strong { color:var(--creme); }
-/* Info/warn */
-.info-box { background:#1A1050;border:1px solid rgba(124,58,237,0.25);border-radius:10px;padding:13px 16px;font-size:13px;color:#C4B5FD;line-height:1.65;margin-bottom:18px; }
-.info-box strong { color:var(--creme); }
-.warn-box { background:rgba(251,146,60,0.07);border:1px solid rgba(251,146,60,0.25);border-radius:10px;padding:13px 16px;font-size:13px;color:#FCD34D;line-height:1.65;margin-bottom:18px; }
-.warn-box strong { color:#FDE68A; }
-/* Status badges */
-.status-grid { display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:20px; }
-.status-pill { display:flex;align-items:center;gap:6px;padding:7px 10px;border-radius:7px; }
-.status-dot { width:6px;height:6px;border-radius:50%;flex-shrink:0; }
-/* UI Mockup */
-.ui-mock { background:#13122A;border:1px solid #2A2750;border-radius:12px;overflow:hidden;margin-bottom:18px; }
-.ui-bar { padding:9px 14px;background:#0F0E1A;border-bottom:1px solid #1E1C38;display:flex;align-items:center;gap:6px; }
-.ui-dot { width:8px;height:8px;border-radius:50%; }
-.ui-label { font-family:'Space Grotesk',sans-serif;font-size:10px;color:#4B4870;margin-left:8px;letter-spacing:0.08em;text-transform:uppercase; }
-.ui-body { padding:18px; }
-.btn-m { display:inline-flex;align-items:center;gap:5px;background:var(--violet);color:white;border-radius:6px;padding:6px 12px;font-size:11px;font-weight:600;font-family:'Space Grotesk',sans-serif; }
-.btn-sm { display:inline-flex;align-items:center;gap:4px;background:#1A1838;border:1px solid #2A2750;color:var(--texte);border-radius:5px;padding:4px 9px;font-size:11px;font-weight:500; }
-.tag-c { display:inline-flex;align-items:center;gap:5px;background:rgba(212,175,106,0.15);border:1px solid rgba(212,175,106,0.3);border-radius:4px;padding:2px 8px;font-size:11px;color:var(--or); }
-.hint { font-size:11px;color:#4B4870;margin-top:8px; }
-code { background:#1E1C38;border-radius:4px;padding:1px 5px;font-size:12px;color:var(--violet2);font-family:monospace; }
-.bonus-tag { display:inline-flex;align-items:center;gap:5px;background:rgba(212,175,106,0.12);border:1px solid rgba(212,175,106,0.3);border-radius:100px;padding:3px 10px;font-size:10px;font-weight:700;color:var(--or);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:10px; }
-.page-footer { text-align:center;padding:36px 0 0;font-size:12px;color:#4B4870;border-top:1px solid #1E1C38; }
-.page-footer a { color:#5B5880;text-decoration:none; }
-@media(max-width:900px){
-  .sidebar{position:relative;width:100%;height:auto;border-right:none;border-bottom:1px solid #1E1C38;}
-  .main{margin-left:0;padding:32px 24px;max-width:100%;}
-  .profile-grid{grid-template-columns:1fr;}
-  .status-grid{grid-template-columns:repeat(2,1fr);}
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0D0C1E;--bg2:#13122A;--bg3:#1A1838;--bg4:#1E1C38;
+  --border:#2A2750;--border2:#3D3A60;
+  --text:#F0EEF8;--text2:#C4C0E8;--text3:#7B78A8;--text4:#5B5880;
+  --purple:#7C3AED;--purple2:#A78BFA;--purple3:#C4B5FD;
+  --blue:#60A5FA;--green:#10B981;--orange:#FB923C;--red:#F87171;--yellow:#FBBF24;
 }
-/* Interactive demos */
-.demo-box { background:#0D0C1A;border:1px solid #2A2750;border-radius:14px;overflow:hidden;margin-bottom:20px; }
-.demo-bar { padding:8px 14px;background:#0A0910;border-bottom:1px solid #1E1C38;display:flex;align-items:center;gap:6px;font-size:10px;color:#4B4870;text-transform:uppercase;letter-spacing:0.1em; }
-.demo-bar span { margin-left:auto;background:rgba(124,58,237,0.2);color:#A78BFA;border-radius:4px;padding:2px 8px;font-size:10px;font-weight:700 }
-.demo-body { padding:16px; }
-.demo-btn { display:inline-flex;align-items:center;gap:5px;background:var(--violet);color:white;border:none;border-radius:7px;padding:7px 14px;font-size:12px;font-weight:700;cursor:pointer;font-family:'Space Grotesk',sans-serif;transition:opacity 0.15s; }
-.demo-btn:hover { opacity:0.85; }
-.demo-btn-sm { display:inline-flex;align-items:center;gap:4px;background:#1A1838;border:1px solid #2A2750;color:var(--texte);border-radius:5px;padding:4px 10px;font-size:11px;font-weight:500;cursor:pointer;transition:all 0.15s; }
-.demo-btn-sm:hover { border-color:var(--violet);color:var(--violet2); }
-.demo-btn-green { background:rgba(16,185,129,0.15);border:1px solid rgba(16,185,129,0.3);color:#10B981;border-radius:6px;padding:5px 12px;font-size:11px;font-weight:600;cursor:pointer;transition:all 0.15s; }
-.demo-track { display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;background:#13122A;margin-bottom:6px;cursor:pointer;transition:background 0.15s; }
-.demo-track:hover { background:#1A1838; }
-.demo-dot { width:8px;height:8px;border-radius:50%;flex-shrink:0; }
-.demo-tag { font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px; }
-.demo-input { background:#13122A;border:1px solid #2A2750;border-radius:7px;color:var(--creme);font-size:13px;padding:8px 12px;width:100%;font-family:'Inter',sans-serif;outline:none;transition:border-color 0.15s; }
-.demo-input:focus { border-color:var(--violet); }
-.demo-result { background:#13122A;border:1px solid #10B98133;border-radius:8px;padding:12px;margin-top:10px;font-size:13px;color:#10B981;display:none; }
-.demo-alert { background:#450A0A;border-left:3px solid #F87171;border-radius:6px;padding:10px 14px;font-size:12px;color:#FCA5A5;margin-top:8px; }
-.demo-alert-blue { background:#1A2035;border-left:3px solid #60A5FA;border-radius:6px;padding:10px 14px;font-size:12px;color:#BFDBFE;margin-top:8px; }
-.demo-popup { display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:100;align-items:center;justify-content:center; }
-.demo-popup.open { display:flex; }
-.demo-popup-inner { background:#1A1838;border:1px solid #7C3AED;border-radius:14px;padding:24px;max-width:340px;width:90%; }
-.anim-pulse { animation:pulse 2s infinite; }
-@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.6} }
+body{background:var(--bg);color:var(--text);font-family:'Space Grotesk',sans-serif;line-height:1.6;min-height:100vh}
+a{color:var(--purple2);text-decoration:none}
+a:hover{text-decoration:underline}
+.container{max-width:900px;margin:0 auto;padding:0 24px}
+
+/* TOPBAR */
+.topbar{background:rgba(19,18,42,0.95);border-bottom:1px solid var(--border);padding:14px 0;position:sticky;top:0;z-index:100;backdrop-filter:blur(10px)}
+.topbar-inner{display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:16px;font-weight:800;color:var(--text);display:flex;align-items:center;gap:8px}
+.logo-dot{width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,var(--purple2),var(--purple))}
+.lang-switch{display:flex;gap:4px;background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:3px}
+.lang-btn{padding:4px 12px;border-radius:6px;border:none;cursor:pointer;font-size:12px;font-weight:600;font-family:'Space Grotesk',sans-serif;transition:all 0.15s;color:var(--text3);background:transparent}
+.lang-btn.active{background:var(--purple);color:#fff}
+
+/* HERO */
+.hero{padding:56px 0 32px;text-align:center}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(124,58,237,0.1);border:1px solid rgba(124,58,237,0.3);border-radius:100px;padding:4px 14px;font-size:11px;font-weight:700;color:var(--purple2);margin-bottom:20px;text-transform:uppercase;letter-spacing:0.08em}
+.hero h1{font-size:36px;font-weight:800;color:var(--text);line-height:1.2;margin-bottom:12px}
+.hero h1 .grad{background:linear-gradient(135deg,var(--purple2),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero p{font-size:15px;color:var(--text3);max-width:520px;margin:0 auto 28px}
+.search-wrap{max-width:420px;margin:0 auto;position:relative}
+.search-wrap svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);pointer-events:none}
+.search-input{width:100%;background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:11px 14px 11px 40px;color:var(--text);font-size:13px;font-family:'Space Grotesk',sans-serif;outline:none;transition:border-color 0.2s}
+.search-input:focus{border-color:var(--purple)}
+.search-input::placeholder{color:var(--text4)}
+
+/* NAV PILLS */
+.nav-pills{display:flex;flex-wrap:wrap;gap:6px;margin:28px 0 0;justify-content:center}
+.nav-pill{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:100px;border:1px solid var(--border);background:var(--bg2);color:var(--text3);font-size:12px;font-weight:600;cursor:pointer;transition:all 0.15s}
+.nav-pill:hover{border-color:var(--purple);color:var(--purple2);background:rgba(124,58,237,0.08)}
+
+/* SECTIONS */
+.sections{padding:24px 0 60px;display:flex;flex-direction:column;gap:6px}
+.section{border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:border-color 0.2s}
+.section.open{border-color:var(--border2)}
+.section-hdr{display:flex;align-items:center;gap:12px;padding:16px 20px;background:var(--bg3);cursor:pointer;transition:background 0.15s;user-select:none}
+.section-hdr:hover{background:var(--bg4)}
+.section-icon{width:38px;height:38px;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.section-title-wrap{flex:1}
+.section-title{font-size:14px;font-weight:700;color:var(--text)}
+.section-sub{font-size:11px;color:var(--text4);margin-top:1px}
+.section-chevron{font-size:11px;color:var(--text4);transition:transform 0.25s;flex-shrink:0}
+.section.open .section-chevron{transform:rotate(180deg)}
+.section-body{display:none;background:var(--bg2);border-top:1px solid var(--border)}
+.section.open .section-body{display:block}
+
+/* CONTENT */
+.section-content{padding:20px}
+.item-list{display:flex;flex-direction:column;gap:10px;margin-bottom:20px}
+.item{display:flex;gap:10px;align-items:flex-start}
+.item-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0;margin-top:8px}
+.item-text{font-size:13px;color:var(--text2);line-height:1.65}
+.item-text b{color:var(--text);font-weight:700}
+.item-text code{background:var(--bg4);border:1px solid var(--border);border-radius:4px;padding:1px 6px;font-size:11px;color:var(--purple3);font-family:monospace}
+
+/* DEMO */
+.demo-wrap{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:16px;position:relative}
+.demo-label{position:absolute;top:-1px;right:14px;background:linear-gradient(135deg,var(--purple),#4F46E5);color:#fff;font-size:9px;font-weight:700;padding:2px 10px;border-radius:0 0 8px 8px;text-transform:uppercase;letter-spacing:0.08em}
+.demo-hint{font-size:10px;color:var(--text4);text-align:center;margin-top:10px;font-style:italic}
+
+/* BADGE STATUS */
+.sbadge{display:inline-flex;align-items:center;padding:2px 9px;border-radius:100px;font-size:10px;font-weight:700;cursor:pointer;transition:all 0.15s;user-select:none}
+
+/* BTN */
+.btn-demo{padding:6px 14px;border-radius:7px;border:1px solid var(--border);background:var(--bg3);color:var(--text3);cursor:pointer;font-size:11px;font-weight:600;font-family:'Space Grotesk',sans-serif;transition:all 0.15s}
+.btn-demo:hover{border-color:var(--purple2);color:var(--purple2)}
+.btn-primary{background:rgba(124,58,237,0.15);border-color:rgba(124,58,237,0.4);color:var(--purple2)}
+.btn-primary:hover{background:rgba(124,58,237,0.25)}
+.btn-green{background:rgba(16,185,129,0.1);border-color:rgba(16,185,129,0.3);color:#10B981}
+.btn-red{background:rgba(248,113,113,0.1);border-color:rgba(248,113,113,0.3);color:#F87171}
+
+/* TRACK ROW */
+.track-row{display:flex;align-items:center;gap:10px;padding:9px 12px;background:var(--bg3);border:1px solid var(--border);border-radius:8px;margin-bottom:5px;transition:border-color 0.15s}
+.track-row:hover{border-color:var(--border2)}
+.track-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;transition:background 0.3s}
+.track-title{font-size:12px;font-weight:700;color:var(--text);flex:1}
+.track-meta{font-size:10px;color:var(--text4)}
+
+/* KANBAN */
+.kb-board{display:grid;gap:6px;margin:8px 0}
+.kb-col{background:var(--bg3);border:1px solid var(--border);border-radius:9px;overflow:hidden;min-height:80px}
+.kb-col-hdr{padding:9px 11px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border)}
+.kb-col-title{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:0.07em}
+.kb-col-count{font-size:11px;font-weight:900;padding:1px 7px;border-radius:100px}
+.kb-col-body{padding:6px;min-height:50px;transition:background 0.2s}
+.kb-col-body.drag-over{background:rgba(124,58,237,0.08)}
+.kb-card{background:var(--bg4);border:1px solid var(--border);border-radius:7px;padding:9px;margin-bottom:5px;cursor:grab;transition:all 0.15s;user-select:none}
+.kb-card:hover{border-color:var(--border2);transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,0.3)}
+.kb-card:active{cursor:grabbing;transform:translateY(0)}
+.kb-card.dragging{opacity:0.4}
+.kb-card-title{font-size:11px;font-weight:700;color:var(--text);margin-bottom:3px}
+.kb-card-sub{font-size:9px;color:var(--text4)}
+.kb-tags{display:flex;gap:3px;flex-wrap:wrap;margin-top:5px}
+.kb-tag{font-size:9px;background:var(--bg);border:1px solid var(--border);padding:1px 5px;border-radius:3px;color:var(--text3)}
+
+/* PROGRESS */
+.prog-bar{height:4px;background:var(--border);border-radius:2px;overflow:hidden;margin-top:6px}
+.prog-fill{height:100%;border-radius:2px;transition:width 0.5s ease}
+
+/* STAT GRID */
+.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:10px 0}
+.stat-card{background:var(--bg3);border:1px solid var(--border);border-radius:9px;padding:12px;text-align:center}
+.stat-val{font-size:22px;font-weight:900;line-height:1.1}
+.stat-lbl{font-size:9px;color:var(--text4);margin-top:2px;font-weight:600;text-transform:uppercase;letter-spacing:0.04em}
+
+/* CHART */
+.chart-wrap{display:flex;align-items:flex-end;gap:4px;height:70px;margin:12px 0;padding-bottom:2px}
+.chart-bar-demo{flex:1;border-radius:3px 3px 0 0;min-width:0;transition:height 0.4s ease,opacity 0.3s}
+.chart-legend{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:8px}
+.chart-leg-item{display:flex;align-items:center;gap:4px;font-size:10px;color:var(--text3);cursor:pointer;padding:3px 8px;border-radius:100px;border:1px solid transparent;transition:all 0.15s}
+.chart-leg-item:hover,.chart-leg-item.active{border-color:currentColor}
+.chart-leg-dot{width:8px;height:8px;border-radius:2px}
+
+/* COLLAB */
+.collab-row{display:flex;align-items:center;gap:10px;padding:10px;background:var(--bg3);border:1px solid var(--border);border-radius:9px;margin-bottom:6px;cursor:pointer;transition:border-color 0.15s}
+.collab-row:hover{border-color:var(--border2)}
+.collab-avatar{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800;flex-shrink:0}
+.collab-tracks{display:none;padding:8px 10px;background:var(--bg4);border:1px solid var(--border);border-radius:7px;margin-top:-3px;margin-bottom:6px}
+
+/* MOOD */
+.mood-tags{display:flex;flex-wrap:wrap;gap:5px;margin:10px 0}
+.mood-tag{padding:3px 10px;border-radius:5px;font-size:11px;font-weight:600;background:rgba(124,58,237,0.1);border:1px solid rgba(124,58,237,0.2);color:var(--purple2);cursor:pointer;transition:all 0.15s}
+.mood-tag.selected,.mood-tag:hover{background:rgba(124,58,237,0.25);border-color:rgba(124,58,237,0.5)}
+
+/* ALERT */
+.alert-row{display:flex;align-items:center;gap:8px;padding:9px 12px;border-radius:8px;margin-bottom:5px;border:1px solid}
+.alert-row.urgent{background:rgba(248,113,113,0.06);border-color:rgba(248,113,113,0.2)}
+.alert-row.warning{background:rgba(251,191,36,0.06);border-color:rgba(251,191,36,0.2)}
+.alert-row.relance{background:rgba(251,146,60,0.06);border-color:rgba(251,146,60,0.2)}
+.jx-badge{font-size:9px;font-weight:800;padding:2px 7px;border-radius:100px}
+
+/* CALENDAR */
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;text-align:center}
+.cal-day-hdr{font-size:9px;color:var(--text4);font-weight:700;padding:5px 2px}
+.cal-day{padding:5px 3px;font-size:10px;border-radius:5px;cursor:pointer;transition:background 0.15s;position:relative}
+.cal-day:hover{background:var(--bg3)}
+.cal-day.has-deadline{font-weight:800}
+.cal-dot{width:4px;height:4px;border-radius:50%;margin:1px auto 0}
+
+/* PUBLISHER */
+.pub-card{background:var(--bg3);border:1px solid var(--border);border-radius:9px;padding:12px;margin-bottom:6px}
+.pub-stat{text-align:center;flex:1}
+.pub-stat-val{font-size:15px;font-weight:900}
+.pub-stat-lbl{font-size:9px;color:var(--text4);font-weight:600;text-transform:uppercase}
+.pub-rate-bar{height:6px;background:var(--border);border-radius:3px;margin-top:10px;overflow:hidden}
+
+/* AI PROMPTS */
+.ai-prompt{display:flex;align-items:center;gap:6px;padding:7px 12px;background:var(--bg3);border:1px solid var(--border);border-radius:8px;font-size:11px;font-weight:600;color:var(--text2);cursor:pointer;transition:all 0.15s;margin-bottom:5px}
+.ai-prompt:hover{border-color:var(--purple);color:var(--purple2);background:rgba(124,58,237,0.08)}
+.ai-response{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:12px;font-size:12px;color:var(--text2);line-height:1.6;margin-top:8px;display:none}
+.ai-response.visible{display:block}
+
+/* GOALS */
+.goal-row{margin-bottom:12px}
+.goal-hdr{display:flex;justify-content:space-between;margin-bottom:5px}
+.goal-label{font-size:12px;font-weight:700;color:var(--text)}
+.goal-val{font-size:12px;font-weight:800}
+.goal-proj{font-size:10px;color:var(--text4);margin-top:3px}
+
+/* HIGHLIGHT SEARCH */
+mark{background:rgba(251,191,36,0.3);color:var(--text);border-radius:2px;padding:0 2px}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:32px 0;text-align:center}
+footer p{font-size:12px;color:var(--text4)}
+
+@media(max-width:640px){
+  .hero h1{font-size:26px}
+  .stat-grid{grid-template-columns:repeat(2,1fr)}
+  .kb-board{grid-template-columns:repeat(2,1fr)}
+}
 </style>
 </head>
 <body>
 
-<nav class="sidebar">
-  <div class="sidebar-header">
-    <a href="/" class="back-link">← syncplanner.app</a>
-    <div class="logo-row">
-      <div class="sidebar-logo">SYNC<span>.</span>PLANNER<small>Guide d'utilisation</small></div>
-      <div class="lang-sw">
-        <button class="lbtn active" onclick="window.location.href='help.html'" title="Français">🇫🇷</button>
-        <button class="lbtn" onclick="window.location.href='help-en.html'" title="English">🇬🇧</button>
-      </div>
+<nav class="topbar">
+  <div class="container topbar-inner">
+    <a href="https://syncplanner.app" class="logo">
+      <div class="logo-dot"></div>
+      SYNC.PLANNER
+    </a>
+    <div class="lang-switch">
+      <button class="lang-btn active" onclick="setLang('fr')">🇫🇷 FR</button>
+      <button class="lang-btn" onclick="setLang('en')">🇬🇧 EN</button>
     </div>
   </div>
-  <div class="nav-section">Pour commencer</div>
-  <a href="#profils" class="nav-link">👤 Profils compositeurs</a>
-  <a href="#workflow" class="nav-link">🔄 Workflow complet</a>
-  <div class="nav-section">Fonctionnalités</div>
-  <a href="#projets" class="nav-link">🎵 Projets & Albums</a>
-  <a href="#tracks" class="nav-link">🎚️ Suivi des tracks</a>
-  <a href="#relance" class="nav-link">📩 Relance éditeur</a>
-  <a href="#email" class="nav-link">✉️ Email automatique</a>
-  <a href="#kanban" class="nav-link">🗂️ Kanban</a>
-  <a href="#calendrier" class="nav-link">📅 Calendrier</a>
-  <a href="#gallery" class="nav-link">🖼️ Gallery</a>
-  <a href="#clients" class="nav-link">🏢 Clients & Éditeurs</a>
-  <a href="#stats" class="nav-link">📊 Statistiques</a>
-  <a href="#archivage" class="nav-link">📦 Archivage</a>
-  <a href="#recyclage" class="nav-link">♻️ Recyclage</a>
-  <a href="#parametres" class="nav-link">⚙️ Paramètres</a>
-  <div class="nav-section">Bonus</div>
-  <a href="#ia" class="nav-link">🤖 Assistant IA</a>
-  <div class="nav-section">Installation</div>
-  <a href="#mac" class="nav-link">Mac</a>
-  <a href="#windows" class="nav-link">Windows</a>
-  <a href="#activation" class="nav-link">🔑 Activation</a>
-  <div class="nav-section">Support</div>
-  <a href="#contact" class="nav-link">📧 Contact</a>
 </nav>
 
-<main class="main">
-
-  <div class="page-header">
-    <h1>Guide d'utilisation</h1>
-    <p>Tout ce qu'il faut savoir pour utiliser SYNC.PLANNER au quotidien.</p>
-    <div class="search-hint">Rechercher : <span class="kbd">⌘</span>+<span class="kbd">F</span> ou <span class="kbd">Ctrl</span>+<span class="kbd">F</span></div>
+<div class="container">
+  <div class="hero">
+    <div class="hero-badge">
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <span id="h-badge">Guide d'utilisation</span>
+    </div>
+    <h1><span class="grad">SYNC.PLANNER</span><br><span id="h-title">Guide complet</span></h1>
+    <p id="h-sub">Tout ce qu'il faut savoir pour utiliser SYNC.PLANNER — fonctionnalités, workflow et démos interactives.</p>
+    <div class="search-wrap">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5B5880" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input class="search-input" id="search" type="text" oninput="doSearch(this.value)" placeholder="Rechercher dans le guide…">
+    </div>
+    <div class="nav-pills" id="pills"></div>
   </div>
+  <div class="sections" id="sections"></div>
+</div>
 
-  <hr class="divider">
-
-  <!-- PROFILS -->
-  <section class="doc-section" id="profils">
-    <div class="section-header"><span class="section-emoji">👤</span><h2 class="section-title">Profils compositeurs</h2></div>
-    <p class="section-intro">SYNC.PLANNER s'adapte à tout type de compositeur professionnel. Voici comment l'app se configure naturellement selon le profil.</p>
-    <div class="profile-grid">
-      <div class="profile-card">
-        <div class="profile-icon">🎼</div>
-        <div class="profile-title">Compositeur Library</div>
-        <div class="profile-desc">Produit des albums thématiques pour plusieurs éditeurs simultanément. Gère des briefs avec deadline, valide track par track.</div>
-        <div class="profile-tag">Album = Brief éditeur</div>
-      </div>
-      <div class="profile-card">
-        <div class="profile-icon">🎬</div>
-        <div class="profile-title">Compositeur Film</div>
-        <div class="profile-desc">Compose pour un film ou une série. Chaque projet a un titre unique, un réalisateur/producteur comme client, et une deadline de livraison.</div>
-        <div class="profile-tag">Album = Titre du film</div>
-      </div>
-      <div class="profile-card">
-        <div class="profile-icon">🎮</div>
-        <div class="profile-title">Compositeur Jeux Vidéo</div>
-        <div class="profile-desc">Compose la bande sonore d'un jeu. Le titre du projet = le nom du jeu. Les tracks correspondent aux scènes, niveaux ou ambiances.</div>
-        <div class="profile-tag">Album = Nom du jeu</div>
-      </div>
-    </div>
-    <div class="info-box">
-      💡 Peu importe le profil, le fonctionnement est identique — <strong>un projet = une commande</strong>, avec des tracks à produire, une deadline et un client associé.
-    </div>
-  </section>
-
-  <hr class="divider">
-
-  <!-- WORKFLOW -->
-  <section class="doc-section" id="workflow">
-    <div class="section-header"><span class="section-emoji">🔄</span><h2 class="section-title">Workflow complet</h2></div>
-    <p class="section-intro">De la réception d'un brief à la livraison finale — voici comment SYNC.PLANNER accompagne chaque étape.</p>
-
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">1</div>
-        <div class="step-body">
-          <div class="step-title">Créer le projet</div>
-          <div class="step-text">Cliquer sur "+ Nouveau projet". Renseigner le titre (ex: "Neon Horizon", "Le Grand Bleu", "Shadow Realm"), le client/éditeur, la deadline et le nombre de tracks attendues.</div>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <div class="step-body">
-          <div class="step-title">Ajouter les informations</div>
-          <div class="step-text">Utiliser 🔗 Liens pour centraliser les fichiers de référence (Dropbox, Drive...), 📝 Notes pour les instructions du client, et 🖼️ Cover pour ajouter une pochette visuelle.</div>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <div class="step-body">
-          <div class="step-title">Composer et faire avancer les statuts</div>
-          <div class="step-text">Pour chaque track : faire passer le statut de "Composition" → "Envoyée" → "Mix" → "Validée" ou "Livrée". La barre de progression se met à jour automatiquement.</div>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">4</div>
-        <div class="step-body">
-          <div class="step-title">Surveiller les deadlines</div>
-          <div class="step-text">Les alertes 🔔 signalent les projets urgents. La vue Calendrier montre toutes les deadlines sur le mois. Le Dashboard affiche les projets par ordre d'urgence.</div>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">5</div>
-        <div class="step-body">
-          <div class="step-title">Archiver et recycler</div>
-          <div class="step-text">Une fois livré, archiver le projet pour garder la vue propre. Les tracks refusées peuvent être marquées disponibles et réutilisées sur un autre projet.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <hr class="divider">
-
-  <!-- PROJETS -->
-  <section class="doc-section" id="projets">
-    <div class="section-header"><span class="section-emoji">🎵</span><h2 class="section-title">Projets & Albums</h2></div>
-    <p class="section-intro">Un projet contient toutes les informations d'une commande : tracks, deadline, client, liens, notes et cover.</p>
-
-    <div class="ui-mock">
-      <div class="ui-bar"><div class="ui-dot" style="background:#F87171"></div><div class="ui-dot" style="background:#FBBF24"></div><div class="ui-dot" style="background:#10B981"></div><span class="ui-label">Projets & Albums</span></div>
-      <div class="ui-body">
-        <div style="display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap">
-          <span class="btn-m">+ Nouveau projet</span>
-          <span class="btn-sm">🔍 Rechercher</span>
-        </div>
-        <div style="background:#1A1838;border:1px solid #2A2750;border-radius:10px;padding:13px">
-          <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;flex-wrap:wrap">
-            <div style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;color:var(--creme);flex:1">Neon Horizon</div>
-            <span class="tag-c">Label Sync</span>
-            <span class="btn-sm">🔗 Liens</span>
-            <span class="btn-sm">📝 Notes</span>
-            <span class="btn-sm">🖼️ Cover</span>
-          </div>
-          <div style="height:4px;background:#2A2750;border-radius:100px;overflow:hidden;margin-bottom:6px"><div style="height:100%;width:72%;background:#A78BFA;border-radius:100px"></div></div>
-          <div style="font-size:11px;color:#5B5880">72% · 4 tracks · Deadline : 15 sept 2026</div>
-        </div>
-        <p class="hint">↑ Les boutons 🔗 📝 🖼️ permettent d'enrichir chaque projet</p>
-      </div>
-    </div>
-
-    <div class="feat-list">
-      <div class="feat-item"><div class="feat-icon">🔗</div><div class="feat-text"><strong>Liens</strong> — Ajouter des liens Dropbox, WeTransfer, Drive, YouTube... pour centraliser toutes les ressources du projet.</div></div>
-      <div class="feat-item"><div class="feat-icon">📝</div><div class="feat-text"><strong>Notes</strong> — Champ libre pour les instructions du client, le brief, les remarques importantes.</div></div>
-      <div class="feat-item"><div class="feat-icon">🖼️</div><div class="feat-text"><strong>Cover</strong> — Ajouter une image de couverture à l'album. Elle sera visible dans la vue Gallery.</div></div>
-      <div class="feat-item"><div class="feat-icon">📁</div><div class="feat-text"><strong>Importer un dossier</strong> — Dans la zone d'import (Dashboard), le bouton "📁 Sélectionner un dossier album" importe les fichiers d'un dossier existant pour créer les tracks automatiquement.</div></div>
-    </div>
-  </section>
-
-  <hr class="divider">
-
-  <!-- TRACKS -->
-  <section class="doc-section" id="tracks">
-    <div class="section-header"><span class="section-emoji">🎚️</span><h2 class="section-title">Suivi des tracks</h2></div>
-    <p class="section-intro">Chaque track a un statut qui reflète son avancement. Changer un statut met à jour la progression du projet en temps réel.</p>
-
-    <div class="status-grid">
-      <div class="status-pill" style="background:#0C4A6E22;border:1px solid #38BDF833"><div class="status-dot" style="background:#38BDF8"></div><span style="color:#38BDF8;font-size:12px;font-weight:600">Composition</span></div>
-      <div class="status-pill" style="background:#1E3A5F22;border:1px solid #60A5FA33"><div class="status-dot" style="background:#60A5FA"></div><span style="color:#60A5FA;font-size:12px;font-weight:600">Envoyée</span></div>
-      <div class="status-pill" style="background:#43140722;border:1px solid #FB923C33"><div class="status-dot" style="background:#FB923C"></div><span style="color:#FB923C;font-size:12px;font-weight:600">Révision</span></div>
-      <div class="status-pill" style="background:#2D1B6922;border:1px solid #A78BFA33"><div class="status-dot" style="background:#A78BFA"></div><span style="color:#A78BFA;font-size:12px;font-weight:600">Mix</span></div>
-      <div class="status-pill" style="background:#2D1B6922;border:1px solid #A78BFA33"><div class="status-dot" style="background:#A78BFA"></div><span style="color:#A78BFA;font-size:12px;font-weight:600">Mix envoyé</span></div>
-      <div class="status-pill" style="background:#06402B22;border:1px solid #10B98133"><div class="status-dot" style="background:#10B981"></div><span style="color:#10B981;font-size:12px;font-weight:600">Validée ✓</span></div>
-      <div class="status-pill" style="background:#06402B22;border:1px solid #10B98133"><div class="status-dot" style="background:#10B981"></div><span style="color:#10B981;font-size:12px;font-weight:600">Livrée ✓</span></div>
-      <div class="status-pill" style="background:#45091222;border:1px solid #F8717133"><div class="status-dot" style="background:#F87171"></div><span style="color:#F87171;font-size:12px;font-weight:600">Refusée</span></div>
-    </div>
-
-    <!-- DEMO INTERACTIVE TRACKS -->
-    <div class="demo-box">
-      <div class="demo-bar">🎮 Démo interactive — cliquez sur une track pour changer son statut <span>DEMO</span></div>
-      <div class="demo-body">
-        <div style="font-size:11px;color:#5B5880;margin-bottom:12px">Album : Neon Horizon · 4 tracks</div>
-        <div id="demo-tracks">
-          <div class="demo-track" onclick="demoNextStatus(0)">
-            <div class="demo-dot" id="dt0-dot" style="background:#38BDF8"></div>
-            <div style="flex:1;font-size:13px;color:var(--creme)">Track 01 — Pulse Drive</div>
-            <span class="demo-tag" id="dt0-tag" style="background:#0C4A6E22;color:#38BDF8;border:1px solid #38BDF833">Composition</span>
-          </div>
-          <div class="demo-track" onclick="demoNextStatus(1)">
-            <div class="demo-dot" id="dt1-dot" style="background:#60A5FA"></div>
-            <div style="flex:1;font-size:13px;color:var(--creme)">Track 02 — Shadow Sync</div>
-            <span class="demo-tag" id="dt1-tag" style="background:#1E3A5F22;color:#60A5FA;border:1px solid #60A5FA33">Envoyée</span>
-          </div>
-          <div class="demo-track" onclick="demoNextStatus(2)">
-            <div class="demo-dot" id="dt2-dot" style="background:#FB923C"></div>
-            <div style="flex:1;font-size:13px;color:var(--creme)">Track 03 — Neon Rush</div>
-            <span class="demo-tag" id="dt2-tag" style="background:#43140722;color:#FB923C;border:1px solid #FB923C33">Révision</span>
-          </div>
-          <div class="demo-track" onclick="demoNextStatus(3)">
-            <div class="demo-dot" id="dt3-dot" style="background:#10B981"></div>
-            <div style="flex:1;font-size:13px;color:var(--creme)">Track 04 — Cyber Wave</div>
-            <span class="demo-tag" id="dt3-tag" style="background:#06402B22;color:#10B981;border:1px solid #10B98133">Validée ✓</span>
-          </div>
-        </div>
-        <!-- Barre de progression -->
-        <div style="margin-top:14px">
-          <div style="display:flex;justify-content:space-between;font-size:11px;color:#5B5880;margin-bottom:4px">
-            <span>Progression album</span>
-            <span id="demo-prog-txt">25%</span>
-          </div>
-          <div style="height:5px;background:#2A2750;border-radius:100px;overflow:hidden">
-            <div id="demo-prog-bar" style="height:100%;width:25%;background:#A78BFA;border-radius:100px;transition:width 0.4s"></div>
-          </div>
-        </div>
-        <p class="hint" style="margin-top:8px">👆 Cliquez sur une track pour faire avancer son statut</p>
-      </div>
-    </div>
-
-    <div class="info-box">💡 <strong>Validée</strong> et <strong>Livrée</strong> comptent dans la progression. <strong>Refusée</strong> peut être recyclée vers un autre projet via le bouton ♻️.</div>
-
-    <!-- DEMO NOUVELLE TRACK -->
-    <div class="demo-box">
-      <div class="demo-bar">🎮 Démo interactive — ajoutez une track avec ses métadonnées <span>DEMO</span></div>
-      <div class="demo-body">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px">
-          <div>
-            <label style="font-size:10px;color:#5B5880;text-transform:uppercase;letter-spacing:0.08em;display:block;margin-bottom:4px">Titre</label>
-            <input class="demo-input" id="nt-title" placeholder="Dark Pulse 01">
-          </div>
-          <div>
-            <label style="font-size:10px;color:#5B5880;text-transform:uppercase;letter-spacing:0.08em;display:block;margin-bottom:4px">BPM</label>
-            <input class="demo-input" id="nt-bpm" type="number" placeholder="128" min="60" max="200">
-          </div>
-          <div>
-            <label style="font-size:10px;color:#5B5880;text-transform:uppercase;letter-spacing:0.08em;display:block;margin-bottom:4px">Tonalité</label>
-            <input class="demo-input" id="nt-key" placeholder="Am, C, F#m…">
-          </div>
-          <div>
-            <label style="font-size:10px;color:#5B5880;text-transform:uppercase;letter-spacing:0.08em;display:block;margin-bottom:4px">Durée</label>
-            <input class="demo-input" id="nt-dur" placeholder="2:45">
-          </div>
-        </div>
-        <div style="margin-bottom:12px">
-          <label style="font-size:10px;color:#5B5880;text-transform:uppercase;letter-spacing:0.08em;display:block;margin-bottom:6px">Mood / Style</label>
-          <div style="display:flex;gap:6px;flex-wrap:wrap" id="mood-chips">
-            <span onclick="toggleMood(this)" style="padding:4px 10px;border-radius:100px;font-size:11px;font-weight:600;border:1px solid #2A2750;color:#7B78A8;cursor:pointer;transition:all 0.15s">Epic</span>
-            <span onclick="toggleMood(this)" style="padding:4px 10px;border-radius:100px;font-size:11px;font-weight:600;border:1px solid #2A2750;color:#7B78A8;cursor:pointer;transition:all 0.15s">Dark</span>
-            <span onclick="toggleMood(this)" style="padding:4px 10px;border-radius:100px;font-size:11px;font-weight:600;border:1px solid #2A2750;color:#7B78A8;cursor:pointer;transition:all 0.15s">Tension</span>
-            <span onclick="toggleMood(this)" style="padding:4px 10px;border-radius:100px;font-size:11px;font-weight:600;border:1px solid #2A2750;color:#7B78A8;cursor:pointer;transition:all 0.15s">Action</span>
-            <span onclick="toggleMood(this)" style="padding:4px 10px;border-radius:100px;font-size:11px;font-weight:600;border:1px solid #2A2750;color:#7B78A8;cursor:pointer;transition:all 0.15s">Ambient</span>
-            <span onclick="toggleMood(this)" style="padding:4px 10px;border-radius:100px;font-size:11px;font-weight:600;border:1px solid #2A2750;color:#7B78A8;cursor:pointer;transition:all 0.15s">Emotional</span>
-            <span onclick="toggleMood(this)" style="padding:4px 10px;border-radius:100px;font-size:11px;font-weight:600;border:1px solid #2A2750;color:#7B78A8;cursor:pointer;transition:all 0.15s">Upbeat</span>
-            <span onclick="toggleMood(this)" style="padding:4px 10px;border-radius:100px;font-size:11px;font-weight:600;border:1px solid #2A2750;color:#7B78A8;cursor:pointer;transition:all 0.15s">Cinematic</span>
-          </div>
-        </div>
-        <button class="demo-btn" style="width:100%;justify-content:center" onclick="demoAddTrack()">+ Ajouter la track</button>
-        <div id="nt-result" class="demo-result"></div>
-      </div>
-    </div>
-  </section>
-
-  <hr class="divider">
-
-  <!-- RELANCE ÉDITEUR -->
-  <section class="doc-section" id="relance">
-    <div class="section-header"><span class="section-emoji">📩</span><h2 class="section-title">Relance éditeur</h2></div>
-    <p class="section-intro">SYNC.PLANNER vous alerte automatiquement quand un éditeur tarde à répondre — que ce soit sur un album entier ou sur une track spécifique.</p>
-
-    <h3 style="font-size:16px;font-weight:700;margin:20px 0 10px">Relance par album</h3>
-    <p style="font-size:14px;color:var(--texte);line-height:1.75;margin-bottom:16px">Dans chaque projet, la section <strong>Relance éditeur</strong> vous permet de renseigner la date de votre dernier contact avec l'éditeur et le délai avant alerte (ex: 15 jours). Si l'éditeur ne répond pas dans ce délai, une alerte rouge apparaît dans le <strong>Briefing</strong>.</p>
-
-    <h3 style="font-size:16px;font-weight:700;margin:20px 0 10px">Relance par track</h3>
-    <p style="font-size:14px;color:var(--texte);line-height:1.75;margin-bottom:16px">Chaque track dispose de sa propre date de relance dans la colonne de droite. Vous pouvez définir un délai personnalisé par track. L'indicateur passe en rouge 🚨 quand le délai est dépassé.</p>
-
-    <h3 style="font-size:16px;font-weight:700;margin:20px 0 10px">Réponse reçue</h3>
-    <p style="font-size:14px;color:var(--texte);line-height:1.75;margin-bottom:16px">Quand l'éditeur répond, cliquez sur <strong>✅ Réponse reçue</strong> — un popup s'ouvre pour saisir la date de réponse. L'alerte disparaît immédiatement. Vous pouvez réinitialiser si besoin.</p>
-
-    <!-- DEMO RELANCE -->
-    <div class="demo-box">
-      <div class="demo-bar">🎮 Démo interactive — simulez une alerte de relance <span>DEMO</span></div>
-      <div class="demo-body">
-        <div style="margin-bottom:12px">
-          <div style="font-size:11px;color:#5B5880;margin-bottom:8px">Album : Neon Horizon · Éditeur : Label Sync</div>
-          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
-            <div>
-              <div style="font-size:10px;color:#5B5880;margin-bottom:3px">Dernière relance</div>
-              <div style="font-size:12px;color:#60A5FA;font-weight:600">15 juil. 2026</div>
-            </div>
-            <div>
-              <div style="font-size:10px;color:#5B5880;margin-bottom:3px">Alerte après</div>
-              <div style="font-size:12px;color:var(--creme);font-weight:600">15 jours</div>
-            </div>
-          </div>
-        </div>
-        <div id="demo-relance-alert" class="demo-alert">🚨 <strong>32 jours sans réponse</strong> — Label Sync · Neon Horizon</div>
-        <div id="demo-relance-ok" style="display:none;background:#064E3B22;border:1px solid #10B98133;border-radius:6px;padding:10px 14px;font-size:12px;color:#10B981;margin-top:8px">✅ Réponse reçue le 17 août 2026</div>
-        <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap">
-          <button class="demo-btn-green" onclick="demoRelanceReply()">✅ Réponse reçue</button>
-          <button class="demo-btn-sm" onclick="demoRelanceReset()">↩ Réinitialiser</button>
-        </div>
-        <p class="hint" style="margin-top:8px">👆 Cliquez "Réponse reçue" pour voir l'alerte disparaître</p>
-      </div>
-    </div>
-
-    <div class="info-box">💡 Dans le <strong>Briefing</strong>, toutes les relances en attente apparaissent groupées par album — avec les tracks indentées en dessous. Un bouton ✉️ permet d'envoyer directement l'email de relance.</div>
-  </section>
-
-  <hr class="divider">
-
-  <!-- EMAIL AUTOMATIQUE -->
-  <section class="doc-section" id="email">
-    <div class="section-header"><span class="section-emoji">✉️</span><h2 class="section-title">Email automatique de relance</h2></div>
-    <p class="section-intro">Envoyez un email de relance professionnel en un clic — avec l'objet, le corps et la signature pré-remplis automatiquement.</p>
-
-    <h3 style="font-size:16px;font-weight:700;margin:20px 0 10px">Comment ça marche</h3>
-    <p style="font-size:14px;color:var(--texte);line-height:1.75;margin-bottom:16px">Sur chaque track, un bouton <strong>✉️ Envoyer email de relance</strong> apparaît. En cliquant, votre client mail s'ouvre avec :</p>
-    <ul style="font-size:14px;color:var(--texte);line-height:2;padding-left:20px;margin-bottom:16px">
-      <li>L'adresse email de l'éditeur pré-remplie</li>
-      <li>L'objet : <em>Relance — Nom de la track / Nom de l'album</em></li>
-      <li>Le corps du message avec le nom du contact et votre signature</li>
-    </ul>
-
-    <h3 style="font-size:16px;font-weight:700;margin:20px 0 10px">Client mail</h3>
-    <p style="font-size:14px;color:var(--texte);line-height:1.75;margin-bottom:16px">Dans <strong>Paramètres → Client mail</strong>, choisissez votre client mail préféré :</p>
-    <ul style="font-size:14px;color:var(--texte);line-height:2;padding-left:20px;margin-bottom:16px">
-      <li><strong>📬 Mail.app</strong> — ouvre directement Apple Mail avec tout pré-rempli</li>
-      <li><strong>📧 Gmail</strong> — nécessite de configurer Gmail comme client mail par défaut dans Chrome</li>
-      <li><strong>📋 Copier</strong> — copie le mail dans le presse-papier</li>
-    </ul>
-
-    <div class="info-box">💡 Si l'email de l'éditeur n'est pas renseigné, un popup vous propose de l'ajouter directement — il sera automatiquement sauvegardé dans la fiche éditeur.</div>
-
-    <!-- DEMO EMAIL -->
-    <div class="demo-box">
-      <div class="demo-bar">🎮 Démo interactive — prévisualisez un email de relance <span>DEMO</span></div>
-      <div class="demo-body">
-        <div class="demo-track" style="cursor:default;margin-bottom:12px">
-          <div class="demo-dot" style="background:#60A5FA"></div>
-          <div style="flex:1;font-size:13px;color:var(--creme)">Track 02 — Shadow Sync</div>
-          <span class="demo-tag" style="background:#1E3A5F22;color:#60A5FA;border:1px solid #60A5FA33">Envoyée</span>
-          <button class="demo-btn" style="font-size:11px;padding:5px 10px;margin-left:8px" onclick="demoShowEmail()">✉️ Relancer</button>
-        </div>
-        <div id="demo-email-preview" style="display:none;background:#13122A;border:1px solid #2A2750;border-radius:10px;padding:16px;font-size:12px;line-height:1.8">
-          <div style="color:#5B5880;margin-bottom:8px">
-            <strong style="color:var(--creme)">À :</strong> contact@labelsync.com<br>
-            <strong style="color:var(--creme)">Objet :</strong> Relance — Shadow Sync / Neon Horizon
-          </div>
-          <div style="border-top:1px solid #2A2750;padding-top:10px;color:var(--texte)">
-            Bonjour Marie,<br><br>
-            J'espère que tu vas bien. Je me permets de te relancer concernant la track "Shadow Sync" soumise pour l'album "Neon Horizon".<br><br>
-            Je voulais savoir si tu avais eu l'occasion de l'écouter et si tu avais des retours à me faire.<br><br>
-            N'hésite pas à me faire signe — je reste disponible pour tout ajustement.<br><br>
-            Cordialement,<br><br>
-            <span style="color:#A78BFA">Jean Dupont<br>Mon Studio Music<br>+33 6 00 00 00 00</span>
-          </div>
-        </div>
-        <p class="hint" id="demo-email-hint">👆 Cliquez "✉️ Relancer" pour prévisualiser l'email généré</p>
-      </div>
-    </div>
-
-  <hr class="divider">
-
-  <!-- PARAMÈTRES -->
-  <section class="doc-section" id="parametres">
-    <div class="section-header"><span class="section-emoji">⚙️</span><h2 class="section-title">Paramètres</h2></div>
-    <p class="section-intro">La page Paramètres centralise toutes vos préférences personnelles — profil, client mail et modèle d'email.</p>
-
-    <h3 style="font-size:16px;font-weight:700;margin:20px 0 10px">👤 Profil compositeur</h3>
-    <p style="font-size:14px;color:var(--texte);line-height:1.75;margin-bottom:16px">Renseignez vos informations personnelles : prénom, nom, structure, téléphone, site web. Ces informations servent à signer automatiquement vos emails de relance.</p>
-
-    <h3 style="font-size:16px;font-weight:700;margin:20px 0 10px">✉️ Client mail</h3>
-    <p style="font-size:14px;color:var(--texte);line-height:1.75;margin-bottom:16px">Choisissez comment envoyer vos emails de relance : Mail.app, Gmail ou Copier dans le presse-papier.</p>
-
-    <h3 style="font-size:16px;font-weight:700;margin:20px 0 10px">📝 Modèle de mail</h3>
-    <p style="font-size:14px;color:var(--texte);line-height:1.75;margin-bottom:16px">Personnalisez le texte de vos emails de relance en FR et EN. Utilisez les variables <code style="background:#1A1838;padding:2px 6px;border-radius:4px;color:#A78BFA">{contact}</code> <code style="background:#1A1838;padding:2px 6px;border-radius:4px;color:#A78BFA">{track}</code> <code style="background:#1A1838;padding:2px 6px;border-radius:4px;color:#A78BFA">{album}</code> pour personnaliser chaque email automatiquement.</p>
-
-    <div class="info-box">💡 Un bouton <strong>↩ Restaurer le texte par défaut</strong> vous permet de revenir au modèle original à tout moment.</div>
-  </section>
-
-  <hr class="divider">
-
-  <!-- KANBAN -->
-  <section class="doc-section" id="kanban">
-    <div class="section-header"><span class="section-emoji">🗂️</span><h2 class="section-title">Vue Kanban</h2></div>
-    <p class="section-intro">Le Kanban affiche toutes les tracks du mois organisées par colonne de statut. Une vue d'ensemble pour voir d'un coup d'œil ce qui est en cours, ce qui est bloqué et ce qui est livré.</p>
-
-    <!-- DEMO KANBAN INTERACTIVE -->
-    <div class="demo-box">
-      <div class="demo-bar">🎮 Démo interactive — déplacez les tracks entre les colonnes <span>DEMO</span></div>
-      <div class="demo-body" style="overflow-x:auto">
-        <div style="display:grid;grid-template-columns:repeat(4,minmax(140px,1fr));gap:8px;min-width:560px" id="kanban-demo">
-          <div class="kanban-col" id="kcol-compo" ondragover="event.preventDefault()" ondrop="kDrop(event,'compo')" style="background:#0D0C1A;border:1px solid #1E1C38;border-radius:8px;padding:10px;min-height:120px">
-            <div style="display:flex;justify-content:space-between;margin-bottom:8px"><span style="font-size:10px;font-weight:700;color:#38BDF8">🎹 COMPO</span><span class="kanban-count" id="kc-compo" style="background:#0C4A6E;color:#38BDF8;font-size:10px;font-weight:700;padding:1px 6px;border-radius:100px">2</span></div>
-            <div id="kcol-compo-cards">
-              <div class="kcard" draggable="true" ondragstart="kDrag(event,'k1')" id="k1" data-col="compo" style="background:#1A1838;border:1px solid #2A2750;border-radius:6px;padding:8px;margin-bottom:6px;cursor:grab"><div style="font-size:11px;color:#E2E0F0;font-weight:600">Urban Bass 01</div><div style="font-size:10px;color:#5B5880">Music Co.</div></div>
-              <div class="kcard" draggable="true" ondragstart="kDrag(event,'k2')" id="k2" data-col="compo" style="background:#1A1838;border:1px solid #2A2750;border-radius:6px;padding:8px;margin-bottom:6px;cursor:grab"><div style="font-size:11px;color:#E2E0F0;font-weight:600">Dark Matter 01</div><div style="font-size:10px;color:#5B5880">Label Sync</div></div>
-            </div>
-          </div>
-          <div class="kanban-col" id="kcol-sent" ondragover="event.preventDefault()" ondrop="kDrop(event,'sent')" style="background:#0D0C1A;border:1px solid #1E1C38;border-radius:8px;padding:10px;min-height:120px">
-            <div style="display:flex;justify-content:space-between;margin-bottom:8px"><span style="font-size:10px;font-weight:700;color:#60A5FA">📤 ENVOYÉE</span><span class="kanban-count" id="kc-sent" style="background:#1E3A5F;color:#60A5FA;font-size:10px;font-weight:700;padding:1px 6px;border-radius:100px">1</span></div>
-            <div id="kcol-sent-cards">
-              <div class="kcard" draggable="true" ondragstart="kDrag(event,'k3')" id="k3" data-col="sent" style="background:#1A1838;border:1px solid #2A2750;border-radius:6px;padding:8px;margin-bottom:6px;cursor:grab"><div style="font-size:11px;color:#E2E0F0;font-weight:600">Neon City 01</div><div style="font-size:10px;color:#5B5880">Label Sync</div></div>
-            </div>
-          </div>
-          <div class="kanban-col" id="kcol-rev" ondragover="event.preventDefault()" ondrop="kDrop(event,'rev')" style="background:#0D0C1A;border:1px solid #1E1C38;border-radius:8px;padding:10px;min-height:120px">
-            <div style="display:flex;justify-content:space-between;margin-bottom:8px"><span style="font-size:10px;font-weight:700;color:#FB923C">🔄 RÉVISION</span><span class="kanban-count" id="kc-rev" style="background:#431407;color:#FB923C;font-size:10px;font-weight:700;padding:1px 6px;border-radius:100px">0</span></div>
-            <div id="kcol-rev-cards"></div>
-          </div>
-          <div class="kanban-col" id="kcol-done" ondragover="event.preventDefault()" ondrop="kDrop(event,'done')" style="background:#0D0C1A;border:1px solid #1E1C38;border-radius:8px;padding:10px;min-height:120px">
-            <div style="display:flex;justify-content:space-between;margin-bottom:8px"><span style="font-size:10px;font-weight:700;color:#10B981">✅ LIVRÉ</span><span class="kanban-count" id="kc-done" style="background:#064E3B;color:#10B981;font-size:10px;font-weight:700;padding:1px 6px;border-radius:100px">1</span></div>
-            <div id="kcol-done-cards">
-              <div class="kcard" draggable="true" ondragstart="kDrag(event,'k4')" id="k4" data-col="done" style="background:#1A1838;border:1px solid #2A2750;border-radius:6px;padding:8px;margin-bottom:6px;cursor:grab"><div style="font-size:11px;color:#E2E0F0;font-weight:600">Pulse 01</div><div style="font-size:10px;color:#5B5880">Studio Brief</div></div>
-            </div>
-          </div>
-        </div>
-        <p class="hint" style="margin-top:10px">👆 Glissez les cartes d'une colonne à l'autre pour simuler un changement de statut</p>
-      </div>
-    </div>
-
-    <div class="feat-list">
-      <div class="feat-item"><div class="feat-icon">👁️</div><div class="feat-text"><strong>Vue mensuelle</strong> — Le Kanban affiche toutes les tracks du mois en cours, tous projets confondus.</div></div>
-      <div class="feat-item"><div class="feat-icon">🎯</div><div class="feat-text"><strong>Identifier les blocages</strong> — D'un coup d'œil, voir ce qui est en révision ou en attente de retour client.</div></div>
-      <div class="feat-item"><div class="feat-icon">📊</div><div class="feat-text"><strong>Compteurs par colonne</strong> — Le badge de chaque colonne indique combien de tracks sont dans cet état ce mois-ci.</div></div>
-    </div>
-  </section>
-
-  <hr class="divider">
-
-  <!-- CALENDRIER -->
-  <section class="doc-section" id="calendrier">
-    <div class="section-header"><span class="section-emoji">📅</span><h2 class="section-title">Calendrier</h2></div>
-    <p class="section-intro">La vue Calendrier affiche toutes les deadlines des projets sur un calendrier mensuel. Idéal pour planifier et anticiper les surcharges.</p>
-    <div class="feat-list">
-      <div class="feat-item"><div class="feat-icon">📅</div><div class="feat-text"><strong>Deadlines visibles</strong> — Chaque deadline apparaît sur le bon jour avec le nom du client associé.</div></div>
-      <div class="feat-item"><div class="feat-icon">⚠️</div><div class="feat-text"><strong>Alertes colorées</strong> — Les deadlines proches apparaissent en orange/rouge selon l'urgence.</div></div>
-      <div class="feat-item"><div class="feat-icon">◀️▶️</div><div class="feat-text"><strong>Navigation</strong> — Naviguer d'un mois à l'autre pour voir les deadlines futures ou passées.</div></div>
-    </div>
-
-    <!-- DEMO CALENDRIER -->
-    <div class="demo-box">
-      <div class="demo-bar">🎮 Démo interactive — mini calendrier avec deadlines <span>DEMO</span></div>
-      <div class="demo-body">
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
-          <button class="demo-btn-sm" onclick="calPrev()">◀</button>
-          <div style="font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:700;color:var(--creme)" id="cal-month-label">Août 2026</div>
-          <button class="demo-btn-sm" onclick="calNext()">▶</button>
-        </div>
-        <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:3px;margin-bottom:4px">
-          <div style="text-align:center;font-size:10px;color:#5B5880;font-weight:600;padding:4px">L</div>
-          <div style="text-align:center;font-size:10px;color:#5B5880;font-weight:600;padding:4px">M</div>
-          <div style="text-align:center;font-size:10px;color:#5B5880;font-weight:600;padding:4px">M</div>
-          <div style="text-align:center;font-size:10px;color:#5B5880;font-weight:600;padding:4px">J</div>
-          <div style="text-align:center;font-size:10px;color:#5B5880;font-weight:600;padding:4px">V</div>
-          <div style="text-align:center;font-size:10px;color:#5B5880;font-weight:600;padding:4px">S</div>
-          <div style="text-align:center;font-size:10px;color:#5B5880;font-weight:600;padding:4px">D</div>
-        </div>
-        <div id="cal-grid" style="display:grid;grid-template-columns:repeat(7,1fr);gap:3px"></div>
-        <div style="display:flex;gap:12px;margin-top:10px;flex-wrap:wrap">
-          <span style="font-size:11px;color:#F87171">🔴 Deadline urgente</span>
-          <span style="font-size:11px;color:#FBBF24">🟡 Deadline proche</span>
-          <span style="font-size:11px;color:#10B981">🟢 Deadline OK</span>
-        </div>
-        <p class="hint" style="margin-top:8px">👆 Naviguez entre les mois avec les flèches</p>
-      </div>
-    </div>
-  </section>
-
-  <hr class="divider">
-
-  <!-- GALLERY -->
-  <section class="doc-section" id="gallery">
-    <div class="section-header"><span class="section-emoji">🖼️</span><h2 class="section-title">Gallery</h2></div>
-    <p class="section-intro">La vue Gallery affiche tous les projets sous forme de pochettes visuelles. Survoler une pochette affiche les tracks, cliquer ouvre le projet.</p>
-
-    <div class="ui-mock">
-      <div class="ui-bar"><div class="ui-dot" style="background:#F87171"></div><div class="ui-dot" style="background:#FBBF24"></div><div class="ui-dot" style="background:#10B981"></div><span class="ui-label">Gallery</span></div>
-      <div style="padding:18px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
-        <div style="border-radius:10px;overflow:hidden;border:1px solid #10B98133;cursor:pointer;position:relative" onmouseenter="this.querySelector('.ov').style.opacity='1'" onmouseleave="this.querySelector('.ov').style.opacity='0'">
-          <div style="height:100px;background:linear-gradient(135deg,#064E3B,#10B981);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:3px"><div style="font-size:24px">🎵</div><div style="font-family:'Space Grotesk',sans-serif;font-size:10px;font-weight:700;color:white">Neon Horizon</div></div>
-          <div style="padding:7px 10px;background:#1A1838"><div style="display:flex;justify-content:space-between;margin-bottom:4px"><span style="font-size:9px;color:#5B5880">Label Sync</span><span style="font-size:9px;font-weight:700;color:#10B981">100%</span></div><div style="height:3px;background:#2A2750;border-radius:100px"><div style="height:100%;width:100%;background:#10B981;border-radius:100px"></div></div></div>
-          <div class="ov" style="position:absolute;inset:0;background:rgba(10,9,16,0.9);opacity:0;transition:opacity 0.2s;padding:10px"><div style="font-size:9px;font-weight:700;color:#10B981;margin-bottom:5px">4 tracks</div><div style="font-size:10px;color:#E2E0F0;margin-bottom:2px">✅ Neon City Intro</div><div style="font-size:10px;color:#E2E0F0;margin-bottom:2px">✅ Drive By Night</div><div style="font-size:10px;color:#E2E0F0;margin-bottom:2px">✅ Pulse</div><div style="font-size:10px;color:#E2E0F0">✅ Outro Fade</div></div>
-        </div>
-        <div style="border-radius:10px;overflow:hidden;border:1px solid #A78BFA33;cursor:pointer;position:relative" onmouseenter="this.querySelector('.ov').style.opacity='1'" onmouseleave="this.querySelector('.ov').style.opacity='0'">
-          <div style="height:100px;background:linear-gradient(135deg,#1A0800,#C2410C);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:3px"><div style="font-size:24px">🎬</div><div style="font-family:'Space Grotesk',sans-serif;font-size:10px;font-weight:700;color:white">Le Grand Bleu</div></div>
-          <div style="padding:7px 10px;background:#1A1838"><div style="display:flex;justify-content:space-between;margin-bottom:4px"><span style="font-size:9px;color:#5B5880">Ciné Prod</span><span style="font-size:9px;font-weight:700;color:#A78BFA">60%</span></div><div style="height:3px;background:#2A2750;border-radius:100px"><div style="height:100%;width:60%;background:#A78BFA;border-radius:100px"></div></div></div>
-          <div class="ov" style="position:absolute;inset:0;background:rgba(10,9,16,0.9);opacity:0;transition:opacity 0.2s;padding:10px"><div style="font-size:9px;font-weight:700;color:#A78BFA;margin-bottom:5px">3 tracks</div><div style="font-size:10px;color:#E2E0F0;margin-bottom:2px">✅ Main Theme</div><div style="font-size:10px;color:#E2E0F0;margin-bottom:2px">🎚️ Underwater</div><div style="font-size:10px;color:#E2E0F0">🎹 End Credits</div></div>
-        </div>
-        <div style="border-radius:10px;overflow:hidden;border:1px solid #60A5FA33;cursor:pointer;position:relative" onmouseenter="this.querySelector('.ov').style.opacity='1'" onmouseleave="this.querySelector('.ov').style.opacity='0'">
-          <div style="height:100px;background:linear-gradient(135deg,#0C1A4A,#1E40AF);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:3px"><div style="font-size:24px">🎮</div><div style="font-family:'Space Grotesk',sans-serif;font-size:10px;font-weight:700;color:white">Shadow Realm</div></div>
-          <div style="padding:7px 10px;background:#1A1838"><div style="display:flex;justify-content:space-between;margin-bottom:4px"><span style="font-size:9px;color:#5B5880">GameSound</span><span style="font-size:9px;font-weight:700;color:#F87171">⚠️ J-3</span></div><div style="height:3px;background:#2A2750;border-radius:100px"><div style="height:100%;width:20%;background:#FB923C;border-radius:100px"></div></div></div>
-          <div class="ov" style="position:absolute;inset:0;background:rgba(10,9,16,0.9);opacity:0;transition:opacity 0.2s;padding:10px"><div style="font-size:9px;font-weight:700;color:#F87171;margin-bottom:5px">2 tracks</div><div style="font-size:10px;color:#E2E0F0;margin-bottom:2px">🎹 Boss Battle</div><div style="font-size:10px;color:#E2E0F0">🎹 Final Level</div></div>
-        </div>
-      </div>
-      <p class="hint" style="padding:0 18px 12px;text-align:center">Survoler une pochette pour voir les tracks · Cliquer pour ouvrir le projet</p>
-    </div>
-
-    <div class="feat-list">
-      <div class="feat-item"><div class="feat-icon">🎨</div><div class="feat-text"><strong>Couleur automatique</strong> — La couleur de chaque pochette reflète l'avancement. Vert = terminé, violet = en cours, orange = urgent.</div></div>
-      <div class="feat-item"><div class="feat-icon">🖼️</div><div class="feat-text"><strong>Cover personnalisée</strong> — Ajouter une image via le bouton "🖼️ Cover" dans le projet pour personnaliser la pochette.</div></div>
-      <div class="feat-item"><div class="feat-icon">👆</div><div class="feat-text"><strong>Survol</strong> — Passer la souris sur une pochette affiche instantanément la liste des tracks et leur statut.</div></div>
-    </div>
-  </section>
-
-  <hr class="divider">
-
-  <!-- CLIENTS -->
-  <section class="doc-section" id="clients">
-    <div class="section-header"><span class="section-emoji">🏢</span><h2 class="section-title">Clients & Éditeurs</h2></div>
-    <p class="section-intro">L'onglet Éditeurs centralise toutes les informations sur les clients avec leurs statistiques de collaboration.</p>
-
-    <div class="ui-mock">
-      <div class="ui-bar"><div class="ui-dot" style="background:#F87171"></div><div class="ui-dot" style="background:#FBBF24"></div><div class="ui-dot" style="background:#10B981"></div><span class="ui-label">Clients & Éditeurs</span></div>
-      <div class="ui-body">
-        <!-- Stats globales éditeurs -->
-        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px">
-          <div style="background:#1A1838;border:1px solid #2A2750;border-radius:8px;padding:10px;text-align:center"><div style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;color:#C4B5FD">4</div><div style="font-size:9px;color:#5B5880;text-transform:uppercase;letter-spacing:0.06em;margin-top:2px">Clients</div></div>
-          <div style="background:#1A1838;border:1px solid #2A2750;border-radius:8px;padding:10px;text-align:center"><div style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;color:#10B981">47</div><div style="font-size:9px;color:#5B5880;text-transform:uppercase;letter-spacing:0.06em;margin-top:2px">Validées</div></div>
-          <div style="background:#1A1838;border:1px solid #2A2750;border-radius:8px;padding:10px;text-align:center"><div style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;color:#FBBF24">68%</div><div style="font-size:9px;color:#5B5880;text-transform:uppercase;letter-spacing:0.06em;margin-top:2px">Taux moyen</div></div>
-          <div style="background:#1A1838;border:1px solid #2A2750;border-radius:8px;padding:10px;text-align:center"><div style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;color:#60A5FA">5</div><div style="font-size:9px;color:#5B5880;text-transform:uppercase;letter-spacing:0.06em;margin-top:2px">En attente</div></div>
-        </div>
-        <!-- Clients liste -->
-        <div style="display:flex;flex-direction:column;gap:7px">
-          <div style="background:#1A1838;border:1px solid #2A2750;border-radius:8px;padding:12px;display:flex;align-items:center;gap:12px">
-            <div style="flex:1"><div style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;color:var(--creme)">Label Sync</div><div style="font-size:10px;color:#5B5880;margin-top:2px">4 albums · 28 tracks soumises</div></div>
-            <span class="btn-sm">📇</span>
-            <div style="min-width:80px"><div style="display:flex;justify-content:space-between;margin-bottom:3px"><span style="font-size:10px;color:#5B5880">Taux</span><span style="font-size:10px;font-weight:700;color:#10B981">75%</span></div><div style="height:4px;background:#2A2750;border-radius:100px"><div style="height:100%;width:75%;background:#10B981;border-radius:100px"></div></div></div>
-          </div>
-          <div style="background:#1A1838;border:1px solid #2A2750;border-radius:8px;padding:12px;display:flex;align-items:center;gap:12px">
-            <div style="flex:1"><div style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;color:var(--creme)">Ciné Prod</div><div style="font-size:10px;color:#5B5880;margin-top:2px">2 films · 14 tracks soumises</div></div>
-            <span class="btn-sm">📇</span>
-            <div style="min-width:80px"><div style="display:flex;justify-content:space-between;margin-bottom:3px"><span style="font-size:10px;color:#5B5880">Taux</span><span style="font-size:10px;font-weight:700;color:#FBBF24">64%</span></div><div style="height:4px;background:#2A2750;border-radius:100px"><div style="height:100%;width:64%;background:#FBBF24;border-radius:100px"></div></div></div>
-          </div>
-          <div style="background:#1A1838;border:1px solid #2A2750;border-radius:8px;padding:12px;display:flex;align-items:center;gap:12px">
-            <div style="flex:1"><div style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;color:var(--creme)">GameSound</div><div style="font-size:10px;color:#5B5880;margin-top:2px">1 jeu · 8 tracks soumises</div></div>
-            <span class="btn-sm">📇</span>
-            <div style="min-width:80px"><div style="display:flex;justify-content:space-between;margin-bottom:3px"><span style="font-size:10px;color:#5B5880">Taux</span><span style="font-size:10px;font-weight:700;color:#60A5FA">50%</span></div><div style="height:4px;background:#2A2750;border-radius:100px"><div style="height:100%;width:50%;background:#60A5FA;border-radius:100px"></div></div></div>
-          </div>
-        </div>
-        <p class="hint" style="margin-top:8px">↑ Le bouton 📇 ouvre la fiche complète : email, téléphone, lien de soumission, notes...</p>
-      </div>
-    </div>
-
-    <div class="feat-list">
-      <div class="feat-item"><div class="feat-icon">📇</div><div class="feat-text"><strong>Fiche contact</strong> — Email principal/secondaire, téléphone, contact référent, lien de soumission, conditions de la collaboration, notes libres.</div></div>
-      <div class="feat-item"><div class="feat-icon">📊</div><div class="feat-text"><strong>Taux de validation par éditeur</strong> — SYNC.PLANNER calcule automatiquement le pourcentage de tracks validées par rapport aux tracks soumises, pour chaque client.</div></div>
-      <div class="feat-item"><div class="feat-icon">📈</div><div class="feat-text"><strong>Historique de production</strong> — L'accordéon de chaque client affiche l'historique de collaboration par année et par mois.</div></div>
-    </div>
-  </section>
-
-  <hr class="divider">
-
-  <!-- STATS -->
-  <section class="doc-section" id="stats">
-    <div class="section-header"><span class="section-emoji">📊</span><h2 class="section-title">Statistiques</h2></div>
-    <p class="section-intro">Vue globale de la production avec statistiques par collaborateur, par éditeur, et sur l'ensemble de l'année.</p>
-
-    <!-- Stats globales -->
-    <h3 style="font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600;color:var(--creme);margin-bottom:12px">Vue globale annuelle</h3>
-    <div class="ui-mock">
-      <div class="ui-bar"><div class="ui-dot" style="background:#F87171"></div><div class="ui-dot" style="background:#FBBF24"></div><div class="ui-dot" style="background:#10B981"></div><span class="ui-label">Statistiques 2026</span></div>
-      <div class="ui-body">
-        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:16px">
-          <div style="background:#1A1838;border:1px solid #2A2750;border-radius:8px;padding:10px;text-align:center"><div style="font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:700;color:#C4B5FD">58</div><div style="font-size:9px;color:#5B5880;text-transform:uppercase;letter-spacing:0.06em;margin-top:2px">Total tracks</div></div>
-          <div style="background:#1A1838;border:1px solid #2A2750;border-radius:8px;padding:10px;text-align:center"><div style="font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:700;color:#10B981">39</div><div style="font-size:9px;color:#5B5880;text-transform:uppercase;letter-spacing:0.06em;margin-top:2px">Validées</div></div>
-          <div style="background:#1A1838;border:1px solid #2A2750;border-radius:8px;padding:10px;text-align:center"><div style="font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:700;color:#F87171">8</div><div style="font-size:9px;color:#5B5880;text-transform:uppercase;letter-spacing:0.06em;margin-top:2px">Refusées</div></div>
-          <div style="background:#1A1838;border:1px solid #2A2750;border-radius:8px;padding:10px;text-align:center"><div style="font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:700;color:#FBBF24">67%</div><div style="font-size:9px;color:#5B5880;text-transform:uppercase;letter-spacing:0.06em;margin-top:2px">Taux valid.</div></div>
-        </div>
-        <!-- Graphique mensuel -->
-        <div style="background:#1A1838;border:1px solid #1E1C38;border-radius:8px;padding:14px">
-          <div style="font-size:10px;font-weight:700;color:#9D99C8;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:12px">Production mensuelle 2026</div>
-          <div style="display:flex;gap:4px;align-items:flex-end;height:80px">
-            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:3px"><div style="width:100%;background:#7C3AED;border-radius:2px 2px 0 0;height:25px;opacity:0.5"></div><div style="font-size:7px;color:#4B4870">Jan</div></div>
-            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:3px"><div style="width:100%;background:#7C3AED;border-radius:2px 2px 0 0;height:38px;opacity:0.5"></div><div style="font-size:7px;color:#4B4870">Fév</div></div>
-            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:3px"><div style="width:100%;background:#7C3AED;border-radius:2px 2px 0 0;height:32px;opacity:0.5"></div><div style="font-size:7px;color:#4B4870">Mar</div></div>
-            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:3px"><div style="width:100%;background:#7C3AED;border-radius:2px 2px 0 0;height:52px;opacity:0.5"></div><div style="font-size:7px;color:#4B4870">Avr</div></div>
-            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:3px"><div style="width:100%;background:#7C3AED;border-radius:2px 2px 0 0;height:44px;opacity:0.5"></div><div style="font-size:7px;color:#4B4870">Mai</div></div>
-            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:3px"><div style="width:100%;background:#7C3AED;border-radius:2px 2px 0 0;height:58px;opacity:0.5"></div><div style="font-size:7px;color:#4B4870">Jun</div></div>
-            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:3px"><div style="width:100%;background:#7C3AED;border-radius:2px 2px 0 0;height:38px;opacity:0.5"></div><div style="font-size:7px;color:#4B4870">Jul</div></div>
-            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:3px"><div style="width:100%;background:#7C3AED;border-radius:2px 2px 0 0;height:65px;opacity:0.5"></div><div style="font-size:7px;color:#4B4870">Aoû</div></div>
-            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:3px"><div style="font-size:7px;color:#2A2750">Sep</div></div>
-            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:3px"><div style="font-size:7px;color:#2A2750">Oct</div></div>
-            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:3px"><div style="font-size:7px;color:#2A2750">Nov</div></div>
-            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:3px"><div style="font-size:7px;color:#2A2750">Déc</div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Stats par collaborateur -->
-    <h3 style="font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600;color:var(--creme);margin:24px 0 12px">Stats par collaborateur</h3>
-    <div class="ui-mock">
-      <div class="ui-bar"><div class="ui-dot" style="background:#F87171"></div><div class="ui-dot" style="background:#FBBF24"></div><div class="ui-dot" style="background:#10B981"></div><span class="ui-label">Collaborateurs</span></div>
-      <div class="ui-body">
-        <div style="display:flex;flex-direction:column;gap:8px">
-          <div style="background:#1A1838;border:1px solid #2A2750;border-radius:8px;padding:12px;display:flex;align-items:center;gap:12px">
-            <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#7C3AED,#A78BFA);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:white;flex-shrink:0;font-family:'Space Grotesk',sans-serif">J</div>
-            <div style="flex:1"><div style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;color:var(--creme)">Joeffrey L.</div><div style="font-size:10px;color:#5B5880;margin-top:1px">Compositeur principal</div></div>
-            <div style="text-align:right"><div style="font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:700;color:#10B981">32</div><div style="font-size:9px;color:#5B5880">tracks</div></div>
-            <div style="min-width:70px"><div style="display:flex;justify-content:space-between;margin-bottom:3px"><span style="font-size:9px;color:#5B5880">Valid.</span><span style="font-size:9px;font-weight:700;color:#10B981">72%</span></div><div style="height:4px;background:#2A2750;border-radius:100px"><div style="height:100%;width:72%;background:#10B981;border-radius:100px"></div></div></div>
-          </div>
-          <div style="background:#1A1838;border:1px solid #2A2750;border-radius:8px;padding:12px;display:flex;align-items:center;gap:12px">
-            <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#0C4A6E,#38BDF8);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:white;flex-shrink:0;font-family:'Space Grotesk',sans-serif">M</div>
-            <div style="flex:1"><div style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;color:var(--creme)">Marc D.</div><div style="font-size:10px;color:#5B5880;margin-top:1px">Co-compositeur</div></div>
-            <div style="text-align:right"><div style="font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:700;color:#FBBF24">18</div><div style="font-size:9px;color:#5B5880">tracks</div></div>
-            <div style="min-width:70px"><div style="display:flex;justify-content:space-between;margin-bottom:3px"><span style="font-size:9px;color:#5B5880">Valid.</span><span style="font-size:9px;font-weight:700;color:#FBBF24">61%</span></div><div style="height:4px;background:#2A2750;border-radius:100px"><div style="height:100%;width:61%;background:#FBBF24;border-radius:100px"></div></div></div>
-          </div>
-          <div style="background:#1A1838;border:1px solid #2A2750;border-radius:8px;padding:12px;display:flex;align-items:center;gap:12px">
-            <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#064E3B,#10B981);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:white;flex-shrink:0;font-family:'Space Grotesk',sans-serif">S</div>
-            <div style="flex:1"><div style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;color:var(--creme)">Sophie R.</div><div style="font-size:10px;color:#5B5880;margin-top:1px">Arrangements</div></div>
-            <div style="text-align:right"><div style="font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:700;color:#60A5FA">8</div><div style="font-size:9px;color:#5B5880">tracks</div></div>
-            <div style="min-width:70px"><div style="display:flex;justify-content:space-between;margin-bottom:3px"><span style="font-size:9px;color:#5B5880">Valid.</span><span style="font-size:9px;font-weight:700;color:#60A5FA">55%</span></div><div style="height:4px;background:#2A2750;border-radius:100px"><div style="height:100%;width:55%;background:#60A5FA;border-radius:100px"></div></div></div>
-          </div>
-        </div>
-        <p class="hint" style="margin-top:8px">↑ Nombre de tracks composées et taux de validation par collaborateur</p>
-      </div>
-    </div>
-
-    <div class="feat-list">
-      <div class="feat-item"><div class="feat-icon">👥</div><div class="feat-text"><strong>Stats par collaborateur</strong> — Voir qui a composé combien de tracks et quel est son taux de validation sur la période.</div></div>
-      <div class="feat-item"><div class="feat-icon">🏢</div><div class="feat-text"><strong>Stats par éditeur</strong> — Performance par client : nombre de tracks soumises, validées, taux de validation.</div></div>
-      <div class="feat-item"><div class="feat-icon">📅</div><div class="feat-text"><strong>Vue annuelle</strong> — Graphique de production mois par mois pour l'année en cours.</div></div>
-      <div class="feat-item"><div class="feat-icon">🏆</div><div class="feat-text"><strong>Objectifs</strong> — Définir des cibles de production annuelles et suivre la progression en temps réel.</div></div>
-    </div>
-
-    <!-- DEMO STATS ANIMEES -->
-    <div class="demo-box">
-      <div class="demo-bar">🎮 Démo interactive — chiffres clés d'un compositeur sync <span>DEMO</span></div>
-      <div class="demo-body">
-        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:16px">
-          <div style="background:#13122A;border:1px solid #2A2750;border-radius:10px;padding:16px;text-align:center">
-            <div style="font-family:'Space Grotesk',sans-serif;font-size:32px;font-weight:700;color:#A78BFA" id="stat-tracks">0</div>
-            <div style="font-size:11px;color:#5B5880;margin-top:4px">tracks produites</div>
-          </div>
-          <div style="background:#13122A;border:1px solid #2A2750;border-radius:10px;padding:16px;text-align:center">
-            <div style="font-family:'Space Grotesk',sans-serif;font-size:32px;font-weight:700;color:#10B981" id="stat-valid">0</div>
-            <div style="font-size:11px;color:#5B5880;margin-top:4px">validées par les éditeurs</div>
-          </div>
-          <div style="background:#13122A;border:1px solid #2A2750;border-radius:10px;padding:16px;text-align:center">
-            <div style="font-family:'Space Grotesk',sans-serif;font-size:32px;font-weight:700;color:#60A5FA" id="stat-collabs">0</div>
-            <div style="font-size:11px;color:#5B5880;margin-top:4px">collaborateurs</div>
-          </div>
-          <div style="background:#13122A;border:1px solid #2A2750;border-radius:10px;padding:16px;text-align:center">
-            <div style="font-family:'Space Grotesk',sans-serif;font-size:32px;font-weight:700;color:#D4AF6A" id="stat-pubs">0</div>
-            <div style="font-size:11px;color:#5B5880;margin-top:4px">éditeurs actifs</div>
-          </div>
-        </div>
-        <!-- Mini graphique -->
-        <div style="background:#13122A;border:1px solid #2A2750;border-radius:10px;padding:14px">
-          <div style="font-size:10px;color:#5B5880;margin-bottom:8px;text-transform:uppercase;letter-spacing:0.08em">Production mensuelle 2026</div>
-          <div style="display:flex;gap:3px;align-items:flex-end;height:60px">
-            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:2px"><div style="width:100%;background:#7C3AED;border-radius:2px 2px 0 0;height:18px;opacity:0.7" class="stat-bar"></div><div style="font-size:8px;color:#4B4870">J</div></div>
-            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:2px"><div style="width:100%;background:#7C3AED;border-radius:2px 2px 0 0;height:26px;opacity:0.7" class="stat-bar"></div><div style="font-size:8px;color:#4B4870">F</div></div>
-            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:2px"><div style="width:100%;background:#7C3AED;border-radius:2px 2px 0 0;height:22px;opacity:0.7" class="stat-bar"></div><div style="font-size:8px;color:#4B4870">M</div></div>
-            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:2px"><div style="width:100%;background:#7C3AED;border-radius:2px 2px 0 0;height:34px;opacity:0.7" class="stat-bar"></div><div style="font-size:8px;color:#4B4870">A</div></div>
-            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:2px"><div style="width:100%;background:#7C3AED;border-radius:2px 2px 0 0;height:28px;opacity:0.7" class="stat-bar"></div><div style="font-size:8px;color:#4B4870">M</div></div>
-            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:2px"><div style="width:100%;background:#7C3AED;border-radius:2px 2px 0 0;height:38px;opacity:0.7" class="stat-bar"></div><div style="font-size:8px;color:#4B4870">J</div></div>
-            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:2px"><div style="width:100%;background:#7C3AED;border-radius:2px 2px 0 0;height:24px;opacity:0.7" class="stat-bar"></div><div style="font-size:8px;color:#4B4870">J</div></div>
-            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:2px"><div style="width:100%;background:#7C3AED;border-radius:2px 2px 0 0;height:42px;opacity:0.7" class="stat-bar"></div><div style="font-size:8px;color:#4B4870">A</div></div>
-          </div>
-        </div>
-        <button class="demo-btn" style="width:100%;margin-top:12px;justify-content:center" onclick="animateStats()">▶ Animer les chiffres</button>
-      </div>
-    </div>
-  </section>
-
-  <hr class="divider">
-
-  <!-- ARCHIVAGE -->
-  <section class="doc-section" id="archivage">
-    <div class="section-header"><span class="section-emoji">📦</span><h2 class="section-title">Archivage</h2></div>
-    <p class="section-intro">Les projets terminés peuvent être archivés pour garder la vue principale propre, sans perdre les données.</p>
-    <div class="feat-list">
-      <div class="feat-item"><div class="feat-icon">📦</div><div class="feat-text"><strong>Archiver</strong> — Options du projet → "Archiver". Le projet disparaît de la vue principale mais reste accessible via le filtre "Archivés".</div></div>
-      <div class="feat-item"><div class="feat-icon">↩️</div><div class="feat-text"><strong>Désarchiver</strong> — Un projet archivé peut être remis en actif à tout moment.</div></div>
-    </div>
-    <div class="info-box">💡 Les projets archivés restent comptabilisés dans les statistiques globales et l'historique de production.</div>
-  </section>
-
-  <hr class="divider">
-
-  <!-- RECYCLAGE -->
-  <section class="doc-section" id="recyclage">
-    <div class="section-header"><span class="section-emoji">♻️</span><h2 class="section-title">Recyclage de tracks</h2></div>
-    <p class="section-intro">Une track refusée n'est pas perdue. Elle peut être marquée disponible et transférée vers un autre projet.</p>
-    <div class="steps">
-      <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Marquer comme disponible</div><div class="step-text">Sur une track refusée, cliquer "Disponible". Elle apparaît dans les alertes 🔔 avec un badge orange.</div></div></div>
-      <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Transférer</div><div class="step-text">Cliquer sur 🔀 → choisir un album existant ou créer un nouveau → confirmer le transfert.</div></div></div>
-      <div class="step"><div class="step-num">3</div><div class="step-body"><div class="step-title">Historique conservé</div><div class="step-text">La track affiche "(créée pour Album X)" pour garder la trace de son origine.</div></div></div>
-    </div>
-  </section>
-
-  <hr class="divider">
-
-  <!-- IA -->
-  <section class="doc-section" id="ia">
-    <span class="bonus-tag">🎁 Bonus optionnel</span>
-    <div class="section-header"><span class="section-emoji">🤖</span><h2 class="section-title">Assistant IA</h2></div>
-    <p class="section-intro">SYNC.PLANNER peut se connecter à Claude, GPT-4o ou Mistral via clé API personnelle pour créer des projets, modifier des statuts ou analyser la production en langage naturel.</p>
-    <div class="warn-box">⚠️ <strong>Fonctionnalité optionnelle</strong> — Nécessite un compte et une clé API chez le fournisseur choisi. L'utilisation consomme des tokens facturés directement par le fournisseur. Les conversations ne sont pas conservées entre les sessions.</div>
-    <div class="steps">
-      <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Créer une clé API</div><div class="step-text"><a href="https://console.anthropic.com" target="_blank" style="color:var(--violet2)">console.anthropic.com</a> (Claude) · <a href="https://platform.openai.com" target="_blank" style="color:var(--violet2)">platform.openai.com</a> (GPT-4o) · <a href="https://console.mistral.ai" target="_blank" style="color:var(--violet2)">console.mistral.ai</a> (Mistral)</div></div></div>
-      <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Configurer dans l'app</div><div class="step-text">Onglet 🤖 → sélectionner le fournisseur → coller la clé API → cliquer "Tester".</div></div></div>
-      <div class="step"><div class="step-num">3</div><div class="step-body"><div class="step-title">Exemple d'utilisation</div><div class="step-text">"Crée un album Sony Music avec 8 tracks deadline 30 septembre" → l'album est créé instantanément dans l'app.</div></div></div>
-    </div>
-  </section>
-
-  <hr class="divider">
-
-  <!-- INSTALLATION -->
-  <section class="doc-section" id="mac">
-    <div class="section-header"><span class="section-emoji">💻</span><h2 class="section-title">Installation — Mac</h2></div>
-    <p class="section-intro">SYNC.PLANNER est disponible en fichier <strong>.dmg</strong> pour Mac Intel (x64). Compatible macOS 10.13+.</p>
-    <div class="steps">
-      <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Télécharger</div><div class="step-text">Depuis <a href="/" style="color:var(--violet2)">syncplanner.app</a>, cliquer sur "Mac — Télécharger".</div></div></div>
-      <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Ouvrir le DMG</div><div class="step-text">Double-cliquer sur le .dmg, puis glisser SYNC.PLANNER dans le dossier Applications.</div></div></div>
-      <div class="step"><div class="step-num">3</div><div class="step-body"><div class="step-title">Lancer</div><div class="step-text">Ouvrir SYNC.PLANNER depuis Applications ou le Launchpad.</div></div></div>
-    </div>
-    <div class="warn-box">⚠️ <strong>Alerte sécurité macOS</strong> — Si macOS bloque l'ouverture : clic droit sur l'app → "Ouvrir" → "Ouvrir quand même". Cette étape n'est nécessaire qu'une seule fois.</div>
-  </section>
-
-  <section class="doc-section" id="windows">
-    <div class="section-header"><span class="section-emoji">🖥️</span><h2 class="section-title">Installation — Windows</h2></div>
-    <div class="warn-box">🚧 <strong>Windows en cours de développement</strong> — La version Windows de SYNC.PLANNER est actuellement en cours de développement. Elle sera disponible prochainement. En attendant, l'app est disponible sur Mac.</div>
-    <p class="section-intro" style="margin-top:12px">Pour être notifié de la sortie Windows, contactez-nous à <a href="mailto:contact@syncplanner.app" style="color:var(--violet2)">contact@syncplanner.app</a>.</p>
-    <div class="steps">
-      <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Télécharger</div><div class="step-text">Depuis <a href="/" style="color:var(--violet2)">syncplanner.app</a>, cliquer sur "Windows — Télécharger".</div></div></div>
-      <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Installer</div><div class="step-text">Double-cliquer sur <code>SYNC.PLANNER Setup 1.0.0.exe</code> et suivre les étapes.</div></div></div>
-      <div class="step"><div class="step-num">3</div><div class="step-body"><div class="step-title">Lancer</div><div class="step-text">SYNC.PLANNER est accessible depuis le bureau ou le menu Démarrer.</div></div></div>
-    </div>
-  </section>
-
-  <section class="doc-section" id="activation">
-    <div class="section-header"><span class="section-emoji">🔑</span><h2 class="section-title">Activation de la licence</h2></div>
-    <p class="section-intro">Après avoir souscrit sur syncplanner.app, la licence s'active en quelques secondes depuis l'app.</p>
-    <div class="steps">
-      <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Ouvrir SYNC.PLANNER</div><div class="step-text">Le bandeau "Mode d'essai" apparaît en haut. Cliquer sur "⭐ Passer en Pro →".</div></div></div>
-      <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Entrer l'email</div><div class="step-text">Saisir l'email utilisé lors du paiement sur Stripe.</div></div></div>
-      <div class="step"><div class="step-num">3</div><div class="step-body"><div class="step-title">Activer</div><div class="step-text">Cliquer "Activer ma licence" → accès Pro déverrouillé instantanément.</div></div></div>
-    </div>
-    <div class="info-box">💡 <strong>Sans internet</strong> — une fois activée, la licence fonctionne hors ligne sans problème.</div>
-  </section>
-
-  <hr class="divider">
-
-  <section class="doc-section" id="contact">
-    <div class="section-header"><span class="section-emoji">📧</span><h2 class="section-title">Contact & Support</h2></div>
-    <p class="section-intro">Pour toute question, envoyer un email à <a href="mailto:contact@syncplanner.app" style="color:var(--violet2)">contact@syncplanner.app</a>. Réponse sous 24h.</p>
-    <div class="info-box">💡 Pour les bugs, préciser la version (Mac ou Windows) et décrire le problème rencontré.</div>
-  </section>
-
-  <div class="page-footer">© 2026 SYNC.PLANNER · <a href="/">syncplanner.app</a></div>
-
-</main>
+<footer><div class="container"><p>© 2026 SYNC.PLANNER · <a href="https://syncplanner.app">syncplanner.app</a> · <a href="mailto:contact@syncplanner.app">contact@syncplanner.app</a></p></div></footer>
 
 <script>
-const sections = document.querySelectorAll('.doc-section');
-const navLinks = document.querySelectorAll('.nav-link');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting) {
-      navLinks.forEach(l => l.classList.remove('active'));
-      const a = document.querySelector(`.nav-link[href="#${entry.target.id}"]`);
-      if(a) a.classList.add('active');
+let LANG = 'fr';
+const T = {
+  badge:{fr:"Guide d'utilisation",en:"User Guide"},
+  title:{fr:"Guide complet",en:"Complete Guide"},
+  sub:{fr:"Tout ce qu'il faut savoir pour utiliser SYNC.PLANNER — fonctionnalités, workflow et démos interactives.",en:"Everything you need to use SYNC.PLANNER — features, workflow and interactive demos."},
+  search:{fr:"Rechercher dans le guide…",en:"Search the guide…"},
+  demo_hint:{fr:"👆 Démo interactive — clique pour tester",en:"👆 Interactive demo — click to try"},
+};
+
+// ─── SECTIONS DATA ─────────────────────────────────────────
+const SECTIONS = [
+{
+  id:'projects', color:'#60A5FA', bg:'rgba(96,165,250,0.12)',
+  icon:`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="1.8" stroke-linecap="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>`,
+  title:{fr:'Projets & Albums',en:'Projects & Albums'},
+  sub:{fr:'Créer, organiser et suivre vos albums',en:'Create, organise and track your albums'},
+  items:[
+    {fr:'<b>Créer un projet</b> — clique sur "+ Nouveau projet", renseigne le titre, l\'éditeur, la deadline et le statut.',en:'<b>Create a project</b> — click "+ New Project", fill in the title, publisher, deadline and status.'},
+    {fr:'<b>Statuts projet</b> — En production · Envoyé · Terminé · Abandonné. Se met à jour automatiquement quand toutes les tracks sont validées ou livrées.',en:'<b>Project statuses</b> — In Production · Submitted · Completed · Abandoned. Updates automatically when all tracks are validated or delivered.'},
+    {fr:'<b>Statuts de track</b> — Composition · Envoyée · Révision · Mix · Mix envoyé · Validée · Livrée · Refusée. Clique sur un statut pour le changer instantanément.',en:'<b>Track statuses</b> — Composition · Submitted · Revision · Mix · Mix Submitted · Validated · Delivered · Refused. Click a status to change it instantly.'},
+    {fr:'<b>Date d\'envoi</b> — quand une track passe en "Envoyée", définis la date d\'envoi pour démarrer le compteur J+X.',en:'<b>Send date</b> — when a track switches to "Submitted", set the send date to start the J+X timer.'},
+    {fr:'<b>BPM · Tonalité · Durée</b> — métadonnées éditables sur chaque track.',en:'<b>BPM · Key · Duration</b> — editable metadata on each track.'},
+    {fr:'<b>Moods</b> — 16 moods : Epic, Dark, Tension, Action, Ambient, Emotional, Upbeat, Cinematic, Hybrid, Corporate, Orchestral, Mystical, Playful, Dramatic, Fantasy, Neo-Classic.',en:'<b>Moods</b> — 16 moods: Epic, Dark, Tension, Action, Ambient, Emotional, Upbeat, Cinematic, Hybrid, Corporate, Orchestral, Mystical, Playful, Dramatic, Fantasy, Neo-Classic.'},
+    {fr:'<b>Collaborateurs</b> — ajoute compositeur, arrangeur, mix engineer, musicien… par album ou par track avec leur % de parts.',en:'<b>Collaborators</b> — add composer, arranger, mix engineer, musician… per album or per track with their share %.'},
+    {fr:'<b>Recycler ♻️</b> — transfère une track refusée vers un autre album via le bouton ♻️.',en:'<b>Recycle ♻️</b> — transfer a refused track to another album via the ♻️ button.'},
+    {fr:'<b>Archiver</b> — projets terminés archivés, restent dans les stats.',en:'<b>Archive</b> — completed projects archived, still counted in stats.'},
+    {fr:'<b>Import audio</b> — importe des MP3/WAV pour créer les tracks automatiquement depuis les noms de fichiers.',en:'<b>Audio import</b> — import MP3/WAV to auto-create tracks from filenames.'},
+    {fr:'<b>Cover</b> — ajoute une pochette par URL ou upload. Visible dans la Galerie.',en:'<b>Cover</b> — add a cover by URL or upload. Visible in the Gallery.'},
+  ],
+  demo: buildTrackDemo
+},
+{
+  id:'kanban', color:'#A78BFA', bg:'rgba(167,139,250,0.12)',
+  icon:`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="3" width="7" height="18" rx="1"/><rect x="14" y="3" width="7" height="18" rx="1"/></svg>`,
+  title:{fr:'Suivi par étape — Kanban',en:'Track Progress — Kanban'},
+  sub:{fr:'Vue mensuelle de toutes vos tracks par statut',en:'Monthly view of all your tracks by status'},
+  items:[
+    {fr:'<b>Vue mensuelle</b> — tracks des projets dont la deadline tombe dans le mois sélectionné. Navigue avec ← →.',en:'<b>Monthly view</b> — tracks from projects whose deadline falls in the selected month. Navigate with ← →.'},
+    {fr:'<b>En-têtes fixes</b> — les colonnes restent visibles en haut même en scrollant.',en:'<b>Fixed headers</b> — columns stay visible at top even while scrolling.'},
+    {fr:'<b>Cartes track</b> — titre, album, logo éditeur, BPM, tonalité, moods, badge J+X si en attente.',en:'<b>Track cards</b> — title, album, publisher logo, BPM, key, moods, J+X badge if awaiting reply.'},
+    {fr:'<b>Glisser-déposer</b> — fais glisser une carte vers une autre colonne pour changer le statut.',en:'<b>Drag & drop</b> — drag a card to another column to change its status.'},
+    {fr:'<b>Fiche track (clic)</b> — ouvre la fiche complète : modifier titre, BPM, tonalité, durée, statut, moods, notes, date d\'envoi, deadline, réponse reçue, email relance.',en:'<b>Track sheet (click)</b> — opens the full sheet: edit title, BPM, key, duration, status, moods, notes, send date, deadline, reply received, follow-up email.'},
+  ],
+  demo: buildKanbanDemo
+},
+{
+  id:'alerts', color:'#F87171', bg:'rgba(248,113,113,0.12)',
+  icon:`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F87171" stroke-width="1.8" stroke-linecap="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>`,
+  title:{fr:'Alertes & Relances',en:'Alerts & Follow-ups'},
+  sub:{fr:'Système J+X et notifications en temps réel',en:'J+X system and real-time notifications'},
+  items:[
+    {fr:'<b>Panel alertes</b> — icône cloche dans la barre latérale, alertes en temps réel : deadlines dépassées + relances sans réponse.',en:'<b>Alert panel</b> — bell icon in the sidebar, real-time alerts: overdue deadlines + unanswered follow-ups.'},
+    {fr:'<b>Badge J+X</b> — jours depuis la date d\'envoi. Bleu &lt;15j · Orange 15–30j · Rouge &gt;30j.',en:'<b>J+X badge</b> — days since the send date. Blue &lt;15d · Orange 15–30d · Red &gt;30d.'},
+    {fr:'<b>Seuil de relance</b> — délai d\'alerte configurable par track (défaut 15 jours).',en:'<b>Follow-up threshold</b> — configurable alert delay per track (default 15 days).'},
+    {fr:'<b>Réponse reçue</b> — clique pour arrêter le compteur. Automatique si la track passe en Validée ou Livrée.',en:'<b>Reply received</b> — click to stop the counter. Automatic when a track becomes Validated or Delivered.'},
+    {fr:'<b>Email de relance</b> — bouton enveloppe pour ouvrir un email pré-rempli depuis le template éditeur.',en:'<b>Follow-up email</b> — envelope button to open a pre-filled email from the publisher template.'},
+    {fr:'<b>Deadlines dépassées</b> — apparaissent en 🚨 rouge avec "dépassée de X jours".',en:'<b>Overdue deadlines</b> — shown as 🚨 red with "overdue by X days".'},
+    {fr:'<b>Briefing quotidien</b> — résumé du jour : stats, deadlines proches, tracks à relancer, projets inactifs depuis 14j.',en:'<b>Daily briefing</b> — day\'s summary: stats, upcoming deadlines, tracks to follow up, projects inactive 14+ days.'},
+  ],
+  demo: buildAlertsDemo
+},
+{
+  id:'stats', color:'#FBBF24', bg:'rgba(251,191,36,0.12)',
+  icon:`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FBBF24" stroke-width="1.8" stroke-linecap="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>`,
+  title:{fr:'Statistiques',en:'Statistics'},
+  sub:{fr:'Graphiques interactifs, collabs et éditeurs',en:'Interactive charts, collabs and publishers'},
+  items:[
+    {fr:'<b>Par année</b> — graphique barres mensuel : produites, validées, refusées, en cours. Clique sur les légendes pour masquer/afficher — les barres se redimensionnent.',en:'<b>By year</b> — monthly bar chart: produced, validated, refused, in progress. Click legends to hide/show — bars resize.'},
+    {fr:'<b>Mensuel</b> — vue détaillée par mois avec comparateur.',en:'<b>Monthly</b> — detailed view by month with comparator.'},
+    {fr:'<b>Total</b> — cumul depuis le début.',en:'<b>All Time</b> — lifetime totals.'},
+    {fr:'<b>Collabs</b> — classement par nombre de tracks. Recherche par nom, accordéon pour voir les tracks. Avatar ou "Fiche" pour ouvrir le profil complet.',en:'<b>Collabs</b> — ranking by number of tracks. Search by name, accordion for tracks. Avatar or "Profile" to open full sheet.'},
+    {fr:'<b>Éditeurs</b> — validées, refusées, taux d\'acceptation, délai moyen de réponse.',en:'<b>Publishers</b> — validated, refused, acceptance rate, average response time.'},
+  ],
+  demo: buildStatsDemo
+},
+{
+  id:'goals', color:'#10B981', bg:'rgba(16,185,129,0.12)',
+  icon:`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2" fill="#10B981" stroke="none"/></svg>`,
+  title:{fr:'Objectifs',en:'Goals'},
+  sub:{fr:'Fixer et suivre vos objectifs annuels',en:'Set and track your annual targets'},
+  items:[
+    {fr:'<b>Objectifs annuels</b> — nombre cible de tracks à produire, livrer et valider.',en:'<b>Annual goals</b> — target number of tracks to produce, deliver and validate.'},
+    {fr:'<b>Progression temps réel</b> — barre qui se met à jour à chaque changement de statut.',en:'<b>Real-time progress</b> — bar updates with every status change.'},
+    {fr:'<b>Projection fin d\'année</b> — résultat estimé selon le rythme actuel.',en:'<b>Year-end projection</b> — estimated result based on current pace.'},
+    {fr:'<b>Verrouiller</b> — protège les objectifs contre les modifications accidentelles.',en:'<b>Lock</b> — protects goals from accidental changes.'},
+    {fr:'<b>Sélecteur d\'année</b> — navigue de N-5 à N+5.',en:'<b>Year selector</b> — navigate from N-5 to N+5.'},
+  ],
+  demo: buildGoalsDemo
+},
+{
+  id:'publishers', color:'#34D399', bg:'rgba(52,211,153,0.12)',
+  icon:`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="1.8" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>`,
+  title:{fr:'Éditeurs',en:'Publishers'},
+  sub:{fr:'Fiches contacts, templates email, statistiques',en:'Contact sheets, email templates, statistics'},
+  items:[
+    {fr:'<b>Fiche éditeur</b> — nom, email, téléphone, site web, logo (affiché dans projets, stats et Kanban).',en:'<b>Publisher sheet</b> — name, email, phone, website, logo (shown in projects, stats and Kanban).'},
+    {fr:'<b>Template relance FR + EN</b> — variables : <code>{composer}</code> <code>{track}</code> <code>{album}</code> <code>{date}</code>.',en:'<b>Follow-up template FR + EN</b> — variables: <code>{composer}</code> <code>{track}</code> <code>{album}</code> <code>{date}</code>.'},
+    {fr:'<b>Stats par éditeur</b> — validées, refusées, taux d\'acceptation, délai moyen de réponse.',en:'<b>Publisher stats</b> — validated, refused, acceptance rate, average response time.'},
+    {fr:'<b>Bordure active</b> — orange si des tracks attendent >15j, rouge >30j.',en:'<b>Active border</b> — orange if tracks waiting >15d, red >30d.'},
+  ],
+  demo: buildPublisherDemo
+},
+{
+  id:'collabs', color:'#C4B5FD', bg:'rgba(196,181,253,0.12)',
+  icon:`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C4B5FD" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>`,
+  title:{fr:'Collaborateurs',en:'Collaborators'},
+  sub:{fr:'Répertoire pro et stats de collaboration',en:'Pro directory and collaboration stats'},
+  items:[
+    {fr:'<b>Ajouter</b> — par album ou par track, avec le % de parts.',en:'<b>Add</b> — per album or per track, with share %.'},
+    {fr:'<b>Fiche complète</b> — rôle, photo, email, téléphone, ville, Facebook, Instagram, Spotify, site web, Dropbox/Drive, notes.',en:'<b>Full profile</b> — role, photo, email, phone, city, Facebook, Instagram, Spotify, website, Dropbox/Drive, notes.'},
+    {fr:'<b>Liens sociaux</b> — bouton → pour ouvrir directement dans le navigateur.',en:'<b>Social links</b> — → button to open directly in the browser.'},
+    {fr:'<b>Recherche</b> — barre de recherche pour filtrer par nom.',en:'<b>Search</b> — search bar to filter by name.'},
+    {fr:'<b>Stats</b> — tracks ensemble, albums, parts moyennes, taux validées/refusées. Accordéon pour la liste détaillée.',en:'<b>Stats</b> — tracks together, albums, avg share, validated/refused rate. Accordion for detailed list.'},
+  ],
+  demo: buildCollabDemo
+},
+{
+  id:'gallery', color:'#FB923C', bg:'rgba(251,146,60,0.12)',
+  icon:`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FB923C" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>`,
+  title:{fr:'Galerie',en:'Gallery'},
+  sub:{fr:'Vue visuelle de tous vos albums',en:'Visual view of all your albums'},
+  items:[
+    {fr:'<b>Grille de covers</b> — tous les albums avec leurs pochettes.',en:'<b>Cover grid</b> — all albums with their covers.'},
+    {fr:'<b>Filtres</b> — par statut, par éditeur, avec/sans cover.',en:'<b>Filters</b> — by status, by publisher, with/without cover.'},
+    {fr:'<b>Cliquer un album</b> — ouvre directement dans Projets.',en:'<b>Click an album</b> — opens directly in Projects.'},
+  ],
+  demo: buildGalleryDemo
+},
+{
+  id:'calendar', color:'#38BDF8', bg:'rgba(56,189,248,0.12)',
+  icon:`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="16" y1="2" x2="16" y2="6"/></svg>`,
+  title:{fr:'Calendrier',en:'Calendar'},
+  sub:{fr:'Toutes vos deadlines sur un calendrier',en:'All your deadlines on a calendar'},
+  items:[
+    {fr:'<b>Vue mensuelle</b> — chaque deadline apparaît sur le bon jour.',en:'<b>Monthly view</b> — each deadline appears on the right day.'},
+    {fr:'<b>Navigation</b> — ← → pour changer de mois. Bouton "Aujourd\'hui" pour revenir.',en:'<b>Navigation</b> — ← → to change month. "Today" button to return.'},
+    {fr:'<b>Mini-calendrier</b> — toujours visible dans la barre latérale.',en:'<b>Mini-calendar</b> — always visible in the sidebar.'},
+  ],
+  demo: buildCalendarDemo
+},
+{
+  id:'ai', color:'#A78BFA', bg:'rgba(167,139,250,0.12)',
+  icon:`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="1.8" stroke-linecap="round"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/></svg>`,
+  title:{fr:'Assistant IA (Beta)',en:'AI Assistant (Beta)'},
+  sub:{fr:'Analyse intelligente de vos données',en:'Smart analysis of your data'},
+  items:[
+    {fr:'<b>12 prompts rapides</b> — Mes deadlines urgentes · Analyse mes stats · Conseils du jour · Tracks à recycler · Veille Sync · Moods tendance · Analyse des risques · Rapport semaine · Que faire aujourd\'hui ? · Tracks bloquées · Ma mémoire · Prédire ma deadline.',en:'<b>12 quick prompts</b> — My urgent deadlines · Analyze my stats · Today\'s advice · Tracks to recycle · Sync Watch · Trending Moods · Risk Analysis · Weekly Report · What to do today? · Blocked Tracks · My Memory · Predict my deadline.'},
+    {fr:'<b>Saisie libre</b> — pose n\'importe quelle question sur tes projets, tracks ou éditeurs.',en:'<b>Free input</b> — ask any question about your projects, tracks or publishers.'},
+    {fr:'<b>Beta</b> — travaille depuis tes vraies données app. Vérifie toujours les informations critiques.',en:'<b>Beta</b> — works from your real app data. Always verify critical information.'},
+  ],
+  demo: buildAIDemo
+},
+{
+  id:'settings', color:'#7B78A8', bg:'rgba(123,120,168,0.12)',
+  icon:`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7B78A8" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>`,
+  title:{fr:'Paramètres',en:'Settings'},
+  sub:{fr:'Langue, profil, templates et sauvegarde',en:'Language, profile, templates and backup'},
+  items:[
+    {fr:'<b>Langue</b> — bascule FR/EN, toute l\'interface se met à jour.',en:'<b>Language</b> — switch FR/EN, the entire interface updates.'},
+    {fr:'<b>Nom du compositeur</b> — utilisé dans les templates d\'email (<code>{composer}</code>).',en:'<b>Composer name</b> — used in email templates (<code>{composer}</code>).'},
+    {fr:'<b>Template d\'email</b> — personnalise les messages de relance. Bouton "Restaurer" pour revenir au défaut.',en:'<b>Email template</b> — customise follow-up messages. "Restore" button to go back to default.'},
+    {fr:'<b>Alertes deadlines</b> — seuils configurables : 1, 7, 15 ou 30 jours.',en:'<b>Deadline alerts</b> — configurable thresholds: 1, 7, 15 or 30 days.'},
+    {fr:'<b>Sauvegarder / Charger</b> — export JSON complet. Toujours sauvegarder avant une mise à jour.',en:'<b>Save / Load</b> — full JSON export. Always save before an update.'},
+  ],
+  demo: null
+},
+];
+
+// ─── DEMO BUILDERS ────────────────────────────────────────
+
+const STATUSES = {
+  composition:{fr:'Composition',en:'Composition',color:'#A78BFA',bg:'rgba(167,139,250,0.12)'},
+  sent:{fr:'Envoyée',en:'Submitted',color:'#60A5FA',bg:'rgba(96,165,250,0.12)'},
+  revision:{fr:'Révision',en:'Revision',color:'#FBBF24',bg:'rgba(251,191,36,0.12)'},
+  mix:{fr:'Mix',en:'Mix',color:'#38BDF8',bg:'rgba(56,189,248,0.12)'},
+  validated:{fr:'Validée',en:'Validated',color:'#10B981',bg:'rgba(16,185,129,0.12)'},
+  delivered:{fr:'Livrée',en:'Delivered',color:'#34D399',bg:'rgba(52,211,153,0.12)'},
+  refused:{fr:'Refusée',en:'Refused',color:'#F87171',bg:'rgba(248,113,113,0.12)'},
+};
+const STATUS_KEYS = ['composition','sent','revision','mix','validated','delivered','refused'];
+
+function badge(statusKey) {
+  const s = STATUSES[statusKey];
+  return `<span class="sbadge" style="background:${s.bg};color:${s.color};border:1px solid ${s.color}44">${s[LANG]}</span>`;
+}
+
+function buildTrackDemo(id) {
+  const tracks = [
+    {title:'Track 01 — Pulse Drive', status:'composition', bpm:'130', mood:'Epic'},
+    {title:'Track 02 — Shadow Sync', status:'sent', bpm:'120', mood:'Dark'},
+    {title:'Track 03 — Neon Rush', status:'validated', bpm:'128', mood:'Action'},
+  ];
+  let html = `<div class="demo-wrap" id="demo-${id}"><div class="demo-label">DEMO</div>`;
+  html += `<div style="font-size:11px;color:var(--text4);margin-bottom:10px">Neon Horizon · Label Sync</div>`;
+  tracks.forEach((t,i) => {
+    const s = STATUSES[t.status];
+    html += `<div class="track-row" id="trow-${id}-${i}">
+      <div class="track-dot" id="tdot-${id}-${i}" style="background:${s.color}"></div>
+      <div class="track-title">${t.title}</div>
+      <div class="track-meta">${t.bpm}bpm · ${t.mood}</div>
+      <span class="sbadge" id="tbadge-${id}-${i}" style="background:${s.bg};color:${s.color};border:1px solid ${s.color}44;cursor:pointer" onclick="cycleStatus('${id}',${i})">${s[LANG]}</span>
+    </div>`;
+  });
+  html += `<div class="prog-bar"><div class="prog-fill" id="tprog-${id}" style="width:33%;background:linear-gradient(90deg,#7C3AED,#A78BFA)"></div></div>`;
+  html += `<p class="demo-hint" id="hint-track-${id}"></p></div>`;
+
+  // store state
+  window._trackStates = window._trackStates || {};
+  window._trackStates[id] = tracks.map(t=>t.status);
+  return html;
+}
+
+window.cycleStatus = function(id, i) {
+  const states = window._trackStates[id];
+  const cur = STATUS_KEYS.indexOf(states[i]);
+  const next = STATUS_KEYS[(cur+1)%STATUS_KEYS.length];
+  states[i] = next;
+  const s = STATUSES[next];
+  document.getElementById(`tdot-${id}-${i}`).style.background = s.color;
+  const b = document.getElementById(`tbadge-${id}-${i}`);
+  b.style.background = s.bg; b.style.color = s.color; b.style.borderColor = s.color+'44';
+  b.textContent = s[LANG];
+  // update progress
+  const done = states.filter(st=>['validated','delivered'].includes(st)).length;
+  document.getElementById(`tprog-${id}`).style.width = Math.round(done/states.length*100)+'%';
+};
+
+function buildKanbanDemo(id) {
+  const cols = [
+    {key:'composition',cards:[{title:'Pulse Drive',sub:'Neon Horizon',tags:['130bpm','Epic']},{title:'Shadow Bass',sub:'Dark Matter',tags:['Dark']}]},
+    {key:'sent',cards:[{title:'Neon City',sub:'Label Sync',jx:18,tags:[]}]},
+    {key:'mix',cards:[{title:'Dark Horizon',sub:'Avalon',tags:['120bpm']}]},
+    {key:'validated',cards:[{title:'Storm Rising',sub:'Sync Co.',tags:[]}]},
+  ];
+  let html = `<div class="demo-wrap" id="demo-${id}"><div class="demo-label">DEMO</div>`;
+  html += `<div class="kb-board" style="grid-template-columns:repeat(4,1fr)">`;
+  cols.forEach(col => {
+    const s = STATUSES[col.key];
+    html += `<div class="kb-col">
+      <div class="kb-col-hdr" style="border-left:3px solid ${s.color}">
+        <span class="kb-col-title" style="color:${s.color}">${s[LANG]}</span>
+        <span class="kb-col-count" style="color:${s.color};background:${s.bg}">${col.cards.length}</span>
+      </div>
+      <div class="kb-col-body" id="kbcol-${id}-${col.key}" 
+        ondragover="event.preventDefault();this.classList.add('drag-over')"
+        ondragleave="this.classList.remove('drag-over')"
+        ondrop="kbDrop(event,'${id}','${col.key}')">`;
+    col.cards.forEach((card,ci) => {
+      html += `<div class="kb-card" draggable="true" id="kbc-${id}-${col.key}-${ci}"
+        ondragstart="kbDragStart(event,'${id}','${col.key}',${ci})">
+        <div class="kb-card-title">${card.title}</div>
+        <div class="kb-card-sub">${card.sub}</div>
+        <div class="kb-tags">
+          ${card.jx?`<span class="kb-tag" style="background:rgba(251,191,36,0.12);color:#FBBF24;border-color:rgba(251,191,36,0.3)">J+${card.jx}</span>`:''}
+          ${card.tags.map(t=>`<span class="kb-tag">${t}</span>`).join('')}
+        </div>
+      </div>`;
+    });
+    html += `</div></div>`;
+  });
+  html += `</div><p class="demo-hint" id="hint-kb-${id}"></p></div>`;
+
+  window._kbDrag = null;
+  return html;
+}
+
+window.kbDragStart = function(e, demoId, colKey, ci) {
+  window._kbDrag = {demoId, colKey, ci};
+  e.dataTransfer.effectAllowed = 'move';
+  setTimeout(()=>{ const el = document.getElementById(`kbc-${demoId}-${colKey}-${ci}`); if(el) el.classList.add('dragging'); },0);
+};
+window.kbDrop = function(e, demoId, toCol) {
+  e.preventDefault();
+  document.querySelectorAll('.kb-col-body').forEach(c=>c.classList.remove('drag-over'));
+  if(!window._kbDrag || window._kbDrag.demoId !== demoId) return;
+  const {colKey, ci} = window._kbDrag;
+  const card = document.getElementById(`kbc-${demoId}-${colKey}-${ci}`);
+  if(card && colKey !== toCol) {
+    card.classList.remove('dragging');
+    document.getElementById(`kbcol-${demoId}-${toCol}`).appendChild(card);
+    // update card id
+    card.id = `kbc-${demoId}-${toCol}-${Date.now()}`;
+    card.ondragstart = null;
+  }
+  window._kbDrag = null;
+};
+
+function buildAlertsDemo(id) {
+  let html = `<div class="demo-wrap" id="demo-${id}"><div class="demo-label">DEMO</div>`;
+  html += `<div id="alerts-list-${id}" style="display:flex;flex-direction:column;gap:6px">
+    <div class="alert-row urgent">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#F87171" stroke-width="2" stroke-linecap="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      <span style="font-size:11px;color:#F87171;font-weight:600;flex:1" data-fr='"Neon Horizon" — deadline dépassée de 4 jours' data-en='"Neon Horizon" — deadline overdue by 4 days'></span>
+    </div>
+    <div class="alert-row relance" id="alert-relance-${id}">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#FB923C" stroke-width="1.8" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      <span style="font-size:11px;color:#FB923C;font-weight:600;flex:1" data-fr='"Shadow Sync" — Label Sync · 22j sans réponse' data-en='"Shadow Sync" — Label Sync · 22 days without reply'></span>
+      <button class="btn-demo" style="font-size:10px;padding:3px 8px" onclick="alertReply('${id}')" data-fr="✓ Réponse reçue" data-en="✓ Reply received"></button>
+    </div>
+    <div class="alert-row warning">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#FBBF24" stroke-width="2" stroke-linecap="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      <span style="font-size:11px;color:#FBBF24;font-weight:600;flex:1" data-fr='"Dark Matter" — deadline dans 5 jours' data-en='"Dark Matter" — deadline in 5 days'></span>
+    </div>
+  </div>
+  <p class="demo-hint" id="hint-alerts-${id}" data-fr="👆 Clique '✓ Réponse reçue' pour voir l'alerte disparaître" data-en="👆 Click '✓ Reply received' to see the alert disappear"></p>
+  </div>`;
+  return html;
+}
+
+window.alertReply = function(id) {
+  const el = document.getElementById(`alert-relance-${id}`);
+  if(el) { el.style.transition='all 0.4s'; el.style.opacity='0'; el.style.transform='translateX(20px)'; setTimeout(()=>el.remove(),400); }
+};
+
+function buildStatsDemo(id) {
+  const data = [3,5,4,7,6,8,5,9,4,6,3,2];
+  const months = ['J','F','M','A','M','J','J','A','S','O','N','D'];
+  const mx = Math.max(...data);
+  let html = '<div class="demo-wrap" id="demo-'+id+'"><div class="demo-label">DEMO</div>';
+  html += '<div class="stat-grid">';
+  html += '<div class="stat-card"><div class="stat-val" style="color:#A78BFA">62</div><div class="stat-lbl" data-fr="Produites" data-en="Produced"></div></div>';
+  html += '<div class="stat-card"><div class="stat-val" style="color:#10B981">41</div><div class="stat-lbl" data-fr="Validées" data-en="Validated"></div></div>';
+  html += '<div class="stat-card"><div class="stat-val" style="color:#F87171">8</div><div class="stat-lbl" data-fr="Refusées" data-en="Refused"></div></div>';
+  html += '<div class="stat-card"><div class="stat-val" style="color:#FBBF24">66%</div><div class="stat-lbl" data-fr="Taux" data-en="Rate"></div></div>';
+  html += '</div>';
+  const barHtml = data.map((v,i)=>{
+    const h = Math.round(v/mx*56);
+    const isAug = i===7;
+    return '<div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%">'
+      + '<div style="font-size:8px;color:'+(isAug?'var(--purple2)':'var(--text4)')+';font-weight:'+(isAug?800:400)+';margin-bottom:2px">'+v+'</div>'
+      + '<div style="width:100%;border-radius:3px 3px 0 0;height:'+h+'px;background:'+(isAug?'linear-gradient(180deg,#A78BFA,#7C3AED)':'rgba(167,139,250,0.3)')+'"></div>'
+      + '</div>';
+  }).join('');
+  const monthHtml = months.map(m=>'<div style="flex:1;text-align:center;font-size:8px;color:var(--text4)">'+m+'</div>').join('');
+  html += '<div style="display:flex;align-items:flex-end;gap:3px;height:80px;margin:12px 0 0">'+barHtml+'</div>';
+  html += '<div style="display:flex;gap:3px;margin:4px 0 10px">'+monthHtml+'</div>';
+  html += '<div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:center">';
+  html += "<span class=\"chart-leg-item active\" id=\"leg-prod-"+id+"\" style=\"color:#A78BFA\" onclick=\"toggleLeg('"+id+"','prod','#A78BFA')\">"+"<span class=\"chart-leg-dot\" style=\"background:#A78BFA\"></span><span data-fr=\"Produites\" data-en=\"Produced\"></span></span>";
+  html += "<span class=\"chart-leg-item active\" id=\"leg-val-"+id+"\" style=\"color:#10B981\" onclick=\"toggleLeg('"+id+"','val','#10B981')\">"+"<span class=\"chart-leg-dot\" style=\"background:#10B981\"></span><span data-fr=\"Validées\" data-en=\"Validated\"></span></span>";
+  html += "<span class=\"chart-leg-item active\" id=\"leg-ref-"+id+"\" style=\"color:#F87171\" onclick=\"toggleLeg('"+id+"','ref','#F87171')\">"+"<span class=\"chart-leg-dot\" style=\"background:#F87171\"></span><span data-fr=\"Refusées\" data-en=\"Refused\"></span></span>";
+  html += '</div>';
+  html += '<p class="demo-hint" data-fr="👆 Clique sur une légende pour masquer/afficher la série" data-en="👆 Click a legend to hide/show the series"></p>';
+  html += '</div>';
+  return html;
+}
+
+window.toggleLeg = function(id, key, color) {
+  const btn = document.getElementById(`leg-${key}-${id}`);
+  const active = btn.classList.toggle('active');
+  btn.style.opacity = active ? '1' : '0.4';
+  btn.style.textDecoration = active ? 'none' : 'line-through';
+};
+
+function buildGoalsDemo(id) {
+  const goals = [
+    {key:'produce',color:'#A78BFA',grad:'#7C3AED,#A78BFA',cur:31,target:50},
+    {key:'validate',color:'#FBBF24',grad:'#D97706,#FBBF24',cur:18,target:30},
+    {key:'deliver',color:'#10B981',grad:'#059669,#10B981',cur:12,target:20},
+  ];
+  const labels = {
+    produce:{fr:'Tracks produites',en:'Tracks produced'},
+    validate:{fr:'Validations',en:'Validations'},
+    deliver:{fr:'Tracks livrées',en:'Tracks delivered'},
+  };
+  let html = `<div class="demo-wrap" id="demo-${id}"><div class="demo-label">DEMO</div>`;
+  goals.forEach(g => {
+    const pct = Math.round(g.cur/g.target*100);
+    html += `<div class="goal-row">
+      <div class="goal-hdr">
+        <span class="goal-label" data-fr="${labels[g.key].fr}" data-en="${labels[g.key].en}"></span>
+        <span class="goal-val" style="color:${g.color}">${g.cur} / <span id="gtgt-${id}-${g.key}">${g.target}</span></span>
+      </div>
+      <div class="prog-bar"><div class="prog-fill" id="gprog-${id}-${g.key}" style="width:${pct}%;background:linear-gradient(90deg,${g.grad})"></div></div>
+      <div class="goal-proj" id="gproj-${id}-${g.key}" data-fr="Projection : ~${Math.round(g.cur/7*12)} d'ici fin 2026" data-en="Projection: ~${Math.round(g.cur/7*12)} by end of 2026"></div>
+    </div>`;
+  });
+  html += `<div style="display:flex;gap:6px;margin-top:10px">
+    <button class="btn-demo btn-primary" onclick="addGoalProgress('${id}')" data-fr="+ Simuler une track" data-en="+ Simulate a track"></button>
+    <button class="btn-demo" onclick="resetGoalDemo('${id}')" data-fr="Réinitialiser" data-en="Reset"></button>
+  </div>
+  <p class="demo-hint" data-fr="👆 Clique pour simuler une progression" data-en="👆 Click to simulate progress"></p>
+  </div>`;
+
+  window._goalState = window._goalState || {};
+  window._goalState[id] = {produce:31,validate:18,deliver:12};
+  return html;
+}
+
+window.addGoalProgress = function(id) {
+  const s = window._goalState[id];
+  const targets = {produce:50,validate:30,deliver:20};
+  const grad = {produce:'#7C3AED,#A78BFA',validate:'#D97706,#FBBF24',deliver:'#059669,#10B981'};
+  ['produce','validate','deliver'].forEach((k,i)=>{
+    if(i===0||Math.random()>0.4) {
+      s[k] = Math.min(s[k]+1, targets[k]);
+      const pct = Math.round(s[k]/targets[k]*100);
+      const bar = document.getElementById(`gprog-${id}-${k}`);
+      if(bar) bar.style.width = pct+'%';
+      const tgt = document.getElementById(`gtgt-${id}-${k}`);
+      if(tgt) tgt.textContent = targets[k];
+      const lbl = document.querySelector(`#demo-${id} [data-fr="Tracks produites"]`)?.closest('.goal-row')?.querySelector('.goal-val');
+      // update val display
+      const valEl = document.getElementById(`gprog-${id}-${k}`)?.closest('.goal-row')?.querySelector('.goal-val');
+      if(valEl) { const sp = valEl.querySelector('span'); if(sp) valEl.firstChild.textContent = s[k]+' / '; }
     }
   });
-}, { rootMargin:'-20% 0px -70% 0px' });
-sections.forEach(s => observer.observe(s));
+};
+window.resetGoalDemo = function(id) {
+  window._goalState[id] = {produce:31,validate:18,deliver:12};
+  const targets = {produce:50,validate:30,deliver:20};
+  ['produce','validate','deliver'].forEach(k=>{
+    const bar = document.getElementById(`gprog-${id}-${k}`);
+    if(bar) bar.style.width = Math.round(31/50*100)+'%';
+  });
+};
 
-// ═══════════════════════════════
-// DEMO KANBAN — Drag & Drop
-// ═══════════════════════════════
-let draggedCard = null;
-
-function kDrag(e, id) {
-  draggedCard = id;
-  e.dataTransfer.effectAllowed = 'move';
+function buildPublisherDemo(id) {
+  let html = `<div class="demo-wrap" id="demo-${id}"><div class="demo-label">DEMO</div>`;
+  const pubs = [
+    {name:'Sync Library',color:'#A78BFA',v:12,r:3,rate:80,delay:18},
+    {name:'Label Sync',color:'#60A5FA',v:8,r:4,rate:67,delay:24,jx:28},
+  ];
+  pubs.forEach(p => {
+    const rateColor = p.rate>=70?'#10B981':p.rate>=40?'#FBBF24':'#F87171';
+    html += `<div class="pub-card" style="border-left:3px solid ${p.jx?'#F87171':'#2A2750'}">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+        <div style="width:32px;height:32px;border-radius:7px;background:${p.color}18;border:1px solid ${p.color}44;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:${p.color}">${p.name.charAt(0)}</div>
+        <div>
+          <div style="font-size:13px;font-weight:700;color:var(--text)">${p.name}</div>
+          ${p.jx?`<span class="jx-badge" style="background:rgba(248,113,113,0.12);color:#F87171;border:1px solid rgba(248,113,113,0.3)" data-fr="J+${p.jx} sans réponse" data-en="J+${p.jx} without reply"></span>`:''}
+        </div>
+      </div>
+      <div style="display:flex;gap:8px">
+        <div class="pub-stat"><div class="pub-stat-val" style="color:#10B981">${p.v}</div><div class="pub-stat-lbl" data-fr="Validées" data-en="Validated"></div></div>
+        <div class="pub-stat"><div class="pub-stat-val" style="color:#F87171">${p.r}</div><div class="pub-stat-lbl" data-fr="Refusées" data-en="Refused"></div></div>
+        <div class="pub-stat"><div class="pub-stat-val" style="color:${rateColor}">${p.rate}%</div><div class="pub-stat-lbl" data-fr="Taux" data-en="Rate"></div></div>
+        <div class="pub-stat"><div class="pub-stat-val" style="color:#60A5FA">${p.delay}j</div><div class="pub-stat-lbl" data-fr="Délai moy." data-en="Avg delay"></div></div>
+      </div>
+      <div class="pub-rate-bar"><div style="height:100%;width:${p.rate}%;background:${rateColor};border-radius:3px;transition:width 0.5s"></div></div>
+    </div>`;
+  });
+  html += `<div style="margin-top:12px">
+    <div style="font-size:10px;font-weight:700;color:var(--text4);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px" data-fr="Aperçu email de relance" data-en="Follow-up email preview"></div>
+    <div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:12px;font-size:11px;color:var(--text2);line-height:1.7">
+      <div style="margin-bottom:6px"><span style="color:var(--text4)" data-fr="À :" data-en="To:"></span> <span style="color:var(--blue)">contact@synclibrary.com</span></div>
+      <div style="margin-bottom:8px"><span style="color:var(--text4)" data-fr="Objet :" data-en="Subject:"></span> <span id="email-subj-publishers" data-fr="Relance — Shadow Sync / Neon Horizon" data-en="Follow-up — Shadow Sync / Neon Horizon"></span></div>
+      <div style="border-top:1px solid var(--border);padding-top:8px;color:var(--text2)" id="email-body-publishers" data-fr="Bonjour,<br><br>J'espère que vous allez bien. Je me permets de revenir vers vous concernant la track <b>Shadow Sync</b> soumise pour l'album <b>Neon Horizon</b>.<br><br>Je souhaitais savoir si vous aviez eu l'occasion de l'écouter et si vous aviez des retours à me partager.<br><br>Cordialement,<br><b>Jean Dupont</b>" data-en="Hello,<br><br>I hope you are well. I'm following up regarding the track <b>Shadow Sync</b> submitted for the album <b>Neon Horizon</b>.<br><br>I wanted to check if you had the chance to listen to it and if you have any feedback to share.<br><br>Best regards,<br><b>Jean Dupont</b>"></div>
+    </div>
+    <button class="btn-demo btn-primary" style="margin-top:8px;font-size:11px" onclick="simulateEmail()" data-fr="✉️ Ouvrir dans le client mail" data-en="✉️ Open in mail client"></button>
+    <span id="email-toast" style="font-size:10px;color:#10B981;margin-left:8px;opacity:0;transition:opacity 0.3s"></span>
+  </div>
+  <p class="demo-hint" data-fr="La bordure rouge indique des tracks en attente de réponse >30j" data-en="Red border indicates tracks awaiting reply >30d"></p></div>`;
+  return html;
 }
 
-function kDrop(e, col) {
-  e.preventDefault();
-  if(!draggedCard) return;
-  const card = document.getElementById(draggedCard);
-  if(!card) return;
-  const oldCol = card.dataset.col;
-  card.dataset.col = col;
-  document.getElementById(`kcol-${col}-cards`).appendChild(card);
-  updateKanbanCounts();
-  draggedCard = null;
+function buildCollabDemo(id) {
+  const collabs = [
+    {init:'J',name:'Joeffrey L.',role:{fr:'Compositeur · Paris',en:'Composer · Paris'},color:'#A78BFA',tracks:24,rate:78},
+    {init:'M',name:'Marc D.',role:{fr:'Mix Engineer · Lyon',en:'Mix Engineer · Lyon'},color:'#10B981',tracks:14,rate:64},
+    {init:'S',name:'Sophie R.',role:{fr:'Arrangeur',en:'Arranger'},color:'#FB923C',tracks:8,rate:55},
+  ];
+  let html = `<div class="demo-wrap" id="demo-${id}"><div class="demo-label">DEMO</div>`;
+  collabs.forEach((c,ci)=>{
+    html += `<div>
+      <div class="collab-row" onclick="toggleCollab('${id}',${ci})">
+        <div class="collab-avatar" style="background:${c.color}18;border:2px solid ${c.color}44;color:${c.color}">${c.init}</div>
+        <div style="flex:1">
+          <div style="font-size:12px;font-weight:700;color:var(--text)">${c.name}</div>
+          <div style="font-size:10px;color:var(--text4)" id="crole-${id}-${ci}" data-fr="${c.role.fr}" data-en="${c.role.en}"></div>
+          <div class="prog-bar" style="margin-top:4px"><div style="height:100%;width:${Math.round(c.tracks/24*100)}%;background:${c.color};border-radius:2px;transition:width 0.4s"></div></div>
+        </div>
+        <div style="text-align:right;flex-shrink:0">
+          <div style="font-size:16px;font-weight:900;color:${c.color}">${c.tracks}</div>
+          <div style="font-size:9px;color:var(--text4)">tracks</div>
+        </div>
+        <div style="font-size:11px;color:var(--text4)" id="carrow-${id}-${ci}">▼</div>
+      </div>
+      <div class="collab-tracks" id="ctracks-${id}-${ci}">
+        <div class="track-row" style="margin-bottom:4px"><div class="track-dot" style="background:#10B981"></div><div class="track-title" style="font-size:11px">Pulse Drive</div><span class="sbadge" style="background:rgba(16,185,129,0.1);color:#10B981;border:1px solid rgba(16,185,129,0.3);font-size:9px" data-fr="Validée" data-en="Validated"></span></div>
+        <div class="track-row"><div class="track-dot" style="background:#60A5FA"></div><div class="track-title" style="font-size:11px">Shadow Sync</div><span class="sbadge" style="background:rgba(96,165,250,0.1);color:#60A5FA;border:1px solid rgba(96,165,250,0.3);font-size:9px" data-fr="Envoyée" data-en="Submitted"></span></div>
+      </div>
+    </div>`;
+  });
+  html += `<p class="demo-hint" data-fr="👆 Clique pour voir les tracks travaillées ensemble" data-en="👆 Click to see tracks worked on together"></p></div>`;
+  return html;
+}
+window.toggleCollab = function(id, ci) {
+  const el = document.getElementById(`ctracks-${id}-${ci}`);
+  const arrow = document.getElementById(`carrow-${id}-${ci}`);
+  const open = el.style.display === 'block';
+  el.style.display = open ? 'none' : 'block';
+  if(arrow) arrow.textContent = open ? '▼' : '▲';
+};
+
+function buildGalleryDemo(id) {
+  const albums = [
+    {title:'Neon Horizon',color:'#A78BFA',pct:72,status:{fr:'En production',en:'In Production'}},
+    {title:'Dark Matter',color:'#60A5FA',pct:45,status:{fr:'En production',en:'In Production'}},
+    {title:'Storm Rising',color:'#10B981',pct:100,status:{fr:'Terminé',en:'Completed'}},
+    {title:'Urban Pulse',color:'#FB923C',pct:20,status:{fr:'En production',en:'In Production'}},
+    {title:'Cyber Wave',color:'#F87171',pct:0,status:{fr:'Abandonné',en:'Abandoned'}},
+    {title:'Echo Lab',color:'#FBBF24',pct:60,status:{fr:'En production',en:'In Production'}},
+  ];
+  let html = `<div class="demo-wrap" id="demo-${id}"><div class="demo-label">DEMO</div>`;
+  html += `<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px">`;
+  albums.forEach((a,ai)=>{
+    html += `<div style="background:var(--bg3);border:1px solid var(--border);border-radius:9px;overflow:hidden;cursor:pointer;transition:transform 0.15s;transform:translateY(0)" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='translateY(0)'">
+      <div style="height:64px;background:linear-gradient(135deg,${a.color}22,${a.color}44);display:flex;align-items:center;justify-content:center;position:relative">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="${a.color}" stroke-width="1.5" stroke-linecap="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+        ${a.pct===100?`<div style="position:absolute;top:4px;right:4px;font-size:9px;font-weight:700;color:#10B981;background:rgba(16,185,129,0.15);border:1px solid rgba(16,185,129,0.3);border-radius:4px;padding:1px 5px">✓</div>`:''}
+      </div>
+      <div style="padding:7px 8px">
+        <div style="font-size:11px;font-weight:700;color:var(--text);margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${a.title}</div>
+        <div class="prog-bar"><div style="height:100%;width:${a.pct}%;background:${a.color};border-radius:2px"></div></div>
+        <div style="font-size:9px;color:var(--text4);margin-top:3px" data-fr="${a.status.fr}" data-en="${a.status.en}"></div>
+      </div>
+    </div>`;
+  });
+  html += `</div><p class="demo-hint" data-fr="👆 Survole un album pour voir l'effet" data-en="👆 Hover an album to see the effect"></p></div>`;
+  return html;
 }
 
-function updateKanbanCounts() {
-  ['compo','sent','rev','done'].forEach(col => {
-    const cards = document.getElementById(`kcol-${col}-cards`);
-    const count = document.getElementById(`kc-${col}`);
-    if(cards && count) count.textContent = cards.children.length;
+function buildCalendarDemo(id) {
+  const deadlines = {5:'#F87171',12:'#FB923C',19:'#FBBF24',28:'#A78BFA'};
+  const dlabels = {5:'Neon Horizon',12:'Dark Matter',19:'Storm Project',28:'Urban Pulse'};
+  const days = ['L','M','M','J','V','S','D'];
+  let html = `<div class="demo-wrap" id="demo-${id}"><div class="demo-label">DEMO</div>`;
+  html += `<div style="display:flex;align-items:center;gap:8px;margin-bottom:12px">
+    <button class="btn-demo" style="padding:5px 10px" onclick="calNav('${id}',-1)">←</button>
+    <div style="flex:1;text-align:center;font-size:13px;font-weight:700;color:var(--text)" id="calmonth-${id}"></div>
+    <button class="btn-demo" style="padding:5px 10px" onclick="calNav('${id}',1)">→</button>
+  </div>
+  <div class="cal-grid">`;
+  days.forEach(d=>{ html+=`<div class="cal-day-hdr">${d}</div>`; });
+  for(let i=0;i<31;i++){
+    const day=i+1;
+    const color=deadlines[day];
+    html+=`<div class="cal-day ${color?'has-deadline':''}" style="${color?`color:${color};background:${color}18`:''}">
+      ${day}
+      ${color?`<div class="cal-dot" style="background:${color}"></div>`:''}
+    </div>`;
+  }
+  html += `</div>
+  <div style="margin-top:10px;display:flex;flex-direction:column;gap:3px" id="cal-deadlines-${id}">
+    ${Object.entries(dlabels).map(([d,n])=>`<div style="font-size:10px;color:${deadlines[d]};font-weight:600">● ${d} — ${n}</div>`).join('')}
+  </div>
+  <p class="demo-hint" data-fr="👆 Navigue entre les mois" data-en="👆 Navigate between months"></p></div>`;
+
+  window._calMonth = window._calMonth || {};
+  window._calMonth[id] = new Date().getMonth();
+  return html;
+}
+
+const MONTHS_FR=['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
+const MONTHS_EN=['January','February','March','April','May','June','July','August','September','October','November','December'];
+window.calNav = function(id, dir) {
+  window._calMonth[id] = ((window._calMonth[id]||0)+dir+12)%12;
+  const m = window._calMonth[id];
+  const el = document.getElementById(`calmonth-${id}`);
+  if(el) el.textContent = (LANG==='fr'?MONTHS_FR:MONTHS_EN)[m]+' 2026';
+};
+
+function buildAIDemo(id) {
+  const prompts = [
+    {fr:'⚠️ Mes deadlines urgentes',en:'⚠️ My urgent deadlines',resp:{fr:'🎯 Tu as <b style="color:#F87171">2 deadlines urgentes</b> cette semaine. "Neon Horizon" est dans 4 jours (3 tracks encore en Composition). Je recommande de prioriser Track 01 et Track 02 en premier.',en:'🎯 You have <b style="color:#F87171">2 urgent deadlines</b> this week. "Neon Horizon" is in 4 days (3 tracks still in Composition). I recommend prioritising Track 01 and Track 02 first.'}},
+    {fr:'📊 Analyse mes stats',en:'📊 Analyze my stats',resp:{fr:'📈 Ton taux de validation global est de <b style="color:#FBBF24">66%</b> — au-dessus de la moyenne sync. Sync Library est ton meilleur éditeur à <b style="color:#10B981">80%</b>. Août est ton mois le plus productif avec 9 tracks.',en:'📈 Your overall validation rate is <b style="color:#FBBF24">66%</b> — above the sync average. Sync Library is your best publisher at <b style="color:#10B981">80%</b>. August is your most productive month with 9 tracks.'}},
+    {fr:'💡 Conseils du jour',en:'💡 Today\'s advice',resp:{fr:'💡 Tu as <b>3 tracks en Mix</b> depuis plus de 10 jours. C\'est souvent là que les projets stagnent. Je te suggère de finaliser "Dark Horizon" avant de commencer de nouvelles compositions.',en:'💡 You have <b>3 tracks in Mix</b> for more than 10 days. That\'s often where projects stall. I suggest finalising "Dark Horizon" before starting new compositions.'}},
+    {fr:'♻️ Tracks à recycler',en:'♻️ Tracks to recycle',resp:{fr:'♻️ Tu as <b>4 tracks refusées</b> disponibles pour recyclage. "Urban Bass 03" (130bpm, Dark) et "Pulse 07" (125bpm, Epic) correspondent aux briefs actifs d\'Infinity Score.',en:'♻️ You have <b>4 refused tracks</b> available for recycling. "Urban Bass 03" (130bpm, Dark) and "Pulse 07" (125bpm, Epic) match active briefs from Infinity Score.'}},
+  ];
+  let html = `<div class="demo-wrap" id="demo-${id}"><div class="demo-label">DEMO</div>`;
+  html += `<div id="ai-prompts-${id}" style="display:flex;flex-direction:column;gap:5px;margin-bottom:8px">`;
+  prompts.forEach((p,pi)=>{
+    html += `<div class="ai-prompt" onclick="aiClick('${id}',${pi})">
+      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/></svg>
+      <span id="aip-${id}-${pi}" data-fr="${p.fr}" data-en="${p.en}"></span>
+    </div>`;
+  });
+  html += `</div>
+  <div class="ai-response" id="ai-resp-${id}"></div>
+  <p class="demo-hint" data-fr="👆 Clique sur un prompt pour voir la réponse IA" data-en="👆 Click a prompt to see the AI response"></p></div>`;
+
+  window._aiPrompts = window._aiPrompts || {};
+  window._aiPrompts[id] = prompts;
+  return html;
+}
+
+window.aiClick = function(id, pi) {
+  const prompts = window._aiPrompts[id];
+  const resp = document.getElementById(`ai-resp-${id}`);
+  if(!resp) return;
+  resp.classList.remove('visible');
+  setTimeout(()=>{
+    resp.innerHTML = prompts[pi].resp[LANG];
+    resp.classList.add('visible');
+  }, 150);
+};
+
+// ─── RENDER ────────────────────────────────────────────────
+function renderSections() {
+  const pillsEl = document.getElementById('pills');
+  const sectionsEl = document.getElementById('sections');
+  pillsEl.innerHTML = '';
+  sectionsEl.innerHTML = '';
+
+  SECTIONS.forEach(s => {
+    // Pill
+    const pill = document.createElement('a');
+    pill.className = 'nav-pill';
+    pill.href = '#'+s.id;
+    pill.innerHTML = `<span style="color:${s.color}">${s.icon}</span><span>${s.title[LANG]}</span>`;
+    pill.onclick = (e) => { e.preventDefault(); openSection(s.id); };
+    pillsEl.appendChild(pill);
+
+    // Section
+    const sec = document.createElement('div');
+    sec.className = 'section';
+    sec.id = 'section-'+s.id;
+    const demoHtml = s.demo ? s.demo(s.id) : '';
+    sec.innerHTML = `
+      <div class="section-hdr" onclick="toggleSection('${s.id}')">
+        <div class="section-icon" style="background:${s.bg}">${s.icon}</div>
+        <div class="section-title-wrap">
+          <div class="section-title">${s.title[LANG]}</div>
+          <div class="section-sub">${s.sub[LANG]}</div>
+        </div>
+        <span class="section-chevron">▼</span>
+      </div>
+      <div class="section-body">
+        <div class="section-content">
+          <div class="item-list">
+            ${s.items.map(item=>`<div class="item">
+              <div class="item-dot" style="background:${s.color}"></div>
+              <div class="item-text">${item[LANG]}</div>
+            </div>`).join('')}
+          </div>
+          ${demoHtml}
+        </div>
+      </div>`;
+    sectionsEl.appendChild(sec);
+  });
+
+  applyLangToDemo();
+  // Init calendar months
+  document.querySelectorAll('[id^="calmonth-"]').forEach(el=>{
+    const id = el.id.replace('calmonth-','');
+    el.textContent = (LANG==='fr'?MONTHS_FR:MONTHS_EN)[window._calMonth?.[id]||new Date().getMonth()]+' 2026';
   });
 }
 
-// ═══════════════════════════════
-// DEMO CALENDRIER
-// ═══════════════════════════════
-const CAL_DEADLINES = {
-  '2026-08': [{day:8,label:'Label Sync',color:'#F87171'},{day:15,label:'GameSound',color:'#FBBF24'},{day:25,label:'Ciné Prod',color:'#10B981'}],
-  '2026-09': [{day:5,label:'Music Co.',color:'#FBBF24'},{day:18,label:'Label Sync',color:'#10B981'},{day:28,label:'Studio Brief',color:'#F87171'}],
-  '2026-10': [{day:3,label:'GameSound',color:'#10B981'},{day:22,label:'Ciné Prod',color:'#FBBF24'}],
-  '2026-07': [{day:10,label:'Label Sync',color:'#10B981'},{day:20,label:'Music Co.',color:'#10B981'},{day:31,label:'Studio Brief',color:'#10B981'}],
+function applyLangToDemo() {
+  document.querySelectorAll('[data-fr][data-en]').forEach(el=>{
+    const val = el.dataset[LANG];
+    if(val !== undefined) el.innerHTML = val;
+  });
+}
+
+function toggleSection(id) {
+  document.getElementById('section-'+id).classList.toggle('open');
+}
+function openSection(id) {
+  const el = document.getElementById('section-'+id);
+  if(!el.classList.contains('open')) el.classList.add('open');
+  setTimeout(()=>el.scrollIntoView({behavior:'smooth',block:'start'}),50);
+}
+
+function setLang(lang) {
+  LANG = lang;
+  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelector(lang==='fr'?'.lang-btn:first-child':'.lang-btn:last-child').classList.add('active');
+  document.getElementById('h-badge').textContent = T.badge[lang];
+  document.getElementById('h-title').textContent = T.title[lang];
+  document.getElementById('h-sub').textContent = T.sub[lang];
+  document.getElementById('search').placeholder = T.search[lang];
+  // Update all section titles/subs/items
+  SECTIONS.forEach(s=>{
+    const sec = document.getElementById('section-'+s.id);
+    if(!sec) return;
+    sec.querySelector('.section-title').textContent = s.title[lang];
+    sec.querySelector('.section-sub').textContent = s.sub[lang];
+    const dots = sec.querySelectorAll('.item-text');
+    dots.forEach((el,i)=>{ if(s.items[i]) el.innerHTML = s.items[i][lang]; });
+  });
+  applyLangToDemo();
+  // Calendar months
+  document.querySelectorAll('[id^="calmonth-"]').forEach(el=>{
+    const id = el.id.replace('calmonth-','');
+    const m = window._calMonth?.[id]||new Date().getMonth();
+    el.textContent = (lang==='fr'?MONTHS_FR:MONTHS_EN)[m]+' 2026';
+  });
+}
+
+function doSearch(q) {
+  const s = q.toLowerCase().trim();
+  document.querySelectorAll('.section').forEach(sec=>{
+    if(!s){ sec.style.display=''; return; }
+    const text = sec.textContent.toLowerCase();
+    const match = text.includes(s);
+    sec.style.display = match?'':'none';
+    if(match && !sec.classList.contains('open')) sec.classList.add('open');
+  });
+}
+
+window.simulateEmail = function() {
+  const toast = document.getElementById('email-toast');
+  if(toast) {
+    toast.textContent = LANG==='fr' ? '✓ Client mail ouvert !' : '✓ Mail client opened!';
+    toast.style.opacity = '1';
+    setTimeout(()=>{ toast.style.opacity='0'; }, 2500);
+  }
 };
-let calYear = 2026, calMonth = 7; // 0-indexed
-
-function renderCal() {
-  const months = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
-  const label = document.getElementById('cal-month-label');
-  if(label) label.textContent = `${months[calMonth]} ${calYear}`;
-  const grid = document.getElementById('cal-grid');
-  if(!grid) return;
-  const firstDay = new Date(calYear, calMonth, 1).getDay();
-  const offset = firstDay === 0 ? 6 : firstDay - 1;
-  const daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
-  const key = `${calYear}-${String(calMonth+1).padStart(2,'0')}`;
-  const deadlines = CAL_DEADLINES[key] || [];
-  let html = '';
-  for(let i = 0; i < offset; i++) html += '<div></div>';
-  for(let d = 1; d <= daysInMonth; d++) {
-    const dl = deadlines.find(x => x.day === d);
-    html += `<div style="min-height:36px;border-radius:6px;padding:3px;background:${dl ? dl.color+'22' : 'transparent'};border:1px solid ${dl ? dl.color+'44' : 'transparent'};position:relative">
-      <div style="font-size:11px;color:${dl ? dl.color : '#4B4870'};font-weight:${dl?'700':'400'};text-align:center">${d}</div>
-      ${dl ? `<div style="font-size:8px;color:${dl.color};text-align:center;line-height:1.2;margin-top:1px">${dl.label}</div>` : ''}
-    </div>`;
-  }
-  grid.innerHTML = html;
-}
-
-function calPrev() { calMonth--; if(calMonth < 0){calMonth=11;calYear--;} renderCal(); }
-function calNext() { calMonth++; if(calMonth > 11){calMonth=0;calYear++;} renderCal(); }
-
-// ═══════════════════════════════
-// DEMO NOUVELLE TRACK
-// ═══════════════════════════════
-function toggleMood(el) {
-  const active = el.style.background === 'rgba(124, 58, 237, 0.2)';
-  el.style.background = active ? 'transparent' : 'rgba(124,58,237,0.2)';
-  el.style.borderColor = active ? '#2A2750' : '#7C3AED';
-  el.style.color = active ? '#7B78A8' : '#A78BFA';
-}
-
-function demoAddTrack() {
-  const title = document.getElementById('nt-title').value || 'Dark Pulse 01';
-  const bpm = document.getElementById('nt-bpm').value || '128';
-  const key = document.getElementById('nt-key').value || 'Am';
-  const dur = document.getElementById('nt-dur').value || '2:45';
-  const moods = [...document.querySelectorAll('#mood-chips span')]
-    .filter(el => el.style.background === 'rgba(124, 58, 237, 0.2)')
-    .map(el => el.textContent);
-  const result = document.getElementById('nt-result');
-  if(result) {
-    result.style.display = 'block';
-    result.innerHTML = `✅ Track ajoutée — <strong>${title}</strong><br>
-      <span style="font-size:11px;color:#7B78A8">BPM: ${bpm} · Tonalité: ${key} · Durée: ${dur}${moods.length ? ' · ' + moods.join(', ') : ''}</span>`;
-    setTimeout(() => { result.style.display = 'none'; }, 3000);
-  }
-}
-
-// ═══════════════════════════════
-// DEMO STATS ANIMÉES
-// ═══════════════════════════════
-function animateStats() {
-  const targets = {tracks:150, valid:89, collabs:6, pubs:12};
-  const duration = 1500;
-  const start = Date.now();
-  function tick() {
-    const elapsed = Date.now() - start;
-    const progress = Math.min(elapsed / duration, 1);
-    const ease = 1 - Math.pow(1 - progress, 3);
-    Object.entries(targets).forEach(([key, target]) => {
-      const el = document.getElementById(`stat-${key}`);
-      if(el) el.textContent = Math.round(target * ease);
-    });
-    if(progress < 1) requestAnimationFrame(tick);
-  }
-  requestAnimationFrame(tick);
-}
 
 // Init
-renderCal();
-animateStats();
-
-// Demo Tracks — statuts cycliques
-const STATUSES = [
-  {label:'Composition', color:'#38BDF8', bg:'#0C4A6E22', border:'#38BDF833'},
-  {label:'Envoyée',     color:'#60A5FA', bg:'#1E3A5F22', border:'#60A5FA33'},
-  {label:'Révision',    color:'#FB923C', bg:'#43140722', border:'#FB923C33'},
-  {label:'Mix',         color:'#A78BFA', bg:'#2D1B6922', border:'#A78BFA33'},
-  {label:'Validée ✓',   color:'#10B981', bg:'#06402B22', border:'#10B98133'},
-  {label:'Livrée ✓',    color:'#10B981', bg:'#06402B22', border:'#10B98133'},
-  {label:'Refusée',     color:'#F87171', bg:'#45091222', border:'#F8717133'},
-];
-const demoStatusIdx = [0, 1, 2, 3];
-
-function demoNextStatus(i) {
-  demoStatusIdx[i] = (demoStatusIdx[i] + 1) % STATUSES.length;
-  const s = STATUSES[demoStatusIdx[i]];
-  const dot = document.getElementById(`dt${i}-dot`);
-  const tag = document.getElementById(`dt${i}-tag`);
-  if(dot) dot.style.background = s.color;
-  if(tag) {
-    tag.textContent = s.label;
-    tag.style.color = s.color;
-    tag.style.background = s.bg;
-    tag.style.border = `1px solid ${s.border}`;
-  }
-  updateDemoProgress();
-}
-
-function updateDemoProgress() {
-  const validated = demoStatusIdx.filter(i => i === 4 || i === 5).length;
-  const pct = Math.round((validated / 4) * 100);
-  const bar = document.getElementById('demo-prog-bar');
-  const txt = document.getElementById('demo-prog-txt');
-  if(bar) bar.style.width = pct + '%';
-  if(txt) txt.textContent = pct + '%';
-}
-
-// Demo Relance
-function demoRelanceReply() {
-  const alert = document.getElementById('demo-relance-alert');
-  const ok = document.getElementById('demo-relance-ok');
-  if(alert) alert.style.display = 'none';
-  if(ok) ok.style.display = 'block';
-}
-function demoRelanceReset() {
-  const alert = document.getElementById('demo-relance-alert');
-  const ok = document.getElementById('demo-relance-ok');
-  if(alert) alert.style.display = 'block';
-  if(ok) ok.style.display = 'none';
-}
-
-// Demo Email
-function demoShowEmail() {
-  const preview = document.getElementById('demo-email-preview');
-  const hint = document.getElementById('demo-email-hint');
-  if(preview) {
-    preview.style.display = preview.style.display === 'none' ? 'block' : 'none';
-    if(hint) hint.textContent = preview.style.display === 'block' 
-      ? '👆 Voici l\'email qui sera envoyé à l\'éditeur — cliquez à nouveau pour fermer'
-      : '👆 Cliquez "✉️ Relancer" pour prévisualiser l\'email généré';
-  }
+renderSections();
+if(location.hash){
+  const id = location.hash.replace('#','');
+  setTimeout(()=>openSection(id),150);
 }
 </script>
 </body>

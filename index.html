@@ -132,7 +132,8 @@
   .features-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#1E1C38;border:1px solid #1E1C38;border-radius:16px;overflow:hidden;max-width:1000px;margin:0 auto; } .features-grid .feat:last-child { grid-column:1/-1; }
   .feat { background:#13122A;padding:36px 28px;transition:background 0.2s; }
   .feat:hover { background:#1A1838; }
-  .feat-icon { font-size:26px;margin-bottom:16px; }
+  .feat-icon { width:44px;height:44px;background:rgba(124,58,237,0.12);border:1px solid rgba(124,58,237,0.2);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px; }
+  .feat-icon svg { width:22px;height:22px; }
   .feat-title { font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:600;color:var(--creme);margin-bottom:10px; }
   .feat-body { font-size:14px;color:var(--texte);line-height:1.65; }
   .demo-tab { padding:9px 18px;background:#13122A;border:1px solid #2A2750;border-radius:8px;font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:600;color:#7B78A8;cursor:pointer;transition:all 0.15s; }
@@ -214,11 +215,61 @@
       <a href="/help" id="btn-demo" style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#A78BFA;text-decoration:none;border:1px solid rgba(167,139,250,0.25);border-radius:8px;padding:8px 16px;background:rgba(124,58,237,0.08);transition:all 0.2s"
         onmouseover="this.style.background='rgba(124,58,237,0.18)';this.style.borderColor='rgba(167,139,250,0.5)'"
         onmouseout="this.style.background='rgba(124,58,237,0.08)';this.style.borderColor='rgba(167,139,250,0.25)'">
-        🎮 <span id="btn-demo-txt">Explorer les fonctionnalités — démo interactive</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" style="vertical-align:middle"><polygon points="5 3 19 12 5 21 5 3"/></svg> <span id="btn-demo-txt">Explorer les fonctionnalités — démo interactive</span>
       </a>
     </div>
     <div class="hero-note" id="hero-note">✓ Aucune carte bancaire requise &nbsp;·&nbsp; ✓ Données 100% locales &nbsp;·&nbsp; ✓ Mac & PC</div>
     <div style="margin-top:10px;font-size:11px;color:#4B4870;text-align:center" id="hero-evolving">🔄 Application en constante évolution — mises à jour régulières incluses</div>
+  </div>
+</section>
+
+<!-- POUR QUI -->
+<section style="padding:60px 60px;background:#0A0910;border-top:1px solid #1E1C38">
+  <div style="max-width:1000px;margin:0 auto">
+    <div style="text-align:center;margin-bottom:40px">
+      <div class="eyebrow" id="forwhom-eyebrow">Pour qui</div>
+      <h2 class="section-title" id="forwhom-title">Fait pour vous si<br><em>vous composez pour...</em></h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
+
+      <!-- Library -->
+      <div style="background:#13122A;border:1px solid #2A2750;border-top:3px solid #A78BFA;border-radius:14px;padding:24px;transition:transform 0.2s" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
+        <div style="width:46px;height:46px;background:rgba(167,139,250,0.12);border:1px solid rgba(167,139,250,0.25);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="1.6" stroke-linecap="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+        </div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:700;color:#F0EEF8;margin-bottom:8px" id="fw1-title">Library / Sync</div>
+        <div style="font-size:13px;color:#7B78A8;line-height:1.65" id="fw1-body">Plusieurs albums en parallèle, des éditeurs différents, des deadlines qui s'accumulent — SYNC.PLANNER est fait pour vous.</div>
+      </div>
+
+      <!-- Jeux vidéo -->
+      <div style="background:#13122A;border:1px solid #2A2750;border-top:3px solid #60A5FA;border-radius:14px;padding:24px;transition:transform 0.2s" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
+        <div style="width:46px;height:46px;background:rgba(96,165,250,0.12);border:1px solid rgba(96,165,250,0.25);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="1.6" stroke-linecap="round"><rect x="2" y="6" width="20" height="12" rx="4"/><path d="M6 12h4M8 10v4"/><circle cx="16" cy="11" r="1.2" fill="#60A5FA"/><circle cx="18" cy="13" r="1.2" fill="#60A5FA"/></svg>
+        </div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:700;color:#F0EEF8;margin-bottom:8px" id="fw2-title">Jeux vidéo</div>
+        <div style="font-size:13px;color:#7B78A8;line-height:1.65" id="fw2-body">Packs de tracks par niveau, briefs techniques précis, versions loop/sting — suivez chaque livraison sans vous perdre.</div>
+      </div>
+
+      <!-- Film & TV -->
+      <div style="background:#13122A;border:1px solid #2A2750;border-top:3px solid #34D399;border-radius:14px;padding:24px;transition:transform 0.2s" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
+        <div style="width:46px;height:46px;background:rgba(52,211,153,0.12);border:1px solid rgba(52,211,153,0.25);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="1.6" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:700;color:#F0EEF8;margin-bottom:8px" id="fw3-title">Film & TV</div>
+        <div style="font-size:13px;color:#7B78A8;line-height:1.65" id="fw3-body">Révisions, allers-retours avec les réalisateurs, versions alternatives — chaque statut est tracé et chaque deadline est visible.</div>
+      </div>
+
+      <!-- Pub -->
+      <div style="background:#13122A;border:1px solid #2A2750;border-top:3px solid #FBBF24;border-radius:14px;padding:24px;transition:transform 0.2s" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
+        <div style="width:46px;height:46px;background:rgba(251,191,36,0.12);border:1px solid rgba(251,191,36,0.25);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FBBF24" stroke-width="1.6" stroke-linecap="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:700;color:#F0EEF8;margin-bottom:8px" id="fw4-title">Publicité</div>
+        <div style="font-size:13px;color:#7B78A8;line-height:1.65" id="fw4-body">Briefs clients avec contraintes (30s, 60s), versions multiples, deadlines courtes — gérez tout depuis un seul outil.</div>
+      </div>
+
+    </div>
+    <div style="text-align:center;margin-top:20px;font-size:13px;color:#4B4870" id="fw-note">Débutant ambitieux ou compositeur confirmé — SYNC.PLANNER s'adapte à votre niveau de production.</div>
   </div>
 </section>
 
@@ -281,13 +332,13 @@
     <h2 class="section-title" id="features-title">Ce que ça fait<br><em>concrètement</em></h2>
   </div>
   <div class="features-grid">
-    <div class="feat"><div class="feat-icon">📅</div><div class="feat-title" id="feat1-title">Deadlines sous contrôle</div><div class="feat-body" id="feat1-body">Une vue claire de ce qui est urgent, de ce qui est en cours, et de ce qui a déjà été livré. Plus de mauvaises surprises.</div></div>
-    <div class="feat"><div class="feat-icon">🎵</div><div class="feat-title" id="feat2-title">Suivi de chaque track</div><div class="feat-body" id="feat2-body">Composition, révision, mix, livraison — chaque track dispose de son propre statut. La progression de chaque projet est visible en temps réel.</div></div>
-    <div class="feat"><div class="feat-icon">🏢</div><div class="feat-title" id="feat3-title">Gestion des clients</div><div class="feat-body" id="feat3-body">Coordonnées, taux de validation, historique de collaboration. Toutes les informations sur les clients et éditeurs centralisées en un seul endroit.</div></div>
-    <div class="feat"><div class="feat-icon">📊</div><div class="feat-title" id="feat4-title">Stats de production</div><div class="feat-body" id="feat4-body">Nombre de tracks produites, taux de validation par client, évolution mensuelle. Des données concrètes pour mieux organiser la production.</div></div>
-    <div class="feat"><div class="feat-icon">♻️</div><div class="feat-title" id="feat5-title">Tracks refusées recyclées</div><div class="feat-body" id="feat5-body">Une track refusée peut être réutilisée. SYNC.PLANNER permet de la marquer disponible et de la transférer vers un autre projet.</div></div>
-    <div class="feat"><div class="feat-icon">🔒</div><div class="feat-title" id="feat6-title">100% local et privé</div><div class="feat-body" id="feat6-body">Toutes les données restent sur l'ordinateur de l'utilisateur. Aucun cloud, aucun serveur tiers. Confidentialité totale.</div></div>
-    <div class="feat" style="grid-column:1/-1;background:#1A1050;border-top:1px solid #7C3AED44"><div class="feat-icon">🤖</div><div class="feat-title" id="feat7-title">Assistant IA intégré</div><div class="feat-body" id="feat7-body">SYNC.PLANNER intègre un assistant connecté à Claude, GPT-4o ou Mistral via clé API personnelle. Il connaît tous les projets et peut créer des albums, modifier des statuts ou analyser la production directement depuis l'app — en langage naturel.</div></div>
+    <div class="feat"><div class="feat-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="1.6" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="16" y1="2" x2="16" y2="6"/></svg></div><div class="feat-title" id="feat1-title">Deadlines sous contrôle</div><div class="feat-body" id="feat1-body">Une vue claire de ce qui est urgent, de ce qui est en cours, et de ce qui a déjà été livré. Plus de mauvaises surprises.</div></div>
+    <div class="feat"><div class="feat-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="1.6" stroke-linecap="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div><div class="feat-title" id="feat2-title">Suivi de chaque track</div><div class="feat-body" id="feat2-body">Composition, révision, mix, livraison — chaque track dispose de son propre statut. La progression de chaque projet est visible en temps réel.</div></div>
+    <div class="feat"><div class="feat-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="1.6" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><div class="feat-title" id="feat3-title">Gestion des clients</div><div class="feat-body" id="feat3-body">Coordonnées, taux de validation, historique de collaboration. Toutes les informations sur les clients et éditeurs centralisées en un seul endroit.</div></div>
+    <div class="feat"><div class="feat-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="1.6" stroke-linecap="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg></div><div class="feat-title" id="feat4-title">Stats de production</div><div class="feat-body" id="feat4-body">Nombre de tracks produites, taux de validation par client, évolution mensuelle. Des données concrètes pour mieux organiser la production.</div></div>
+    <div class="feat"><div class="feat-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="1.6" stroke-linecap="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-3.51"/></svg></div><div class="feat-title" id="feat5-title">Tracks refusées recyclées</div><div class="feat-body" id="feat5-body">Une track refusée peut être réutilisée. SYNC.PLANNER permet de la marquer disponible et de la transférer vers un autre projet.</div></div>
+    <div class="feat"><div class="feat-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="1.6" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div><div class="feat-title" id="feat6-title">100% local et privé</div><div class="feat-body" id="feat6-body">Toutes les données restent sur l'ordinateur de l'utilisateur. Aucun cloud, aucun serveur tiers. Confidentialité totale.</div></div>
+    <div class="feat" style="grid-column:1/-1;background:#1A1050;border-top:1px solid #7C3AED44"><div class="feat-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="1.6" stroke-linecap="round"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/></svg></div><div class="feat-title" id="feat7-title">Assistant IA intégré</div><div class="feat-body" id="feat7-body">SYNC.PLANNER intègre un assistant connecté à Claude, GPT-4o ou Mistral via clé API personnelle. Il connaît tous les projets et peut créer des albums, modifier des statuts ou analyser la production directement depuis l'app — en langage naturel.</div></div>
   </div>
 </section>
 
@@ -299,19 +350,19 @@
 
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-bottom:60px">
       <div>
-        <h3 style="font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;color:var(--creme);margin-bottom:12px" id="seo-h3-1">🎵 Conçu pour la musique sync</h3>
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;color:var(--creme);margin-bottom:12px" id="seo-h3-1">Conçu pour la musique sync</h3>
         <p style="font-size:14px;color:var(--texte);line-height:1.8" id="seo-p1">SYNC.PLANNER est le seul outil de gestion de projets conçu spécifiquement pour les compositeurs de musique sync — library, film, TV, jeux vidéo et publicité. Contrairement aux outils génériques comme Notion ou Trello, il comprend le workflow réel d'un compositeur professionnel : albums, tracks, éditeurs, deadlines et relances.</p>
       </div>
       <div>
-        <h3 style="font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;color:var(--creme);margin-bottom:12px" id="seo-h3-2">🔒 Vos données restent chez vous</h3>
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;color:var(--creme);margin-bottom:12px" id="seo-h3-2">Vos données restent chez vous</h3>
         <p style="font-size:14px;color:var(--texte);line-height:1.8" id="seo-p2">100% local. Aucun cloud, aucune donnée audio envoyée. Vos projets, tracks et informations clients restent sur votre Mac. Pas d'abonnement cloud à 30€/mois, pas de risque de fuite de données. SYNC.PLANNER fonctionne même hors connexion.</p>
       </div>
       <div>
-        <h3 style="font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;color:var(--creme);margin-bottom:12px" id="seo-h3-3">📩 Relances éditeurs automatisées</h3>
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;color:var(--creme);margin-bottom:12px" id="seo-h3-3">Relances éditeurs automatisées</h3>
         <p style="font-size:14px;color:var(--texte);line-height:1.8" id="seo-p3">Les éditeurs peuvent mettre des semaines ou des mois à répondre. SYNC.PLANNER surveille automatiquement vos relances — par album et par track. Quand le délai est dépassé, une alerte apparaît et un email de relance professionnel est prêt à envoyer en un clic, avec votre signature et le contexte complet.</p>
       </div>
       <div>
-        <h3 style="font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;color:var(--creme);margin-bottom:12px" id="seo-h3-4">🤖 Un assistant IA en bonus</h3>
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;color:var(--creme);margin-bottom:12px" id="seo-h3-4">Un assistant IA en bonus</h3>
         <p style="font-size:14px;color:var(--texte);line-height:1.8" id="seo-p4">SYNC.PLANNER fonctionne parfaitement sans IA — les alertes de deadlines, les relances et le suivi des tracks sont entièrement automatisés. Pour ceux qui le souhaitent, un assistant IA optionnel peut être connecté via clé API personnelle (Claude, GPT-4o ou Mistral). Il connaît vos projets et peut analyser vos risques, générer une checklist de livraison ou chercher des briefs sync en temps réel.</p>
       </div>
     </div>
@@ -376,22 +427,22 @@
       <h3 style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;color:var(--creme);margin-bottom:24px" id="seo-forwhom-title">SYNC.PLANNER est fait pour vous si...</h3>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;text-align:left">
         <div style="background:#13122A;border:1px solid #2A2750;border-radius:12px;padding:20px">
-          <div style="font-size:24px;margin-bottom:10px">🎬</div>
+          <div style="margin-bottom:12px"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="2"/><path d="M7 2v20M17 2v20M2 12h20M2 7h5M2 17h5M17 7h5M17 17h5"/></svg></div>
           <div style="font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:600;color:var(--creme);margin-bottom:6px" id="seo-for1-title">Compositeur library</div>
           <div style="font-size:13px;color:var(--texte)" id="seo-for1-body">Vous gérez plusieurs albums simultanément pour différents éditeurs avec des deadlines serrées.</div>
         </div>
         <div style="background:#13122A;border:1px solid #2A2750;border-radius:12px;padding:20px">
-          <div style="font-size:24px;margin-bottom:10px">🎮</div>
+          <div style="margin-bottom:12px"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="6" width="20" height="12" rx="4"/><path d="M6 12h4M8 10v4"/><circle cx="16" cy="11" r="1" fill="#60A5FA"/><circle cx="18" cy="13" r="1" fill="#60A5FA"/></svg></div>
           <div style="font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:600;color:var(--creme);margin-bottom:6px" id="seo-for2-title">Compositeur jeux vidéo</div>
           <div style="font-size:13px;color:var(--texte)" id="seo-for2-body">Vous livrez des packs de tracks avec des statuts différents et des briefs techniques précis.</div>
         </div>
         <div style="background:#13122A;border:1px solid #2A2750;border-radius:12px;padding:20px">
-          <div style="font-size:24px;margin-bottom:10px">📺</div>
+          <div style="margin-bottom:12px"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
           <div style="font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:600;color:var(--creme);margin-bottom:6px" id="seo-for3-title">Compositeur film & TV</div>
           <div style="font-size:13px;color:var(--texte)" id="seo-for3-body">Vous collaborez avec des réalisateurs et producteurs et avez besoin de suivre chaque révision.</div>
         </div>
         <div style="background:#13122A;border:1px solid #2A2750;border-radius:12px;padding:20px">
-          <div style="font-size:24px;margin-bottom:10px">📢</div>
+          <div style="margin-bottom:12px"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FBBF24" stroke-width="1.5" stroke-linecap="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
           <div style="font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:600;color:var(--creme);margin-bottom:6px" id="seo-for4-title">Compositeur pub</div>
           <div style="font-size:13px;color:var(--texte)" id="seo-for4-body">Vous gérez des briefs clients avec des contraintes de durée (30s, 60s) et des versions multiples.</div>
         </div>
@@ -659,15 +710,22 @@ function showDemo(tab) {
 
 const T = {
   fr: {
+        "forwhom-eyebrow":"Pour qui",
+    "forwhom-title":"Fait pour vous si<br><em>vous composez pour...</em>",
+    "fw1-title":"Library / Sync","fw1-body":"Plusieurs albums en parallèle, des éditeurs différents, des deadlines qui s'accumulent — SYNC.PLANNER est fait pour vous.",
+    "fw2-title":"Jeux vidéo","fw2-body":"Packs de tracks par niveau, briefs techniques précis, versions loop/sting — suivez chaque livraison sans vous perdre.",
+    "fw3-title":"Film & TV","fw3-body":"Révisions, allers-retours avec les réalisateurs, versions alternatives — chaque statut est tracé et chaque deadline est visible.",
+    "fw4-title":"Publicité","fw4-body":"Briefs clients avec contraintes (30s, 60s), versions multiples, deadlines courtes — gérez tout depuis un seul outil.",
+    "fw-note":"Débutant ambitieux ou compositeur confirmé — SYNC.PLANNER s'adapte à votre niveau de production.",
     "seo-eyebrow":"Pourquoi SYNC.PLANNER",
     "seo-title":"L'outil que les compositeurs<br><em>attendaient vraiment</em>",
-    "seo-h3-1":"🎵 Conçu pour la musique sync",
+    "seo-h3-1":"Conçu pour la musique sync",
     "seo-p1":"SYNC.PLANNER est le seul outil de gestion de projets conçu spécifiquement pour les compositeurs de musique sync — library, film, TV, jeux vidéo et publicité. Contrairement aux outils génériques comme Notion ou Trello, il comprend le workflow réel d'un compositeur professionnel : albums, tracks, éditeurs, deadlines et relances.",
-    "seo-h3-2":"🔒 Vos données restent chez vous",
+    "seo-h3-2":"Vos données restent chez vous",
     "seo-p2":"100% local. Aucun cloud, aucune donnée audio envoyée. Vos projets, tracks et informations clients restent sur votre Mac. Pas d'abonnement cloud à 30€/mois, pas de risque de fuite de données. SYNC.PLANNER fonctionne même hors connexion.",
-    "seo-h3-3":"📩 Relances éditeurs automatisées",
+    "seo-h3-3":"Relances éditeurs automatisées",
     "seo-p3":"Les éditeurs peuvent mettre des semaines ou des mois à répondre. SYNC.PLANNER surveille automatiquement vos relances — par album et par track. Quand le délai est dépassé, une alerte apparaît et un email de relance professionnel est prêt à envoyer en un clic, avec votre signature et le contexte complet.",
-    "seo-h3-4":"🤖 Un assistant IA en bonus",
+    "seo-h3-4":"Un assistant IA en bonus",
     "seo-p4":"SYNC.PLANNER fonctionne parfaitement sans IA — les alertes de deadlines, les relances et le suivi des tracks sont entièrement automatisés. Pour ceux qui le souhaitent, un assistant IA optionnel peut être connecté via clé API personnelle (Claude, GPT-4o ou Mistral). Il connaît vos projets et peut analyser vos risques, générer une checklist de livraison ou chercher des briefs sync en temps réel.",
     "seo-compare-title":"SYNC.PLANNER vs les alternatives",
     "seo-th-feature":"Fonctionnalité",
@@ -743,15 +801,22 @@ const T = {
     "footer-legal":"Mentions légales","footer-cgv":"CGV","feat7-title":"🎁 Bonus — Assistant IA intégré","feat7-body":"Fonctionnalité optionnelle. SYNC.PLANNER peut se connecter à Claude, GPT-4o ou Mistral via clé API personnelle. L'assistant connaît les projets en cours et peut créer des albums, modifier des statuts ou analyser la production en langage naturel. Nécessite un compte et une clé API chez le fournisseur choisi. La mémoire de vos habitudes est conservée localement sur votre Mac.","faq6-q":"L'assistant IA a-t-il accès à mes données ?","faq6-a":"L'assistant IA utilise une clé API personnelle (Claude, GPT-4o ou Mistral). Les données sont envoyées directement au fournisseur choisi — elles ne transitent pas par les serveurs SYNC.PLANNER. L'historique est conservé pendant la session. Entre les sessions, l'IA mémorise localement vos habitudes de travail sur votre Mac — ces données ne quittent jamais votre ordinateur.",
   },
   en: {
+        "forwhom-eyebrow":"Who it's for",
+    "forwhom-title":"Built for you if<br><em>you compose for...</em>",
+    "fw1-title":"Library / Sync","fw1-body":"Multiple albums in parallel, different publishers, accumulating deadlines — SYNC.PLANNER is built for you.",
+    "fw2-title":"Video games","fw2-body":"Track packs per level, precise technical briefs, loop/sting versions — track every delivery without getting lost.",
+    "fw3-title":"Film & TV","fw3-body":"Revisions, back-and-forth with directors, alternative versions — every status is tracked and every deadline is visible.",
+    "fw4-title":"Advertising","fw4-body":"Client briefs with constraints (30s, 60s), multiple versions, tight deadlines — manage everything from one tool.",
+    "fw-note":"Ambitious beginner or established composer — SYNC.PLANNER adapts to your production level.",
     "seo-eyebrow":"Why SYNC.PLANNER",
     "seo-title":"The tool composers<br><em>actually needed</em>",
-    "seo-h3-1":"🎵 Built for sync music",
+    "seo-h3-1":"Built for sync music",
     "seo-p1":"SYNC.PLANNER is the only project management tool built specifically for sync music composers — library, film, TV, video games and advertising. Unlike generic tools like Notion or Trello, it understands the real workflow of a professional composer: albums, tracks, publishers, deadlines and follow-ups.",
-    "seo-h3-2":"🔒 Your data stays with you",
+    "seo-h3-2":"Your data stays with you",
     "seo-p2":"100% local. No cloud, no audio data sent. Your projects, tracks and client information stay on your Mac. No €30/month cloud subscription, no risk of data leaks. SYNC.PLANNER works even offline.",
-    "seo-h3-3":"📩 Automated publisher follow-ups",
+    "seo-h3-3":"Automated publisher follow-ups",
     "seo-p3":"Publishers can take weeks or months to respond. SYNC.PLANNER automatically monitors your follow-ups — per album and per track. When the deadline is exceeded, an alert appears and a professional follow-up email is ready to send in one click, with your signature and full context.",
-    "seo-h3-4":"🤖 An optional AI assistant",
+    "seo-h3-4":"An optional AI assistant",
     "seo-p4":"SYNC.PLANNER works perfectly without AI — deadline alerts, follow-ups and track tracking are fully automated. For those who want it, an optional AI assistant can be connected via personal API key (Claude, GPT-4o or Mistral). It knows your projects and can analyze your risks, generate a delivery checklist or search for available sync briefs in real time.",
     "seo-compare-title":"SYNC.PLANNER vs the alternatives",
     "seo-th-feature":"Feature",
