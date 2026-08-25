@@ -376,6 +376,35 @@ const SECTIONS = [
   demo: buildAIDemo
 },
 {
+  id:'sacem', color:'#FBBF24', bg:'rgba(251,191,36,0.12)',
+  icon:`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FBBF24" stroke-width="1.8" stroke-linecap="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>`,
+  title:{fr:'Revenus SACEM (Beta)',en:'SACEM Revenue (Beta)'},
+  sub:{fr:'Import de relevés et croisement temps/revenu',en:'Statement import and time-vs-revenue crossing'},
+  items:[
+    {fr:'<b>Importer un relevé</b> — sélectionne le dossier contenant tes exports CSV SACEM ; tu peux importer plusieurs relevés d\'un coup (Export 1, 2, 3…). L\'encodage (UTF-8 / Windows-1252) est détecté automatiquement.',en:'<b>Import a statement</b> — pick the folder containing your SACEM CSV exports; you can import several statements at once (Export 1, 2, 3…). Encoding (UTF-8 / Windows-1252) is detected automatically.'},
+    {fr:'<b>Matching automatique</b> — chaque ligne SACEM est reliée à une track par titre normalisé. Si plusieurs tracks partagent exactement le même titre, rien n\'est deviné — la ligne part en validation manuelle.',en:'<b>Automatic matching</b> — each SACEM line is matched to a track by normalized title. If several tracks share the exact same title, nothing is guessed — the line is sent to manual review instead.'},
+    {fr:'<b>Titres en double</b> — signale les tracks qui partagent un nom ET apparaissent dans un relevé importé, pour éviter d\'attribuer les revenus à la mauvaise track.',en:'<b>Duplicate titles</b> — flags tracks that share a name AND appear in an imported statement, to avoid attributing revenue to the wrong track.'},
+    {fr:'<b>Filtre de répartition</b> — avec plusieurs imports, coche/décoche chaque relevé pour l\'inclure ou non dans les totaux affichés.',en:'<b>Breakdown filter</b> — with several imports, check/uncheck each statement to include or exclude it from the totals shown.'},
+    {fr:'<b>Temps vs revenu (€/h/an)</b> — croise le temps Logic Pro passé et le revenu SACEM annuel moyen par track, annualisé pour ne pas avantager les tracks anciennes.',en:'<b>Time vs revenue (€/h/yr)</b> — crosses Logic Pro time spent with the average yearly SACEM revenue per track, annualized so older tracks don\'t get an unfair edge.'},
+    {fr:'<b>Beta</b> — module récent : la précision du matching et les calculs vont continuer à s\'améliorer au fil des prochaines mises à jour. Vérifie toujours les chiffres avant de t\'y fier pour quelque chose d\'important.',en:'<b>Beta</b> — recent module: matching accuracy and calculations will keep improving with future updates. Always double-check figures before relying on them for anything important.'},
+  ],
+  demo: null
+},
+{
+  id:'logicpro', color:'#38BDF8', bg:'rgba(56,189,248,0.12)',
+  icon:`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="15" r="2"/><path d="M11 15V6l6-1v9"/></svg>`,
+  title:{fr:'Intégration Logic Pro',en:'Logic Pro Integration'},
+  sub:{fr:'Détection auto et suivi du temps de composition',en:'Auto-detection and composition time tracking'},
+  items:[
+    {fr:'<b>Détection automatique</b> — ouvrir un projet Logic Pro affiche un bandeau proposant trois choix : créer une nouvelle track, l\'ajouter à un album existant, ou la lier à une track déjà présente dans ton catalogue (suggestion basée sur le titre, toujours à confirmer — jamais appliquée silencieusement).',en:'<b>Automatic detection</b> — opening a Logic Pro project shows a banner offering three choices: create a new track, add it to an existing album, or link it to a track already in your catalog (title-based suggestion, always requires confirmation — never applied silently).'},
+    {fr:'<b>Suivi du temps</b> — une fois une track liée, le temps passé dessus (Logic au premier plan, sans inactivité système) est comptabilisé automatiquement. Visible sur la track, ou regroupé par track/album/éditeur dans Statistiques → Temps Logic.',en:'<b>Time tracking</b> — once a track is linked, time spent working on it (Logic in the foreground, no system idle) is logged automatically. See it on the track, or grouped by track/album/publisher in Statistics → Logic time.'},
+    {fr:'<b>Lier une track manuellement</b> — sur toute track jamais liée à Logic Pro (Kanban ou fiche Projets/Albums), un bouton "Lier à un projet Logic Pro…" permet de la connecter toi-même.',en:'<b>Link a track manually</b> — on any track never linked to Logic Pro (Kanban card or Projects/Albums sheet), a "Link to a Logic Pro project…" button lets you connect it yourself.'},
+    {fr:'<b>Réparer un lien cassé</b> — si un projet Logic Pro est renommé ou déplacé, le lien est signalé cassé ; utilise "Relier…" pour le repointer vers son nouvel emplacement.',en:'<b>Broken link repair</b> — if a Logic Pro project is renamed or moved, the link is flagged broken; use "Relink…" to point it to its new location.'},
+    {fr:'<b>Protection anti-collision</b> — un même projet Logic Pro ne peut jamais se retrouver lié à deux tracks différentes en même temps.',en:'<b>Collision protection</b> — a single Logic Pro project can never end up linked to two different tracks at once.'},
+  ],
+  demo: null
+},
+{
   id:'settings', color:'#7B78A8', bg:'rgba(123,120,168,0.12)',
   icon:`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7B78A8" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>`,
   title:{fr:'Paramètres',en:'Settings'},
