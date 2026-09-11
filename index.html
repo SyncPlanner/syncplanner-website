@@ -88,6 +88,13 @@
   .nav-links a { font-size:13px;color:var(--texte);text-decoration:none;transition:color 0.15s; }
   .nav-links a:hover { color:var(--creme); }
   .nav-cta { padding:9px 22px;background:var(--violet);color:white;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none; }
+  .nav-burger { display:none;background:none;border:1px solid #2A2750;border-radius:8px;width:38px;height:38px;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0; }
+  .nav-burger span, .nav-burger span::before, .nav-burger span::after { content:'';display:block;width:16px;height:2px;background:var(--creme);position:relative;transition:transform 0.2s,opacity 0.2s; }
+  .nav-burger span::before { position:absolute;top:-5px; }
+  .nav-burger span::after { position:absolute;top:5px; }
+  .nav-burger.open span { opacity:0; }
+  .nav-burger.open span::before { transform:translateY(5px) rotate(45deg);opacity:1; }
+  .nav-burger.open span::after { transform:translateY(-5px) rotate(-45deg);opacity:1; }
   .hero { min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 60px 80px;position:relative;overflow:hidden; }
   .hero-bg { position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse 70% 60% at 65% 50%,#3b1d8a1a 0%,transparent 70%); }
   .hero-grid { position:absolute;inset:0;z-index:0;background-image:linear-gradient(rgba(124,58,237,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(124,58,237,0.03) 1px,transparent 1px);background-size:60px 60px; }
@@ -173,7 +180,13 @@
   footer a { color:#4B4870;text-decoration:none; }
   footer a:hover { color:var(--texte); }
   @media(max-width:900px){
-    nav{padding:16px 24px;} .nav-links{display:none;}
+    nav{padding:14px 20px;flex-wrap:wrap;}
+    .nav-cta{display:none;}
+    .nav-burger{display:flex;}
+    .nav-links{display:none;width:100%;flex-direction:column;gap:0;order:3;background:rgba(13,12,26,0.98);border-top:1px solid #1E1C38;margin-top:14px;padding:6px 0;}
+    .nav-links.mobile-open{display:flex;}
+    .nav-links a{padding:12px 4px;border-bottom:1px solid #1E1C38;}
+    .nav-links .nav-cta-mobile{display:inline-block;margin:10px 4px 4px;padding:11px 18px;background:var(--violet);color:white;border-radius:8px;font-size:13px;font-weight:600;text-align:center;text-decoration:none;}
     .hero,.problem,.preview,.features,.pricing,.cta-final{padding:60px 24px;}
     .features-grid{grid-template-columns:1fr;}
     .pricing-cards{flex-direction:column;align-items:center;}
@@ -191,10 +204,12 @@
       <button class="lang-btn" id="btn-en" onclick="setLang('en')" title="English">🇬🇧</button>
     </div>
   </div>
-  <div class="nav-links">
-    <a href="#features" id="nav-features">Fonctionnalités</a>
-    <a href="#pricing" id="nav-pricing">Tarifs</a>
-    <a href="#faq" id="nav-faq">FAQ</a>
+  <button class="nav-burger" id="nav-burger" onclick="toggleMobileNav()" aria-label="Menu"><span></span></button>
+  <div class="nav-links" id="nav-links">
+    <a href="#features" id="nav-features" onclick="closeMobileNav()">Fonctionnalités</a>
+    <a href="#pricing" id="nav-pricing" onclick="closeMobileNav()">Tarifs</a>
+    <a href="#faq" id="nav-faq" onclick="closeMobileNav()">FAQ</a>
+    <a href="#pricing" class="nav-cta-mobile" id="nav-cta-mobile" onclick="closeMobileNav()">Télécharger — 14j gratuit</a>
   </div>
   <a href="#pricing" class="nav-cta" id="nav-cta">Télécharger — 14j gratuit</a>
 </nav>
@@ -218,7 +233,7 @@
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" style="vertical-align:middle"><polygon points="5 3 19 12 5 21 5 3"/></svg> <span id="btn-demo-txt">Explorer les fonctionnalités — démo interactive</span>
       </a>
     </div>
-    <div class="hero-note" id="hero-note">✓ Aucune carte bancaire requise &nbsp;·&nbsp; ✓ Données 100% locales &nbsp;·&nbsp; ✓ Mac & PC</div>
+    <div class="hero-note" id="hero-note">✓ Aucune carte bancaire requise &nbsp;·&nbsp; ✓ Données 100% locales &nbsp;·&nbsp; ✓ Mac (Windows bientôt)</div>
     <div style="margin-top:10px;font-size:11px;color:#4B4870;text-align:center" id="hero-evolving">🔄 Application en constante évolution — mises à jour régulières incluses</div>
   </div>
 </section>
@@ -338,7 +353,7 @@
     <div class="feat"><div class="feat-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="1.6" stroke-linecap="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg></div><div class="feat-title" id="feat4-title">Stats de production</div><div class="feat-body" id="feat4-body">Nombre de tracks produites, taux de validation par client, évolution mensuelle. Des données concrètes pour mieux organiser la production.</div></div>
     <div class="feat"><div class="feat-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="1.6" stroke-linecap="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-3.51"/></svg></div><div class="feat-title" id="feat5-title">Tracks refusées recyclées</div><div class="feat-body" id="feat5-body">Une track refusée peut être réutilisée. SYNC.PLANNER permet de la marquer disponible et de la transférer vers un autre projet.</div></div>
     <div class="feat"><div class="feat-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="1.6" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div><div class="feat-title" id="feat6-title">100% local et privé</div><div class="feat-body" id="feat6-body">Toutes les données restent sur l'ordinateur de l'utilisateur. Aucun cloud, aucun serveur tiers. Confidentialité totale.</div></div>
-    <div class="feat" style="grid-column:1/-1;background:#1A1050;border-top:1px solid #7C3AED44"><div class="feat-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="1.6" stroke-linecap="round"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/></svg></div><div class="feat-title" id="feat7-title">Assistant IA intégré</div><div class="feat-body" id="feat7-body">SYNC.PLANNER intègre un assistant connecté à Claude, GPT-4o ou Mistral via clé API personnelle. Il connaît tous les projets et peut créer des albums, modifier des statuts ou analyser la production directement depuis l'app — en langage naturel.</div></div>
+    <div class="feat" style="grid-column:1/-1;background:#1A1050;border-top:1px solid #7C3AED44"><div class="feat-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="1.6" stroke-linecap="round"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/></svg></div><div class="feat-title" id="feat7-title">🎁 Bonus — Assistant IA intégré (Beta)</div><div class="feat-body" id="feat7-body">Un assistant intégré, sans clé API ni compte à créer, qui lit tes données réelles pour répondre en langage naturel : deadlines urgentes, stats, tracks à relancer, conseils du jour... 12 prompts rapides + saisie libre.</div></div>
   </div>
 </section>
 
@@ -592,7 +607,7 @@
         <li id="feat-clients">Gestion des clients</li>
         <li id="feat-stats">Stats complètes</li>
         <li id="feat-kanban">Kanban & Calendrier</li>
-        <li>Mac & PC</li>
+        <li id="feat-mac">Mac (Windows bientôt)</li>
       </ul>
       <a href="https://buy.stripe.com/bJe5kDcG5dTm2eL3AXak002" target="_blank" class="price-cta cta-outline" id="cta-btn1">Commencer</a>
     </div>
@@ -630,7 +645,7 @@
   </div>
   <div class="faq-item">
     <div class="faq-q" onclick="toggleFaq(this)"><span id="faq2-q">Ça fonctionne sur Mac et PC ?</span><span class="faq-arrow">▼</span></div>
-    <div class="faq-a" id="faq2-a">Oui, SYNC.PLANNER est disponible sur Mac (.dmg) et Windows (.exe). Fonctionne sur Mac et PC.</div>
+    <div class="faq-a" id="faq2-a">SYNC.PLANNER est disponible sur Mac (.dmg) dès maintenant. La version Windows/PC est en développement — pas encore disponible au téléchargement.</div>
   </div>
   <div class="faq-item">
     <div class="faq-q" onclick="toggleFaq(this)"><span id="faq3-q">Je peux annuler à tout moment ?</span><span class="faq-arrow">▼</span></div>
@@ -642,7 +657,7 @@
   </div>
   <div class="faq-item">
     <div class="faq-q" onclick="toggleFaq(this)"><span id="faq6-q">L'assistant IA a-t-il accès à mes données ?</span><span class="faq-arrow">▼</span></div>
-    <div class="faq-a" id="faq6-a">L'assistant IA utilise une clé API personnelle (Claude, GPT-4o ou Mistral). Les données sont envoyées directement au fournisseur choisi — elles ne transitent pas par les serveurs SYNC.PLANNER. L'historique de conversation est conservé pendant la session en cours. Entre les sessions, l'IA mémorise localement sur votre Mac vos habitudes de travail — ces données ne quittent jamais votre ordinateur.</div>
+    <div class="faq-a" id="faq6-a">L'assistant IA est intégré à l'app — pas de clé API ni de compte à créer. Il travaille à partir de tes données réelles (albums, tracks, éditeurs) pour répondre à tes questions. C'est un module en Beta : vérifie toujours les infos critiques avant de t'y fier.</div>
   </div>
   <div class="faq-item">
     <div class="faq-q" onclick="toggleFaq(this)"><span id="faq7-q">Sur Mac, une alerte de sécurité apparaît — que faire ?</span><span class="faq-arrow">▼</span></div>
@@ -746,13 +761,13 @@ const T = {
     "seo-for3-body":"Vous collaborez avec des réalisateurs et producteurs et avez besoin de suivre chaque révision.",
     "seo-for4-title":"Compositeur pub",
     "seo-for4-body":"Vous gérez des briefs clients avec des contraintes de durée (30s, 60s) et des versions multiples.",
-    "nav-features":"Fonctionnalités","nav-pricing":"Tarifs","nav-faq":"FAQ","nav-cta":"Télécharger — 14j gratuit",
+    "nav-features":"Fonctionnalités","nav-pricing":"Tarifs","nav-faq":"FAQ","nav-cta":"Télécharger — 14j gratuit","nav-cta-mobile":"Télécharger — 14j gratuit",
     "hero-badge":"Pour les compositeurs qui livrent",
     "hero-h1":"Fini le<br>désordre.<br><span style='color:var(--violet)'>Reste focus.</span>",
     "hero-sub":"Beaucoup de tracks en cours, plusieurs clients, des deadlines qui s'accumulent — ça peut vite devenir le foutoir. SYNC.PLANNER centralise tout au même endroit pour ne rien oublier.",
     "hero-sub2":"Pour tous les compositeurs qui travaillent avec des éditeurs, publishers et bibliothèques musicales — gérez vos tracks, deadlines et relances depuis un seul endroit.",
     "btn-mac":"Mac — Télécharger","btn-win":"Windows — En développement","btn-demo-txt":"Explorer les fonctionnalités — démo interactive",
-    "hero-note":"✓ Aucune carte bancaire requise &nbsp;·&nbsp; ✓ Données 100% locales &nbsp;·&nbsp; ✓ Mac & PC",
+    "hero-note":"✓ Aucune carte bancaire requise &nbsp;·&nbsp; ✓ Données 100% locales &nbsp;·&nbsp; ✓ Mac (Windows bientôt)",
     "hero-evolving":"🔄 Application en constante évolution — mises à jour régulières incluses",
     "problem-eyebrow":"Le problème","problem-title":"Trop d'outils,<br><em>pas assez de clarté.</em>",
     "problem-body":"Un Google Sheet pour les deadlines, un autre pour les tracks, des notes éparpillées, des mails avec les clients... Résultat : des relances oubliées, des deadlines ratées, de la confusion. SYNC.PLANNER regroupe tout en un seul endroit, clair et structuré.",
@@ -784,13 +799,13 @@ const T = {
     "plan2-tier":"Annuel","plan2-period":"soit 90€ par an · facturé en une fois",
     "plan3-tier":"Lifetime","plan3-period":"paiement unique · accès à vie",
     "price-badge-popular":"⭐ Le plus populaire",
-    "feat-unlimited":"Albums et tracks illimités","feat-clients":"Gestion des clients","feat-stats":"Stats complètes","feat-kanban":"Kanban & Calendrier",
+    "feat-unlimited":"Albums et tracks illimités","feat-clients":"Gestion des clients","feat-stats":"Stats complètes","feat-kanban":"Kanban & Calendrier","feat-mac":"Mac (Windows bientôt)",
     "feat-all":"Tout du plan mensuel","feat-updates":"Mises à jour incluses","feat-support":"Support prioritaire",
     "feat-all2":"Tout du plan annuel","feat-future":"Accès aux futures versions","feat-once":"Un seul paiement",
     "cta-btn1":"Commencer","cta-btn2":"Commencer","cta-btn3":"Commencer",
     "faq-title":"Questions fréquentes",
     "faq1-q":"Est-ce que mes données sont en sécurité ?","faq1-a":"Oui — toutes les données sont stockées localement sur l'ordinateur de l'utilisateur. Aucune donnée ne transite par nos serveurs, à l'exception de la vérification de licence.",
-    "faq2-q":"Ça fonctionne sur Mac et PC ?","faq2-a":"Oui, SYNC.PLANNER est disponible sur Mac (.dmg) et Windows (.exe). Fonctionne sur Mac et PC.",
+    "faq2-q":"Ça fonctionne sur Mac et PC ?","faq2-a":"SYNC.PLANNER est disponible sur Mac (.dmg) dès maintenant. La version Windows/PC est en développement — pas encore disponible au téléchargement.",
     "faq3-q":"Je peux annuler à tout moment ?","faq3-a":"Oui, sans conditions. L'annulation se fait en un clic depuis l'espace Stripe. L'accès reste actif jusqu'à la fin de la période payée.",
     "faq4-q":"C'est quoi le plan Lifetime exactement ?","faq4-a":"Un paiement unique de 149€ donne un accès permanent à SYNC.PLANNER, ainsi qu'aux futures versions de l'application.",
     "faq5-q":"Et si j'ai un problème ?","faq5-a":"Il suffit d'envoyer un mail à contact@syncplanner.app Réponse sous 24h.",
@@ -801,7 +816,7 @@ const T = {
     "cta-final-title":"Gérez vos <span style='color:var(--violet2)'>projets musicaux</span><br>sans vous perdre.",
     "cta-final-sub":"14 jours d'essai gratuit, sans carte bancaire. Le temps de voir si SYNC.PLANNER correspond au workflow.",
     "cta-final-mac":"Mac — Télécharger","cta-final-win":"Windows — En développement",
-    "footer-legal":"Mentions légales","footer-cgv":"CGV","feat7-title":"🎁 Bonus — Assistant IA intégré","feat7-body":"Fonctionnalité optionnelle. SYNC.PLANNER peut se connecter à Claude, GPT-4o ou Mistral via clé API personnelle. L'assistant connaît les projets en cours et peut créer des albums, modifier des statuts ou analyser la production en langage naturel. Nécessite un compte et une clé API chez le fournisseur choisi. La mémoire de vos habitudes est conservée localement sur votre Mac.","faq6-q":"L'assistant IA a-t-il accès à mes données ?","faq6-a":"L'assistant IA utilise une clé API personnelle (Claude, GPT-4o ou Mistral). Les données sont envoyées directement au fournisseur choisi — elles ne transitent pas par les serveurs SYNC.PLANNER. L'historique est conservé pendant la session. Entre les sessions, l'IA mémorise localement vos habitudes de travail sur votre Mac — ces données ne quittent jamais votre ordinateur.",
+    "footer-legal":"Mentions légales","footer-cgv":"CGV","feat7-title":"🎁 Bonus — Assistant IA intégré (Beta)","feat7-body":"Un assistant intégré, sans clé API ni compte à créer, qui lit tes données réelles pour répondre en langage naturel : deadlines urgentes, stats, tracks à relancer, conseils du jour... 12 prompts rapides + saisie libre.","faq6-q":"L'assistant IA a-t-il accès à mes données ?","faq6-a":"L'assistant IA est intégré à l'app — pas de clé API ni de compte à créer. Il travaille à partir de tes données réelles (albums, tracks, éditeurs) pour répondre à tes questions. C'est un module en Beta : vérifie toujours les infos critiques avant de t'y fier.",
   },
   en: {
         "forwhom-eyebrow":"Who it's for",
@@ -837,13 +852,13 @@ const T = {
     "seo-for3-body":"You collaborate with directors and producers and need to track every revision.",
     "seo-for4-title":"Ad composer",
     "seo-for4-body":"You manage client briefs with duration constraints (30s, 60s) and multiple versions.",
-    "nav-features":"Features","nav-pricing":"Pricing","nav-faq":"FAQ","nav-cta":"Download — 14 days free",
+    "nav-features":"Features","nav-pricing":"Pricing","nav-faq":"FAQ","nav-cta":"Download — 14 days free","nav-cta-mobile":"Download — 14 days free",
     "hero-badge":"For demanding composers",
     "hero-h1":"No more<br>chaos.<br><span style='color:var(--violet)'>Stay focused.</span>",
     "hero-sub":"Lots of tracks in progress, multiple clients, deadlines piling up — it can get messy fast. SYNC.PLANNER keeps everything in one place so nothing slips through.",
     "hero-sub2":"SYNC.PLANNER is the project management tool for composers who work with publishers and music libraries — whether you're just starting out or already established.",
     "btn-mac":"Mac — Download","btn-win":"Windows — In development","btn-demo-txt":"Explore features — interactive demo",
-    "hero-note":"✓ No credit card required &nbsp;·&nbsp; ✓ 100% local data &nbsp;·&nbsp; ✓ Mac & PC",
+    "hero-note":"✓ No credit card required &nbsp;·&nbsp; ✓ 100% local data &nbsp;·&nbsp; ✓ Mac (Windows coming soon)",
     "hero-evolving":"🔄 Constantly evolving app — regular updates included",
     "problem-eyebrow":"The problem","problem-title":"Too many tools,<br><em>not enough clarity.</em>",
     "problem-body":"A Google Sheet for deadlines, another for tracks, scattered notes, emails with clients... Result: missed follow-ups, late deliveries, confusion. SYNC.PLANNER brings everything together in one clear, structured place.",
@@ -875,13 +890,13 @@ const T = {
     "plan2-tier":"Annual","plan2-period":"i.e. €90/year · billed at once",
     "plan3-tier":"Lifetime","plan3-period":"one-time payment · lifetime access",
     "price-badge-popular":"⭐ Most popular",
-    "feat-unlimited":"Unlimited projects & tracks","feat-clients":"Client management","feat-stats":"Full statistics","feat-kanban":"Kanban & Calendar",
+    "feat-unlimited":"Unlimited projects & tracks","feat-clients":"Client management","feat-stats":"Full statistics","feat-kanban":"Kanban & Calendar","feat-mac":"Mac (Windows coming soon)",
     "feat-all":"Everything in Monthly","feat-updates":"Updates included","feat-support":"Priority support",
     "feat-all2":"Everything in Annual","feat-future":"Access to future versions","feat-once":"One-time payment",
     "cta-btn1":"Get started","cta-btn2":"Get started","cta-btn3":"Get started",
     "faq-title":"Frequently asked questions",
     "faq1-q":"Is my data safe?","faq1-a":"Yes — all data is stored locally on the user's computer. Nothing passes through our servers except licence verification.",
-    "faq2-q":"Does it work on Mac and PC?","faq2-a":"Yes, SYNC.PLANNER is available on Mac (.dmg) and Windows (.exe). Works on both.",
+    "faq2-q":"Does it work on Mac and PC?","faq2-a":"SYNC.PLANNER is available on Mac (.dmg) right now. A Windows/PC version is in development — not yet available for download.",
     "faq3-q":"Can I cancel anytime?","faq3-a":"Yes, no strings attached. Cancel in one click from your Stripe dashboard. Access stays active until the end of the paid period.",
     "faq4-q":"What is the Lifetime plan exactly?","faq4-a":"A one-time payment of €149 gives permanent access to SYNC.PLANNER, including all future versions.",
     "faq5-q":"What if I have a problem?","faq5-a":"Just send an email to contact@syncplanner.app Reply within 24h.",
@@ -892,9 +907,18 @@ const T = {
     "cta-final-title":"Manage your <span style='color:var(--violet2)'>music projects</span><br>without losing track.",
     "cta-final-sub":"14-day free trial, no credit card. See if SYNC.PLANNER fits your workflow.",
     "cta-final-mac":"Mac — Download","cta-final-win":"Windows — In development",
-    "footer-legal":"Legal notice","footer-cgv":"Terms","feat7-title":"🎁 Bonus — Built-in AI assistant","feat7-body":"Optional feature. SYNC.PLANNER can connect to Claude, GPT-4o or Mistral via personal API key. The assistant knows current projects and can create albums, update statuses or analyze production in plain language. Requires an account and API key from the chosen provider. Work habit memory is stored locally on your Mac.","faq6-q":"Does the AI assistant have access to my data?","faq6-a":"The AI assistant uses a personal API key (Claude, GPT-4o or Mistral). Data is sent directly to the chosen provider — it does not pass through SYNC.PLANNER servers. Conversation history is kept during the current session. Between sessions, the AI stores your work habits locally on your Mac — this data never leaves your computer.",
+    "footer-legal":"Legal notice","footer-cgv":"Terms","feat7-title":"🎁 Bonus — Built-in AI assistant (Beta)","feat7-body":"A built-in assistant, no API key or account needed, that reads your real data to answer in plain language: urgent deadlines, stats, tracks to follow up, today's advice... 12 quick prompts + free input.","faq6-q":"Does the AI assistant have access to my data?","faq6-a":"The AI assistant is built into the app — no API key or account to create. It works from your real data (albums, tracks, publishers) to answer your questions. It's a Beta module: always double-check critical info before relying on it.",
   }
 };
+
+function toggleMobileNav() {
+  document.getElementById('nav-links').classList.toggle('mobile-open');
+  document.getElementById('nav-burger').classList.toggle('open');
+}
+function closeMobileNav() {
+  document.getElementById('nav-links').classList.remove('mobile-open');
+  document.getElementById('nav-burger').classList.remove('open');
+}
 
 function setLang(lang) {
   localStorage.setItem('site-lang', lang);

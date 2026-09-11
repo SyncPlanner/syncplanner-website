@@ -114,8 +114,11 @@ code { background:#1E1C38;border-radius:4px;padding:1px 5px;font-size:12px;color
   <a href="#stats" class="nav-link">📊 Statistics</a>
   <a href="#archivage" class="nav-link">📦 Archiving</a>
   <a href="#recyclage" class="nav-link">♻️ Recycling</a>
-  <div class="nav-section">Bonus</div>
-  <a href="#ia" class="nav-link">🤖 Assistant IA</a>
+  <div class="nav-section">Beta</div>
+  <a href="#ia" class="nav-link">🤖 AI Assistant</a>
+  <a href="#sacem" class="nav-link">💰 SACEM Revenue</a>
+  <a href="#placements" class="nav-link">🎬 Placements</a>
+  <a href="#logicpro" class="nav-link">🎚️ Logic Pro Integration</a>
   <div class="nav-section">Installation</div>
   <a href="#mac" class="nav-link">Mac</a>
   <a href="#windows" class="nav-link">Windows</a>
@@ -548,14 +551,61 @@ code { background:#1E1C38;border-radius:4px;padding:1px 5px;font-size:12px;color
 
   <!-- IA -->
   <section class="doc-section" id="ia">
-    <span class="bonus-tag">🎁 Bonus optionnel</span>
-    <div class="section-header"><span class="section-emoji">🤖</span><h2 class="section-title">Assistant IA</h2></div>
-    <p class="section-intro">SYNC.PLANNER can connect to Claude, GPT-4o or Mistral via personal API key to create projects, update statuses or analyse production in plain language.</p>
-    <div class="warn-box">⚠️ <strong>Optional feature</strong> — Requires an account and API key from the chosen provider. Usage consumes tokens billed directly by the provider. Conversations are not saved between sessions.</div>
-    <div class="steps">
-      <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Create an API key</div><div class="step-text"><a href="https://console.anthropic.com" target="_blank" style="color:var(--violet2)">console.anthropic.com</a> (Claude) · <a href="https://platform.openai.com" target="_blank" style="color:var(--violet2)">platform.openai.com</a> (GPT-4o) · <a href="https://console.mistral.ai" target="_blank" style="color:var(--violet2)">console.mistral.ai</a> (Mistral)</div></div></div>
-      <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Configure in the app</div><div class="step-text">Tab 🤖 → select provider → paste API key → click "Test".</div></div></div>
-      <div class="step"><div class="step-num">3</div><div class="step-body"><div class="step-title">Example usage</div><div class="step-text">"Create a Sony Music album with 8 tracks deadline September 30th" → the album is created instantly in the app.</div></div></div>
+    <span class="bonus-tag">🎁 Beta</span>
+    <div class="section-header"><span class="section-emoji">🤖</span><h2 class="section-title">AI Assistant (Beta)</h2></div>
+    <p class="section-intro">A built-in assistant that reads your real catalog data to answer questions in plain language — no personal API key or setup required.</p>
+    <div class="feat-list">
+      <div class="feat-item"><div class="feat-icon">⚡</div><div class="feat-text"><strong>12 quick prompts</strong> — My urgent deadlines · Analyze my stats · Today's advice · Tracks to recycle · Sync Watch · Trending Moods · Risk Analysis · Weekly Report · What to do today? · Blocked Tracks · My Memory · Predict my deadline.</div></div>
+      <div class="feat-item"><div class="feat-icon">💬</div><div class="feat-text"><strong>Free input</strong> — ask any question about your projects, tracks or publishers.</div></div>
+    </div>
+    <div class="warn-box">⚠️ <strong>Beta</strong> — works from your real app data. Always verify critical information before relying on it.</div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- SACEM -->
+  <section class="doc-section" id="sacem">
+    <span class="bonus-tag">🎁 Beta</span>
+    <div class="section-header"><span class="section-emoji">💰</span><h2 class="section-title">SACEM Revenue (Beta)</h2></div>
+    <p class="section-intro">Import your SACEM statements and cross them with Logic Pro time spent, per track.</p>
+    <div class="feat-list">
+      <div class="feat-item"><div class="feat-icon">📥</div><div class="feat-text"><strong>Import a statement</strong> — pick the folder containing your SACEM CSV exports; you can import several statements at once (Export 1, 2, 3…). Encoding (UTF-8 / Windows-1252) is detected automatically.</div></div>
+      <div class="feat-item"><div class="feat-icon">🔗</div><div class="feat-text"><strong>Automatic matching</strong> — each SACEM line is matched to a track by normalized title. If several tracks share the exact same title, nothing is guessed — the line is sent to manual review instead.</div></div>
+      <div class="feat-item"><div class="feat-icon">⚠️</div><div class="feat-text"><strong>Duplicate titles</strong> — flags tracks that share a name AND appear in an imported statement, to avoid attributing revenue to the wrong track.</div></div>
+      <div class="feat-item"><div class="feat-icon">🧮</div><div class="feat-text"><strong>Breakdown filter</strong> — with several imports, check/uncheck each statement to include or exclude it from the totals shown.</div></div>
+      <div class="feat-item"><div class="feat-icon">⏱️</div><div class="feat-text"><strong>Time vs revenue (€/h/yr)</strong> — crosses Logic Pro time spent with the average yearly SACEM revenue per track, annualized so older tracks don't get an unfair edge.</div></div>
+    </div>
+    <div class="warn-box">⚠️ <strong>Beta</strong> — recent module: matching accuracy and calculations will keep improving with future updates. Always double-check figures before relying on them for anything important.</div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- PLACEMENTS -->
+  <section class="doc-section" id="placements">
+    <span class="bonus-tag">🎁 Beta</span>
+    <div class="section-header"><span class="section-emoji">🎬</span><h2 class="section-title">Placements (Beta)</h2></div>
+    <p class="section-intro">Automatic detection of the films/shows your tracks were placed in, with SACEM matching.</p>
+    <div class="feat-list">
+      <div class="feat-item"><div class="feat-icon">🔍</div><div class="feat-text"><strong>Automatic detection</strong> — pulls, via TMDB, the films/shows your tracks were placed in, shown as cards with a poster.</div></div>
+      <div class="feat-item"><div class="feat-icon">🖼️</div><div class="feat-text"><strong>Detail view</strong> — click a card to see the placement's detail view. Click the image inside it to fix the poster if the one fetched automatically isn't right.</div></div>
+      <div class="feat-item"><div class="feat-icon">✅</div><div class="feat-text"><strong>Correcting a SACEM match</strong> — click a track to reassign or unlink it if the automatic match with a SACEM statement is wrong; Cmd+Z always lets you undo.</div></div>
+      <div class="feat-item"><div class="feat-icon">🔗</div><div class="feat-text"><strong>Merging duplicates</strong> — two cards for the same title? Use "🔗 Link cards" to merge them into one.</div></div>
+    </div>
+    <div class="warn-box">⚠️ <strong>Beta</strong> — recent module: detection and matching will keep getting refined with future updates.</div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- LOGIC PRO -->
+  <section class="doc-section" id="logicpro">
+    <div class="section-header"><span class="section-emoji">🎚️</span><h2 class="section-title">Logic Pro Integration</h2></div>
+    <p class="section-intro">Automatic detection and composition time tracking, directly from Logic Pro.</p>
+    <div class="feat-list">
+      <div class="feat-item"><div class="feat-icon">🎯</div><div class="feat-text"><strong>Automatic detection</strong> — opening a Logic Pro project shows a banner offering three choices: create a new track, add it to an existing album, or link it to a track already in your catalog (title-based suggestion, always requires confirmation — never applied silently).</div></div>
+      <div class="feat-item"><div class="feat-icon">⏱️</div><div class="feat-text"><strong>Time tracking</strong> — once a track is linked, time spent working on it (Logic in the foreground, no system idle) is logged automatically. See it on the track, or grouped by track/album/publisher in Statistics → Logic time.</div></div>
+      <div class="feat-item"><div class="feat-icon">🔗</div><div class="feat-text"><strong>Link a track manually</strong> — on any track never linked to Logic Pro (Kanban card or Projects/Albums sheet), a "Link to a Logic Pro project…" button lets you connect it yourself.</div></div>
+      <div class="feat-item"><div class="feat-icon">🛠️</div><div class="feat-text"><strong>Broken link repair</strong> — if a Logic Pro project is renamed or moved, the link is flagged broken; use "Relink…" to point it to its new location.</div></div>
+      <div class="feat-item"><div class="feat-icon">🚫</div><div class="feat-text"><strong>Collision protection</strong> — a single Logic Pro project can never end up linked to two different tracks at once.</div></div>
     </div>
   </section>
 
@@ -575,12 +625,8 @@ code { background:#1E1C38;border-radius:4px;padding:1px 5px;font-size:12px;color
 
   <section class="doc-section" id="windows">
     <div class="section-header"><span class="section-emoji">🖥️</span><h2 class="section-title">Installation — Windows</h2></div>
-    <p class="section-intro">SYNC.PLANNER is available as a <strong>.exe</strong> installer for Windows 10/11 (x64).</p>
-    <div class="steps">
-      <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-title">Download</div><div class="step-text">From <a href="/" style="color:var(--violet2)">syncplanner.app</a>, click "Windows — Download".</div></div></div>
-      <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-title">Install</div><div class="step-text">Double-click <code>SYNC.PLANNER Setup 1.0.0.exe</code> and follow the steps.</div></div></div>
-      <div class="step"><div class="step-num">3</div><div class="step-body"><div class="step-title">Launch</div><div class="step-text">SYNC.PLANNER is accessible from the desktop or Start menu.</div></div></div>
-    </div>
+    <p class="section-intro">SYNC.PLANNER currently runs on <strong>Mac only</strong>. A Windows/Cubase-compatible version is in development.</p>
+    <div class="info-box">💡 <strong>Coming soon</strong> — want to be notified when the Windows version ships? Send a quick email to <a href="mailto:contact@syncplanner.app" style="color:var(--violet2)">contact@syncplanner.app</a>.</div>
   </section>
 
   <section class="doc-section" id="activation">

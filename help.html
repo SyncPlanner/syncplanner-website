@@ -391,6 +391,21 @@ const SECTIONS = [
   demo: null
 },
 {
+  id:'placements', color:'#F472B6', bg:'rgba(244,114,182,0.12)',
+  icon:`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F472B6" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8" cy="10" r="2"/><path d="M3 16l5-4 4 3 3-3 4 4"/></svg>`,
+  title:{fr:'Placements (Beta)',en:'Placements (Beta)'},
+  sub:{fr:'Détection des diffusions TV/ciné et rapprochement SACEM',en:'TV/film screening detection and SACEM matching'},
+  items:[
+    {fr:'<b>Détection automatique</b> — récupère via TMDB les films/séries dans lesquels tes tracks ont été placées, sous forme de cartes avec affiche.',en:'<b>Automatic detection</b> — pulls, via TMDB, the films/shows your tracks were placed in, shown as cards with a poster.'},
+    {fr:'<b>Vue détail</b> — clique une carte pour voir le détail du placement.',en:'<b>Detail view</b> — click a card to see the placement\'s detail view.'},
+    {fr:'<b>Corriger l\'affiche</b> — dans la vue détail, clique l\'image pour la remplacer si l\'affiche récupérée automatiquement n\'est pas la bonne.',en:'<b>Fixing the poster</b> — inside the detail view, click the image to replace it if the automatically fetched poster isn\'t the right one.'},
+    {fr:'<b>Corriger un rapprochement SACEM</b> — clique une track pour la réassigner ou la délier si le rapprochement automatique avec un relevé SACEM est incorrect ; Cmd+Z permet toujours d\'annuler.',en:'<b>Correcting a SACEM match</b> — click a track to reassign or unlink it if the automatic match with a SACEM statement is wrong; Cmd+Z always lets you undo.'},
+    {fr:'<b>Fusionner des doublons</b> — deux cartes pour le même titre ? Utilise "🔗 Lier des cartes" pour les fusionner en une seule.',en:'<b>Merging duplicates</b> — two cards for the same title? Use "🔗 Link cards" to merge them into one.'},
+    {fr:'<b>Beta</b> — module récent, la détection et le matching vont continuer à s\'affiner avec les prochaines mises à jour.',en:'<b>Beta</b> — recent module: detection and matching will keep getting refined with future updates.'},
+  ],
+  demo: null
+},
+{
   id:'logicpro', color:'#38BDF8', bg:'rgba(56,189,248,0.12)',
   icon:`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="15" r="2"/><path d="M11 15V6l6-1v9"/></svg>`,
   title:{fr:'Intégration Logic Pro',en:'Logic Pro Integration'},
