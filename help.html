@@ -939,23 +939,18 @@ function setLang(lang) {
   document.getElementById('h-badge').textContent = T.badge[lang];
   document.getElementById('h-title').textContent = T.title[lang];
   document.getElementById('h-sub').textContent = T.sub[lang];
-  document.getElementById('search').placeholder = T.search[lang];
-  // Update all section titles/subs/items
-  SECTIONS.forEach(s=>{
-    const sec = document.getElementById('section-'+s.id);
-    if(!sec) return;
-    sec.querySelector('.section-title').textContent = s.title[lang];
-    sec.querySelector('.section-sub').textContent = s.sub[lang];
-    const dots = sec.querySelectorAll('.item-text');
-    dots.forEach((el,i)=>{ if(s.items[i]) el.innerHTML = s.items[i][lang]; });
-  });
-  applyLangToDemo();
-  // Calendar months
-  document.querySelectorAll('[id^="calmonth-"]').forEach(el=>{
-    const id = el.id.replace('calmonth-','');
-    const m = window._calMonth?.[id]||new Date().getMonth();
-    el.textContent = (lang==='fr'?MONTHS_FR:MONTHS_EN)[m]+' 2026';
-  });
+  const searchEl = document.getElementById('search');
+  searchEl.placeholder = T.search[lang];
+  // The demo widgets (Kanban, calendar, alerts...) are built once from the
+  // current LANG and don't listen for language changes on their own — a partial
+  // text patch left them stuck in French. Rebuilding the sections from scratch
+  // regenerates everything (including the demos) in the new language, so we
+  // just remember which sections were open and any active search, then restore
+  // both after the rebuild.
+  const openIds = Array.from(document.querySelectorAll('.section.open')).map(el => el.id.replace('section-', ''));
+  renderSections();
+  openIds.forEach(id => document.getElementById('section-' + id)?.classList.add('open'));
+  if (searchEl.value) doSearch(searchEl.value);
 }
 
 function doSearch(q) {
