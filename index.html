@@ -227,7 +227,7 @@
       <span class="btn-primary btn-win" id="btn-win" style="opacity:0.45;cursor:not-allowed;pointer-events:none">Windows — En développement</span>
     </div>
     <div style="margin-top:14px">
-      <a href="/help" id="btn-demo" style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#A78BFA;text-decoration:none;border:1px solid rgba(167,139,250,0.25);border-radius:8px;padding:8px 16px;background:rgba(124,58,237,0.08);transition:all 0.2s"
+      <a href="/help?lang=fr" id="btn-demo" style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#A78BFA;text-decoration:none;border:1px solid rgba(167,139,250,0.25);border-radius:8px;padding:8px 16px;background:rgba(124,58,237,0.08);transition:all 0.2s"
         onmouseover="this.style.background='rgba(124,58,237,0.18)';this.style.borderColor='rgba(167,139,250,0.5)'"
         onmouseout="this.style.background='rgba(124,58,237,0.08)';this.style.borderColor='rgba(167,139,250,0.25)'">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" style="vertical-align:middle"><polygon points="5 3 19 12 5 21 5 3"/></svg> <span id="btn-demo-txt">Explorer les fonctionnalités — démo interactive</span>
@@ -931,7 +931,7 @@ function setLang(lang) {
   });
   // Update demo link based on language
   const demoBtn = document.getElementById('btn-demo');
-  if(demoBtn) demoBtn.href = lang === 'en' ? '/help-en' : '/help';
+  if(demoBtn) demoBtn.href = lang === 'en' ? '/help?lang=en' : '/help?lang=fr';
   // Update demo tabs
   document.querySelectorAll('.demo-tab').forEach(tab => {
     const key = lang === 'fr' ? 'data-fr' : 'data-en';
