@@ -104,6 +104,26 @@ button{cursor:pointer}
 
 .soon{font-size:12.5px;color:#5B5880;background:#13122A;border:1px solid #2A2750;border-radius:10px;padding:18px}
 
+.pub-card{background:#1A1838;border:1px solid #2A2750;border-radius:12px;padding:16px 18px;margin-bottom:12px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.pub-badge{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;color:#fff;flex-shrink:0}
+.pub-name{font-size:14px;font-weight:700}
+.pub-meta{font-size:11.5px;color:#5B5880;margin-top:2px}
+.pub-stats{display:flex;gap:18px;margin-left:auto;flex-wrap:wrap}
+.pub-stat{text-align:center}
+.pub-stat b{display:block;font-size:14px;color:#E2E0F0}
+.pub-stat span{font-size:9.5px;color:#5B5880;text-transform:uppercase;letter-spacing:0.04em}
+.pub-toast{font-size:11px;color:#34D399;margin-top:4px;display:none}
+.stat-tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px;margin-bottom:18px}
+.stat-tile{background:#13122A;border:1px solid #2A2750;border-radius:10px;padding:14px 16px}
+.stat-tile b{display:block;font-size:22px;color:#A78BFA;font-weight:800}
+.stat-tile span{font-size:11px;color:#5B5880}
+.bar-row{display:flex;align-items:center;gap:10px;margin-bottom:10px;font-size:12px}
+.bar-label{width:120px;flex-shrink:0;color:#C4C0E8}
+.bar-track{flex:1;height:10px;background:#13122A;border-radius:5px;overflow:hidden}
+.bar-fill{height:100%;border-radius:5px}
+.bar-val{width:70px;text-align:right;flex-shrink:0;color:#8880B0;font-size:11px}
+
+
 @media (max-width:760px){
   .nav{width:0;overflow:hidden}
   .main{margin-left:0}
@@ -116,8 +136,8 @@ button{cursor:pointer}
 <!-- ===== écran d'intro ===== -->
 <div id="intro">
   <div>
-    <h1>Gère tes projets de <span>sync music</span><br>sans perdre un lien Dropbox</h1>
-    <p>Voici l'interface réelle de SYNC.PLANNER, avec un faux catalogue — clique, ajoute une track, importe un relevé SACEM fictif. Rien n'est enregistré, tu peux tout casser.</p>
+    <h1>Suis tes projets, tes deadlines<br>et tes revenus <span>sans effort</span></h1>
+    <p>Démo interactive de certaines fonctionnalités, avec un catalogue et des données entièrement fictifs — clique, ajoute une track, importe un relevé SACEM fictif. Rien n'est enregistré, tu peux tout casser.</p>
     <div class="cta-row">
       <button class="btn btn-primary" style="padding:12px 24px;font-size:13.5px;border-radius:10px" onclick="closeIntro(true)">Lancer la visite guidée</button>
       <button class="btn" style="padding:12px 24px;font-size:13.5px;border-radius:10px" onclick="closeIntro(false)">Explorer librement</button>
@@ -143,7 +163,7 @@ button{cursor:pointer}
   <button class="nav-item" data-page="placements" onclick="goPage('placements')"><span class="ni">${I.placements}</span>Placements<span class="beta-tag">BETA</span></button>
   <div class="nav-bottom">
     <a class="nav-item" style="color:#A78BFA;text-decoration:none" href="/#pricing">Voir les tarifs</a>
-    <a class="nav-item" style="color:#fff;background:#7C3AED" href="https://github.com/SyncPlanner/SyncPlanner-app/releases/download/v1.1.1/SYNC.PLANNER-1.1.1.dmg">Télécharger l'app</a>
+    <a class="nav-item" style="color:#fff;background:#7C3AED" href="/">Télécharger l'app</a>
   </div>
 </nav>
 
@@ -154,7 +174,7 @@ button{cursor:pointer}
     <div class="topbar-ctas">
       <span class="tour-counter" id="tourCounterTop" style="display:none"></span>
       <a class="btn" href="/#pricing">Tarifs</a>
-      <a class="btn btn-primary" href="https://github.com/SyncPlanner/SyncPlanner-app/releases/download/v1.1.1/SYNC.PLANNER-1.1.1.dmg">Télécharger l'app</a>
+      <a class="btn btn-primary" href="/">Télécharger l'app</a>
     </div>
   </div>
   <div class="content">
@@ -204,7 +224,11 @@ button{cursor:pointer}
     </div>
 
     <div class="page" id="page-publishers">
-      <div class="card"><div class="card-title">Éditeurs</div><div class="soon">Avalon Infinity / BMG, Infinity Score, Miooz — la vraie gestion des éditeurs, relances et contacts se retrouve dans l'app complète.</div></div>
+      <div class="card">
+        <div class="card-title">Éditeurs</div>
+        <div style="font-size:11.5px;color:#5B5880;margin-bottom:14px">Clique sur "Relancer" pour simuler l'envoi d'un email de suivi (démo, rien n'est réellement envoyé).</div>
+        <div id="pubList"></div>
+      </div>
     </div>
 
     <div class="page" id="page-calendar">
@@ -216,7 +240,18 @@ button{cursor:pointer}
     </div>
 
     <div class="page" id="page-stats">
-      <div class="card"><div class="card-title">Statistiques</div><div class="soon">Rentabilité par éditeur, par genre, par mood, temps Logic Pro vs revenus... disponible dans l'app complète.</div></div>
+      <div class="card">
+        <div class="card-title">Vue d'ensemble</div>
+        <div class="stat-tiles" id="statTiles"></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Revenus SACEM par éditeur</div>
+        <div id="statByPublisher"></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Tracks par étape (tous albums)</div>
+        <div id="statByStatus"></div>
+      </div>
     </div>
 
     <div class="page" id="page-sacem">
@@ -260,13 +295,70 @@ document.querySelectorAll('.nav-item .ni').forEach(el=>{
 
 // ===== données fictives =====
 const ALBUMS = [
-  {name:'Whodunit', editeur:'Avalon Infinity', tracks:8, pct:75, grad:'linear-gradient(135deg,#7C3AED,#3B82F6)'},
-  {name:'Neon Drift', editeur:'Infinity Score', tracks:6, pct:40, grad:'linear-gradient(135deg,#F87171,#FBBF24)'},
-  {name:'Silent Rooms', editeur:'Miooz', tracks:5, pct:100, grad:'linear-gradient(135deg,#34D399,#60A5FA)'},
+  {name:'Whodunit', editeur:'Nordlight Sync', tracks:8, pct:75, grad:'linear-gradient(135deg,#7C3AED,#3B82F6)'},
+  {name:'Neon Drift', editeur:'Vantage Score', tracks:6, pct:40, grad:'linear-gradient(135deg,#F87171,#FBBF24)'},
+  {name:'Silent Rooms', editeur:'Greyfield Music', tracks:5, pct:100, grad:'linear-gradient(135deg,#34D399,#60A5FA)'},
 ];
 const ARCHIVED_ALBUMS = [
-  {name:'Dust & Chrome', editeur:'Avalon Infinity', tracks:7, pct:100, grad:'linear-gradient(135deg,#4B4870,#2A2750)'},
+  {name:'Dust & Chrome', editeur:'Nordlight Sync', tracks:7, pct:100, grad:'linear-gradient(135deg,#4B4870,#2A2750)'},
 ];
+
+const PUBLISHERS = [
+  {name:'Nordlight Sync', initials:'NS', color:'#7C3AED', albums:2, tracks:15, revenue:335.20, contact:'sync@nordlightpublishing.com', lastContact:'28 août 2026'},
+  {name:'Vantage Score', initials:'VS', color:'#0EA5E9', albums:1, tracks:6, revenue:166.10, contact:'licensing@vantagescore.io', lastContact:'12 août 2026'},
+  {name:'Greyfield Music', initials:'GM', color:'#F59E0B', albums:1, tracks:5, revenue:64.10, contact:'contact@greyfieldmusic.co', lastContact:'3 juillet 2026'},
+];
+
+function fmtEur(n){ return n.toFixed(2).replace('.',',') + ' €'; }
+
+function renderPublishers(){
+  document.getElementById('pubList').innerHTML = PUBLISHERS.map((p,i)=>
+    '<div class="pub-card">'+
+      '<div class="pub-badge" style="background:'+p.color+'">'+p.initials+'</div>'+
+      '<div><div class="pub-name">'+p.name+'</div>'+
+      '<div class="pub-meta">'+p.contact+' · dernier contact le '+p.lastContact+'</div>'+
+      '<div class="pub-toast" id="pubToast'+i+'">✓ Relance envoyée (démo)</div></div>'+
+      '<div class="pub-stats">'+
+        '<div class="pub-stat"><b>'+p.albums+'</b><span>Albums</span></div>'+
+        '<div class="pub-stat"><b>'+p.tracks+'</b><span>Tracks</span></div>'+
+        '<div class="pub-stat"><b style="color:#34D399">'+fmtEur(p.revenue)+'</b><span>Revenus SACEM</span></div>'+
+      '</div>'+
+      '<button class="btn" onclick="relaunchPublisher('+i+')">Relancer</button>'+
+    '</div>'
+  ).join('');
+}
+function relaunchPublisher(i){
+  const el = document.getElementById('pubToast'+i);
+  el.style.display = 'block';
+  setTimeout(()=>{ el.style.display = 'none'; }, 2600);
+}
+
+function renderStats(){
+  const totalRevenue = PUBLISHERS.reduce((a,p)=>a+p.revenue,0);
+  const totalTracks = ALBUMS.concat(ARCHIVED_ALBUMS).reduce((a,al)=>a+al.tracks,0);
+  const placementsCount = 4;
+  document.getElementById('statTiles').innerHTML =
+    '<div class="stat-tile"><b>'+fmtEur(totalRevenue)+'</b><span>Revenus SACEM (démo)</span></div>'+
+    '<div class="stat-tile"><b>'+placementsCount+'</b><span>Placements matchés</span></div>'+
+    '<div class="stat-tile"><b>'+totalTracks+'</b><span>Tracks au catalogue</span></div>'+
+    '<div class="stat-tile"><b>'+(ALBUMS.length+ARCHIVED_ALBUMS.length)+'</b><span>Albums (dont '+ARCHIVED_ALBUMS.length+' archivé)</span></div>';
+
+  const maxRev = Math.max(...PUBLISHERS.map(p=>p.revenue));
+  document.getElementById('statByPublisher').innerHTML = PUBLISHERS.map(p=>
+    '<div class="bar-row"><div class="bar-label">'+p.name+'</div>'+
+    '<div class="bar-track"><div class="bar-fill" style="width:'+(p.revenue/maxRev*100)+'%;background:'+p.color+'"></div></div>'+
+    '<div class="bar-val">'+fmtEur(p.revenue)+'</div></div>'
+  ).join('');
+
+  const counts = [0,1,2,3].map(st=>tracks.filter(t=>t.status===st).length);
+  const maxCount = Math.max(...counts, 1);
+  const colors = ['#5B5880','#38BDF8','#34D399','#10B981'];
+  document.getElementById('statByStatus').innerHTML = [0,1,2,3].map(st=>
+    '<div class="bar-row"><div class="bar-label">'+STATUS_LABELS[st]+'</div>'+
+    '<div class="bar-track"><div class="bar-fill" style="width:'+(counts[st]/maxCount*100)+'%;background:'+colors[st]+'"></div></div>'+
+    '<div class="bar-val">'+counts[st]+' track'+(counts[st]===1?'':'s')+'</div></div>'
+  ).join('');
+}
 
 function renderAlbumGrid(elId){
   document.getElementById(elId).innerHTML = ALBUMS.map(a=>
@@ -311,6 +403,7 @@ function advanceTrack(id){
   const t = tracks.find(x=>x.id===id);
   if(t && t.status<3) t.status++;
   renderKanban();
+  renderStats();
 }
 function toggleAddForm(){ document.getElementById('addForm').classList.toggle('open'); }
 function addTrack(){
@@ -321,6 +414,7 @@ function addTrack(){
   titleEl.value = '';
   document.getElementById('addForm').classList.remove('open');
   renderKanban();
+  renderStats();
 }
 
 function renderCalendar(){
@@ -350,7 +444,7 @@ function runSacemDemo(){
       '<div class="sacem-line"><span>Paper Cranes</span><span class="amt">64,10 €</span></div>'+
       '<div class="sacem-line"><span>Glass Horizon</span><span class="amt">47,20 €</span></div>'+
       '<div class="sacem-line"><span>Dust & Chrome (thème)</span><span class="amt">22,80 €</span></div>'+
-      '<div class="sacem-line" style="border-top:1px solid #2A2750;margin-top:6px;padding-top:10px;font-weight:800"><span>Total NET</span><span class="amt">565,30 €</span></div>';
+      '<div class="sacem-line" style="border-top:1px solid #2A2750;margin-top:6px;padding-top:10px;font-weight:800"><span>Total NET</span><span class="amt">565,40 €</span></div>';
     document.getElementById('placementsResult').innerHTML =
       '<div class="placement-card"><div class="placement-cover" style="background:linear-gradient(135deg,#1E3A8A,#7C3AED)"></div><div><div class="placement-title">The Late Signal — S02 (série TV)</div><div class="placement-sub">Diamond Cut · 3 diffusions</div></div></div>'+
       '<div class="placement-card"><div class="placement-cover" style="background:linear-gradient(135deg,#B45309,#DC2626)"></div><div><div class="placement-title">Bord de Rupture (long-métrage)</div><div class="placement-sub">Afterglow · 1 diffusion</div></div></div>'+
@@ -417,6 +511,8 @@ renderAlbumGrid('albumsGrid');
 renderArchivedGrid('archivedGrid');
 renderKanban();
 renderCalendar();
+renderPublishers();
+renderStats();
 </script>
 
 </body>
