@@ -180,6 +180,11 @@ button{cursor:pointer}
         <div class="card-title">Tous les albums</div>
         <div class="album-grid" id="albumsGrid"></div>
       </div>
+      <div class="card">
+        <div class="card-title">Albums archivés</div>
+        <div style="font-size:11.5px;color:#5B5880;margin-bottom:14px">Albums livrés et clôturés — sortis du suivi actif mais toujours consultables.</div>
+        <div class="album-grid" id="archivedGrid"></div>
+      </div>
     </div>
 
     <div class="page" id="page-kanban">
@@ -258,7 +263,9 @@ const ALBUMS = [
   {name:'Whodunit', editeur:'Avalon Infinity', tracks:8, pct:75, grad:'linear-gradient(135deg,#7C3AED,#3B82F6)'},
   {name:'Neon Drift', editeur:'Infinity Score', tracks:6, pct:40, grad:'linear-gradient(135deg,#F87171,#FBBF24)'},
   {name:'Silent Rooms', editeur:'Miooz', tracks:5, pct:100, grad:'linear-gradient(135deg,#34D399,#60A5FA)'},
-  {name:'Dust & Chrome', editeur:'Avalon Infinity', tracks:7, pct:60, grad:'linear-gradient(135deg,#A78BFA,#F472B6)'},
+];
+const ARCHIVED_ALBUMS = [
+  {name:'Dust & Chrome', editeur:'Avalon Infinity', tracks:7, pct:100, grad:'linear-gradient(135deg,#4B4870,#2A2750)'},
 ];
 
 function renderAlbumGrid(elId){
@@ -266,6 +273,14 @@ function renderAlbumGrid(elId){
     '<div class="album-card"><div class="album-cover" style="background:'+a.grad+'"></div>'+
     '<div class="album-name">'+a.name+'</div><div class="album-meta">'+a.editeur+' · '+a.tracks+' tracks</div>'+
     '<div class="album-bar"><div class="album-bar-fill" style="width:'+a.pct+'%"></div></div></div>'
+  ).join('');
+}
+function renderArchivedGrid(elId){
+  document.getElementById(elId).innerHTML = ARCHIVED_ALBUMS.map(a=>
+    '<div class="album-card" style="opacity:0.75"><div class="album-cover" style="background:'+a.grad+';position:relative">'+
+    '<span style="position:absolute;top:6px;right:6px;font-size:8.5px;font-weight:800;letter-spacing:0.05em;color:#C4C0E8;background:rgba(10,9,16,0.55);border-radius:4px;padding:2px 6px">ARCHIVÉ</span></div>'+
+    '<div class="album-name">'+a.name+'</div><div class="album-meta">'+a.editeur+' · '+a.tracks+' tracks · terminé</div>'+
+    '<div class="album-bar"><div class="album-bar-fill" style="width:100%;background:#5B5880"></div></div></div>'
   ).join('');
 }
 
@@ -333,10 +348,14 @@ function runSacemDemo(){
       '<div class="sacem-line"><span>Diamond Cut</span><span class="amt">312,40 €</span></div>'+
       '<div class="sacem-line"><span>Afterglow</span><span class="amt">118,90 €</span></div>'+
       '<div class="sacem-line"><span>Paper Cranes</span><span class="amt">64,10 €</span></div>'+
-      '<div class="sacem-line" style="border-top:1px solid #2A2750;margin-top:6px;padding-top:10px;font-weight:800"><span>Total NET</span><span class="amt">495,40 €</span></div>';
+      '<div class="sacem-line"><span>Glass Horizon</span><span class="amt">47,20 €</span></div>'+
+      '<div class="sacem-line"><span>Dust & Chrome (thème)</span><span class="amt">22,80 €</span></div>'+
+      '<div class="sacem-line" style="border-top:1px solid #2A2750;margin-top:6px;padding-top:10px;font-weight:800"><span>Total NET</span><span class="amt">565,30 €</span></div>';
     document.getElementById('placementsResult').innerHTML =
-      '<div class="placement-card"><div class="placement-cover" style="background:linear-gradient(135deg,#1E3A8A,#7C3AED)"></div><div><div class="placement-title">The Late Signal — S02</div><div class="placement-sub">Diamond Cut · 3 diffusions</div></div></div>'+
-      '<div class="placement-card"><div class="placement-cover" style="background:linear-gradient(135deg,#B45309,#DC2626)"></div><div><div class="placement-title">Bord de Rupture (long-métrage)</div><div class="placement-sub">Afterglow · 1 diffusion</div></div></div>';
+      '<div class="placement-card"><div class="placement-cover" style="background:linear-gradient(135deg,#1E3A8A,#7C3AED)"></div><div><div class="placement-title">The Late Signal — S02 (série TV)</div><div class="placement-sub">Diamond Cut · 3 diffusions</div></div></div>'+
+      '<div class="placement-card"><div class="placement-cover" style="background:linear-gradient(135deg,#B45309,#DC2626)"></div><div><div class="placement-title">Bord de Rupture (long-métrage)</div><div class="placement-sub">Afterglow · 1 diffusion</div></div></div>'+
+      '<div class="placement-card"><div class="placement-cover" style="background:linear-gradient(135deg,#059669,#0EA5E9)"></div><div><div class="placement-title">Horizon Drift (publicité auto)</div><div class="placement-sub">Paper Cranes · 2 diffusions</div></div></div>'+
+      '<div class="placement-card"><div class="placement-cover" style="background:linear-gradient(135deg,#7C3AED,#F472B6)"></div><div><div class="placement-title">Nightfall Protocol (jeu vidéo)</div><div class="placement-sub">Glass Horizon · 1 diffusion</div></div></div>';
     btn.disabled = false;
   }, 1100);
 }
@@ -395,6 +414,7 @@ function endTour(){
 // ===== init =====
 renderAlbumGrid('dashAlbumGrid');
 renderAlbumGrid('albumsGrid');
+renderArchivedGrid('archivedGrid');
 renderKanban();
 renderCalendar();
 </script>
