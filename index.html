@@ -814,7 +814,7 @@ const T = {
     "faq11-q":"Peut-on gérer plusieurs éditeurs et albums simultanément ?","faq11-a":"Oui — c'est exactement pour ça que SYNC.PLANNER a été conçu. Nombre illimité d'albums avec différents éditeurs, chacun avec sa deadline et ses statuts de relance. La vue Kanban mensuelle donne une vision globale de toutes vos tracks. Les statistiques comparent vos taux de validation par éditeur.",
     "cta-final-title":"Gérez vos <span style='color:var(--violet2)'>projets musicaux</span><br>sans vous perdre.",
     "cta-final-sub":"14 jours d'essai gratuit, sans carte bancaire. Le temps de voir si SYNC.PLANNER correspond au workflow.",
-    "cta-final-mac":"Mac — Télécharger","cta-final-win":"Windows — En développement",
+    "cta-final-mac":"Mac — Télécharger","cta-final-win":"Windows — En développement","pricing-trial-link":"✓ Tester gratuitement pendant 14 jours — aucune carte bancaire",
     "footer-legal":"Mentions légales","footer-cgv":"CGV","feat7-title":"🎁 Bonus — Assistant IA intégré (Beta)","feat7-body":"Connectez votre propre clé API (OpenAI, Claude ou Mistral) pour bénéficier d'un assistant IA directement dans SYNC.PLANNER. Il peut s'appuyer sur vos projets pour vous aider à prioriser votre production, analyser vos deadlines, préparer vos livraisons et répondre à vos questions.","faq6-q":"L'assistant IA a-t-il accès à mes données ?","faq6-a":"L'IA est entièrement optionnelle. SYNC.PLANNER fonctionne sans intelligence artificielle. Si vous activez l'assistant en renseignant votre propre clé API, les informations nécessaires à votre demande peuvent être transmises au fournisseur d'IA choisi afin de générer la réponse. SYNC.PLANNER ne nécessite aucune clé API pour ses fonctions normales de gestion.",
   },
   en: {
@@ -905,7 +905,7 @@ const T = {
     "faq11-q":"Can you manage multiple publishers and albums simultaneously?","faq11-a":"Yes — that's exactly what SYNC.PLANNER was designed for. Unlimited albums with different publishers, each with its own deadline, tracks and follow-up statuses. The monthly Kanban view gives a global overview of all your tracks. Statistics let you compare your validation rates by publisher to identify the most productive collaborations.",
     "cta-final-title":"Manage your <span style='color:var(--violet2)'>music projects</span><br>without losing track.",
     "cta-final-sub":"14-day free trial, no credit card. See if SYNC.PLANNER fits your workflow.",
-    "cta-final-mac":"Mac — Download","cta-final-win":"Windows — In development",
+    "cta-final-mac":"Mac — Download","cta-final-win":"Windows — In development","pricing-trial-link":"✓ Try free for 14 days — no credit card required",
     "footer-legal":"Legal notice","footer-cgv":"Terms","feat7-title":"🎁 Bonus — Built-in AI assistant (Beta)","feat7-body":"Connect your own API key (OpenAI, Claude or Mistral) to get an AI assistant right inside SYNC.PLANNER. It can draw on your projects to help you prioritize production, analyze deadlines, prepare deliveries and answer your questions.","faq6-q":"Does the AI assistant have access to my data?","faq6-a":"The AI is entirely optional. SYNC.PLANNER works without artificial intelligence. If you enable the assistant by entering your own API key, the information needed for your request may be sent to the AI provider you chose in order to generate the response. SYNC.PLANNER doesn't require any API key for its normal management features.",
   }
 };
@@ -931,7 +931,7 @@ function setLang(lang) {
   });
   // Update demo link based on language
   const demoBtn = document.getElementById('btn-demo');
-  if(demoBtn) demoBtn.href = '/demo.html';
+  if(demoBtn) demoBtn.href = '/demo.html?lang=' + lang;
   // Update demo tabs
   document.querySelectorAll('.demo-tab').forEach(tab => {
     const key = lang === 'fr' ? 'data-fr' : 'data-en';
@@ -972,7 +972,7 @@ window.addEventListener('load', () => {
         return /\.dmg$/i.test(a.name) && !/arm64/i.test(a.name);
       });
       if (!asset) return;
-      ['btn-mac', 'cta-final-mac', 'nav-cta', 'nav-cta-mobile'].forEach(function(id) {
+      ['btn-mac', 'cta-final-mac', 'nav-cta', 'nav-cta-mobile', 'pricing-trial-link'].forEach(function(id) {
         var el = document.getElementById(id);
         if (el) el.href = asset.browser_download_url;
       });

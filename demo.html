@@ -17,8 +17,8 @@ button{cursor:pointer}
 .nav-logo{padding:20px 18px 16px;border-bottom:1px solid #2A2750}
 .nav-logo-text{font-size:17px;font-weight:900;letter-spacing:-0.02em;color:#F0F0FF}
 .nav-logo-text span{color:#9D6FFF}
-.nav-logo-sub{font-size:9px;color:#5B5880;text-transform:uppercase;letter-spacing:0.1em;margin-top:2px}
-.nav-section{padding:16px 12px 4px;font-size:9px;color:#4B4870;text-transform:uppercase;letter-spacing:0.12em;font-weight:700}
+.nav-logo-sub{font-size:9px;color:#8582B0;text-transform:uppercase;letter-spacing:0.1em;margin-top:2px}
+.nav-section{padding:16px 12px 4px;font-size:9px;color:#8582B0;text-transform:uppercase;letter-spacing:0.12em;font-weight:700}
 .nav-item{display:flex;align-items:center;gap:10px;padding:9px 16px;margin:1px 8px;border-radius:7px;cursor:pointer;font-size:13px;color:#8880B0;font-weight:500;transition:all 0.15s;border:none;background:transparent;width:calc(100% - 16px);text-align:left}
 .nav-item:hover{background:#1E1C38;color:#C4C0E8}
 .nav-item.active{background:#2A1F5C;color:#C4B5FD;font-weight:700}
@@ -35,7 +35,10 @@ button{cursor:pointer}
 .btn:hover{color:#C4C0E8;border-color:#7C3AED}
 .btn-primary{background:#7C3AED;border-color:#7C3AED;color:#fff}
 .btn-primary:hover{background:#6D28D9;color:#fff}
-.topbar-ctas{display:flex;gap:8px}
+.topbar-ctas{display:flex;gap:8px;align-items:center}
+.lang-switch{display:flex;border:1px solid #2A2750;border-radius:8px;overflow:hidden;margin-right:4px}
+.lang-switch button{border:none;background:transparent;color:#8582B0;font-size:11px;font-weight:800;padding:6px 10px;cursor:pointer}
+.lang-switch button.active{background:#7C3AED;color:#fff}
 
 /* ===== bandeau de visite guidée ===== */
 .tour-bar{display:none;background:linear-gradient(135deg,rgba(124,58,237,0.18),rgba(96,165,250,0.1));border:1px solid #7C3AED;border-radius:12px;padding:14px 18px;margin-bottom:20px;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
@@ -43,14 +46,15 @@ button{cursor:pointer}
 .tour-bar-text{font-size:12.5px;color:#E2E0F0;max-width:560px;line-height:1.5}
 .tour-bar-text b{color:#C4B5FD}
 .tour-bar-actions{display:flex;gap:8px;align-items:center;flex-shrink:0}
-.tour-counter{font-size:11px;color:#7B78A8;font-weight:700;margin-right:4px}
+.tour-counter{font-size:11px;color:#8582B0;font-weight:700;margin-right:4px}
 
 /* ===== intro plein écran ===== */
 #intro{position:fixed;inset:0;background:#0F0E1A;z-index:200;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px}
 #intro h1{font-size:28px;font-weight:800;margin-bottom:14px;line-height:1.3}
 #intro h1 span{color:#A78BFA}
-#intro p{color:#7B78A8;max-width:480px;margin:0 auto 26px;font-size:14px;line-height:1.6}
+#intro p{color:#8582B0;max-width:480px;margin:0 auto 26px;font-size:14px;line-height:1.6}
 .cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.intro-lang{position:absolute;top:20px;right:20px}
 
 /* ===== pages ===== */
 .page{display:none}
@@ -61,13 +65,13 @@ button{cursor:pointer}
 .album-card{background:#1A1838;border:1px solid #2A2750;border-radius:12px;padding:12px;cursor:default}
 .album-cover{border-radius:8px;height:100px;margin-bottom:10px}
 .album-name{font-size:13px;font-weight:700}
-.album-meta{font-size:11px;color:#5B5880;margin-top:3px}
+.album-meta{font-size:11px;color:#8582B0;margin-top:3px}
 .album-bar{height:4px;background:#2A2750;border-radius:2px;margin-top:10px;overflow:hidden}
 .album-bar-fill{height:100%;background:linear-gradient(90deg,#A78BFA,#60A5FA)}
 
 .kanban{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 .kcol{background:#13122A;border:1px solid #2A2750;border-radius:10px;padding:12px;min-height:180px}
-.kcol-title{font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:0.05em;color:#5B5880;margin-bottom:10px}
+.kcol-title{font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:0.05em;color:#8582B0;margin-bottom:10px}
 .kcard{background:#1A1838;border:1px solid #2A2750;border-radius:8px;padding:10px 11px;margin-bottom:8px;font-size:12.5px;font-weight:600;transition:transform .1s}
 .kcard.clickable{cursor:pointer}
 .kcard.clickable:hover{transform:translateY(-1px);border-color:#7C3AED}
@@ -85,7 +89,7 @@ button{cursor:pointer}
 .add-form input[type=text]{flex:1;min-width:160px}
 
 .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}
-.cal-cell{aspect-ratio:1;background:#1A1838;border:1px solid #2A2750;border-radius:6px;font-size:10.5px;color:#5B5880;padding:5px;position:relative}
+.cal-cell{aspect-ratio:1;background:#1A1838;border:1px solid #2A2750;border-radius:6px;font-size:10.5px;color:#8582B0;padding:5px;position:relative}
 .cal-cell.deadline{border-color:#FB923C;color:#E2E0F0}
 .cal-cell .ddot{position:absolute;bottom:5px;right:5px;width:5px;height:5px;border-radius:50%;background:#FB923C}
 
@@ -96,38 +100,57 @@ button{cursor:pointer}
 .placement-card{display:flex;gap:12px;align-items:center;background:#13122A;border:1px solid #2A2750;border-radius:10px;padding:12px;margin-top:10px}
 .placement-cover{width:44px;height:44px;border-radius:8px;flex-shrink:0}
 .placement-title{font-size:12.5px;font-weight:700}
-.placement-sub{font-size:11px;color:#5B5880;margin-top:2px}
+.placement-sub{font-size:11px;color:#8582B0;margin-top:2px}
 
-.processing{display:flex;align-items:center;gap:10px;color:#7B78A8;font-size:13px;padding:10px 0}
+.processing{display:flex;align-items:center;gap:10px;color:#8582B0;font-size:13px;padding:10px 0}
 .spin{width:16px;height:16px;border-radius:50%;border:2px solid #2A2750;border-top-color:#A78BFA;animation:spin 0.8s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 
-.soon{font-size:12.5px;color:#5B5880;background:#13122A;border:1px solid #2A2750;border-radius:10px;padding:18px}
+.soon{font-size:12.5px;color:#8582B0;background:#13122A;border:1px solid #2A2750;border-radius:10px;padding:18px}
 
-.pub-card{background:#1A1838;border:1px solid #2A2750;border-radius:12px;padding:16px 18px;margin-bottom:12px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
-.pub-badge{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;color:#fff;flex-shrink:0}
-.pub-name{font-size:14px;font-weight:700}
-.pub-meta{font-size:11.5px;color:#5B5880;margin-top:2px}
-.pub-stats{display:flex;gap:18px;margin-left:auto;flex-wrap:wrap}
-.pub-stat{text-align:center}
-.pub-stat b{display:block;font-size:14px;color:#E2E0F0}
-.pub-stat span{font-size:9.5px;color:#5B5880;text-transform:uppercase;letter-spacing:0.04em}
+/* ===== classes reprises telles quelles de l'appli desktop (SyncPlanner.html) ===== */
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-bottom:20px}
+.stat-card{background:#1A1838;border:1px solid #2A2750;border-radius:10px;padding:16px 18px}
+.stat-card-val{font-size:30px;font-weight:900;line-height:1;margin-bottom:4px}
+.stat-card-lbl{font-size:11px;color:#8582B0;font-weight:500}
+.stat-card-sub{font-size:10px;color:#8582B0;margin-top:2px}
+.filter-pill{display:inline-flex;align-items:center;gap:5px;padding:5px 10px;border-radius:20px;border:1px solid #2A2750;background:transparent;color:#8582B0;font-size:11px;font-weight:600;cursor:pointer;transition:all 0.15s;white-space:nowrap}
+.filter-pill:hover{border-color:#5B4FA0;color:#C4C0E8;background:#1A1838}
+.filter-pill.active{border-color:#7C3AED;background:rgba(124,58,237,0.15);color:#C4B5FD}
+.section-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:10px}
+.section-title{font-size:13px;font-weight:800;color:#F0F0FF;text-transform:uppercase;letter-spacing:0.06em}
+
+.pub-row{border-top:1px solid #2A2750;padding:14px 16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.pub-row:first-child{border-top:none}
+.pub-badge{width:46px;height:46px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;color:#fff;flex-shrink:0}
+.pub-name{font-size:14.5px;font-weight:700;color:#F0F0FF}
+.pub-meta{font-size:11px;color:#8582B0;margin-top:3px}
+.pub-num{text-align:center;flex-shrink:0}
+.pub-num b{display:block;font-size:16px;font-weight:900}
+.pub-num span{font-size:9px;color:#8582B0;text-transform:uppercase}
+.pub-nums{display:flex;gap:16px;flex-shrink:0}
+.pub-bar{width:60px;flex-shrink:0}
+.pub-bar-track{height:6px;background:#2A2750;border-radius:3px;overflow:hidden}
 .pub-toast{font-size:11px;color:#34D399;margin-top:4px;display:none}
-.stat-tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px;margin-bottom:18px}
-.stat-tile{background:#13122A;border:1px solid #2A2750;border-radius:10px;padding:14px 16px}
-.stat-tile b{display:block;font-size:22px;color:#A78BFA;font-weight:800}
-.stat-tile span{font-size:11px;color:#5B5880}
 .bar-row{display:flex;align-items:center;gap:10px;margin-bottom:10px;font-size:12px}
-.bar-label{width:120px;flex-shrink:0;color:#C4C0E8}
+.bar-label{width:120px;flex-shrink:0;color:#C4C0E8;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .bar-track{flex:1;height:10px;background:#13122A;border-radius:5px;overflow:hidden}
 .bar-fill{height:100%;border-radius:5px}
-.bar-val{width:70px;text-align:right;flex-shrink:0;color:#8880B0;font-size:11px}
+.bar-val{width:76px;text-align:right;flex-shrink:0;color:#8880B0;font-size:11px}
+.collab-card{display:flex;align-items:center;gap:14px;background:#1A1838;border:1px solid #2A2750;border-radius:12px;padding:16px 18px}
+.collab-avatar{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,#60A5FA,#A78BFA);display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;flex-shrink:0}
 
+.nav-toggle{display:none;align-items:center;justify-content:center;width:34px;height:34px;border-radius:8px;border:1px solid #2A2750;background:transparent;color:#C4C0E8;font-size:16px;flex-shrink:0}
+.nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:99}
+.nav-overlay.on{display:block}
 
 @media (max-width:760px){
-  .nav{width:0;overflow:hidden}
+  .nav{width:0;overflow:hidden;transition:width .2s}
+  .nav.open{width:230px;overflow-y:auto;box-shadow:0 0 40px rgba(0,0,0,0.6)}
   .main{margin-left:0}
   .kanban{grid-template-columns:repeat(2,1fr)}
+  .nav-toggle{display:inline-flex}
+  .topbar-title{display:none}
 }
 </style>
 </head>
@@ -135,46 +158,58 @@ button{cursor:pointer}
 
 <!-- ===== écran d'intro ===== -->
 <div id="intro">
+  <div class="intro-lang lang-switch">
+    <button id="introLangFr" onclick="setLang('fr')">FR</button>
+    <button id="introLangEn" onclick="setLang('en')">EN</button>
+  </div>
   <div>
-    <h1>Suis tes projets, tes deadlines<br>et tes revenus <span>sans effort</span></h1>
-    <p>Démo interactive de certaines fonctionnalités, avec un catalogue et des données entièrement fictifs — clique, ajoute une track, importe un relevé SACEM fictif. Rien n'est enregistré, tu peux tout casser.</p>
+    <h1 data-i="intro_h1">Suis tes projets, tes deadlines<br>et tes revenus <span>sans effort</span></h1>
+    <p data-i="intro_p">Démo interactive de certaines fonctionnalités, avec un catalogue et des données entièrement fictifs — clique, ajoute une track, importe un relevé SACEM fictif. Rien n'est enregistré, tu peux tout casser.</p>
     <div class="cta-row">
-      <button class="btn btn-primary" style="padding:12px 24px;font-size:13.5px;border-radius:10px" onclick="closeIntro(true)">Lancer la visite guidée</button>
-      <button class="btn" style="padding:12px 24px;font-size:13.5px;border-radius:10px" onclick="closeIntro(false)">Explorer librement</button>
+      <button class="btn btn-primary" style="padding:12px 24px;font-size:13.5px;border-radius:10px" onclick="closeIntro(true)" data-i="intro_tour">Lancer la visite guidée</button>
+      <button class="btn" style="padding:12px 24px;font-size:13.5px;border-radius:10px" onclick="closeIntro(false)" data-i="intro_free">Explorer librement</button>
     </div>
   </div>
 </div>
 
 <!-- ===== sidebar (réplique de l'app) ===== -->
-<nav class="nav">
+<div class="nav-overlay" id="navOverlay" onclick="closeMobileNav()"></div>
+<nav class="nav" id="sideNav">
   <div class="nav-logo">
     <div class="nav-logo-text">SYNC<span>.</span>PLANNER</div>
     <div class="nav-logo-sub">Composer Manager</div>
   </div>
-  <div class="nav-section">Principal</div>
-  <button class="nav-item active" data-page="dashboard" onclick="goPage('dashboard')"><span class="ni">${I.dashboard}</span>Dashboard</button>
-  <button class="nav-item" data-page="albums" onclick="goPage('albums')"><span class="ni">${I.albums}</span>Projets &amp; Albums</button>
-  <button class="nav-item" data-page="kanban" onclick="goPage('kanban')"><span class="ni">${I.kanban}</span>Suivi par étape</button>
-  <button class="nav-item" data-page="publishers" onclick="goPage('publishers')"><span class="ni">${I.publishers}</span>Éditeurs</button>
-  <button class="nav-item" data-page="calendar" onclick="goPage('calendar')"><span class="ni">${I.calendar}</span>Calendrier</button>
-  <div class="nav-section">Analyse</div>
-  <button class="nav-item" data-page="stats" onclick="goPage('stats')"><span class="ni">${I.stats}</span>Statistiques</button>
-  <button class="nav-item" data-page="sacem" onclick="goPage('sacem')"><span class="ni">${I.sacem}</span>Revenus SACEM<span class="beta-tag">BETA</span></button>
-  <button class="nav-item" data-page="placements" onclick="goPage('placements')"><span class="ni">${I.placements}</span>Placements<span class="beta-tag">BETA</span></button>
+  <div class="nav-section" data-i="nav_main">Principal</div>
+  <button class="nav-item active" data-page="dashboard" onclick="goPage('dashboard')"><span class="ni">${I.dashboard}</span><span data-i="nav_dashboard">Dashboard</span></button>
+  <button class="nav-item" data-page="albums" onclick="goPage('albums')"><span class="ni">${I.albums}</span><span data-i="nav_albums">Projets &amp; Albums</span></button>
+  <button class="nav-item" data-page="kanban" onclick="goPage('kanban')"><span class="ni">${I.kanban}</span><span data-i="nav_kanban">Suivi par étape</span></button>
+  <button class="nav-item" data-page="publishers" onclick="goPage('publishers')"><span class="ni">${I.publishers}</span><span data-i="nav_publishers">Éditeurs</span></button>
+  <button class="nav-item" data-page="calendar" onclick="goPage('calendar')"><span class="ni">${I.calendar}</span><span data-i="nav_calendar">Calendrier</span></button>
+  <div class="nav-section" data-i="nav_analysis">Analyse</div>
+  <button class="nav-item" data-page="stats" onclick="goPage('stats')"><span class="ni">${I.stats}</span><span data-i="nav_stats">Statistiques</span></button>
+  <button class="nav-item" data-page="sacem" onclick="goPage('sacem')"><span class="ni">${I.sacem}</span><span data-i="nav_sacem">Revenus SACEM</span><span class="beta-tag">BETA</span></button>
+  <button class="nav-item" data-page="placements" onclick="goPage('placements')"><span class="ni">${I.placements}</span><span data-i="nav_placements">Placements</span><span class="beta-tag">BETA</span></button>
   <div class="nav-bottom">
-    <a class="nav-item" style="color:#A78BFA;text-decoration:none" href="/#pricing">Voir les tarifs</a>
-    <a class="nav-item" style="color:#fff;background:#7C3AED" href="/">Télécharger l'app</a>
+    <a class="nav-item" style="color:#A78BFA;text-decoration:none" href="/#pricing" data-i="nav_pricing_link">Voir les tarifs</a>
+    <a class="nav-item" style="color:#fff;background:#7C3AED" href="/" data-i="nav_download_link">Télécharger l'app</a>
   </div>
 </nav>
 
 <!-- ===== main ===== -->
 <div class="main">
   <div class="topbar">
-    <div class="topbar-title" id="topbarTitle">Dashboard</div>
+    <div style="display:flex;align-items:center;gap:10px">
+      <button class="nav-toggle" onclick="toggleMobileNav()" aria-label="Menu">☰</button>
+      <div class="topbar-title" id="topbarTitle" data-i="nav_dashboard">Dashboard</div>
+    </div>
     <div class="topbar-ctas">
       <span class="tour-counter" id="tourCounterTop" style="display:none"></span>
-      <a class="btn" href="/#pricing">Tarifs</a>
-      <a class="btn btn-primary" href="/">Télécharger l'app</a>
+      <div class="lang-switch">
+        <button id="langFr" onclick="setLang('fr')">FR</button>
+        <button id="langEn" onclick="setLang('en')">EN</button>
+      </div>
+      <a class="btn" href="/#pricing" data-i="topbar_pricing">Tarifs</a>
+      <a class="btn btn-primary" href="/" data-i="nav_download_link">Télécharger l'app</a>
     </div>
   </div>
   <div class="content">
@@ -182,91 +217,95 @@ button{cursor:pointer}
     <div class="tour-bar" id="tourBar">
       <div class="tour-bar-text" id="tourText"></div>
       <div class="tour-bar-actions">
-        <button class="btn" id="tourPrevBtn" onclick="tourNav(-1)">← Précédent</button>
+        <button class="btn" id="tourPrevBtn" onclick="tourNav(-1)" data-i="tour_prev">← Précédent</button>
         <button class="btn btn-primary" id="tourNextBtn" onclick="tourNav(1)">Suivant →</button>
-        <button class="btn" onclick="endTour()" style="border-color:transparent;color:#5B5880">Passer</button>
+        <button class="btn" onclick="endTour()" style="border-color:transparent;color:#8582B0" data-i="tour_skip">Passer</button>
       </div>
     </div>
 
     <div class="page active" id="page-dashboard">
       <div class="card">
-        <div class="card-title">Albums en cours</div>
+        <div class="card-title" data-i="dash_card_title">Albums en cours</div>
         <div class="album-grid" id="dashAlbumGrid"></div>
       </div>
     </div>
 
     <div class="page" id="page-albums">
       <div class="card">
-        <div class="card-title">Tous les albums</div>
+        <div class="card-title" data-i="albums_all">Tous les albums</div>
         <div class="album-grid" id="albumsGrid"></div>
       </div>
       <div class="card">
-        <div class="card-title">Albums archivés</div>
-        <div style="font-size:11.5px;color:#5B5880;margin-bottom:14px">Albums livrés et clôturés — sortis du suivi actif mais toujours consultables.</div>
+        <div class="card-title" data-i="albums_archived">Albums archivés</div>
+        <div style="font-size:11.5px;color:#8582B0;margin-bottom:14px" data-i="albums_archived_sub">Albums livrés et clôturés — sortis du suivi actif mais toujours consultables.</div>
         <div class="album-grid" id="archivedGrid"></div>
       </div>
     </div>
 
     <div class="page" id="page-kanban">
       <div class="card">
-        <div class="card-title">Whodunit — suivi par étape</div>
+        <div class="card-title">Whodunit — <span data-i="kanban_subtitle">suivi par étape</span></div>
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
-          <div style="font-size:11.5px;color:#5B5880">Clique une track pour la faire avancer d'une étape.</div>
-          <button class="btn btn-primary" onclick="toggleAddForm()">+ Ajouter une track</button>
+          <div style="font-size:11.5px;color:#8582B0" data-i="kanban_hint">Clique une track pour la faire avancer d'une étape.</div>
+          <button class="btn btn-primary" onclick="toggleAddForm()" data-i="kanban_add">+ Ajouter une track</button>
         </div>
         <div class="add-form" id="addForm">
-          <input type="text" id="newTrackTitle" placeholder="Titre de la track">
-          <select id="newTrackMood"><option>Tension</option><option>Épique</option><option>Mélancolique</option><option>Léger</option></select>
-          <button class="btn btn-primary" onclick="addTrack()">Ajouter</button>
+          <input type="text" id="newTrackTitle" data-i-placeholder="kanban_track_title" placeholder="Titre de la track">
+          <select id="newTrackMood">
+            <option data-i="mood_tension">Tension</option><option data-i="mood_epic">Épique</option><option data-i="mood_melancholic">Mélancolique</option><option data-i="mood_light">Léger</option>
+          </select>
+          <button class="btn btn-primary" onclick="addTrack()" data-i="kanban_add_confirm">Ajouter</button>
         </div>
         <div class="kanban" id="sbKanban"></div>
       </div>
     </div>
 
     <div class="page" id="page-publishers">
-      <div class="card">
-        <div class="card-title">Éditeurs</div>
-        <div style="font-size:11.5px;color:#5B5880;margin-bottom:14px">Clique sur "Relancer" pour simuler l'envoi d'un email de suivi (démo, rien n'est réellement envoyé).</div>
+      <div class="section-hdr">
+        <div class="section-title" data-i="pub_title">Éditeurs</div>
+      </div>
+      <div class="stat-grid" id="pubStatGrid"></div>
+      <div style="background:#1A1838;border:1px solid #2A2750;border-radius:10px;overflow:hidden;margin-bottom:20px">
+        <div style="padding:12px 16px;background:#13122A;font-size:10px;color:#8582B0;font-weight:700;text-transform:uppercase;letter-spacing:0.08em" data-i="pub_ranking">Classement des éditeurs</div>
         <div id="pubList"></div>
       </div>
     </div>
 
     <div class="page" id="page-calendar">
       <div class="card">
-        <div class="card-title">Septembre 2026</div>
-        <div style="font-size:11.5px;color:#5B5880;margin-bottom:14px">Les cases orange sont des deadlines éditeurs.</div>
+        <div class="card-title" id="cal-month">Septembre 2026</div>
+        <div style="font-size:11.5px;color:#8582B0;margin-bottom:14px" data-i="cal_hint">Les cases orange sont des deadlines éditeurs.</div>
         <div class="cal-grid" id="calGrid"></div>
       </div>
     </div>
 
     <div class="page" id="page-stats">
-      <div class="card">
-        <div class="card-title">Vue d'ensemble</div>
-        <div class="stat-tiles" id="statTiles"></div>
+      <div class="section-hdr">
+        <div class="section-title" data-i="stats_title">Statistiques</div>
       </div>
-      <div class="card">
-        <div class="card-title">Revenus SACEM par éditeur</div>
-        <div id="statByPublisher"></div>
+      <div style="display:flex;gap:4px;margin-bottom:20px;flex-wrap:wrap">
+        <button class="filter-pill active" id="stab-total" onclick="switchStatsTab('total')"><span data-i="tab_total">Total</span></button>
+        <button class="filter-pill" id="stab-year" onclick="switchStatsTab('year')"><span data-i="tab_year">Par année</span></button>
+        <button class="filter-pill" id="stab-collabs" onclick="switchStatsTab('collabs')"><span data-i="tab_collabs">Collabs</span></button>
       </div>
-      <div class="card">
-        <div class="card-title">Tracks par étape (tous albums)</div>
-        <div id="statByStatus"></div>
-      </div>
+      <div id="stats-tab-total"></div>
+      <div id="stats-tab-year" style="display:none"></div>
+      <div id="stats-tab-collabs" style="display:none"></div>
     </div>
 
     <div class="page" id="page-sacem">
       <div class="card">
-        <div class="card-title">Revenus SACEM</div>
-        <div style="font-size:11.5px;color:#5B5880;margin-bottom:14px">Importe un relevé (démo) — matching automatique par titre, simulé ici.</div>
-        <button class="btn btn-primary" id="sacemBtn" onclick="runSacemDemo()">Importer un relevé (démo)</button>
+        <div class="card-title" data-i="sacem_title">Revenus SACEM</div>
+        <div style="font-size:11.5px;color:#8582B0;margin-bottom:14px" data-i="sacem_hint">Importe un relevé (démo) — matching automatique par titre, simulé ici.</div>
+        <button class="btn btn-primary" id="sacemBtn" onclick="runSacemDemo()" data-i="sacem_import">Importer un relevé (démo)</button>
         <div id="sacemResult" style="margin-top:16px"></div>
       </div>
     </div>
 
     <div class="page" id="page-placements">
       <div class="card">
-        <div class="card-title">Placements</div>
-        <div style="font-size:11.5px;color:#5B5880;margin-bottom:6px">Importe d'abord un relevé SACEM (page précédente) pour voir apparaître les placements détectés.</div>
+        <div class="card-title" data-i="nav_placements">Placements</div>
+        <div style="font-size:11.5px;color:#8582B0;margin-bottom:6px" data-i="placements_hint">Importe d'abord un relevé SACEM (page précédente) pour voir apparaître les placements détectés.</div>
         <div id="placementsResult"></div>
       </div>
     </div>
@@ -293,6 +332,121 @@ document.querySelectorAll('.nav-item .ni').forEach(el=>{
   if(map[key] && I[map[key]]) el.innerHTML = I[map[key]];
 });
 
+// ===== i18n =====
+const T = {
+  fr: {
+    intro_h1: "Suis tes projets, tes deadlines<br>et tes revenus <span>sans effort</span>",
+    intro_p: "Démo interactive de certaines fonctionnalités, avec un catalogue et des données entièrement fictifs — clique, ajoute une track, importe un relevé SACEM fictif. Rien n'est enregistré, tu peux tout casser.",
+    intro_tour: "Lancer la visite guidée", intro_free: "Explorer librement",
+    nav_main: "Principal", nav_analysis: "Analyse",
+    nav_dashboard: "Dashboard", nav_albums: "Projets & Albums", nav_kanban: "Suivi par étape",
+    nav_publishers: "Éditeurs", nav_calendar: "Calendrier", nav_stats: "Statistiques",
+    nav_sacem: "Revenus SACEM", nav_placements: "Placements",
+    nav_pricing_link: "Voir les tarifs", nav_download_link: "Télécharger l'app", topbar_pricing: "Tarifs",
+    tour_prev: "← Précédent", tour_next: "Suivant →", tour_finish: "Terminer la visite", tour_skip: "Passer",
+    dash_card_title: "Albums en cours",
+    albums_all: "Tous les albums", albums_archived: "Albums archivés",
+    albums_archived_sub: "Albums livrés et clôturés — sortis du suivi actif mais toujours consultables.",
+    archived_badge: "ARCHIVÉ",
+    kanban_subtitle: "suivi par étape", kanban_hint: "Clique une track pour la faire avancer d'une étape.",
+    kanban_add: "+ Ajouter une track", kanban_track_title: "Titre de la track", kanban_add_confirm: "Ajouter",
+    mood_tension: "Tension", mood_epic: "Épique", mood_melancholic: "Mélancolique", mood_light: "Léger",
+    status_todo: "À faire", status_composition: "Composition", status_delivered: "Livré", status_accepted: "Accepté",
+    pub_title: "Éditeurs", pub_ranking: "Classement des éditeurs",
+    pub_count: "Éditeurs actifs", pub_validated: "Tracks validées", pub_rate: "Taux d'acceptation moyen", pub_waiting: "En attente de réponse",
+    pub_albums: "album", pub_tracks: "track", pub_revenue: "Revenus SACEM", pub_relaunch: "Relancer",
+    pub_toast: "✓ Relance envoyée (démo)", pub_last_contact: "dernier contact le",
+    stat_approved: "Validées", stat_refused: "Refusées",
+    cal_hint: "Les cases orange sont des deadlines éditeurs.",
+    stats_title: "Statistiques", tab_total: "Total", tab_year: "Par année", tab_collabs: "Collabs",
+    stats_total_tracks: "Tracks au total", stats_rate: "Taux d'acceptation", stats_albums: "Albums (dont archivés)",
+    stats_revenue: "Revenus SACEM (démo)", stats_placements: "Placements matchés",
+    stats_by_year: "Répartition par année", stats_by_publisher: "Revenus SACEM par éditeur",
+    stats_track: "track", stats_collab_title: "Collaborateurs", stats_collab_sub: "Compositeurs associés à certaines tracks de ton catalogue.",
+    stats_collab_role: "Co-composition", stats_collab_tracks: "tracks partagées",
+    sacem_title: "Revenus SACEM", sacem_hint: "Importe un relevé (démo) — matching automatique par titre, simulé ici.",
+    sacem_import: "Importer un relevé (démo)", sacem_processing: "Import et matching en cours...", sacem_total: "Total NET",
+    placements_hint: "Importe d'abord un relevé SACEM (page précédente) pour voir apparaître les placements détectés.",
+    placements_diffusion: "diffusion", placements_diffusions: "diffusions",
+  },
+  en: {
+    intro_h1: "Track your projects, deadlines<br>and revenue <span>effortlessly</span>",
+    intro_p: "Interactive demo of some features, with an entirely fictional catalog and data — click around, add a track, import a fake SACEM statement. Nothing is saved, you can break everything.",
+    intro_tour: "Start the guided tour", intro_free: "Explore freely",
+    nav_main: "Main", nav_analysis: "Analytics",
+    nav_dashboard: "Dashboard", nav_albums: "Projects & Albums", nav_kanban: "Stage tracking",
+    nav_publishers: "Publishers", nav_calendar: "Calendar", nav_stats: "Statistics",
+    nav_sacem: "SACEM Revenue", nav_placements: "Placements",
+    nav_pricing_link: "See pricing", nav_download_link: "Download the app", topbar_pricing: "Pricing",
+    tour_prev: "← Previous", tour_next: "Next →", tour_finish: "Finish the tour", tour_skip: "Skip",
+    dash_card_title: "Albums in progress",
+    albums_all: "All albums", albums_archived: "Archived albums",
+    albums_archived_sub: "Delivered and closed albums — out of active tracking but still viewable.",
+    archived_badge: "ARCHIVED",
+    kanban_subtitle: "stage tracking", kanban_hint: "Click a track to move it forward one stage.",
+    kanban_add: "+ Add a track", kanban_track_title: "Track title", kanban_add_confirm: "Add",
+    mood_tension: "Tense", mood_epic: "Epic", mood_melancholic: "Melancholic", mood_light: "Light",
+    status_todo: "To do", status_composition: "Composition", status_delivered: "Delivered", status_accepted: "Accepted",
+    pub_title: "Publishers", pub_ranking: "Publisher ranking",
+    pub_count: "Active publishers", pub_validated: "Approved tracks", pub_rate: "Average acceptance rate", pub_waiting: "Awaiting reply",
+    pub_albums: "album", pub_tracks: "track", pub_revenue: "SACEM revenue", pub_relaunch: "Follow up",
+    pub_toast: "✓ Follow-up sent (demo)", pub_last_contact: "last contact on",
+    stat_approved: "Approved", stat_refused: "Rejected",
+    cal_hint: "Orange cells are publisher deadlines.",
+    stats_title: "Statistics", tab_total: "Total", tab_year: "By year", tab_collabs: "Collabs",
+    stats_total_tracks: "Total tracks", stats_rate: "Acceptance rate", stats_albums: "Albums (incl. archived)",
+    stats_revenue: "SACEM revenue (demo)", stats_placements: "Matched placements",
+    stats_by_year: "Breakdown by year", stats_by_publisher: "SACEM revenue by publisher",
+    stats_track: "track", stats_collab_title: "Collaborators", stats_collab_sub: "Composers associated with some tracks in your catalog.",
+    stats_collab_role: "Co-composition", stats_collab_tracks: "shared tracks",
+    sacem_title: "SACEM Revenue", sacem_hint: "Import a statement (demo) — automatic matching by title, simulated here.",
+    sacem_import: "Import a statement (demo)", sacem_processing: "Importing and matching...", sacem_total: "Net total",
+    placements_hint: "First import a SACEM statement (previous page) to see detected placements appear.",
+    placements_diffusion: "airing", placements_diffusions: "airings",
+  }
+};
+let LANG = 'fr';
+
+function applyStaticI18n(){
+  const dict = T[LANG];
+  document.querySelectorAll('[data-i]').forEach(el=>{
+    const key = el.dataset.i;
+    if(dict[key] !== undefined) el.innerHTML = dict[key];
+  });
+  document.querySelectorAll('[data-i-placeholder]').forEach(el=>{
+    const key = el.dataset.iPlaceholder;
+    if(dict[key] !== undefined) el.placeholder = dict[key];
+  });
+}
+function setLang(lang){
+  LANG = lang;
+  document.documentElement.lang = lang;
+  document.getElementById('langFr').classList.toggle('active', lang==='fr');
+  document.getElementById('langEn').classList.toggle('active', lang==='en');
+  document.getElementById('introLangFr').classList.toggle('active', lang==='fr');
+  document.getElementById('introLangEn').classList.toggle('active', lang==='en');
+  applyStaticI18n();
+  const fmt = new Intl.DateTimeFormat(lang === 'fr' ? 'fr-FR' : 'en-US', { month: 'long', year: 'numeric' });
+  let label = fmt.format(new Date());
+  if (lang === 'fr') label = label.charAt(0).toUpperCase() + label.slice(1);
+  document.getElementById('cal-month').textContent = label;
+  renderKanban();
+  renderPublishers();
+  renderStats();
+  const active = document.querySelector('.nav-item.active[data-page]');
+  document.getElementById('topbarTitle').textContent = active ? T[LANG]['nav_'+active.dataset.page] : T[LANG].nav_dashboard;
+  if(tourActive) renderTourStep();
+}
+(function initLangFromUrl(){
+  const url = new URL(location.href);
+  const q = url.searchParams.get('lang');
+  if(q === 'en' || q === 'fr') LANG = q;
+})();
+
+function fmtEur(n){
+  return LANG === 'fr' ? n.toFixed(2).replace('.',',') + ' €' : '€' + n.toFixed(2);
+}
+
 // ===== données fictives =====
 const ALBUMS = [
   {name:'Whodunit', editeur:'Nordlight Sync', tracks:8, pct:75, grad:'linear-gradient(135deg,#7C3AED,#3B82F6)'},
@@ -303,29 +457,56 @@ const ARCHIVED_ALBUMS = [
   {name:'Dust & Chrome', editeur:'Nordlight Sync', tracks:7, pct:100, grad:'linear-gradient(135deg,#4B4870,#2A2750)'},
 ];
 
+// Chiffres cohérents entre la page Éditeurs et la page Statistiques :
+// Nordlight Sync (15 tracks: 8 validées, 1 refusée) + Vantage Score (6: 4 validées, 1 refusée) + Greyfield Music (5: 3 validées, 1 refusée)
+// = 26 tracks au catalogue, 15 validées, 3 refusées.
 const PUBLISHERS = [
-  {name:'Nordlight Sync', initials:'NS', color:'#7C3AED', albums:2, tracks:15, revenue:335.20, contact:'sync@nordlightpublishing.com', lastContact:'28 août 2026'},
-  {name:'Vantage Score', initials:'VS', color:'#0EA5E9', albums:1, tracks:6, revenue:166.10, contact:'licensing@vantagescore.io', lastContact:'12 août 2026'},
-  {name:'Greyfield Music', initials:'GM', color:'#F59E0B', albums:1, tracks:5, revenue:64.10, contact:'contact@greyfieldmusic.co', lastContact:'3 juillet 2026'},
+  {name:'Nordlight Sync', initials:'NS', color:'#7C3AED', albums:2, tracks:15, validated:8, refused:1, revenue:335.20, contact:'sync@nordlightpublishing.com', lastContact:'28 août 2026'},
+  {name:'Vantage Score', initials:'VS', color:'#0EA5E9', albums:1, tracks:6, validated:4, refused:1, revenue:166.10, contact:'licensing@vantagescore.io', lastContact:'12 août 2026'},
+  {name:'Greyfield Music', initials:'GM', color:'#F59E0B', albums:1, tracks:5, validated:3, refused:1, revenue:64.10, contact:'contact@greyfieldmusic.co', lastContact:'3 juillet 2026'},
+];
+const YEARS_BREAKDOWN = [
+  {year:2025, tracks:10, validated:6, refused:1},
+  {year:2026, tracks:16, validated:9, refused:2},
+];
+const COLLABS = [
+  {name:'Léo Martins', initials:'LM', tracks:2, albumName:'Neon Drift'},
 ];
 
-function fmtEur(n){ return n.toFixed(2).replace('.',',') + ' €'; }
-
 function renderPublishers(){
-  document.getElementById('pubList').innerHTML = PUBLISHERS.map((p,i)=>
-    '<div class="pub-card">'+
+  const t = T[LANG];
+  const totalValidated = PUBLISHERS.reduce((a,p)=>a+p.validated,0);
+  const totalRefused = PUBLISHERS.reduce((a,p)=>a+p.refused,0);
+  const totalSubmitted = totalValidated + totalRefused;
+  const avgRate = totalSubmitted ? Math.round(totalValidated/totalSubmitted*100) : 0;
+  const waiting = 2; // tracks livrées en attente de réponse éditeur (démo)
+
+  document.getElementById('pubStatGrid').innerHTML =
+    '<div class="stat-card"><div class="stat-card-val" style="color:#C4B5FD">'+PUBLISHERS.length+'</div><div class="stat-card-lbl">'+t.pub_count+'</div></div>'+
+    '<div class="stat-card"><div class="stat-card-val" style="color:#10B981">'+totalValidated+'</div><div class="stat-card-lbl">'+t.pub_validated+'</div></div>'+
+    '<div class="stat-card"><div class="stat-card-val" style="color:#FBBF24">'+avgRate+'%</div><div class="stat-card-lbl">'+t.pub_rate+'</div></div>'+
+    '<div class="stat-card"><div class="stat-card-val" style="color:#60A5FA">'+waiting+'</div><div class="stat-card-lbl">'+t.pub_waiting+'</div></div>';
+
+  document.getElementById('pubList').innerHTML = PUBLISHERS.map((p,i)=>{
+    const rate = Math.round(p.validated/(p.validated+p.refused)*100);
+    const rateColor = rate>=60?'#10B981':rate>=30?'#FBBF24':'#F87171';
+    return '<div class="pub-row">'+
       '<div class="pub-badge" style="background:'+p.color+'">'+p.initials+'</div>'+
-      '<div><div class="pub-name">'+p.name+'</div>'+
-      '<div class="pub-meta">'+p.contact+' · dernier contact le '+p.lastContact+'</div>'+
-      '<div class="pub-toast" id="pubToast'+i+'">✓ Relance envoyée (démo)</div></div>'+
-      '<div class="pub-stats">'+
-        '<div class="pub-stat"><b>'+p.albums+'</b><span>Albums</span></div>'+
-        '<div class="pub-stat"><b>'+p.tracks+'</b><span>Tracks</span></div>'+
-        '<div class="pub-stat"><b style="color:#34D399">'+fmtEur(p.revenue)+'</b><span>Revenus SACEM</span></div>'+
+      '<div style="flex:1;min-width:160px">'+
+        '<div class="pub-name">'+p.name+'</div>'+
+        '<div class="pub-meta">'+p.albums+' '+t.pub_albums+(p.albums>1?'s':'')+' · '+p.tracks+' '+t.pub_tracks+(p.tracks>1?'s':'')+'</div>'+
+        '<div class="pub-toast" id="pubToast'+i+'">'+t.pub_toast+'</div>'+
       '</div>'+
-      '<button class="btn" onclick="relaunchPublisher('+i+')">Relancer</button>'+
-    '</div>'
-  ).join('');
+      '<div class="pub-nums">'+
+        '<div class="pub-num"><b style="color:#10B981">'+p.validated+'</b><span>'+t.stat_approved+'</span></div>'+
+        '<div class="pub-num"><b style="color:#F87171">'+p.refused+'</b><span>'+t.stat_refused+'</span></div>'+
+        '<div class="pub-num"><b style="color:'+rateColor+'">'+rate+'%</b><span>%</span></div>'+
+        '<div class="pub-num"><b style="color:#34D399;font-size:13px">'+fmtEur(p.revenue)+'</b><span>'+t.pub_revenue+'</span></div>'+
+      '</div>'+
+      '<div class="pub-bar"><div class="pub-bar-track"><div style="height:100%;width:'+rate+'%;background:'+rateColor+';border-radius:3px"></div></div></div>'+
+      '<button class="btn" onclick="relaunchPublisher('+i+')">'+t.pub_relaunch+'</button>'+
+    '</div>';
+  }).join('');
 }
 function relaunchPublisher(i){
   const el = document.getElementById('pubToast'+i);
@@ -333,30 +514,76 @@ function relaunchPublisher(i){
   setTimeout(()=>{ el.style.display = 'none'; }, 2600);
 }
 
+function switchStatsTab(tab){
+  ['total','year','collabs'].forEach(k=>{
+    document.getElementById('stats-tab-'+k).style.display = (k===tab) ? 'block' : 'none';
+    document.getElementById('stab-'+k).classList.toggle('active', k===tab);
+  });
+}
+
 function renderStats(){
-  const totalRevenue = PUBLISHERS.reduce((a,p)=>a+p.revenue,0);
+  const t = T[LANG];
   const totalTracks = ALBUMS.concat(ARCHIVED_ALBUMS).reduce((a,al)=>a+al.tracks,0);
-  const placementsCount = 4;
-  document.getElementById('statTiles').innerHTML =
-    '<div class="stat-tile"><b>'+fmtEur(totalRevenue)+'</b><span>Revenus SACEM (démo)</span></div>'+
-    '<div class="stat-tile"><b>'+placementsCount+'</b><span>Placements matchés</span></div>'+
-    '<div class="stat-tile"><b>'+totalTracks+'</b><span>Tracks au catalogue</span></div>'+
-    '<div class="stat-tile"><b>'+(ALBUMS.length+ARCHIVED_ALBUMS.length)+'</b><span>Albums (dont '+ARCHIVED_ALBUMS.length+' archivé)</span></div>';
+  const totalValidated = PUBLISHERS.reduce((a,p)=>a+p.validated,0);
+  const totalRefused = PUBLISHERS.reduce((a,p)=>a+p.refused,0);
+  const rate = Math.round(totalValidated/(totalValidated+totalRefused)*100);
+  const totalRevenue = PUBLISHERS.reduce((a,p)=>a+p.revenue,0);
+  const placementsCount = sacemImported ? 4 : 0;
+  const totalAlbums = ALBUMS.length + ARCHIVED_ALBUMS.length;
 
-  const maxRev = Math.max(...PUBLISHERS.map(p=>p.revenue));
-  document.getElementById('statByPublisher').innerHTML = PUBLISHERS.map(p=>
-    '<div class="bar-row"><div class="bar-label">'+p.name+'</div>'+
-    '<div class="bar-track"><div class="bar-fill" style="width:'+(p.revenue/maxRev*100)+'%;background:'+p.color+'"></div></div>'+
-    '<div class="bar-val">'+fmtEur(p.revenue)+'</div></div>'
-  ).join('');
+  // ----- Tab: Total -----
+  document.getElementById('stats-tab-total').innerHTML =
+    '<div class="stat-grid">'+
+      '<div class="stat-card"><div class="stat-card-val" style="color:#C4B5FD">'+totalTracks+'</div><div class="stat-card-lbl">'+t.stats_total_tracks+'</div></div>'+
+      '<div class="stat-card"><div class="stat-card-val" style="color:#10B981">'+totalValidated+'</div><div class="stat-card-lbl">'+t.stat_approved+'</div></div>'+
+      '<div class="stat-card"><div class="stat-card-val" style="color:#F87171">'+totalRefused+'</div><div class="stat-card-lbl">'+t.stat_refused+'</div></div>'+
+      '<div class="stat-card"><div class="stat-card-val" style="color:#FBBF24">'+rate+'%</div><div class="stat-card-lbl">'+t.stats_rate+'</div></div>'+
+      '<div class="stat-card"><div class="stat-card-val" style="color:#34D399">'+totalAlbums+'</div><div class="stat-card-lbl">'+t.stats_albums+'</div></div>'+
+      '<div class="stat-card"><div class="stat-card-val" style="color:#A78BFA">'+placementsCount+'</div><div class="stat-card-lbl">'+t.stats_placements+'</div></div>'+
+    '</div>'+
+    '<div style="background:#1A1838;border:1px solid #2A2750;border-radius:10px;padding:20px">'+
+      '<div class="card-title" style="margin-bottom:14px">'+t.stats_by_publisher+'</div>'+
+      renderBarRows(PUBLISHERS.map(p=>({label:p.name, val:p.revenue, color:p.color, fmt:fmtEur(p.revenue)})))+
+      '<div class="card-title" style="margin:18px 0 14px">'+t.stats_revenue+' : <span style="color:#34D399">'+fmtEur(totalRevenue)+'</span></div>'+
+    '</div>';
 
-  const counts = [0,1,2,3].map(st=>tracks.filter(t=>t.status===st).length);
-  const maxCount = Math.max(...counts, 1);
-  const colors = ['#5B5880','#38BDF8','#34D399','#10B981'];
-  document.getElementById('statByStatus').innerHTML = [0,1,2,3].map(st=>
-    '<div class="bar-row"><div class="bar-label">'+STATUS_LABELS[st]+'</div>'+
-    '<div class="bar-track"><div class="bar-fill" style="width:'+(counts[st]/maxCount*100)+'%;background:'+colors[st]+'"></div></div>'+
-    '<div class="bar-val">'+counts[st]+' track'+(counts[st]===1?'':'s')+'</div></div>'
+  // ----- Tab: Par année -----
+  const maxYearTracks = Math.max(...YEARS_BREAKDOWN.map(y=>y.tracks));
+  document.getElementById('stats-tab-year').innerHTML =
+    '<div style="background:#1A1838;border:1px solid #2A2750;border-radius:10px;padding:20px">'+
+      '<div class="card-title" style="margin-bottom:14px">'+t.stats_by_year+'</div>'+
+      YEARS_BREAKDOWN.map(y=>{
+        const yr = Math.round(y.validated/y.tracks*100);
+        return '<div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #2A2750">'+
+          '<span style="font-size:14px;font-weight:800;color:#F0F0FF;width:50px">'+y.year+'</span>'+
+          '<span style="font-size:12px;color:#A78BFA;min-width:70px">'+y.tracks+' '+t.stats_track+(y.tracks>1?'s':'')+'</span>'+
+          '<span style="font-size:12px;color:#10B981;min-width:60px">✓ '+y.validated+'</span>'+
+          '<span style="font-size:12px;color:#F87171;min-width:50px">✗ '+y.refused+'</span>'+
+          '<div style="flex:1;height:5px;background:#2A2750;border-radius:3px;overflow:hidden"><div style="height:100%;width:'+yr+'%;background:#7C3AED;border-radius:3px"></div></div>'+
+          '<span style="font-size:12px;font-weight:700;color:#7C3AED;min-width:40px;text-align:right">'+yr+'%</span>'+
+        '</div>';
+      }).join('')+
+    '</div>';
+
+  // ----- Tab: Collabs -----
+  document.getElementById('stats-tab-collabs').innerHTML =
+    '<div class="card-title" style="margin-bottom:6px">'+t.stats_collab_title+'</div>'+
+    '<div style="font-size:11.5px;color:#8582B0;margin-bottom:14px">'+t.stats_collab_sub+'</div>'+
+    COLLABS.map(c=>
+      '<div class="collab-card" style="margin-bottom:10px">'+
+        '<div class="collab-avatar">'+c.initials+'</div>'+
+        '<div style="flex:1"><div style="font-weight:700;font-size:14px;color:#F0F0FF">'+c.name+'</div>'+
+        '<div style="font-size:11.5px;color:#8582B0;margin-top:2px">'+t.stats_collab_role+' · '+c.albumName+'</div></div>'+
+        '<div class="pub-num"><b style="color:#A78BFA">'+c.tracks+'</b><span>'+t.stats_collab_tracks+'</span></div>'+
+      '</div>'
+    ).join('');
+}
+function renderBarRows(rows){
+  const max = Math.max(...rows.map(r=>r.val));
+  return rows.map(r=>
+    '<div class="bar-row"><div class="bar-label">'+r.label+'</div>'+
+    '<div class="bar-track"><div class="bar-fill" style="width:'+(r.val/max*100)+'%;background:'+r.color+'"></div></div>'+
+    '<div class="bar-val">'+r.fmt+'</div></div>'
   ).join('');
 }
 
@@ -368,10 +595,11 @@ function renderAlbumGrid(elId){
   ).join('');
 }
 function renderArchivedGrid(elId){
+  const badge = T[LANG].archived_badge;
   document.getElementById(elId).innerHTML = ARCHIVED_ALBUMS.map(a=>
     '<div class="album-card" style="opacity:0.75"><div class="album-cover" style="background:'+a.grad+';position:relative">'+
-    '<span style="position:absolute;top:6px;right:6px;font-size:8.5px;font-weight:800;letter-spacing:0.05em;color:#C4C0E8;background:rgba(10,9,16,0.55);border-radius:4px;padding:2px 6px">ARCHIVÉ</span></div>'+
-    '<div class="album-name">'+a.name+'</div><div class="album-meta">'+a.editeur+' · '+a.tracks+' tracks · terminé</div>'+
+    '<span style="position:absolute;top:6px;right:6px;font-size:8.5px;font-weight:800;letter-spacing:0.05em;color:#C4C0E8;background:rgba(10,9,16,0.55);border-radius:4px;padding:2px 6px">'+badge+'</span></div>'+
+    '<div class="album-name">'+a.name+'</div><div class="album-meta">'+a.editeur+' · '+a.tracks+' tracks</div>'+
     '<div class="album-bar"><div class="album-bar-fill" style="width:100%;background:#5B5880"></div></div></div>'
   ).join('');
 }
@@ -385,17 +613,23 @@ let tracks = [
   {id:6, title:'Afterglow', status:3},
 ];
 let nextId = 7;
-const STATUS_LABELS = ['À faire','Composition','Livré','Accepté'];
+let sacemImported = false;
 const STATUS_TAG = [null, {cls:'s-composition'}, {cls:'s-delivered'}, {cls:'s-accepted'}];
 
+function statusLabels(){
+  const t = T[LANG];
+  return [t.status_todo, t.status_composition, t.status_delivered, t.status_accepted];
+}
+
 function renderKanban(){
+  const labels = statusLabels();
   const cols = [0,1,2,3].map(s=>{
     const items = tracks.filter(t=>t.status===s).map(t=>{
       const tag = STATUS_TAG[t.status];
-      const tagHtml = tag ? '<span class="tag '+tag.cls+'">'+STATUS_LABELS[t.status].toUpperCase()+'</span>' : '';
+      const tagHtml = tag ? '<span class="tag '+tag.cls+'">'+labels[t.status].toUpperCase()+'</span>' : '';
       return '<div class="kcard clickable" onclick="advanceTrack('+t.id+')">'+t.title+tagHtml+'</div>';
     }).join('');
-    return '<div class="kcol"><div class="kcol-title">'+STATUS_LABELS[s]+'</div>'+items+'</div>';
+    return '<div class="kcol"><div class="kcol-title">'+labels[s]+'</div>'+items+'</div>';
   }).join('');
   document.getElementById('sbKanban').innerHTML = cols;
 }
@@ -433,33 +667,46 @@ function renderCalendar(){
 }
 
 function runSacemDemo(){
+  const t = T[LANG];
   const btn = document.getElementById('sacemBtn');
   const out = document.getElementById('sacemResult');
   btn.disabled = true;
-  out.innerHTML = '<div class="processing"><div class="spin"></div>Import et matching en cours...</div>';
+  out.innerHTML = '<div class="processing"><div class="spin"></div>'+t.sacem_processing+'</div>';
   setTimeout(()=>{
     out.innerHTML =
-      '<div class="sacem-line"><span>Diamond Cut</span><span class="amt">312,40 €</span></div>'+
-      '<div class="sacem-line"><span>Afterglow</span><span class="amt">118,90 €</span></div>'+
-      '<div class="sacem-line"><span>Paper Cranes</span><span class="amt">64,10 €</span></div>'+
-      '<div class="sacem-line"><span>Glass Horizon</span><span class="amt">47,20 €</span></div>'+
-      '<div class="sacem-line"><span>Dust & Chrome (thème)</span><span class="amt">22,80 €</span></div>'+
-      '<div class="sacem-line" style="border-top:1px solid #2A2750;margin-top:6px;padding-top:10px;font-weight:800"><span>Total NET</span><span class="amt">565,40 €</span></div>';
+      '<div class="sacem-line"><span>Diamond Cut</span><span class="amt">'+fmtEur(312.40)+'</span></div>'+
+      '<div class="sacem-line"><span>Afterglow</span><span class="amt">'+fmtEur(118.90)+'</span></div>'+
+      '<div class="sacem-line"><span>Paper Cranes</span><span class="amt">'+fmtEur(64.10)+'</span></div>'+
+      '<div class="sacem-line"><span>Glass Horizon</span><span class="amt">'+fmtEur(47.20)+'</span></div>'+
+      '<div class="sacem-line"><span>Dust & Chrome ('+(LANG==='fr'?'thème':'theme')+')</span><span class="amt">'+fmtEur(22.80)+'</span></div>'+
+      '<div class="sacem-line" style="border-top:1px solid #2A2750;margin-top:6px;padding-top:10px;font-weight:800"><span>'+t.sacem_total+'</span><span class="amt">'+fmtEur(565.40)+'</span></div>';
+    const d1 = LANG==='fr'?'3 diffusions':'3 airings', d2 = LANG==='fr'?'1 diffusion':'1 airing', d3 = LANG==='fr'?'2 diffusions':'2 airings';
+    const l1 = LANG==='fr'?'série TV':'TV series', l2 = LANG==='fr'?'long-métrage':'feature film', l3 = LANG==='fr'?'publicité auto':'car commercial', l4 = LANG==='fr'?'jeu vidéo':'video game';
     document.getElementById('placementsResult').innerHTML =
-      '<div class="placement-card"><div class="placement-cover" style="background:linear-gradient(135deg,#1E3A8A,#7C3AED)"></div><div><div class="placement-title">The Late Signal — S02 (série TV)</div><div class="placement-sub">Diamond Cut · 3 diffusions</div></div></div>'+
-      '<div class="placement-card"><div class="placement-cover" style="background:linear-gradient(135deg,#B45309,#DC2626)"></div><div><div class="placement-title">Bord de Rupture (long-métrage)</div><div class="placement-sub">Afterglow · 1 diffusion</div></div></div>'+
-      '<div class="placement-card"><div class="placement-cover" style="background:linear-gradient(135deg,#059669,#0EA5E9)"></div><div><div class="placement-title">Horizon Drift (publicité auto)</div><div class="placement-sub">Paper Cranes · 2 diffusions</div></div></div>'+
-      '<div class="placement-card"><div class="placement-cover" style="background:linear-gradient(135deg,#7C3AED,#F472B6)"></div><div><div class="placement-title">Nightfall Protocol (jeu vidéo)</div><div class="placement-sub">Glass Horizon · 1 diffusion</div></div></div>';
+      '<div class="placement-card"><div class="placement-cover" style="background:linear-gradient(135deg,#1E3A8A,#7C3AED)"></div><div><div class="placement-title">The Late Signal — S02 ('+l1+')</div><div class="placement-sub">Diamond Cut · '+d1+'</div></div></div>'+
+      '<div class="placement-card"><div class="placement-cover" style="background:linear-gradient(135deg,#B45309,#DC2626)"></div><div><div class="placement-title">Bord de Rupture ('+l2+')</div><div class="placement-sub">Afterglow · '+d2+'</div></div></div>'+
+      '<div class="placement-card"><div class="placement-cover" style="background:linear-gradient(135deg,#059669,#0EA5E9)"></div><div><div class="placement-title">Horizon Drift ('+l3+')</div><div class="placement-sub">Paper Cranes · '+d3+'</div></div></div>'+
+      '<div class="placement-card"><div class="placement-cover" style="background:linear-gradient(135deg,#7C3AED,#F472B6)"></div><div><div class="placement-title">Nightfall Protocol ('+l4+')</div><div class="placement-sub">Glass Horizon · '+d2+'</div></div></div>';
+    sacemImported = true;
+    renderStats();
     btn.disabled = false;
   }, 1100);
 }
 
 // ===== navigation entre pages (comme showPage() dans l'app) =====
-const PAGE_TITLES = {dashboard:'Dashboard', albums:'Projets & Albums', kanban:'Suivi par étape', publishers:'Éditeurs', calendar:'Calendrier', stats:'Statistiques', sacem:'Revenus SACEM', placements:'Placements'};
 function goPage(page){
   document.querySelectorAll('.page').forEach(el=>el.classList.toggle('active', el.id==='page-'+page));
   document.querySelectorAll('.nav-item[data-page]').forEach(el=>el.classList.toggle('active', el.dataset.page===page));
-  document.getElementById('topbarTitle').textContent = PAGE_TITLES[page] || page;
+  document.getElementById('topbarTitle').textContent = T[LANG]['nav_'+page] || page;
+  closeMobileNav();
+}
+function toggleMobileNav(){
+  document.getElementById('sideNav').classList.toggle('open');
+  document.getElementById('navOverlay').classList.toggle('on');
+}
+function closeMobileNav(){
+  document.getElementById('sideNav').classList.remove('open');
+  document.getElementById('navOverlay').classList.remove('on');
 }
 
 // ===== intro =====
@@ -469,13 +716,25 @@ function closeIntro(withTour){
 }
 
 // ===== visite guidée (banniere + navigation auto entre pages) =====
-const TOUR_STEPS = [
-  {page:'dashboard', text:"Voici le <b>Dashboard</b> — tous tes albums en cours, leur éditeur et leur avancement, en un coup d'œil."},
-  {page:'kanban', text:"Le <b>Suivi par étape</b> (Kanban) : chaque track avance de la composition à la livraison. Essaie de cliquer une carte pour la faire avancer."},
-  {page:'calendar', text:"Le <b>Calendrier</b> regroupe toutes tes deadlines éditeurs — plus de mauvaise surprise à trois jours d'un rendu."},
-  {page:'sacem', text:"<b>Revenus SACEM</b> : importe un relevé et il est matché automatiquement à tes tracks. Clique \"Importer un relevé (démo)\" pour voir."},
-  {page:'placements', text:"Chaque show détecté dans tes relevés remonte ici automatiquement, avec son visuel. (Reviens sur cette page après l'import SACEM.)"},
-];
+function tourSteps(){
+  return LANG === 'fr' ? [
+    {page:'dashboard', text:"Voici le <b>Dashboard</b> — tous tes albums en cours, leur éditeur et leur avancement, en un coup d'œil."},
+    {page:'kanban', text:"Le <b>Suivi par étape</b> (Kanban) : chaque track avance de la composition à la livraison. Essaie de cliquer une carte pour la faire avancer."},
+    {page:'publishers', text:"La page <b>Éditeurs</b> centralise tes stats par éditeur : tracks validées/refusées, taux d'acceptation, revenus SACEM — et un bouton pour relancer."},
+    {page:'stats', text:"Les <b>Statistiques</b> agrègent tout ton catalogue : production, taux d'acceptation, revenus, répartition par année et collaborateurs."},
+    {page:'calendar', text:"Le <b>Calendrier</b> regroupe toutes tes deadlines éditeurs — plus de mauvaise surprise à trois jours d'un rendu."},
+    {page:'sacem', text:"<b>Revenus SACEM</b> : importe un relevé et il est matché automatiquement à tes tracks. Clique \"Importer un relevé (démo)\" pour voir."},
+    {page:'placements', text:"Chaque show détecté dans tes relevés remonte ici automatiquement, avec son visuel. (Reviens sur cette page après l'import SACEM.)"},
+  ] : [
+    {page:'dashboard', text:"This is the <b>Dashboard</b> — all your albums in progress, their publisher and their status, at a glance."},
+    {page:'kanban', text:"<b>Stage tracking</b> (Kanban): each track moves from composition to delivery. Try clicking a card to move it forward."},
+    {page:'publishers', text:"The <b>Publishers</b> page centralizes your stats per publisher: approved/rejected tracks, acceptance rate, SACEM revenue — plus a follow-up button."},
+    {page:'stats', text:"<b>Statistics</b> aggregate your whole catalog: output, acceptance rate, revenue, breakdown by year and collaborators."},
+    {page:'calendar', text:"The <b>Calendar</b> gathers all your publisher deadlines — no more last-minute surprises three days before a delivery."},
+    {page:'sacem', text:"<b>SACEM Revenue</b>: import a statement and it's automatically matched to your tracks. Click \"Import a statement (demo)\" to see it."},
+    {page:'placements', text:"Every show detected in your statements shows up here automatically, with its artwork. (Come back to this page after the SACEM import.)"},
+  ];
+}
 let tourStep = 0;
 let tourActive = false;
 
@@ -487,16 +746,18 @@ function startTour(){
   renderTourStep();
 }
 function renderTourStep(){
-  const s = TOUR_STEPS[tourStep];
+  const steps = tourSteps();
+  const s = steps[tourStep];
   goPage(s.page);
   document.getElementById('tourText').innerHTML = s.text;
-  document.getElementById('tourCounterTop').textContent = (tourStep+1)+' / '+TOUR_STEPS.length;
+  document.getElementById('tourCounterTop').textContent = (tourStep+1)+' / '+steps.length;
   document.getElementById('tourPrevBtn').style.visibility = tourStep===0 ? 'hidden' : 'visible';
-  document.getElementById('tourNextBtn').textContent = tourStep===TOUR_STEPS.length-1 ? 'Terminer la visite' : 'Suivant →';
+  document.getElementById('tourNextBtn').textContent = tourStep===steps.length-1 ? T[LANG].tour_finish : T[LANG].tour_next;
 }
 function tourNav(delta){
-  if(tourStep===TOUR_STEPS.length-1 && delta>0){ endTour(); return; }
-  tourStep = Math.max(0, Math.min(TOUR_STEPS.length-1, tourStep+delta));
+  const steps = tourSteps();
+  if(tourStep===steps.length-1 && delta>0){ endTour(); return; }
+  tourStep = Math.max(0, Math.min(steps.length-1, tourStep+delta));
   renderTourStep();
 }
 function endTour(){
@@ -509,10 +770,9 @@ function endTour(){
 renderAlbumGrid('dashAlbumGrid');
 renderAlbumGrid('albumsGrid');
 renderArchivedGrid('archivedGrid');
-renderKanban();
 renderCalendar();
-renderPublishers();
-renderStats();
+setLang(LANG);
+switchStatsTab('total');
 </script>
 
 </body>

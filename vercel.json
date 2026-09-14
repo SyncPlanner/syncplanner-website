@@ -1,6 +1,8 @@
 {
   "rewrites": [
     { "source": "/help", "destination": "/help.html" },
-    { "source": "/help-en", "destination": "/help-en.html" }
+    { "source": "/help-en", "destination": "/help-en.html" },
+    { "source": "/mentions-legales-en", "destination": "/mentions-legales-en.html" },
+    { "source": "/cgv-en", "destination": "/cgv-en.html" }
   ]
 }
