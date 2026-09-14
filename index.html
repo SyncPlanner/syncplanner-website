@@ -11,6 +11,9 @@
 <meta name="author" content="SYNC.PLANNER">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://syncplanner.app">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="sitemap" type="application/xml" href="/sitemap.xml">
 
 <!-- Open Graph / Facebook -->
@@ -62,11 +65,6 @@
       "name": "Lifetime"
     }
   ],
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "5",
-    "reviewCount": "1"
-  },
   "keywords": "compositeur sync, gestion projet musical, sync music, library music, film TV game music, deadlines compositeur, revenus sacem, suivi logic pro, rentabilité composition"
 }
 </script>
@@ -105,7 +103,7 @@
   .hero h1 { font-family:'Space Grotesk',sans-serif;font-size:clamp(40px,6vw,76px);font-weight:700;line-height:1.0;letter-spacing:-0.03em;color:var(--creme);margin-bottom:24px; }
   .hero h1 span { color:var(--violet); }
   .hero-sub { font-size:clamp(16px,2vw,19px);color:var(--texte);margin-bottom:16px;max-width:540px;line-height:1.7; }
-  .hero-sub2 { font-size:15px;color:#5B5880;margin-bottom:44px;max-width:480px;line-height:1.6; }
+  .hero-sub2 { font-size:15px;color:#7B78A8;margin-bottom:44px;max-width:480px;line-height:1.6; }
   .hero-btns { display:flex;gap:14px;flex-wrap:wrap;margin-bottom:24px; }
   .btn-primary { display:inline-flex;align-items:center;gap:8px;padding:15px 32px;background:var(--violet);color:white;border-radius:10px;font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600;text-decoration:none;box-shadow:0 8px 24px rgba(124,58,237,0.35);transition:transform 0.2s,box-shadow 0.2s; }
   .btn-primary:hover { transform:translateY(-2px);box-shadow:0 12px 32px rgba(124,58,237,0.5); }
@@ -129,7 +127,7 @@
   .album-row { display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid #1E1C38; }
   .album-row:last-child { border-bottom:none; }
   .album-name { font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:600;color:var(--creme);flex:1; }
-  .album-edit { font-size:12px;color:#5B5880;min-width:90px; }
+  .album-edit { font-size:12px;color:#7B78A8;min-width:90px; }
   .album-bar-wrap { flex:1;height:6px;background:#2A2750;border-radius:100px;overflow:visible; }
   .album-bar { height:100%;border-radius:100px;width:0%;transition:width 1.2s cubic-bezier(.22,.68,0,1.2); }
   .album-pct { font-size:12px;font-weight:700;min-width:36px;text-align:right; }
@@ -167,7 +165,7 @@
   .faq { padding:80px 60px;max-width:700px;margin:0 auto; }
   .faq h2 { font-family:'Space Grotesk',sans-serif;font-size:32px;font-weight:700;color:var(--creme);margin-bottom:40px;text-align:center; }
   .faq-item { border-bottom:1px solid #1E1C38;padding:20px 0; }
-  .faq-q { font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600;color:var(--creme);cursor:pointer;display:flex;justify-content:space-between;align-items:center; }
+  .faq-q { font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600;color:var(--creme);cursor:pointer;display:flex;width:100%;justify-content:space-between;align-items:center;background:none;border:none;padding:0;text-align:left; }
   .faq-a { font-size:14px;color:var(--texte);line-height:1.7;margin-top:12px;display:none; }
   .faq-item.open .faq-a { display:block; }
   .faq-arrow { transition:transform 0.2s;color:var(--violet2); }
@@ -209,9 +207,9 @@
     <a href="#features" id="nav-features" onclick="closeMobileNav()">Fonctionnalités</a>
     <a href="#pricing" id="nav-pricing" onclick="closeMobileNav()">Tarifs</a>
     <a href="#faq" id="nav-faq" onclick="closeMobileNav()">FAQ</a>
-    <a href="#pricing" class="nav-cta-mobile" id="nav-cta-mobile" onclick="closeMobileNav()">Télécharger — 14j gratuit</a>
+    <a href="https://github.com/SyncPlanner/SyncPlanner-app/releases/download/v1.1.1/SYNC.PLANNER-1.1.1.dmg" class="nav-cta-mobile" id="nav-cta-mobile" onclick="closeMobileNav()">Télécharger — 14j gratuit</a>
   </div>
-  <a href="#pricing" class="nav-cta" id="nav-cta">Télécharger — 14j gratuit</a>
+  <a href="https://github.com/SyncPlanner/SyncPlanner-app/releases/download/v1.1.1/SYNC.PLANNER-1.1.1.dmg" class="nav-cta" id="nav-cta">Télécharger — 14j gratuit</a>
 </nav>
 
 <section class="hero">
@@ -227,13 +225,13 @@
       <span class="btn-primary btn-win" id="btn-win" style="opacity:0.45;cursor:not-allowed;pointer-events:none">Windows — En développement</span>
     </div>
     <div style="margin-top:14px">
-      <a href="/help?lang=fr" id="btn-demo" style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#A78BFA;text-decoration:none;border:1px solid rgba(167,139,250,0.25);border-radius:8px;padding:8px 16px;background:rgba(124,58,237,0.08);transition:all 0.2s"
+      <a href="/demo.html" id="btn-demo" style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#A78BFA;text-decoration:none;border:1px solid rgba(167,139,250,0.25);border-radius:8px;padding:8px 16px;background:rgba(124,58,237,0.08);transition:all 0.2s"
         onmouseover="this.style.background='rgba(124,58,237,0.18)';this.style.borderColor='rgba(167,139,250,0.5)'"
         onmouseout="this.style.background='rgba(124,58,237,0.08)';this.style.borderColor='rgba(167,139,250,0.25)'">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" style="vertical-align:middle"><polygon points="5 3 19 12 5 21 5 3"/></svg> <span id="btn-demo-txt">Explorer les fonctionnalités — démo interactive</span>
       </a>
     </div>
-    <div class="hero-note" id="hero-note">✓ Aucune carte bancaire requise &nbsp;·&nbsp; ✓ Données 100% locales &nbsp;·&nbsp; ✓ Mac (Windows bientôt)</div>
+    <div class="hero-note" id="hero-note">✓ Aucune carte bancaire requise &nbsp;·&nbsp; ✓ Données de gestion 100% locales &nbsp;·&nbsp; ✓ Mac (Windows bientôt)</div>
     <div style="margin-top:10px;font-size:11px;color:#4B4870;text-align:center" id="hero-evolving">🔄 Application en constante évolution — mises à jour régulières incluses</div>
   </div>
 </section>
@@ -370,7 +368,7 @@
       </div>
       <div>
         <h3 style="font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;color:var(--creme);margin-bottom:12px" id="seo-h3-2">Vos données restent chez vous</h3>
-        <p style="font-size:14px;color:var(--texte);line-height:1.8" id="seo-p2">100% local. Aucun cloud, aucune donnée audio envoyée. Vos projets, tracks et informations clients restent sur votre Mac. Pas d'abonnement cloud à 30€/mois, pas de risque de fuite de données. SYNC.PLANNER fonctionne même hors connexion.</p>
+        <p style="font-size:14px;color:var(--texte);line-height:1.8" id="seo-p2">100% local par défaut. Aucun cloud, aucune donnée audio envoyée. Vos projets, tracks et informations clients restent sur votre Mac — sauf si vous activez l'assistant IA optionnel avec votre propre clé API, auquel cas vos requêtes sont envoyées au fournisseur d'IA choisi. Pas d'abonnement cloud à 30€/mois. SYNC.PLANNER fonctionne même hors connexion.</p>
       </div>
       <div>
         <h3 style="font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;color:var(--creme);margin-bottom:12px" id="seo-h3-3">Relances éditeurs automatisées</h3>
@@ -389,11 +387,11 @@
         <table style="width:100%;border-collapse:collapse;font-size:13px">
           <thead>
             <tr style="border-bottom:1px solid #2A2750">
-              <th style="text-align:left;padding:10px;color:#5B5880;font-weight:600" id="seo-th-feature">Fonctionnalité</th>
+              <th style="text-align:left;padding:10px;color:#7B78A8;font-weight:600" id="seo-th-feature">Fonctionnalité</th>
               <th style="text-align:center;padding:10px;color:#A78BFA;font-weight:700">SYNC.PLANNER</th>
-              <th style="text-align:center;padding:10px;color:#5B5880">Notion/Trello</th>
-              <th style="text-align:center;padding:10px;color:#5B5880">Sync Warehouse</th>
-              <th style="text-align:center;padding:10px;color:#5B5880">DropCue/DISCO</th>
+              <th style="text-align:center;padding:10px;color:#7B78A8">Notion/Trello</th>
+              <th style="text-align:center;padding:10px;color:#7B78A8">Sync Warehouse</th>
+              <th style="text-align:center;padding:10px;color:#7B78A8">DropCue/DISCO</th>
             </tr>
           </thead>
           <tbody>
@@ -428,9 +426,9 @@
             <tr>
               <td style="padding:10px;color:var(--texte)" id="seo-row5">Prix</td>
               <td style="text-align:center;padding:10px;color:#10B981;font-weight:700">9€/mois</td>
-              <td style="text-align:center;padding:10px;color:#5B5880">10-20€/mois</td>
-              <td style="text-align:center;padding:10px;color:#5B5880">9-19$/mois</td>
-              <td style="text-align:center;padding:10px;color:#5B5880">5-30$/mois</td>
+              <td style="text-align:center;padding:10px;color:#7B78A8">10-20€/mois</td>
+              <td style="text-align:center;padding:10px;color:#7B78A8">9-19$/mois</td>
+              <td style="text-align:center;padding:10px;color:#7B78A8">5-30$/mois</td>
             </tr>
           </tbody>
         </table>
@@ -490,29 +488,29 @@
     <!-- DASHBOARD -->
     <div id="demo-dashboard" class="demo-panel" style="padding:24px">
       <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px">
-        <div style="background:#1A1838;border:1px solid #2A2750;border-radius:10px;padding:16px;text-align:center"><div style="font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:700;color:#C4B5FD">9</div><div style="font-size:10px;color:#5B5880;margin-top:4px;text-transform:uppercase;letter-spacing:0.06em" id="dash-stat1">Albums actifs</div></div>
-        <div style="background:#1A1838;border:1px solid #2A2750;border-radius:10px;padding:16px;text-align:center"><div style="font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:700;color:#10B981">39</div><div style="font-size:10px;color:#5B5880;margin-top:4px;text-transform:uppercase;letter-spacing:0.06em" id="dash-stat2">Validées</div></div>
-        <div style="background:#1A1838;border:1px solid #2A2750;border-radius:10px;padding:16px;text-align:center"><div style="font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:700;color:#FBBF24">67%</div><div style="font-size:10px;color:#5B5880;margin-top:4px;text-transform:uppercase;letter-spacing:0.06em" id="dash-stat3">Taux valid.</div></div>
-        <div style="background:#1A1838;border:1px solid #2A2750;border-radius:10px;padding:16px;text-align:center"><div style="font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:700;color:#60A5FA">58</div><div style="font-size:10px;color:#5B5880;margin-top:4px;text-transform:uppercase;letter-spacing:0.06em" id="dash-stat4">Total tracks</div></div>
+        <div style="background:#1A1838;border:1px solid #2A2750;border-radius:10px;padding:16px;text-align:center"><div style="font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:700;color:#C4B5FD">9</div><div style="font-size:10px;color:#7B78A8;margin-top:4px;text-transform:uppercase;letter-spacing:0.06em" id="dash-stat1">Albums actifs</div></div>
+        <div style="background:#1A1838;border:1px solid #2A2750;border-radius:10px;padding:16px;text-align:center"><div style="font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:700;color:#10B981">39</div><div style="font-size:10px;color:#7B78A8;margin-top:4px;text-transform:uppercase;letter-spacing:0.06em" id="dash-stat2">Validées</div></div>
+        <div style="background:#1A1838;border:1px solid #2A2750;border-radius:10px;padding:16px;text-align:center"><div style="font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:700;color:#FBBF24">67%</div><div style="font-size:10px;color:#7B78A8;margin-top:4px;text-transform:uppercase;letter-spacing:0.06em" id="dash-stat3">Taux valid.</div></div>
+        <div style="background:#1A1838;border:1px solid #2A2750;border-radius:10px;padding:16px;text-align:center"><div style="font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:700;color:#60A5FA">58</div><div style="font-size:10px;color:#7B78A8;margin-top:4px;text-transform:uppercase;letter-spacing:0.06em" id="dash-stat4">Total tracks</div></div>
       </div>
       <div style="background:#2D0A0A;border:1px solid #F87171;border-radius:8px;padding:12px 16px;margin-bottom:16px;display:flex;align-items:center;gap:10px">
         <span>⚠️</span><div style="font-size:12px;color:#F87171;font-weight:600" id="dash-alert">2 deadlines urgentes — Dark Matter (J-3) · Urban Bass (J-6)</div>
       </div>
       <div style="display:flex;flex-direction:column;gap:8px">
-        <div style="background:#1A1838;border:1px solid #2A2750;border-radius:10px;padding:14px"><div style="display:flex;align-items:center;gap:12px;margin-bottom:8px"><div style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;color:#F0EEF8;flex:1">Neon Horizon</div><div style="font-size:10px;color:#5B5880">Label Sync</div><div style="font-size:11px;font-weight:700;color:#10B981">100%</div></div><div style="height:4px;background:#2A2750;border-radius:100px;overflow:visible"><div style="height:100%;width:100%;background:#10B981;border-radius:100px;box-shadow:0 0 8px rgba(16,185,129,0.6)"></div></div></div>
-        <div style="background:#1A1838;border:1px solid #2A2750;border-radius:10px;padding:14px"><div style="display:flex;align-items:center;gap:12px;margin-bottom:8px"><div style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;color:#F0EEF8;flex:1">Quiet Storm EP</div><div style="font-size:10px;color:#5B5880">Studio Brief</div><div style="font-size:11px;font-weight:700;color:#A78BFA">72%</div></div><div style="height:4px;background:#2A2750;border-radius:100px"><div style="height:100%;width:72%;background:#A78BFA;border-radius:100px"></div></div></div>
-        <div style="background:#1A1838;border:1px solid #2A2750;border-radius:10px;padding:14px"><div style="display:flex;align-items:center;gap:12px;margin-bottom:8px"><div style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;color:#F0EEF8;flex:1">Urban Frequencies</div><div style="font-size:10px;color:#5B5880">Music Co.</div><div style="font-size:11px;font-weight:700;color:#60A5FA">35%</div></div><div style="height:4px;background:#2A2750;border-radius:100px"><div style="height:100%;width:35%;background:#60A5FA;border-radius:100px"></div></div></div>
-        <div style="background:#1A1838;border-left:3px solid #F87171;border-top:1px solid #2A2750;border-right:1px solid #2A2750;border-bottom:1px solid #2A2750;border-radius:10px;padding:14px"><div style="display:flex;align-items:center;gap:12px;margin-bottom:8px"><div style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;color:#F0EEF8;flex:1">Dark Matter</div><div style="font-size:10px;color:#5B5880">Label Sync</div><div style="font-size:11px;font-weight:700;color:#FB923C">15%</div><div style="font-size:10px;background:#450A0A;color:#F87171;padding:2px 8px;border-radius:4px;font-weight:700" id="badge-j3">⚠️ J-3</div></div><div style="height:4px;background:#2A2750;border-radius:100px"><div style="height:100%;width:15%;background:#FB923C;border-radius:100px"></div></div></div>
+        <div style="background:#1A1838;border:1px solid #2A2750;border-radius:10px;padding:14px"><div style="display:flex;align-items:center;gap:12px;margin-bottom:8px"><div style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;color:#F0EEF8;flex:1">Neon Horizon</div><div style="font-size:10px;color:#7B78A8">Label Sync</div><div style="font-size:11px;font-weight:700;color:#10B981">100%</div></div><div style="height:4px;background:#2A2750;border-radius:100px;overflow:visible"><div style="height:100%;width:100%;background:#10B981;border-radius:100px;box-shadow:0 0 8px rgba(16,185,129,0.6)"></div></div></div>
+        <div style="background:#1A1838;border:1px solid #2A2750;border-radius:10px;padding:14px"><div style="display:flex;align-items:center;gap:12px;margin-bottom:8px"><div style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;color:#F0EEF8;flex:1">Quiet Storm EP</div><div style="font-size:10px;color:#7B78A8">Studio Brief</div><div style="font-size:11px;font-weight:700;color:#A78BFA">72%</div></div><div style="height:4px;background:#2A2750;border-radius:100px"><div style="height:100%;width:72%;background:#A78BFA;border-radius:100px"></div></div></div>
+        <div style="background:#1A1838;border:1px solid #2A2750;border-radius:10px;padding:14px"><div style="display:flex;align-items:center;gap:12px;margin-bottom:8px"><div style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;color:#F0EEF8;flex:1">Urban Frequencies</div><div style="font-size:10px;color:#7B78A8">Music Co.</div><div style="font-size:11px;font-weight:700;color:#60A5FA">35%</div></div><div style="height:4px;background:#2A2750;border-radius:100px"><div style="height:100%;width:35%;background:#60A5FA;border-radius:100px"></div></div></div>
+        <div style="background:#1A1838;border-left:3px solid #F87171;border-top:1px solid #2A2750;border-right:1px solid #2A2750;border-bottom:1px solid #2A2750;border-radius:10px;padding:14px"><div style="display:flex;align-items:center;gap:12px;margin-bottom:8px"><div style="font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;color:#F0EEF8;flex:1">Dark Matter</div><div style="font-size:10px;color:#7B78A8">Label Sync</div><div style="font-size:11px;font-weight:700;color:#FB923C">15%</div><div style="font-size:10px;background:#450A0A;color:#F87171;padding:2px 8px;border-radius:4px;font-weight:700" id="badge-j3">⚠️ J-3</div></div><div style="height:4px;background:#2A2750;border-radius:100px"><div style="height:100%;width:15%;background:#FB923C;border-radius:100px"></div></div></div>
       </div>
     </div>
     <!-- KANBAN -->
     <div id="demo-kanban" class="demo-panel" style="display:none;padding:24px;overflow-x:auto">
       <div style="display:grid;grid-template-columns:repeat(5,minmax(140px,1fr));gap:12px">
-        <div style="background:#13122A;border:1px solid #1E1C38;border-radius:10px;padding:14px"><div style="font-size:10px;font-weight:700;color:#38BDF8;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center"><span id="k-compo">🎹 Compo</span><span style="background:#0C4A6E;color:#38BDF8;padding:1px 7px;border-radius:100px">3</span></div><div style="display:flex;flex-direction:column;gap:8px"><div style="background:#1A1838;border:1px solid #2A2750;border-radius:7px;padding:10px"><div style="font-size:12px;color:#E2E0F0">Urban Bass 01</div><div style="font-size:10px;color:#5B5880;margin-top:4px">Music Co.</div></div><div style="background:#1A1838;border:1px solid #2A2750;border-radius:7px;padding:10px"><div style="font-size:12px;color:#E2E0F0">Dark Matter 02</div><div style="font-size:10px;color:#5B5880;margin-top:4px">Label Sync</div></div><div style="background:#1A1838;border:1px solid #2A2750;border-radius:7px;padding:10px"><div style="font-size:12px;color:#E2E0F0">Pulse 03</div><div style="font-size:10px;color:#5B5880;margin-top:4px">Studio Brief</div></div></div></div>
-        <div style="background:#13122A;border:1px solid #1E1C38;border-radius:10px;padding:14px"><div style="font-size:10px;font-weight:700;color:#60A5FA;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center"><span id="k-sent">📤 Envoyée</span><span style="background:#1E3A5F;color:#60A5FA;padding:1px 7px;border-radius:100px">2</span></div><div style="display:flex;flex-direction:column;gap:8px"><div style="background:#1A1838;border:1px solid #2A2750;border-radius:7px;padding:10px"><div style="font-size:12px;color:#E2E0F0">Neon City 01</div><div style="font-size:10px;color:#5B5880;margin-top:4px">Label Sync</div></div><div style="background:#1A1838;border:1px solid #2A2750;border-radius:7px;padding:10px"><div style="font-size:12px;color:#E2E0F0">Drive By 04</div><div style="font-size:10px;color:#5B5880;margin-top:4px">Studio Brief</div></div></div></div>
-        <div style="background:#13122A;border:1px solid #1E1C38;border-radius:10px;padding:14px"><div style="font-size:10px;font-weight:700;color:#FB923C;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center"><span id="k-rev">🔄 Révision</span><span style="background:#431407;color:#FB923C;padding:1px 7px;border-radius:100px">1</span></div><div style="display:flex;flex-direction:column;gap:8px"><div style="background:#1A1838;border:1px solid #FB923C33;border-radius:7px;padding:10px"><div style="font-size:12px;color:#E2E0F0">Quiet Storm 02</div><div style="font-size:10px;color:#5B5880;margin-top:4px">Music Co.</div></div></div></div>
-        <div style="background:#13122A;border:1px solid #1E1C38;border-radius:10px;padding:14px"><div style="font-size:10px;font-weight:700;color:#A78BFA;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center"><span id="k-mix">🎚️ Mix</span><span style="background:#2D1B69;color:#A78BFA;padding:1px 7px;border-radius:100px">2</span></div><div style="display:flex;flex-direction:column;gap:8px"><div style="background:#1A1838;border:1px solid #2A2750;border-radius:7px;padding:10px"><div style="font-size:12px;color:#E2E0F0">Neon City 03</div><div style="font-size:10px;color:#5B5880;margin-top:4px">Label Sync</div></div><div style="background:#1A1838;border:1px solid #2A2750;border-radius:7px;padding:10px"><div style="font-size:12px;color:#E2E0F0">Storm 01</div><div style="font-size:10px;color:#5B5880;margin-top:4px">Studio Brief</div></div></div></div>
-        <div style="background:#13122A;border:1px solid #1E1C38;border-radius:10px;padding:14px"><div style="font-size:10px;font-weight:700;color:#10B981;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center"><span id="k-del">✅ Livré</span><span style="background:#064E3B;color:#10B981;padding:1px 7px;border-radius:100px">4</span></div><div style="display:flex;flex-direction:column;gap:8px"><div style="background:#1A1838;border:1px solid #2A2750;border-radius:7px;padding:10px"><div style="font-size:12px;color:#E2E0F0">Neon City 02</div><div style="font-size:10px;color:#5B5880;margin-top:4px">Label Sync</div></div><div style="background:#1A1838;border:1px solid #2A2750;border-radius:7px;padding:10px"><div style="font-size:12px;color:#E2E0F0">Urban Bass 03</div><div style="font-size:10px;color:#5B5880;margin-top:4px">Music Co.</div></div><div style="background:#1A1838;border:1px solid #2A2750;border-radius:7px;padding:10px"><div style="font-size:12px;color:#E2E0F0">Pulse 01</div><div style="font-size:10px;color:#5B5880;margin-top:4px">Studio Brief</div></div><div style="background:#1A1838;border:1px solid #2A2750;border-radius:7px;padding:10px"><div style="font-size:12px;color:#E2E0F0">Dark Matter 01</div><div style="font-size:10px;color:#5B5880;margin-top:4px">Label Sync</div></div></div></div>
+        <div style="background:#13122A;border:1px solid #1E1C38;border-radius:10px;padding:14px"><div style="font-size:10px;font-weight:700;color:#38BDF8;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center"><span id="k-compo">🎹 Compo</span><span style="background:#0C4A6E;color:#38BDF8;padding:1px 7px;border-radius:100px">3</span></div><div style="display:flex;flex-direction:column;gap:8px"><div style="background:#1A1838;border:1px solid #2A2750;border-radius:7px;padding:10px"><div style="font-size:12px;color:#E2E0F0">Urban Bass 01</div><div style="font-size:10px;color:#7B78A8;margin-top:4px">Music Co.</div></div><div style="background:#1A1838;border:1px solid #2A2750;border-radius:7px;padding:10px"><div style="font-size:12px;color:#E2E0F0">Dark Matter 02</div><div style="font-size:10px;color:#7B78A8;margin-top:4px">Label Sync</div></div><div style="background:#1A1838;border:1px solid #2A2750;border-radius:7px;padding:10px"><div style="font-size:12px;color:#E2E0F0">Pulse 03</div><div style="font-size:10px;color:#7B78A8;margin-top:4px">Studio Brief</div></div></div></div>
+        <div style="background:#13122A;border:1px solid #1E1C38;border-radius:10px;padding:14px"><div style="font-size:10px;font-weight:700;color:#60A5FA;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center"><span id="k-sent">📤 Envoyée</span><span style="background:#1E3A5F;color:#60A5FA;padding:1px 7px;border-radius:100px">2</span></div><div style="display:flex;flex-direction:column;gap:8px"><div style="background:#1A1838;border:1px solid #2A2750;border-radius:7px;padding:10px"><div style="font-size:12px;color:#E2E0F0">Neon City 01</div><div style="font-size:10px;color:#7B78A8;margin-top:4px">Label Sync</div></div><div style="background:#1A1838;border:1px solid #2A2750;border-radius:7px;padding:10px"><div style="font-size:12px;color:#E2E0F0">Drive By 04</div><div style="font-size:10px;color:#7B78A8;margin-top:4px">Studio Brief</div></div></div></div>
+        <div style="background:#13122A;border:1px solid #1E1C38;border-radius:10px;padding:14px"><div style="font-size:10px;font-weight:700;color:#FB923C;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center"><span id="k-rev">🔄 Révision</span><span style="background:#431407;color:#FB923C;padding:1px 7px;border-radius:100px">1</span></div><div style="display:flex;flex-direction:column;gap:8px"><div style="background:#1A1838;border:1px solid #FB923C33;border-radius:7px;padding:10px"><div style="font-size:12px;color:#E2E0F0">Quiet Storm 02</div><div style="font-size:10px;color:#7B78A8;margin-top:4px">Music Co.</div></div></div></div>
+        <div style="background:#13122A;border:1px solid #1E1C38;border-radius:10px;padding:14px"><div style="font-size:10px;font-weight:700;color:#A78BFA;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center"><span id="k-mix">🎚️ Mix</span><span style="background:#2D1B69;color:#A78BFA;padding:1px 7px;border-radius:100px">2</span></div><div style="display:flex;flex-direction:column;gap:8px"><div style="background:#1A1838;border:1px solid #2A2750;border-radius:7px;padding:10px"><div style="font-size:12px;color:#E2E0F0">Neon City 03</div><div style="font-size:10px;color:#7B78A8;margin-top:4px">Label Sync</div></div><div style="background:#1A1838;border:1px solid #2A2750;border-radius:7px;padding:10px"><div style="font-size:12px;color:#E2E0F0">Storm 01</div><div style="font-size:10px;color:#7B78A8;margin-top:4px">Studio Brief</div></div></div></div>
+        <div style="background:#13122A;border:1px solid #1E1C38;border-radius:10px;padding:14px"><div style="font-size:10px;font-weight:700;color:#10B981;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center"><span id="k-del">✅ Livré</span><span style="background:#064E3B;color:#10B981;padding:1px 7px;border-radius:100px">4</span></div><div style="display:flex;flex-direction:column;gap:8px"><div style="background:#1A1838;border:1px solid #2A2750;border-radius:7px;padding:10px"><div style="font-size:12px;color:#E2E0F0">Neon City 02</div><div style="font-size:10px;color:#7B78A8;margin-top:4px">Label Sync</div></div><div style="background:#1A1838;border:1px solid #2A2750;border-radius:7px;padding:10px"><div style="font-size:12px;color:#E2E0F0">Urban Bass 03</div><div style="font-size:10px;color:#7B78A8;margin-top:4px">Music Co.</div></div><div style="background:#1A1838;border:1px solid #2A2750;border-radius:7px;padding:10px"><div style="font-size:12px;color:#E2E0F0">Pulse 01</div><div style="font-size:10px;color:#7B78A8;margin-top:4px">Studio Brief</div></div><div style="background:#1A1838;border:1px solid #2A2750;border-radius:7px;padding:10px"><div style="font-size:12px;color:#E2E0F0">Dark Matter 01</div><div style="font-size:10px;color:#7B78A8;margin-top:4px">Label Sync</div></div></div></div>
       </div>
     </div>
     <!-- CALENDRIER -->
@@ -522,51 +520,51 @@
         <div style="display:flex;gap:8px"><div style="padding:4px 12px;background:#1E1C38;border-radius:6px;font-size:12px;color:#7B78A8;cursor:pointer">←</div><div style="padding:4px 12px;background:#7C3AED;border-radius:6px;font-size:12px;color:white" id="cal-today">Aujourd'hui</div><div style="padding:4px 12px;background:#1E1C38;border-radius:6px;font-size:12px;color:#7B78A8;cursor:pointer">→</div></div>
       </div>
       <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:1px;background:#1E1C38;border:1px solid #1E1C38;border-radius:10px;overflow:hidden">
-        <div style="background:#0F0E1A;padding:8px;text-align:center;font-size:10px;font-weight:700;color:#5B5880" id="cal-d1">Lun</div>
-        <div style="background:#0F0E1A;padding:8px;text-align:center;font-size:10px;font-weight:700;color:#5B5880" id="cal-d2">Mar</div>
-        <div style="background:#0F0E1A;padding:8px;text-align:center;font-size:10px;font-weight:700;color:#5B5880" id="cal-d3">Mer</div>
-        <div style="background:#0F0E1A;padding:8px;text-align:center;font-size:10px;font-weight:700;color:#5B5880" id="cal-d4">Jeu</div>
-        <div style="background:#0F0E1A;padding:8px;text-align:center;font-size:10px;font-weight:700;color:#5B5880" id="cal-d5">Ven</div>
-        <div style="background:#0F0E1A;padding:8px;text-align:center;font-size:10px;font-weight:700;color:#5B5880" id="cal-d6">Sam</div>
-        <div style="background:#0F0E1A;padding:8px;text-align:center;font-size:10px;font-weight:700;color:#5B5880" id="cal-d7">Dim</div>
+        <div style="background:#0F0E1A;padding:8px;text-align:center;font-size:10px;font-weight:700;color:#7B78A8" id="cal-d1">Lun</div>
+        <div style="background:#0F0E1A;padding:8px;text-align:center;font-size:10px;font-weight:700;color:#7B78A8" id="cal-d2">Mar</div>
+        <div style="background:#0F0E1A;padding:8px;text-align:center;font-size:10px;font-weight:700;color:#7B78A8" id="cal-d3">Mer</div>
+        <div style="background:#0F0E1A;padding:8px;text-align:center;font-size:10px;font-weight:700;color:#7B78A8" id="cal-d4">Jeu</div>
+        <div style="background:#0F0E1A;padding:8px;text-align:center;font-size:10px;font-weight:700;color:#7B78A8" id="cal-d5">Ven</div>
+        <div style="background:#0F0E1A;padding:8px;text-align:center;font-size:10px;font-weight:700;color:#7B78A8" id="cal-d6">Sam</div>
+        <div style="background:#0F0E1A;padding:8px;text-align:center;font-size:10px;font-weight:700;color:#7B78A8" id="cal-d7">Dim</div>
         <div style="background:#13122A;padding:8px;min-height:64px"></div><div style="background:#13122A;padding:8px;min-height:64px"></div><div style="background:#13122A;padding:8px;min-height:64px"></div><div style="background:#13122A;padding:8px;min-height:64px"></div>
-        <div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#5B5880">1</div></div><div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#5B5880">2</div></div><div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#5B5880">3</div></div>
-        <div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#5B5880">4</div></div>
-        <div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#5B5880">5</div><div style="background:#7C3AED22;border:1px solid #7C3AED44;border-radius:4px;padding:2px 5px;font-size:9px;color:#A78BFA;margin-top:3px">📅 Label Sync</div></div>
-        <div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#5B5880">6</div></div><div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#5B5880">7</div></div><div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#5B5880">8</div></div><div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#5B5880">9</div></div><div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#5B5880">10</div></div>
-        <div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#5B5880">11</div></div>
-        <div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#5B5880">12</div><div style="background:#FB923C22;border:1px solid #FB923C44;border-radius:4px;padding:2px 5px;font-size:9px;color:#FB923C;margin-top:3px">📅 Music Co.</div></div>
-        <div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#5B5880">13</div></div><div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#5B5880">14</div></div>
+        <div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#7B78A8">1</div></div><div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#7B78A8">2</div></div><div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#7B78A8">3</div></div>
+        <div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#7B78A8">4</div></div>
+        <div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#7B78A8">5</div><div style="background:#7C3AED22;border:1px solid #7C3AED44;border-radius:4px;padding:2px 5px;font-size:9px;color:#A78BFA;margin-top:3px">📅 Label Sync</div></div>
+        <div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#7B78A8">6</div></div><div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#7B78A8">7</div></div><div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#7B78A8">8</div></div><div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#7B78A8">9</div></div><div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#7B78A8">10</div></div>
+        <div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#7B78A8">11</div></div>
+        <div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#7B78A8">12</div><div style="background:#FB923C22;border:1px solid #FB923C44;border-radius:4px;padding:2px 5px;font-size:9px;color:#FB923C;margin-top:3px">📅 Music Co.</div></div>
+        <div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#7B78A8">13</div></div><div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#7B78A8">14</div></div>
         <div style="background:#1A1050;border:1px solid #7C3AED;padding:8px;min-height:64px"><div style="font-size:11px;font-weight:700;color:#A78BFA">15</div></div>
-        <div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#5B5880">16</div></div><div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#5B5880">17</div></div>
-        <div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#5B5880">18</div><div style="background:#10B98122;border:1px solid #10B98144;border-radius:4px;padding:2px 5px;font-size:9px;color:#10B981;margin-top:3px">📅 Studio Brief</div></div>
-        <div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#5B5880">19</div></div><div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#5B5880">20</div></div><div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#5B5880">21</div></div>
-        <div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#5B5880">22</div><div style="background:#7C3AED22;border:1px solid #7C3AED44;border-radius:4px;padding:2px 5px;font-size:9px;color:#A78BFA;margin-top:3px">📅 Label Sync</div></div>
-        <div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#5B5880">23</div></div><div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#5B5880">24</div></div>
-        <div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#5B5880">25</div></div><div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#5B5880">26</div></div><div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#5B5880">27</div></div>
-        <div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#5B5880">28</div><div style="background:#FB923C22;border:1px solid #F8717144;border-radius:4px;padding:2px 5px;font-size:9px;color:#F87171;margin-top:3px">⚠️ Music Co.</div></div>
-        <div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#5B5880">29</div></div><div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#5B5880">30</div></div><div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#5B5880">31</div></div>
+        <div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#7B78A8">16</div></div><div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#7B78A8">17</div></div>
+        <div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#7B78A8">18</div><div style="background:#10B98122;border:1px solid #10B98144;border-radius:4px;padding:2px 5px;font-size:9px;color:#10B981;margin-top:3px">📅 Studio Brief</div></div>
+        <div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#7B78A8">19</div></div><div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#7B78A8">20</div></div><div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#7B78A8">21</div></div>
+        <div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#7B78A8">22</div><div style="background:#7C3AED22;border:1px solid #7C3AED44;border-radius:4px;padding:2px 5px;font-size:9px;color:#A78BFA;margin-top:3px">📅 Label Sync</div></div>
+        <div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#7B78A8">23</div></div><div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#7B78A8">24</div></div>
+        <div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#7B78A8">25</div></div><div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#7B78A8">26</div></div><div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#7B78A8">27</div></div>
+        <div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#7B78A8">28</div><div style="background:#FB923C22;border:1px solid #F8717144;border-radius:4px;padding:2px 5px;font-size:9px;color:#F87171;margin-top:3px">⚠️ Music Co.</div></div>
+        <div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#7B78A8">29</div></div><div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#7B78A8">30</div></div><div style="background:#13122A;padding:8px;min-height:64px"><div style="font-size:11px;color:#7B78A8">31</div></div>
       </div>
     </div>
     <!-- ÉDITEURS -->
     <div id="demo-publishers" class="demo-panel" style="display:none;padding:24px">
       <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px">
-        <div style="background:#1A1838;border:1px solid #2A2750;border-radius:10px;padding:14px;text-align:center"><div style="font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:700;color:#C4B5FD">3</div><div style="font-size:10px;color:#5B5880;margin-top:4px;text-transform:uppercase;letter-spacing:0.06em" id="pub-stat1">Clients</div></div>
-        <div style="background:#1A1838;border:1px solid #2A2750;border-radius:10px;padding:14px;text-align:center"><div style="font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:700;color:#10B981">47</div><div style="font-size:10px;color:#5B5880;margin-top:4px;text-transform:uppercase;letter-spacing:0.06em" id="pub-stat2">Validées</div></div>
-        <div style="background:#1A1838;border:1px solid #2A2750;border-radius:10px;padding:14px;text-align:center"><div style="font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:700;color:#FBBF24">68%</div><div style="font-size:10px;color:#5B5880;margin-top:4px;text-transform:uppercase;letter-spacing:0.06em" id="pub-stat3">Taux moyen</div></div>
-        <div style="background:#1A1838;border:1px solid #2A2750;border-radius:10px;padding:14px;text-align:center"><div style="font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:700;color:#60A5FA">5</div><div style="font-size:10px;color:#5B5880;margin-top:4px;text-transform:uppercase;letter-spacing:0.06em" id="pub-stat4">En attente</div></div>
+        <div style="background:#1A1838;border:1px solid #2A2750;border-radius:10px;padding:14px;text-align:center"><div style="font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:700;color:#C4B5FD">3</div><div style="font-size:10px;color:#7B78A8;margin-top:4px;text-transform:uppercase;letter-spacing:0.06em" id="pub-stat1">Clients</div></div>
+        <div style="background:#1A1838;border:1px solid #2A2750;border-radius:10px;padding:14px;text-align:center"><div style="font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:700;color:#10B981">47</div><div style="font-size:10px;color:#7B78A8;margin-top:4px;text-transform:uppercase;letter-spacing:0.06em" id="pub-stat2">Validées</div></div>
+        <div style="background:#1A1838;border:1px solid #2A2750;border-radius:10px;padding:14px;text-align:center"><div style="font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:700;color:#FBBF24">68%</div><div style="font-size:10px;color:#7B78A8;margin-top:4px;text-transform:uppercase;letter-spacing:0.06em" id="pub-stat3">Taux moyen</div></div>
+        <div style="background:#1A1838;border:1px solid #2A2750;border-radius:10px;padding:14px;text-align:center"><div style="font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:700;color:#60A5FA">5</div><div style="font-size:10px;color:#7B78A8;margin-top:4px;text-transform:uppercase;letter-spacing:0.06em" id="pub-stat4">En attente</div></div>
       </div>
-      <div style="background:#1A1838;border:1px solid #2A2750;border-radius:10px;padding:16px;margin-bottom:10px;display:flex;align-items:center;gap:16px"><div style="flex:1"><div style="font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:700;color:#F0EEF8">Label Sync</div><div style="font-size:11px;color:#5B5880;margin-top:3px">4 albums · 28 tracks</div></div><div style="text-align:center;min-width:50px"><div style="font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;color:#10B981">21</div><div style="font-size:9px;color:#5B5880" id="pub-validated">validées</div></div><div style="min-width:90px"><div style="display:flex;justify-content:space-between;margin-bottom:4px"><span style="font-size:10px;color:#5B5880" id="pub-rate">Taux</span><span style="font-size:10px;font-weight:700;color:#10B981">75%</span></div><div style="height:5px;background:#2A2750;border-radius:100px;overflow:hidden"><div style="height:100%;width:75%;background:#10B981;border-radius:100px"></div></div></div><div style="color:#3D3A60;font-size:12px">▼</div></div>
-      <div style="background:#1A1838;border:1px solid #2A2750;border-radius:10px;padding:16px;margin-bottom:10px;display:flex;align-items:center;gap:16px"><div style="flex:1"><div style="font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:700;color:#F0EEF8">Studio Brief</div><div style="font-size:11px;color:#5B5880;margin-top:3px">3 albums · 18 tracks</div></div><div style="text-align:center;min-width:50px"><div style="font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;color:#10B981">11</div><div style="font-size:9px;color:#5B5880" id="pub-validated2">validées</div></div><div style="min-width:90px"><div style="display:flex;justify-content:space-between;margin-bottom:4px"><span style="font-size:10px;color:#5B5880" id="pub-rate2">Taux</span><span style="font-size:10px;font-weight:700;color:#FBBF24">61%</span></div><div style="height:5px;background:#2A2750;border-radius:100px;overflow:hidden"><div style="height:100%;width:61%;background:#FBBF24;border-radius:100px"></div></div></div><div style="color:#3D3A60;font-size:12px">▼</div></div>
-      <div style="background:#1A1838;border:1px solid #2A2750;border-radius:10px;padding:16px;display:flex;align-items:center;gap:16px"><div style="flex:1"><div style="font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:700;color:#F0EEF8">Music Co.</div><div style="font-size:11px;color:#5B5880;margin-top:3px">2 albums · 12 tracks</div></div><div style="text-align:center;min-width:50px"><div style="font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;color:#FBBF24">7</div><div style="font-size:9px;color:#5B5880" id="pub-validated3">validées</div></div><div style="min-width:90px"><div style="display:flex;justify-content:space-between;margin-bottom:4px"><span style="font-size:10px;color:#5B5880" id="pub-rate3">Taux</span><span style="font-size:10px;font-weight:700;color:#FBBF24">58%</span></div><div style="height:5px;background:#2A2750;border-radius:100px;overflow:hidden"><div style="height:100%;width:58%;background:#FBBF24;border-radius:100px"></div></div></div><div style="color:#3D3A60;font-size:12px">▼</div></div>
+      <div style="background:#1A1838;border:1px solid #2A2750;border-radius:10px;padding:16px;margin-bottom:10px;display:flex;align-items:center;gap:16px"><div style="flex:1"><div style="font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:700;color:#F0EEF8">Label Sync</div><div style="font-size:11px;color:#7B78A8;margin-top:3px">4 albums · 28 tracks</div></div><div style="text-align:center;min-width:50px"><div style="font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;color:#10B981">21</div><div style="font-size:9px;color:#7B78A8" id="pub-validated">validées</div></div><div style="min-width:90px"><div style="display:flex;justify-content:space-between;margin-bottom:4px"><span style="font-size:10px;color:#7B78A8" id="pub-rate">Taux</span><span style="font-size:10px;font-weight:700;color:#10B981">75%</span></div><div style="height:5px;background:#2A2750;border-radius:100px;overflow:hidden"><div style="height:100%;width:75%;background:#10B981;border-radius:100px"></div></div></div><div style="color:#3D3A60;font-size:12px">▼</div></div>
+      <div style="background:#1A1838;border:1px solid #2A2750;border-radius:10px;padding:16px;margin-bottom:10px;display:flex;align-items:center;gap:16px"><div style="flex:1"><div style="font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:700;color:#F0EEF8">Studio Brief</div><div style="font-size:11px;color:#7B78A8;margin-top:3px">3 albums · 18 tracks</div></div><div style="text-align:center;min-width:50px"><div style="font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;color:#10B981">11</div><div style="font-size:9px;color:#7B78A8" id="pub-validated2">validées</div></div><div style="min-width:90px"><div style="display:flex;justify-content:space-between;margin-bottom:4px"><span style="font-size:10px;color:#7B78A8" id="pub-rate2">Taux</span><span style="font-size:10px;font-weight:700;color:#FBBF24">61%</span></div><div style="height:5px;background:#2A2750;border-radius:100px;overflow:hidden"><div style="height:100%;width:61%;background:#FBBF24;border-radius:100px"></div></div></div><div style="color:#3D3A60;font-size:12px">▼</div></div>
+      <div style="background:#1A1838;border:1px solid #2A2750;border-radius:10px;padding:16px;display:flex;align-items:center;gap:16px"><div style="flex:1"><div style="font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:700;color:#F0EEF8">Music Co.</div><div style="font-size:11px;color:#7B78A8;margin-top:3px">2 albums · 12 tracks</div></div><div style="text-align:center;min-width:50px"><div style="font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;color:#FBBF24">7</div><div style="font-size:9px;color:#7B78A8" id="pub-validated3">validées</div></div><div style="min-width:90px"><div style="display:flex;justify-content:space-between;margin-bottom:4px"><span style="font-size:10px;color:#7B78A8" id="pub-rate3">Taux</span><span style="font-size:10px;font-weight:700;color:#FBBF24">58%</span></div><div style="height:5px;background:#2A2750;border-radius:100px;overflow:hidden"><div style="height:100%;width:58%;background:#FBBF24;border-radius:100px"></div></div></div><div style="color:#3D3A60;font-size:12px">▼</div></div>
     </div>
     <!-- STATS -->
     <div id="demo-stats" class="demo-panel" style="display:none;padding:24px">
       <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px">
-        <div style="background:#1A1838;border:1px solid #2A2750;border-radius:10px;padding:14px;text-align:center"><div style="font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:700;color:#C4B5FD">58</div><div style="font-size:10px;color:#5B5880;margin-top:4px;text-transform:uppercase;letter-spacing:0.06em" id="stat-total">Total tracks</div></div>
-        <div style="background:#1A1838;border:1px solid #2A2750;border-radius:10px;padding:14px;text-align:center"><div style="font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:700;color:#10B981">39</div><div style="font-size:10px;color:#5B5880;margin-top:4px;text-transform:uppercase;letter-spacing:0.06em" id="stat-val">Validées</div></div>
-        <div style="background:#1A1838;border:1px solid #2A2750;border-radius:10px;padding:14px;text-align:center"><div style="font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:700;color:#F87171">8</div><div style="font-size:10px;color:#5B5880;margin-top:4px;text-transform:uppercase;letter-spacing:0.06em" id="stat-ref">Refusées</div></div>
-        <div style="background:#1A1838;border:1px solid #2A2750;border-radius:10px;padding:14px;text-align:center"><div style="font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:700;color:#FBBF24">67%</div><div style="font-size:10px;color:#5B5880;margin-top:4px;text-transform:uppercase;letter-spacing:0.06em" id="stat-rate">Taux valid.</div></div>
+        <div style="background:#1A1838;border:1px solid #2A2750;border-radius:10px;padding:14px;text-align:center"><div style="font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:700;color:#C4B5FD">58</div><div style="font-size:10px;color:#7B78A8;margin-top:4px;text-transform:uppercase;letter-spacing:0.06em" id="stat-total">Total tracks</div></div>
+        <div style="background:#1A1838;border:1px solid #2A2750;border-radius:10px;padding:14px;text-align:center"><div style="font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:700;color:#10B981">39</div><div style="font-size:10px;color:#7B78A8;margin-top:4px;text-transform:uppercase;letter-spacing:0.06em" id="stat-val">Validées</div></div>
+        <div style="background:#1A1838;border:1px solid #2A2750;border-radius:10px;padding:14px;text-align:center"><div style="font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:700;color:#F87171">8</div><div style="font-size:10px;color:#7B78A8;margin-top:4px;text-transform:uppercase;letter-spacing:0.06em" id="stat-ref">Refusées</div></div>
+        <div style="background:#1A1838;border:1px solid #2A2750;border-radius:10px;padding:14px;text-align:center"><div style="font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:700;color:#FBBF24">67%</div><div style="font-size:10px;color:#7B78A8;margin-top:4px;text-transform:uppercase;letter-spacing:0.06em" id="stat-rate">Taux valid.</div></div>
       </div>
       <div style="background:#1A1838;border:1px solid #2A2750;border-radius:10px;padding:18px">
         <div style="font-size:10px;font-weight:700;color:#9D99C8;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:16px" id="stat-chart-title">Production mensuelle 2026</div>
@@ -585,8 +583,8 @@
           <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:4px;height:100%"><div style="font-size:8px;color:#2A2750" id="m12">Déc</div></div>
         </div>
         <div style="display:flex;gap:16px;margin-top:12px">
-          <div style="display:flex;align-items:center;gap:6px"><div style="width:10px;height:10px;border-radius:2px;background:#7C3AED;opacity:0.5"></div><span style="font-size:11px;color:#5B5880" id="chart-leg1">Produites</span></div>
-          <div style="display:flex;align-items:center;gap:6px"><div style="width:10px;height:10px;border-radius:2px;background:#10B981"></div><span style="font-size:11px;color:#5B5880" id="chart-leg2">Validées</span></div>
+          <div style="display:flex;align-items:center;gap:6px"><div style="width:10px;height:10px;border-radius:2px;background:#7C3AED;opacity:0.5"></div><span style="font-size:11px;color:#7B78A8" id="chart-leg1">Produites</span></div>
+          <div style="display:flex;align-items:center;gap:6px"><div style="width:10px;height:10px;border-radius:2px;background:#10B981"></div><span style="font-size:11px;color:#7B78A8" id="chart-leg2">Validées</span></div>
         </div>
       </div>
     </div>
@@ -615,7 +613,7 @@
       <div class="price-badge" id="price-badge-popular">⭐ Le plus populaire</div>
       <div class="price-tier" id="plan2-tier">Annuel</div>
       <div class="price-amount"><sup>€</sup><span id="plan2-price">7,5</span><span style="font-size:14px;font-weight:500;color:#7B78A8">/mois</span></div>
-      <div style="font-size:12px;color:#5B5880;margin-top:2px" id="plan2-period">soit 90€ par an · facturé en une fois</div>
+      <div style="font-size:12px;color:#7B78A8;margin-top:2px" id="plan2-period">soit 90€ par an · facturé en une fois</div>
       <ul class="price-items">
         <li id="feat-all">Tout du plan mensuel</li>
         <li id="feat-updates">Mises à jour incluses</li>
@@ -640,47 +638,47 @@
 <div class="faq" id="faq">
   <h2 id="faq-title">Questions fréquentes</h2>
   <div class="faq-item">
-    <div class="faq-q" onclick="toggleFaq(this)"><span id="faq1-q">Est-ce que mes données sont en sécurité ?</span><span class="faq-arrow">▼</span></div>
+    <button type="button" class="faq-q" onclick="toggleFaq(this)"><span id="faq1-q">Est-ce que mes données sont en sécurité ?</span><span class="faq-arrow">▼</span></button>
     <div class="faq-a" id="faq1-a">Oui — toutes les données sont stockées localement sur l'ordinateur de l'utilisateur. Aucune donnée ne transite par nos serveurs, à l'exception de la vérification de licence.</div>
   </div>
   <div class="faq-item">
-    <div class="faq-q" onclick="toggleFaq(this)"><span id="faq2-q">Ça fonctionne sur Mac et PC ?</span><span class="faq-arrow">▼</span></div>
+    <button type="button" class="faq-q" onclick="toggleFaq(this)"><span id="faq2-q">Ça fonctionne sur Mac et PC ?</span><span class="faq-arrow">▼</span></button>
     <div class="faq-a" id="faq2-a">SYNC.PLANNER est disponible sur Mac (.dmg) dès maintenant. La version Windows/PC est en développement — pas encore disponible au téléchargement.</div>
   </div>
   <div class="faq-item">
-    <div class="faq-q" onclick="toggleFaq(this)"><span id="faq3-q">Je peux annuler à tout moment ?</span><span class="faq-arrow">▼</span></div>
+    <button type="button" class="faq-q" onclick="toggleFaq(this)"><span id="faq3-q">Je peux annuler à tout moment ?</span><span class="faq-arrow">▼</span></button>
     <div class="faq-a" id="faq3-a">Oui, sans conditions. L'annulation se fait en un clic depuis l'espace Stripe. L'accès reste actif jusqu'à la fin de la période payée.</div>
   </div>
   <div class="faq-item">
-    <div class="faq-q" onclick="toggleFaq(this)"><span id="faq4-q">C'est quoi le plan Lifetime exactement ?</span><span class="faq-arrow">▼</span></div>
+    <button type="button" class="faq-q" onclick="toggleFaq(this)"><span id="faq4-q">C'est quoi le plan Lifetime exactement ?</span><span class="faq-arrow">▼</span></button>
     <div class="faq-a" id="faq4-a">Un paiement unique de 149€ donne un accès permanent à SYNC.PLANNER, ainsi qu'aux futures versions de l'application.</div>
   </div>
   <div class="faq-item">
-    <div class="faq-q" onclick="toggleFaq(this)"><span id="faq6-q">L'assistant IA a-t-il accès à mes données ?</span><span class="faq-arrow">▼</span></div>
+    <button type="button" class="faq-q" onclick="toggleFaq(this)"><span id="faq6-q">L'assistant IA a-t-il accès à mes données ?</span><span class="faq-arrow">▼</span></button>
     <div class="faq-a" id="faq6-a">L'IA est entièrement optionnelle. SYNC.PLANNER fonctionne sans intelligence artificielle. Si vous activez l'assistant en renseignant votre propre clé API, les informations nécessaires à votre demande peuvent être transmises au fournisseur d'IA choisi afin de générer la réponse. SYNC.PLANNER ne nécessite aucune clé API pour ses fonctions normales de gestion.</div>
   </div>
   <div class="faq-item">
-    <div class="faq-q" onclick="toggleFaq(this)"><span id="faq7-q">Sur Mac, une alerte de sécurité apparaît — que faire ?</span><span class="faq-arrow">▼</span></div>
+    <button type="button" class="faq-q" onclick="toggleFaq(this)"><span id="faq7-q">Sur Mac, une alerte de sécurité apparaît — que faire ?</span><span class="faq-arrow">▼</span></button>
     <div class="faq-a" id="faq7-a">C'est une protection standard de macOS. Pour ouvrir SYNC.PLANNER : clic droit sur l'app → "Ouvrir" → "Ouvrir quand même". Cette étape n'est nécessaire qu'une seule fois.</div>
   </div>
   <div class="faq-item">
-    <div class="faq-q" onclick="toggleFaq(this)"><span id="faq5-q">Et si j'ai un problème ?</span><span class="faq-arrow">▼</span></div>
+    <button type="button" class="faq-q" onclick="toggleFaq(this)"><span id="faq5-q">Et si j'ai un problème ?</span><span class="faq-arrow">▼</span></button>
     <div class="faq-a" id="faq5-a">Il suffit d'envoyer un mail à contact@syncplanner.app Réponse sous 24h.</div>
   </div>
   <div class="faq-item">
-    <div class="faq-q" onclick="toggleFaq(this)"><span id="faq8-q">SYNC.PLANNER remplace-t-il des outils comme DropCue ou Sync Warehouse ?</span><span class="faq-arrow">▼</span></div>
+    <button type="button" class="faq-q" onclick="toggleFaq(this)"><span id="faq8-q">SYNC.PLANNER remplace-t-il des outils comme DropCue ou Sync Warehouse ?</span><span class="faq-arrow">▼</span></button>
     <div class="faq-a" id="faq8-a">Non — ces outils sont complémentaires. DropCue, DISCO et Sync Warehouse sont des outils de partage et de soumission vers les music supervisors et bibliothèques musicales. SYNC.PLANNER gère la production interne : la création des albums, le suivi des tracks, les deadlines avec les éditeurs et les relances. SYNC.PLANNER s'utilise avant de pitcher — pour être parfaitement organisé quand vient le moment de soumettre.</div>
   </div>
   <div class="faq-item">
-    <div class="faq-q" onclick="toggleFaq(this)"><span id="faq9-q">Qu'est-ce que la musique sync et à qui s'adresse cet outil ?</span><span class="faq-arrow">▼</span></div>
+    <button type="button" class="faq-q" onclick="toggleFaq(this)"><span id="faq9-q">Qu'est-ce que la musique sync et à qui s'adresse cet outil ?</span><span class="faq-arrow">▼</span></button>
     <div class="faq-a" id="faq9-a">La musique sync (ou synchronisation musicale) désigne l'utilisation d'une musique dans un contenu audiovisuel : films, séries TV, jeux vidéo, publicités, documentaires. Les compositeurs qui produisent de la musique sync travaillent en général avec des éditeurs ou bibliothèques musicales (music libraries) qui leur envoient des briefs avec des deadlines précises. SYNC.PLANNER est pour tous les compositeurs qui travaillent sérieusement — qu'ils débutent ou soient déjà établis.</div>
   </div>
   <div class="faq-item">
-    <div class="faq-q" onclick="toggleFaq(this)"><span id="faq10-q">Comment fonctionne le workflow de production musicale dans SYNC.PLANNER ?</span><span class="faq-arrow">▼</span></div>
+    <button type="button" class="faq-q" onclick="toggleFaq(this)"><span id="faq10-q">Comment fonctionne le workflow de production musicale dans SYNC.PLANNER ?</span><span class="faq-arrow">▼</span></button>
     <div class="faq-a" id="faq10-a">Le workflow est simple et calqué sur la réalité du compositeur sync : vous créez un projet (album) pour chaque commande d'un éditeur, vous ajoutez vos tracks avec leur statut (Composition → Envoyée → Révision → Mix → Livrée), et vous définissez une deadline. SYNC.PLANNER calcule automatiquement la progression de chaque album, vous alerte quand une deadline approche, et vous rappelle de relancer les éditeurs qui n'ont pas répondu. L'assistant IA peut ensuite analyser votre production et vous aider à prioriser vos tâches.</div>
   </div>
   <div class="faq-item">
-    <div class="faq-q" onclick="toggleFaq(this)"><span id="faq11-q">Peut-on gérer plusieurs éditeurs et plusieurs albums simultanément ?</span><span class="faq-arrow">▼</span></div>
+    <button type="button" class="faq-q" onclick="toggleFaq(this)"><span id="faq11-q">Peut-on gérer plusieurs éditeurs et plusieurs albums simultanément ?</span><span class="faq-arrow">▼</span></button>
     <div class="faq-a" id="faq11-a">Oui — c'est exactement pour ça que SYNC.PLANNER a été conçu. Vous pouvez gérer un nombre illimité d'albums avec des éditeurs différents, chacun avec sa propre deadline, ses tracks et ses statuts de relance. La vue Kanban mensuelle vous donne une vision globale de toutes vos tracks en cours, tous éditeurs confondus. Les statistiques vous permettent de comparer vos taux de validation par éditeur pour identifier les collaborations les plus fructueuses.</div>
   </div>
 </div>
@@ -699,11 +697,11 @@
   <div style="font-size:11px;color:#2A2750;text-align:center">Logiciel de gestion pour compositeurs sync · music library · publisher · production music · sync licensing · bibliothèque musicale · éditeur musical</div>
   <div style="display:flex;gap:24px">
     <a href="mailto:contact@syncplanner.app">Contact</a>
-    <a href="#" id="footer-legal">Mentions légales</a>
-    <a href="#" id="footer-cgv">CGV</a>
+    <a href="/mentions-legales.html" id="footer-legal">Mentions légales</a>
+    <a href="/cgv.html" id="footer-cgv">CGV</a>
   </div>
 <div style="text-align:center;padding:12px 0;border-top:1px solid #1E1C38;font-size:11px;color:#3D3A60">
-  Made by <a href="https://www.cinematicscoring.com" target="_blank" style="color:#5B5880;text-decoration:none;transition:color 0.15s" onmouseover="this.style.color='#A78BFA'" onmouseout="this.style.color='#5B5880'">Joeffrey Longagnani</a>
+  Made by <a href="https://www.cinematicscoring.com" target="_blank" style="color:#7B78A8;text-decoration:none;transition:color 0.15s" onmouseover="this.style.color='#A78BFA'" onmouseout="this.style.color='#5B5880'">Joeffrey Longagnani</a>
 </div>
 </footer>
 
@@ -740,7 +738,7 @@ const T = {
     "seo-h3-1":"Pour la musique sync",
     "seo-p1":"SYNC.PLANNER est le seul outil de gestion de projets fait pour les compositeurs de musique sync — library, film, TV, jeux vidéo et publicité. Contrairement aux outils génériques comme Notion ou Trello, il comprend le workflow réel d'un compositeur professionnel : albums, tracks, éditeurs, deadlines et relances.",
     "seo-h3-2":"Vos données restent chez vous",
-    "seo-p2":"100% local. Aucun cloud, aucune donnée audio envoyée. Vos projets, tracks et informations clients restent sur votre Mac. Pas d'abonnement cloud à 30€/mois, pas de risque de fuite de données. SYNC.PLANNER fonctionne même hors connexion.",
+    "seo-p2":"100% local par défaut. Aucun cloud, aucune donnée audio envoyée. Vos projets, tracks et informations clients restent sur votre Mac — sauf si vous activez l'assistant IA optionnel avec votre propre clé API, auquel cas vos requêtes sont envoyées au fournisseur d'IA choisi. Pas d'abonnement cloud à 30€/mois. SYNC.PLANNER fonctionne même hors connexion.",
     "seo-h3-3":"Relances éditeurs automatisées",
     "seo-p3":"Les éditeurs peuvent mettre des semaines ou des mois à répondre. SYNC.PLANNER surveille automatiquement vos relances — par album et par track. Quand le délai est dépassé, une alerte apparaît et un email de relance professionnel est prêt à envoyer en un clic, avec votre signature et le contexte complet.",
     "seo-h3-4":"Un assistant IA en bonus",
@@ -767,7 +765,7 @@ const T = {
     "hero-sub":"Beaucoup de tracks en cours, plusieurs clients, des deadlines qui s'accumulent — ça peut vite devenir le foutoir. SYNC.PLANNER centralise tout au même endroit pour ne rien oublier.",
     "hero-sub2":"Pour tous les compositeurs qui travaillent avec des éditeurs, publishers et bibliothèques musicales — gérez vos tracks, deadlines et relances depuis un seul endroit.",
     "btn-mac":"Mac — Télécharger","btn-win":"Windows — En développement","btn-demo-txt":"Explorer les fonctionnalités — démo interactive",
-    "hero-note":"✓ Aucune carte bancaire requise &nbsp;·&nbsp; ✓ Données 100% locales &nbsp;·&nbsp; ✓ Mac (Windows bientôt)",
+    "hero-note":"✓ Aucune carte bancaire requise &nbsp;·&nbsp; ✓ Données de gestion 100% locales &nbsp;·&nbsp; ✓ Mac (Windows bientôt)",
     "hero-evolving":"🔄 Application en constante évolution — mises à jour régulières incluses",
     "problem-eyebrow":"Le problème","problem-title":"Trop d'outils,<br><em>pas assez de clarté.</em>",
     "problem-body":"Un Google Sheet pour les deadlines, un autre pour les tracks, des notes éparpillées, des mails avec les clients... Résultat : des relances oubliées, des deadlines ratées, de la confusion. SYNC.PLANNER regroupe tout en un seul endroit, clair et structuré.",
@@ -831,7 +829,7 @@ const T = {
     "seo-h3-1":"For sync music",
     "seo-p1":"SYNC.PLANNER is the only project management tool built specifically for sync music composers — library, film, TV, video games and advertising. Unlike generic tools like Notion or Trello, it understands the real workflow of a professional composer: albums, tracks, publishers, deadlines and follow-ups.",
     "seo-h3-2":"Your data stays with you",
-    "seo-p2":"100% local. No cloud, no audio data sent. Your projects, tracks and client information stay on your Mac. No €30/month cloud subscription, no risk of data leaks. SYNC.PLANNER works even offline.",
+    "seo-p2":"100% local by default. No cloud, no audio data sent. Your projects, tracks and client information stay on your Mac — unless you enable the optional AI assistant with your own API key, in which case your requests are sent to the AI provider you chose. No €30/month cloud subscription. SYNC.PLANNER works even offline.",
     "seo-h3-3":"Automated publisher follow-ups",
     "seo-p3":"Publishers can take weeks or months to respond. SYNC.PLANNER automatically monitors your follow-ups — per album and per track. When the deadline is exceeded, an alert appears and a professional follow-up email is ready to send in one click, with your signature and full context.",
     "seo-h3-4":"An optional AI assistant",
@@ -922,6 +920,7 @@ function closeMobileNav() {
 
 function setLang(lang) {
   localStorage.setItem('site-lang', lang);
+  document.documentElement.lang = lang;
   document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
   document.getElementById('btn-en').classList.toggle('active', lang === 'en');
   const t = T[lang];
@@ -931,13 +930,20 @@ function setLang(lang) {
   });
   // Update demo link based on language
   const demoBtn = document.getElementById('btn-demo');
-  if(demoBtn) demoBtn.href = lang === 'en' ? '/help?lang=en' : '/help?lang=fr';
+  if(demoBtn) demoBtn.href = '/demo.html';
   // Update demo tabs
   document.querySelectorAll('.demo-tab').forEach(tab => {
     const key = lang === 'fr' ? 'data-fr' : 'data-en';
     if(tab.getAttribute(key)) tab.textContent = tab.getAttribute(key);
   });
   document.title = lang === 'fr' ? 'SYNC.PLANNER — Gestion de projets pour compositeurs' : 'SYNC.PLANNER — Project Management for Composers';
+  const calMonthEl = document.getElementById('cal-month');
+  if (calMonthEl) {
+    const fmt = new Intl.DateTimeFormat(lang === 'fr' ? 'fr-FR' : 'en-US', { month: 'long', year: 'numeric' });
+    let label = fmt.format(new Date());
+    if (lang === 'fr') label = label.charAt(0).toUpperCase() + label.slice(1);
+    calMonthEl.textContent = label;
+  }
 }
 
 window.addEventListener('load', () => {
