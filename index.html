@@ -349,6 +349,7 @@
     <div class="feat"><div class="feat-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="1.6" stroke-linecap="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div><div class="feat-title" id="feat2-title">Suivi de chaque track</div><div class="feat-body" id="feat2-body">Composition, révision, mix, livraison — chaque track dispose de son propre statut. La progression de chaque projet est visible en temps réel.</div></div>
     <div class="feat"><div class="feat-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="1.6" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><div class="feat-title" id="feat3-title">Gestion des clients</div><div class="feat-body" id="feat3-body">Coordonnées, taux de validation, historique de collaboration. Toutes les informations sur les clients et éditeurs centralisées en un seul endroit.</div></div>
     <div class="feat"><div class="feat-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="1.6" stroke-linecap="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg></div><div class="feat-title" id="feat4-title">Stats de production</div><div class="feat-body" id="feat4-body">Nombre de tracks produites, taux de validation par client, évolution mensuelle. Des données concrètes pour mieux organiser la production.</div></div>
+    <div class="feat"><div class="feat-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="1.6" stroke-linecap="round"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M9 15V9M12 15V6M15 15v-4"/></svg></div><div class="feat-title" id="featSacem-title">Revenus SACEM &amp; temps Logic Pro</div><div class="feat-body" id="featSacem-body">Importe tes relevés SACEM : ils sont automatiquement rapprochés de tes tracks, avec le revenu par album, par éditeur et le temps composé sur Logic Pro pour calculer ta rentabilité en €/heure. Une intégration BMI (droits d'exécution US) est à l'étude pour les compositeurs actifs sur le marché américain.</div></div>
     <div class="feat"><div class="feat-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="1.6" stroke-linecap="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-3.51"/></svg></div><div class="feat-title" id="feat5-title">Tracks refusées recyclées</div><div class="feat-body" id="feat5-body">Une track refusée peut être réutilisée. SYNC.PLANNER permet de la marquer disponible et de la transférer vers un autre projet.</div></div>
     <div class="feat"><div class="feat-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="1.6" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div><div class="feat-title" id="feat6-title">100% local et privé</div><div class="feat-body" id="feat6-body">Toutes les données de gestion restent sur l'ordinateur de l'utilisateur. Aucun cloud, aucun serveur tiers par défaut — seule l'utilisation optionnelle de l'assistant IA transmet des données, et uniquement si tu l'actives.</div></div>
     <div class="feat" style="grid-column:1/-1;background:#1A1050;border-top:1px solid #7C3AED44"><div class="feat-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="1.6" stroke-linecap="round"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/></svg></div><div class="feat-title" id="feat7-title">🎁 Bonus — Assistant IA intégré (Beta)</div><div class="feat-body" id="feat7-body">Connectez votre propre clé API (OpenAI, Claude ou Mistral) pour bénéficier d'un assistant IA directement dans SYNC.PLANNER. Il peut s'appuyer sur vos projets pour vous aider à prioriser votre production, analyser vos deadlines, préparer vos livraisons et répondre à vos questions.</div></div>
@@ -418,6 +419,13 @@
             </tr>
             <tr style="border-bottom:1px solid #1E1C38">
               <td style="padding:10px;color:var(--texte)" id="seo-row4">100% local & privé</td>
+              <td style="text-align:center;padding:10px;color:#10B981">✅</td>
+              <td style="text-align:center;padding:10px;color:#F87171">❌</td>
+              <td style="text-align:center;padding:10px;color:#F87171">❌</td>
+              <td style="text-align:center;padding:10px;color:#F87171">❌</td>
+            </tr>
+            <tr style="border-bottom:1px solid #1E1C38">
+              <td style="padding:10px;color:var(--texte)" id="seo-rowSacem">Revenus SACEM/BMI + temps Logic Pro</td>
               <td style="text-align:center;padding:10px;color:#10B981">✅</td>
               <td style="text-align:center;padding:10px;color:#F87171">❌</td>
               <td style="text-align:center;padding:10px;color:#F87171">❌</td>
@@ -750,6 +758,7 @@ const T = {
     "seo-row2":"Relances éditeurs",
     "seo-row3":"IA coach production",
     "seo-row4":"100% local & privé",
+    "seo-rowSacem":"Revenus SACEM/BMI + temps Logic Pro",
     "seo-row5":"Prix",
     "seo-forwhom-title":"SYNC.PLANNER est fait pour vous si...",
     "seo-for1-title":"Compositeur library",
@@ -778,6 +787,7 @@ const T = {
     "feat4-title":"Stats de production","feat4-body":"Nombre de tracks produites, taux de validation par client, évolution mensuelle. Des données concrètes pour mieux organiser la production.",
     "feat5-title":"Tracks refusées recyclées","feat5-body":"Une track refusée peut être réutilisée. SYNC.PLANNER permet de la marquer disponible et de la transférer vers un autre projet.",
     "feat6-title":"100% local et privé","feat6-body":"Toutes les données de gestion restent sur l'ordinateur de l'utilisateur. Aucun cloud, aucun serveur tiers par défaut — seule l'utilisation optionnelle de l'assistant IA transmet des données, et uniquement si tu l'actives.",
+    "featSacem-title":"Revenus SACEM & temps Logic Pro","featSacem-body":"Importe tes relevés SACEM : ils sont automatiquement rapprochés de tes tracks, avec le revenu par album, par éditeur et le temps composé sur Logic Pro pour calculer ta rentabilité en €/heure. Une intégration BMI (droits d'exécution US) est à l'étude pour les compositeurs actifs sur le marché américain.",
     "demo-eyebrow":"Tour de l'application","demo-title":"Toutes les vues,<br><em>dans le détail</em>","demo-sub":"Voici à quoi ressemble SYNC.PLANNER au quotidien.",
     "dash-stat1":"Albums actifs","dash-stat2":"Validées","dash-stat3":"Taux valid.","dash-stat4":"Total tracks",
     "dash-alert":"2 deadlines urgentes — Dark Matter (J-3) · Urban Bass (J-6)",
@@ -841,6 +851,7 @@ const T = {
     "seo-row2":"Publisher follow-ups",
     "seo-row3":"AI production coach",
     "seo-row4":"100% local & private",
+    "seo-rowSacem":"SACEM/BMI revenue + Logic Pro time",
     "seo-row5":"Price",
     "seo-forwhom-title":"SYNC.PLANNER is made for you if...",
     "seo-for1-title":"Library composer",
@@ -869,6 +880,7 @@ const T = {
     "feat4-title":"Production stats","feat4-body":"Tracks produced, validation rate per client, monthly trends. Concrete data to better plan production.",
     "feat5-title":"Recycle refused tracks","feat5-body":"A refused track isn't dead. Mark it available and transfer it to another project.",
     "feat6-title":"100% local & private","feat6-body":"All management data stays on the user's computer. No cloud, no third-party server — except when optionally using the AI assistant. Total privacy.",
+    "featSacem-title":"SACEM revenue & Logic Pro time","featSacem-body":"Import your SACEM statements: they're automatically matched to your tracks, with revenue by album and by publisher, plus the time you composed in Logic Pro to work out your profitability per hour. A BMI (US performing rights) integration is under consideration for composers also active on the US market.",
     "demo-eyebrow":"App tour","demo-title":"Every view,<br><em>in detail</em>","demo-sub":"Here's what SYNC.PLANNER looks like day to day.",
     "dash-stat1":"Active projects","dash-stat2":"Validated","dash-stat3":"Val. rate","dash-stat4":"Total tracks",
     "dash-alert":"2 urgent deadlines — Dark Matter (D-3) · Urban Bass (D-6)",
