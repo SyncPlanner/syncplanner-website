@@ -360,11 +360,11 @@ const T = {
     cal_hint: "Les cases orange sont des deadlines éditeurs.",
     stats_title: "Statistiques", tab_total: "Total", tab_year: "Par année", tab_collabs: "Collabs",
     stats_total_tracks: "Tracks au total", stats_rate: "Taux d'acceptation", stats_albums: "Albums (dont archivés)",
-    stats_revenue: "Revenus SACEM (démo)", stats_placements: "Placements matchés",
+    stats_revenue: "Revenus SACEM cumulés depuis 2023 (démo)", stats_placements: "Placements matchés",
     stats_by_year: "Répartition par année", stats_by_publisher: "Revenus SACEM par éditeur",
     stats_track: "track", stats_collab_title: "Collaborateurs", stats_collab_sub: "Compositeurs associés à certaines tracks de ton catalogue.",
     stats_collab_role: "Co-composition", stats_collab_tracks: "tracks partagées",
-    sacem_title: "Revenus SACEM", sacem_hint: "Importe un relevé (démo) — matching automatique par titre, simulé ici.",
+    sacem_title: "Revenus SACEM", sacem_hint: "Importe un relevé trimestriel (démo) — matching automatique par titre, simulé ici. Total sur ce relevé uniquement.",
     sacem_import: "Importer un relevé (démo)", sacem_processing: "Import et matching en cours...", sacem_total: "Total NET",
     placements_hint: "Importe d'abord un relevé SACEM (page précédente) pour voir apparaître les placements détectés.",
     placements_diffusion: "diffusion", placements_diffusions: "diffusions",
@@ -395,11 +395,11 @@ const T = {
     cal_hint: "Orange cells are publisher deadlines.",
     stats_title: "Statistics", tab_total: "Total", tab_year: "By year", tab_collabs: "Collabs",
     stats_total_tracks: "Total tracks", stats_rate: "Acceptance rate", stats_albums: "Albums (incl. archived)",
-    stats_revenue: "SACEM revenue (demo)", stats_placements: "Matched placements",
+    stats_revenue: "SACEM revenue accrued since 2023 (demo)", stats_placements: "Matched placements",
     stats_by_year: "Breakdown by year", stats_by_publisher: "SACEM revenue by publisher",
     stats_track: "track", stats_collab_title: "Collaborators", stats_collab_sub: "Composers associated with some tracks in your catalog.",
     stats_collab_role: "Co-composition", stats_collab_tracks: "shared tracks",
-    sacem_title: "SACEM Revenue", sacem_hint: "Import a statement (demo) — automatic matching by title, simulated here.",
+    sacem_title: "SACEM Revenue", sacem_hint: "Import a quarterly statement (demo) — automatic matching by title, simulated here. Total for this statement only.",
     sacem_import: "Import a statement (demo)", sacem_processing: "Importing and matching...", sacem_total: "Net total",
     placements_hint: "First import a SACEM statement (previous page) to see detected placements appear.",
     placements_diffusion: "airing", placements_diffusions: "airings",
@@ -448,29 +448,46 @@ function fmtEur(n){
 }
 
 // ===== données fictives =====
+// Catalogue à l'échelle d'un compositeur sync actif depuis 2023 : 100 tracks au total,
+// répartis sur 12 albums (6 en cours + 6 archivés) et 6 éditeurs — chiffres croisés
+// et strictement cohérents entre Dashboard, Éditeurs et Statistiques.
 const ALBUMS = [
   {name:'Whodunit', editeur:'Nordlight Sync', tracks:8, pct:75, grad:'linear-gradient(135deg,#7C3AED,#3B82F6)'},
   {name:'Neon Drift', editeur:'Vantage Score', tracks:6, pct:40, grad:'linear-gradient(135deg,#F87171,#FBBF24)'},
   {name:'Silent Rooms', editeur:'Greyfield Music', tracks:5, pct:100, grad:'linear-gradient(135deg,#34D399,#60A5FA)'},
+  {name:'Crimson Static', editeur:'Aurora Cue Co.', tracks:10, pct:60, grad:'linear-gradient(135deg,#DC2626,#F97316)'},
+  {name:'Velvet Undertow', editeur:'Halcyon Sync', tracks:7, pct:30, grad:'linear-gradient(135deg,#0EA5E9,#22D3EE)'},
+  {name:'Afterlight', editeur:'Bright Signal Music', tracks:9, pct:85, grad:'linear-gradient(135deg,#F472B6,#A78BFA)'},
 ];
 const ARCHIVED_ALBUMS = [
   {name:'Dust & Chrome', editeur:'Nordlight Sync', tracks:7, pct:100, grad:'linear-gradient(135deg,#4B4870,#2A2750)'},
+  {name:'Paper Moons', editeur:'Vantage Score', tracks:9, pct:100, grad:'linear-gradient(135deg,#4B4870,#2A2750)'},
+  {name:'Glasswork', editeur:'Greyfield Music', tracks:6, pct:100, grad:'linear-gradient(135deg,#4B4870,#2A2750)'},
+  {name:'Static Bloom', editeur:'Aurora Cue Co.', tracks:8, pct:100, grad:'linear-gradient(135deg,#4B4870,#2A2750)'},
+  {name:'Winter Static', editeur:'Halcyon Sync', tracks:11, pct:100, grad:'linear-gradient(135deg,#4B4870,#2A2750)'},
+  {name:'Low Orbit', editeur:'Bright Signal Music', tracks:14, pct:100, grad:'linear-gradient(135deg,#4B4870,#2A2750)'},
 ];
 
-// Chiffres cohérents entre la page Éditeurs et la page Statistiques :
-// Nordlight Sync (15 tracks: 8 validées, 1 refusée) + Vantage Score (6: 4 validées, 1 refusée) + Greyfield Music (5: 3 validées, 1 refusée)
-// = 26 tracks au catalogue, 15 validées, 3 refusées.
+// Chiffres cohérents entre Dashboard, Éditeurs et Statistiques :
+// 100 tracks au catalogue (45 albums en cours + 55 archivés) = 61 validées + 8 refusées + 31 en cours.
+// Revenus SACEM cumulés (démo) : 14 222,35 € sur l'ensemble du catalogue depuis 2023.
 const PUBLISHERS = [
-  {name:'Nordlight Sync', initials:'NS', color:'#7C3AED', albums:2, tracks:15, validated:8, refused:1, revenue:335.20, contact:'sync@nordlightpublishing.com', lastContact:'28 août 2026'},
-  {name:'Vantage Score', initials:'VS', color:'#0EA5E9', albums:1, tracks:6, validated:4, refused:1, revenue:166.10, contact:'licensing@vantagescore.io', lastContact:'12 août 2026'},
-  {name:'Greyfield Music', initials:'GM', color:'#F59E0B', albums:1, tracks:5, validated:3, refused:1, revenue:64.10, contact:'contact@greyfieldmusic.co', lastContact:'3 juillet 2026'},
+  {name:'Nordlight Sync', initials:'NS', color:'#7C3AED', albums:2, tracks:15, validated:10, refused:1, revenue:2380.50, contact:'sync@nordlightpublishing.com', lastContact:'28 août 2026'},
+  {name:'Vantage Score', initials:'VS', color:'#0EA5E9', albums:2, tracks:15, validated:9, refused:2, revenue:1654.20, contact:'licensing@vantagescore.io', lastContact:'12 août 2026'},
+  {name:'Greyfield Music', initials:'GM', color:'#F59E0B', albums:2, tracks:11, validated:7, refused:1, revenue:980.75, contact:'contact@greyfieldmusic.co', lastContact:'3 juillet 2026'},
+  {name:'Aurora Cue Co.', initials:'AC', color:'#DC2626', albums:2, tracks:18, validated:11, refused:1, revenue:3120.40, contact:'sync@auroracue.co', lastContact:'2 septembre 2026'},
+  {name:'Halcyon Sync', initials:'HS', color:'#22D3EE', albums:2, tracks:18, validated:10, refused:2, revenue:1875.60, contact:'submissions@halcyonsync.com', lastContact:'19 août 2026'},
+  {name:'Bright Signal Music', initials:'BS', color:'#F472B6', albums:2, tracks:23, validated:14, refused:1, revenue:4210.90, contact:'licensing@brightsignalmusic.com', lastContact:'30 août 2026'},
 ];
 const YEARS_BREAKDOWN = [
-  {year:2025, tracks:10, validated:6, refused:1},
-  {year:2026, tracks:16, validated:9, refused:2},
+  {year:2023, tracks:12, validated:6, refused:1},
+  {year:2024, tracks:22, validated:13, refused:2},
+  {year:2025, tracks:30, validated:19, refused:2},
+  {year:2026, tracks:36, validated:23, refused:3},
 ];
 const COLLABS = [
-  {name:'Léo Martins', initials:'LM', tracks:2, albumName:'Neon Drift'},
+  {name:'Léo Martins', initials:'LM', tracks:5, albumName:'Crimson Static'},
+  {name:'Nina Kowalski', initials:'NK', tracks:3, albumName:'Winter Static'},
 ];
 
 function renderPublishers(){
@@ -528,7 +545,7 @@ function renderStats(){
   const totalRefused = PUBLISHERS.reduce((a,p)=>a+p.refused,0);
   const rate = Math.round(totalValidated/(totalValidated+totalRefused)*100);
   const totalRevenue = PUBLISHERS.reduce((a,p)=>a+p.revenue,0);
-  const placementsCount = sacemImported ? 4 : 0;
+  const placementsCount = sacemImported ? 6 : 0;
   const totalAlbums = ALBUMS.length + ARCHIVED_ALBUMS.length;
 
   // ----- Tab: Total -----
@@ -679,14 +696,17 @@ function runSacemDemo(){
       '<div class="sacem-line"><span>Paper Cranes</span><span class="amt">'+fmtEur(64.10)+'</span></div>'+
       '<div class="sacem-line"><span>Glass Horizon</span><span class="amt">'+fmtEur(47.20)+'</span></div>'+
       '<div class="sacem-line"><span>Dust & Chrome ('+(LANG==='fr'?'thème':'theme')+')</span><span class="amt">'+fmtEur(22.80)+'</span></div>'+
-      '<div class="sacem-line" style="border-top:1px solid #2A2750;margin-top:6px;padding-top:10px;font-weight:800"><span>'+t.sacem_total+'</span><span class="amt">'+fmtEur(565.40)+'</span></div>';
+      '<div class="sacem-line"><span>Crimson Static ('+(LANG==='fr'?'thème':'theme')+')</span><span class="amt">'+fmtEur(156.60)+'</span></div>'+
+      '<div class="sacem-line" style="border-top:1px solid #2A2750;margin-top:6px;padding-top:10px;font-weight:800"><span>'+t.sacem_total+'</span><span class="amt">'+fmtEur(722.00)+'</span></div>';
     const d1 = LANG==='fr'?'3 diffusions':'3 airings', d2 = LANG==='fr'?'1 diffusion':'1 airing', d3 = LANG==='fr'?'2 diffusions':'2 airings';
-    const l1 = LANG==='fr'?'série TV':'TV series', l2 = LANG==='fr'?'long-métrage':'feature film', l3 = LANG==='fr'?'publicité auto':'car commercial', l4 = LANG==='fr'?'jeu vidéo':'video game';
+    const l1 = LANG==='fr'?'série TV':'TV series', l2 = LANG==='fr'?'long-métrage':'feature film', l3 = LANG==='fr'?'publicité auto':'car commercial', l4 = LANG==='fr'?'jeu vidéo':'video game', l5 = LANG==='fr'?'série TV (générique)':'TV series (main title)', l6 = LANG==='fr'?'bande-annonce':'movie trailer';
     document.getElementById('placementsResult').innerHTML =
       '<div class="placement-card"><div class="placement-cover" style="background:linear-gradient(135deg,#1E3A8A,#7C3AED)"></div><div><div class="placement-title">The Late Signal — S02 ('+l1+')</div><div class="placement-sub">Diamond Cut · '+d1+'</div></div></div>'+
       '<div class="placement-card"><div class="placement-cover" style="background:linear-gradient(135deg,#B45309,#DC2626)"></div><div><div class="placement-title">Bord de Rupture ('+l2+')</div><div class="placement-sub">Afterglow · '+d2+'</div></div></div>'+
       '<div class="placement-card"><div class="placement-cover" style="background:linear-gradient(135deg,#059669,#0EA5E9)"></div><div><div class="placement-title">Horizon Drift ('+l3+')</div><div class="placement-sub">Paper Cranes · '+d3+'</div></div></div>'+
-      '<div class="placement-card"><div class="placement-cover" style="background:linear-gradient(135deg,#7C3AED,#F472B6)"></div><div><div class="placement-title">Nightfall Protocol ('+l4+')</div><div class="placement-sub">Glass Horizon · '+d2+'</div></div></div>';
+      '<div class="placement-card"><div class="placement-cover" style="background:linear-gradient(135deg,#7C3AED,#F472B6)"></div><div><div class="placement-title">Nightfall Protocol ('+l4+')</div><div class="placement-sub">Glass Horizon · '+d2+'</div></div></div>'+
+      '<div class="placement-card"><div class="placement-cover" style="background:linear-gradient(135deg,#4B4870,#2A2750)"></div><div><div class="placement-title">Low Orbit ('+l5+')</div><div class="placement-sub">Dust & Chrome · '+d3+'</div></div></div>'+
+      '<div class="placement-card"><div class="placement-cover" style="background:linear-gradient(135deg,#DC2626,#F97316)"></div><div><div class="placement-title">Static Bloom ('+l6+')</div><div class="placement-sub">Crimson Static · '+d2+'</div></div></div>';
     sacemImported = true;
     renderStats();
     btn.disabled = false;
