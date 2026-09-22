@@ -96,15 +96,15 @@
   .hero { min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 60px 80px;position:relative;overflow:hidden; }
   .hero-bg { position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse 70% 60% at 65% 50%,#3b1d8a1a 0%,transparent 70%); }
   .hero-grid { position:absolute;inset:0;z-index:0;background-image:linear-gradient(rgba(124,58,237,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(124,58,237,0.03) 1px,transparent 1px);background-size:60px 60px; }
-  .hero-content { position:relative;z-index:1;max-width:680px; }
+  .hero-content { position:relative;z-index:1;max-width:680px;margin:0 auto;text-align:center; }
   .hero-badge { display:inline-flex;align-items:center;gap:8px;background:rgba(124,58,237,0.12);border:1px solid rgba(124,58,237,0.35);border-radius:100px;padding:6px 16px;font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:600;color:var(--violet2);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:28px; }
   .hero-badge::before { content:'';width:6px;height:6px;border-radius:50%;background:var(--violet2);animation:blink 2s ease-in-out infinite; }
   @keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
   .hero h1 { font-family:'Space Grotesk',sans-serif;font-size:clamp(40px,6vw,76px);font-weight:700;line-height:1.0;letter-spacing:-0.03em;color:var(--creme);margin-bottom:24px; }
   .hero h1 span { color:var(--violet); }
-  .hero-sub { font-size:clamp(16px,2vw,19px);color:var(--texte);margin-bottom:16px;max-width:540px;line-height:1.7; }
-  .hero-sub2 { font-size:15px;color:#8582B0;margin-bottom:44px;max-width:480px;line-height:1.6; }
-  .hero-btns { display:flex;gap:14px;flex-wrap:wrap;margin-bottom:24px; }
+  .hero-sub { font-size:clamp(16px,2vw,19px);color:var(--texte);margin:0 auto 16px;max-width:540px;line-height:1.7; }
+  .hero-sub2 { font-size:15px;color:#8582B0;margin:0 auto 44px;max-width:480px;line-height:1.6; }
+  .hero-btns { display:flex;gap:14px;flex-wrap:wrap;margin-bottom:24px;justify-content:center; }
   .btn-primary { display:inline-flex;align-items:center;gap:8px;padding:15px 32px;background:var(--violet);color:white;border-radius:10px;font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600;text-decoration:none;box-shadow:0 8px 24px rgba(124,58,237,0.35);transition:transform 0.2s,box-shadow 0.2s; }
   .btn-primary:hover { transform:translateY(-2px);box-shadow:0 12px 32px rgba(124,58,237,0.5); }
   .btn-win { background:#2D1B69;box-shadow:0 8px 24px rgba(45,27,105,0.4); }
@@ -220,12 +220,13 @@
     <h1 id="hero-h1">Fini le<br>désordre.<br><span>Reste focus.</span></h1>
     <p class="hero-sub" id="hero-sub">Beaucoup de tracks en cours, plusieurs clients, des deadlines qui s'accumulent — ça peut vite devenir le foutoir. SYNC.PLANNER centralise tout au même endroit pour ne rien oublier.</p>
     <p class="hero-sub2" id="hero-sub2">Pour tous les compositeurs qui travaillent avec des éditeurs, publishers et bibliothèques musicales — gérez vos tracks, deadlines et relances depuis un seul endroit.</p>
+    <div style="font-size:11px;color:#8582B0;margin-bottom:8px" id="mac-download-label">Télécharger pour Mac — choisis ta puce :</div>
     <div class="hero-btns" id="download">
-      <a href="https://github.com/SyncPlanner/SyncPlanner-app/releases/download/v1.1.2/SYNC.PLANNER-1.1.2-arm64.dmg" class="btn-primary" id="btn-mac-arm">Mac (Apple Silicon) — Télécharger</a>
-      <a href="https://github.com/SyncPlanner/SyncPlanner-app/releases/download/v1.1.2/SYNC.PLANNER-1.1.2.dmg" class="btn-primary" id="btn-mac-intel" style="background:transparent;border:1px solid var(--violet);color:var(--violet2)">Mac (Intel) — Télécharger</a>
+      <a href="https://github.com/SyncPlanner/SyncPlanner-app/releases/download/v1.1.2/SYNC.PLANNER-1.1.2-arm64.dmg" class="btn-primary" id="btn-mac-arm">🍎 Apple Silicon (M1-M4)</a>
+      <a href="https://github.com/SyncPlanner/SyncPlanner-app/releases/download/v1.1.2/SYNC.PLANNER-1.1.2.dmg" class="btn-secondary" id="btn-mac-intel">Intel</a>
       <span class="btn-primary btn-win" id="btn-win" style="opacity:0.45;cursor:not-allowed;pointer-events:none">Windows — En développement</span>
     </div>
-    <div style="margin-top:8px;font-size:11px;color:#8582B0" id="mac-arch-help">Puce Apple (M1/M2/M3/M4) → Apple Silicon. Mac Intel plus ancien → Intel. Nécessite macOS 12 (Monterey) ou plus récent.</div>
+    <div style="margin-top:8px;font-size:11px;color:#8582B0" id="mac-arch-help">Pas sûr de ta puce ?  → Menu Pomme  ▸ "À propos de ce Mac" indique "Puce Apple" ou "Processeur Intel". Nécessite macOS 12 (Monterey) ou plus récent.</div>
     <div style="margin-top:14px">
       <a href="/demo.html" id="btn-demo" style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#A78BFA;text-decoration:none;border:1px solid rgba(167,139,250,0.25);border-radius:8px;padding:8px 16px;background:rgba(124,58,237,0.08);transition:all 0.2s"
         onmouseover="this.style.background='rgba(124,58,237,0.18)';this.style.borderColor='rgba(167,139,250,0.5)'"
@@ -699,10 +700,11 @@
   <h2 id="cta-final-title">Gérez vos <span>projets musicaux</span><br>sans vous perdre.</h2>
   <p id="cta-final-sub">14 jours d'essai gratuit, sans carte bancaire. Le temps de voir si SYNC.PLANNER correspond au workflow.</p>
   <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
-    <a href="https://github.com/SyncPlanner/SyncPlanner-app/releases/download/v1.1.2/SYNC.PLANNER-1.1.2-arm64.dmg" class="btn-primary" id="cta-final-mac-arm">Mac (Apple Silicon) — Télécharger</a>
-    <a href="https://github.com/SyncPlanner/SyncPlanner-app/releases/download/v1.1.2/SYNC.PLANNER-1.1.2.dmg" class="btn-primary" id="cta-final-mac-intel" style="background:transparent;border:1px solid var(--violet);color:var(--violet2)">Mac (Intel) — Télécharger</a>
+    <a href="https://github.com/SyncPlanner/SyncPlanner-app/releases/download/v1.1.2/SYNC.PLANNER-1.1.2-arm64.dmg" class="btn-primary" id="cta-final-mac-arm">🍎 Apple Silicon (M1-M4)</a>
+    <a href="https://github.com/SyncPlanner/SyncPlanner-app/releases/download/v1.1.2/SYNC.PLANNER-1.1.2.dmg" class="btn-secondary" id="cta-final-mac-intel">Intel</a>
     <span class="btn-primary btn-win" id="cta-final-win" style="opacity:0.45;cursor:not-allowed;pointer-events:none">Windows — En développement</span>
   </div>
+  <div style="margin-top:10px;font-size:11px;color:#8582B0;text-align:center" id="cta-final-arch-help">Pas sûr de ta puce ? Menu Pomme ▸ "À propos de ce Mac".</div>
 </section>
 
 <footer>
@@ -779,7 +781,9 @@ const T = {
     "hero-h1":"Fini le<br>désordre.<br><span style='color:var(--violet)'>Reste focus.</span>",
     "hero-sub":"Beaucoup de tracks en cours, plusieurs clients, des deadlines qui s'accumulent — ça peut vite devenir le foutoir. SYNC.PLANNER centralise tout au même endroit pour ne rien oublier.",
     "hero-sub2":"Pour tous les compositeurs qui travaillent avec des éditeurs, publishers et bibliothèques musicales — gérez vos tracks, deadlines et relances depuis un seul endroit.",
-    "btn-mac-arm":"Mac (Apple Silicon) — Télécharger","btn-mac-intel":"Mac (Intel) — Télécharger","btn-win":"Windows — En développement","btn-demo-txt":"Explorer les fonctionnalités — démo interactive","mac-arch-help":"Puce Apple (M1/M2/M3/M4) → Apple Silicon. Mac Intel plus ancien → Intel. Nécessite macOS 12 (Monterey) ou plus récent.",
+    "mac-download-label":"Télécharger pour Mac — choisis ta puce :",
+    "btn-mac-arm":"🍎 Apple Silicon (M1-M4)","btn-mac-intel":"Intel","btn-win":"Windows — En développement","btn-demo-txt":"Explorer les fonctionnalités — démo interactive","mac-arch-help":"Pas sûr de ta puce ? Menu Pomme ▸ \"À propos de ce Mac\" indique \"Puce Apple\" ou \"Processeur Intel\". Nécessite macOS 12 (Monterey) ou plus récent.",
+    "cta-final-arch-help":"Pas sûr de ta puce ? Menu Pomme ▸ \"À propos de ce Mac\".",
     "hero-note":"✓ Aucune carte bancaire requise &nbsp;·&nbsp; ✓ Données de gestion 100% locales &nbsp;·&nbsp; ✓ macOS 12+ (Apple Silicon & Intel) — Windows bientôt",
     "hero-evolving":"🔄 Application en constante évolution — mises à jour régulières incluses",
     "problem-eyebrow":"Le problème","problem-title":"Trop d'outils,<br><em>pas assez de clarté.</em>",
@@ -829,7 +833,7 @@ const T = {
     "faq11-q":"Peut-on gérer plusieurs éditeurs et albums simultanément ?","faq11-a":"Oui — c'est exactement pour ça que SYNC.PLANNER a été conçu. Nombre illimité d'albums avec différents éditeurs, chacun avec sa deadline et ses statuts de relance. La vue Kanban mensuelle donne une vision globale de toutes vos tracks. Les statistiques comparent vos taux de validation par éditeur.",
     "cta-final-title":"Gérez vos <span style='color:var(--violet2)'>projets musicaux</span><br>sans vous perdre.",
     "cta-final-sub":"14 jours d'essai gratuit, sans carte bancaire. Le temps de voir si SYNC.PLANNER correspond au workflow.",
-    "cta-final-mac-arm":"Mac (Apple Silicon) — Télécharger","cta-final-mac-intel":"Mac (Intel) — Télécharger","cta-final-win":"Windows — En développement","pricing-trial-link":"✓ Tester gratuitement pendant 14 jours — aucune carte bancaire",
+    "cta-final-mac-arm":"🍎 Apple Silicon (M1-M4)","cta-final-mac-intel":"Intel","cta-final-win":"Windows — En développement","pricing-trial-link":"✓ Tester gratuitement pendant 14 jours — aucune carte bancaire",
     "footer-legal":"Mentions légales","footer-cgv":"CGV","feat7-title":"🎁 Bonus — Assistant IA intégré (Beta)","feat7-body":"Connectez votre propre clé API (OpenAI, Claude ou Mistral) pour bénéficier d'un assistant IA directement dans SYNC.PLANNER. Il peut s'appuyer sur vos projets pour vous aider à prioriser votre production, analyser vos deadlines, préparer vos livraisons et répondre à vos questions.","faq6-q":"L'assistant IA a-t-il accès à mes données ?","faq6-a":"L'IA est entièrement optionnelle. SYNC.PLANNER fonctionne sans intelligence artificielle. Si vous activez l'assistant en renseignant votre propre clé API, les informations nécessaires à votre demande peuvent être transmises au fournisseur d'IA choisi afin de générer la réponse, et cet usage peut entraîner une facturation séparée directement auprès de ce fournisseur (OpenAI, Anthropic ou Mistral), indépendante de votre abonnement SYNC.PLANNER. SYNC.PLANNER ne nécessite aucune clé API pour ses fonctions normales de gestion.",
   },
   en: {
@@ -873,7 +877,9 @@ const T = {
     "hero-h1":"No more<br>chaos.<br><span style='color:var(--violet)'>Stay focused.</span>",
     "hero-sub":"Lots of tracks in progress, multiple clients, deadlines piling up — it can get messy fast. SYNC.PLANNER keeps everything in one place so nothing slips through.",
     "hero-sub2":"SYNC.PLANNER is the project management tool for composers who work with publishers and music libraries — whether you're just starting out or already established.",
-    "btn-mac-arm":"Mac (Apple Silicon) — Download","btn-mac-intel":"Mac (Intel) — Download","btn-win":"Windows — In development","btn-demo-txt":"Explore features — interactive demo","mac-arch-help":"Apple chip (M1/M2/M3/M4) → Apple Silicon. Older Intel Mac → Intel. Requires macOS 12 (Monterey) or later.",
+    "mac-download-label":"Download for Mac — pick your chip:",
+    "btn-mac-arm":"🍎 Apple Silicon (M1-M4)","btn-mac-intel":"Intel","btn-win":"Windows — In development","btn-demo-txt":"Explore features — interactive demo","mac-arch-help":"Not sure which chip? Apple menu ▸ \"About This Mac\" shows \"Apple chip\" or \"Intel processor\". Requires macOS 12 (Monterey) or later.",
+    "cta-final-arch-help":"Not sure which chip? Apple menu ▸ \"About This Mac\".",
     "hero-note":"✓ No credit card required &nbsp;·&nbsp; ✓ 100% local data &nbsp;·&nbsp; ✓ macOS 12+ (Apple Silicon & Intel) — Windows coming soon",
     "hero-evolving":"🔄 Constantly evolving app — regular updates included",
     "problem-eyebrow":"The problem","problem-title":"Too many tools,<br><em>not enough clarity.</em>",
@@ -923,7 +929,7 @@ const T = {
     "faq11-q":"Can you manage multiple publishers and albums simultaneously?","faq11-a":"Yes — that's exactly what SYNC.PLANNER was designed for. Unlimited albums with different publishers, each with its own deadline, tracks and follow-up statuses. The monthly Kanban view gives a global overview of all your tracks. Statistics let you compare your validation rates by publisher to identify the most productive collaborations.",
     "cta-final-title":"Manage your <span style='color:var(--violet2)'>music projects</span><br>without losing track.",
     "cta-final-sub":"14-day free trial, no credit card. See if SYNC.PLANNER fits your workflow.",
-    "cta-final-mac-arm":"Mac (Apple Silicon) — Download","cta-final-mac-intel":"Mac (Intel) — Download","cta-final-win":"Windows — In development","pricing-trial-link":"✓ Try free for 14 days — no credit card required",
+    "cta-final-mac-arm":"🍎 Apple Silicon (M1-M4)","cta-final-mac-intel":"Intel","cta-final-win":"Windows — In development","pricing-trial-link":"✓ Try free for 14 days — no credit card required",
     "footer-legal":"Legal notice","footer-cgv":"Terms","feat7-title":"🎁 Bonus — Built-in AI assistant (Beta)","feat7-body":"Connect your own API key (OpenAI, Claude or Mistral) to get an AI assistant right inside SYNC.PLANNER. It can draw on your projects to help you prioritize production, analyze deadlines, prepare deliveries and answer your questions.","faq6-q":"Does the AI assistant have access to my data?","faq6-a":"The AI is entirely optional. SYNC.PLANNER works without artificial intelligence. If you enable the assistant by entering your own API key, the information needed for your request may be sent to the AI provider you chose in order to generate the response, and this usage may result in separate billing directly from that provider (OpenAI, Anthropic or Mistral), independent of your SYNC.PLANNER subscription. SYNC.PLANNER doesn't require any API key for its normal management features.",
   }
 };
