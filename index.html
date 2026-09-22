@@ -207,9 +207,9 @@
     <a href="#features" id="nav-features" onclick="closeMobileNav()">Fonctionnalités</a>
     <a href="#pricing" id="nav-pricing" onclick="closeMobileNav()">Tarifs</a>
     <a href="#faq" id="nav-faq" onclick="closeMobileNav()">FAQ</a>
-    <a href="https://github.com/SyncPlanner/SyncPlanner-app/releases/download/v1.1.1/SYNC.PLANNER-1.1.1.dmg" class="nav-cta-mobile" id="nav-cta-mobile" onclick="closeMobileNav()">Télécharger — 14j gratuit</a>
+    <a href="#download" class="nav-cta-mobile" id="nav-cta-mobile" onclick="closeMobileNav()">Télécharger — 14j gratuit</a>
   </div>
-  <a href="https://github.com/SyncPlanner/SyncPlanner-app/releases/download/v1.1.1/SYNC.PLANNER-1.1.1.dmg" class="nav-cta" id="nav-cta">Télécharger — 14j gratuit</a>
+  <a href="#download" class="nav-cta" id="nav-cta">Télécharger — 14j gratuit</a>
 </nav>
 
 <section class="hero">
@@ -220,10 +220,12 @@
     <h1 id="hero-h1">Fini le<br>désordre.<br><span>Reste focus.</span></h1>
     <p class="hero-sub" id="hero-sub">Beaucoup de tracks en cours, plusieurs clients, des deadlines qui s'accumulent — ça peut vite devenir le foutoir. SYNC.PLANNER centralise tout au même endroit pour ne rien oublier.</p>
     <p class="hero-sub2" id="hero-sub2">Pour tous les compositeurs qui travaillent avec des éditeurs, publishers et bibliothèques musicales — gérez vos tracks, deadlines et relances depuis un seul endroit.</p>
-    <div class="hero-btns">
-      <a href="https://github.com/SyncPlanner/SyncPlanner-app/releases/download/v1.1.1/SYNC.PLANNER-1.1.1.dmg" class="btn-primary" id="btn-mac">Mac — Télécharger</a>
+    <div class="hero-btns" id="download">
+      <a href="https://github.com/SyncPlanner/SyncPlanner-app/releases/download/v1.1.2/SYNC.PLANNER-1.1.2-arm64.dmg" class="btn-primary" id="btn-mac-arm">Mac (Apple Silicon) — Télécharger</a>
+      <a href="https://github.com/SyncPlanner/SyncPlanner-app/releases/download/v1.1.2/SYNC.PLANNER-1.1.2.dmg" class="btn-primary" id="btn-mac-intel" style="background:transparent;border:1px solid var(--violet);color:var(--violet2)">Mac (Intel) — Télécharger</a>
       <span class="btn-primary btn-win" id="btn-win" style="opacity:0.45;cursor:not-allowed;pointer-events:none">Windows — En développement</span>
     </div>
+    <div style="margin-top:8px;font-size:11px;color:#8582B0" id="mac-arch-help">Puce Apple (M1/M2/M3/M4) → Apple Silicon. Mac Intel plus ancien → Intel. Nécessite macOS 12 (Monterey) ou plus récent.</div>
     <div style="margin-top:14px">
       <a href="/demo.html" id="btn-demo" style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#A78BFA;text-decoration:none;border:1px solid rgba(167,139,250,0.25);border-radius:8px;padding:8px 16px;background:rgba(124,58,237,0.08);transition:all 0.2s"
         onmouseover="this.style.background='rgba(124,58,237,0.18)';this.style.borderColor='rgba(167,139,250,0.5)'"
@@ -231,7 +233,7 @@
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" style="vertical-align:middle"><polygon points="5 3 19 12 5 21 5 3"/></svg> <span id="btn-demo-txt">Explorer les fonctionnalités — démo interactive</span>
       </a>
     </div>
-    <div class="hero-note" id="hero-note">✓ Aucune carte bancaire requise &nbsp;·&nbsp; ✓ Données de gestion 100% locales &nbsp;·&nbsp; ✓ Mac (Windows bientôt)</div>
+    <div class="hero-note" id="hero-note">✓ Aucune carte bancaire requise &nbsp;·&nbsp; ✓ Données de gestion 100% locales &nbsp;·&nbsp; ✓ macOS 12+ (Apple Silicon & Intel) — Windows bientôt</div>
     <div style="margin-top:10px;font-size:11px;color:#8582B0;text-align:center" id="hero-evolving">🔄 Application en constante évolution — mises à jour régulières incluses</div>
   </div>
 </section>
@@ -365,7 +367,7 @@
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-bottom:60px">
       <div>
         <h3 style="font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;color:var(--creme);margin-bottom:12px" id="seo-h3-1">Pour la musique sync</h3>
-        <p style="font-size:14px;color:var(--texte);line-height:1.8" id="seo-p1">SYNC.PLANNER est le seul outil de gestion de projets fait pour les compositeurs de musique sync — library, film, TV, jeux vidéo et publicité. Contrairement aux outils génériques comme Notion ou Trello, il comprend le workflow réel d'un compositeur professionnel : albums, tracks, éditeurs, deadlines et relances.</p>
+        <p style="font-size:14px;color:var(--texte);line-height:1.8" id="seo-p1">SYNC.PLANNER est un outil de gestion de projets pensé spécifiquement pour les compositeurs de musique sync — library, film, TV, jeux vidéo et publicité. Contrairement aux outils génériques comme Notion ou Trello, il est construit autour du workflow réel d'un compositeur professionnel : albums, tracks, éditeurs, deadlines et relances.</p>
       </div>
       <div>
         <h3 style="font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;color:var(--creme);margin-bottom:12px" id="seo-h3-2">Vos données restent chez vous</h3>
@@ -425,7 +427,7 @@
               <td style="text-align:center;padding:10px;color:#F87171">❌</td>
             </tr>
             <tr style="border-bottom:1px solid #1E1C38">
-              <td style="padding:10px;color:var(--texte)" id="seo-rowSacem">Revenus SACEM/BMI + temps Logic Pro</td>
+              <td style="padding:10px;color:var(--texte)" id="seo-rowSacem">Revenus SACEM + temps Logic Pro</td>
               <td style="text-align:center;padding:10px;color:#10B981">✅</td>
               <td style="text-align:center;padding:10px;color:#F87171">❌</td>
               <td style="text-align:center;padding:10px;color:#F87171">❌</td>
@@ -440,6 +442,7 @@
             </tr>
           </tbody>
         </table>
+        <p style="font-size:12px;color:#8582B0;margin-top:10px;line-height:1.6" id="seo-table-note">Comparatif basé sur les fonctionnalités natives disponibles au moment de la rédaction (hors plugins ou configurations tierces), à titre indicatif — non exhaustif et susceptible d'évoluer avec les mises à jour de chaque outil. Les revenus SACEM sont pris en charge nativement ; le suivi BMI est à l'étude.</p>
       </div>
     </div>
 
@@ -603,7 +606,7 @@
   <div class="eyebrow" id="pricing-eyebrow">Tarifs</div>
   <h2 class="section-title" id="pricing-title">Simple.<br><em>Sans surprise.</em></h2>
   <p style="color:var(--texte);font-size:15px;margin-top:12px" id="pricing-sub">14 jours d'essai gratuit. Aucune carte bancaire requise pour commencer.</p>
-    <div style="text-align:center;margin-bottom:36px"><a href="https://github.com/SyncPlanner/SyncPlanner-app/releases/download/v1.1.1/SYNC.PLANNER-1.1.1.dmg" style="font-size:13px;color:#A78BFA;text-decoration:none;border:1px solid rgba(167,139,250,0.35);border-radius:100px;padding:8px 20px;display:inline-block" id="pricing-trial-link">✓ Tester gratuitement pendant 14 jours — aucune carte bancaire</a></div>
+    <div style="text-align:center;margin-bottom:36px"><a href="#download" style="font-size:13px;color:#A78BFA;text-decoration:none;border:1px solid rgba(167,139,250,0.35);border-radius:100px;padding:8px 20px;display:inline-block" id="pricing-trial-link">✓ Tester gratuitement pendant 14 jours — aucune carte bancaire</a></div>
   <div class="pricing-cards">
     <div class="price-card">
       <div class="price-tier" id="plan1-tier">Mensuel</div>
@@ -664,7 +667,7 @@
   </div>
   <div class="faq-item">
     <button type="button" class="faq-q" onclick="toggleFaq(this)"><span id="faq6-q">L'assistant IA a-t-il accès à mes données ?</span><span class="faq-arrow">▼</span></button>
-    <div class="faq-a" id="faq6-a">L'IA est entièrement optionnelle. SYNC.PLANNER fonctionne sans intelligence artificielle. Si vous activez l'assistant en renseignant votre propre clé API, les informations nécessaires à votre demande peuvent être transmises au fournisseur d'IA choisi afin de générer la réponse. SYNC.PLANNER ne nécessite aucune clé API pour ses fonctions normales de gestion.</div>
+    <div class="faq-a" id="faq6-a">L'IA est entièrement optionnelle. SYNC.PLANNER fonctionne sans intelligence artificielle. Si vous activez l'assistant en renseignant votre propre clé API, les informations nécessaires à votre demande peuvent être transmises au fournisseur d'IA choisi afin de générer la réponse, et cet usage peut entraîner une facturation séparée directement auprès de ce fournisseur (OpenAI, Anthropic ou Mistral), indépendante de votre abonnement SYNC.PLANNER. SYNC.PLANNER ne nécessite aucune clé API pour ses fonctions normales de gestion.</div>
   </div>
   <div class="faq-item">
     <button type="button" class="faq-q" onclick="toggleFaq(this)"><span id="faq7-q">Sur Mac, une alerte de sécurité apparaît — que faire ?</span><span class="faq-arrow">▼</span></button>
@@ -696,7 +699,8 @@
   <h2 id="cta-final-title">Gérez vos <span>projets musicaux</span><br>sans vous perdre.</h2>
   <p id="cta-final-sub">14 jours d'essai gratuit, sans carte bancaire. Le temps de voir si SYNC.PLANNER correspond au workflow.</p>
   <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
-    <a href="https://github.com/SyncPlanner/SyncPlanner-app/releases/download/v1.1.1/SYNC.PLANNER-1.1.1.dmg" class="btn-primary" id="cta-final-mac">Mac — Télécharger</a>
+    <a href="https://github.com/SyncPlanner/SyncPlanner-app/releases/download/v1.1.2/SYNC.PLANNER-1.1.2-arm64.dmg" class="btn-primary" id="cta-final-mac-arm">Mac (Apple Silicon) — Télécharger</a>
+    <a href="https://github.com/SyncPlanner/SyncPlanner-app/releases/download/v1.1.2/SYNC.PLANNER-1.1.2.dmg" class="btn-primary" id="cta-final-mac-intel" style="background:transparent;border:1px solid var(--violet);color:var(--violet2)">Mac (Intel) — Télécharger</a>
     <span class="btn-primary btn-win" id="cta-final-win" style="opacity:0.45;cursor:not-allowed;pointer-events:none">Windows — En développement</span>
   </div>
 </section>
@@ -745,7 +749,7 @@ const T = {
     "seo-eyebrow":"Pourquoi SYNC.PLANNER",
     "seo-title":"L'outil que les compositeurs<br><em>attendaient vraiment</em>",
     "seo-h3-1":"Pour la musique sync",
-    "seo-p1":"SYNC.PLANNER est le seul outil de gestion de projets fait pour les compositeurs de musique sync — library, film, TV, jeux vidéo et publicité. Contrairement aux outils génériques comme Notion ou Trello, il comprend le workflow réel d'un compositeur professionnel : albums, tracks, éditeurs, deadlines et relances.",
+    "seo-p1":"SYNC.PLANNER est un outil de gestion de projets pensé spécifiquement pour les compositeurs de musique sync — library, film, TV, jeux vidéo et publicité. Contrairement aux outils génériques comme Notion ou Trello, il est construit autour du workflow réel d'un compositeur professionnel : albums, tracks, éditeurs, deadlines et relances.",
     "seo-h3-2":"Vos données restent chez vous",
     "seo-p2":"100% local par défaut. Aucun cloud, aucune donnée audio envoyée. Vos projets, tracks et informations clients restent sur votre Mac — sauf si vous activez l'assistant IA optionnel avec votre propre clé API, auquel cas vos requêtes sont envoyées au fournisseur d'IA choisi. Pas d'abonnement cloud à 30€/mois. SYNC.PLANNER fonctionne même hors connexion.",
     "seo-h3-3":"Relances éditeurs automatisées",
@@ -758,7 +762,8 @@ const T = {
     "seo-row2":"Relances éditeurs",
     "seo-row3":"IA coach production",
     "seo-row4":"100% local & privé",
-    "seo-rowSacem":"Revenus SACEM/BMI + temps Logic Pro",
+    "seo-rowSacem":"Revenus SACEM + temps Logic Pro",
+    "seo-table-note":"Comparatif basé sur les fonctionnalités natives disponibles au moment de la rédaction (hors plugins ou configurations tierces), à titre indicatif — non exhaustif et susceptible d'évoluer avec les mises à jour de chaque outil. Les revenus SACEM sont pris en charge nativement ; le suivi BMI est à l'étude.",
     "seo-row5":"Prix",
     "seo-forwhom-title":"SYNC.PLANNER est fait pour vous si...",
     "seo-for1-title":"Compositeur library",
@@ -774,8 +779,8 @@ const T = {
     "hero-h1":"Fini le<br>désordre.<br><span style='color:var(--violet)'>Reste focus.</span>",
     "hero-sub":"Beaucoup de tracks en cours, plusieurs clients, des deadlines qui s'accumulent — ça peut vite devenir le foutoir. SYNC.PLANNER centralise tout au même endroit pour ne rien oublier.",
     "hero-sub2":"Pour tous les compositeurs qui travaillent avec des éditeurs, publishers et bibliothèques musicales — gérez vos tracks, deadlines et relances depuis un seul endroit.",
-    "btn-mac":"Mac — Télécharger","btn-win":"Windows — En développement","btn-demo-txt":"Explorer les fonctionnalités — démo interactive",
-    "hero-note":"✓ Aucune carte bancaire requise &nbsp;·&nbsp; ✓ Données de gestion 100% locales &nbsp;·&nbsp; ✓ Mac (Windows bientôt)",
+    "btn-mac-arm":"Mac (Apple Silicon) — Télécharger","btn-mac-intel":"Mac (Intel) — Télécharger","btn-win":"Windows — En développement","btn-demo-txt":"Explorer les fonctionnalités — démo interactive","mac-arch-help":"Puce Apple (M1/M2/M3/M4) → Apple Silicon. Mac Intel plus ancien → Intel. Nécessite macOS 12 (Monterey) ou plus récent.",
+    "hero-note":"✓ Aucune carte bancaire requise &nbsp;·&nbsp; ✓ Données de gestion 100% locales &nbsp;·&nbsp; ✓ macOS 12+ (Apple Silicon & Intel) — Windows bientôt",
     "hero-evolving":"🔄 Application en constante évolution — mises à jour régulières incluses",
     "problem-eyebrow":"Le problème","problem-title":"Trop d'outils,<br><em>pas assez de clarté.</em>",
     "problem-body":"Un Google Sheet pour les deadlines, un autre pour les tracks, des notes éparpillées, des mails avec les clients... Résultat : des relances oubliées, des deadlines ratées, de la confusion. SYNC.PLANNER regroupe tout en un seul endroit, clair et structuré.",
@@ -824,8 +829,8 @@ const T = {
     "faq11-q":"Peut-on gérer plusieurs éditeurs et albums simultanément ?","faq11-a":"Oui — c'est exactement pour ça que SYNC.PLANNER a été conçu. Nombre illimité d'albums avec différents éditeurs, chacun avec sa deadline et ses statuts de relance. La vue Kanban mensuelle donne une vision globale de toutes vos tracks. Les statistiques comparent vos taux de validation par éditeur.",
     "cta-final-title":"Gérez vos <span style='color:var(--violet2)'>projets musicaux</span><br>sans vous perdre.",
     "cta-final-sub":"14 jours d'essai gratuit, sans carte bancaire. Le temps de voir si SYNC.PLANNER correspond au workflow.",
-    "cta-final-mac":"Mac — Télécharger","cta-final-win":"Windows — En développement","pricing-trial-link":"✓ Tester gratuitement pendant 14 jours — aucune carte bancaire",
-    "footer-legal":"Mentions légales","footer-cgv":"CGV","feat7-title":"🎁 Bonus — Assistant IA intégré (Beta)","feat7-body":"Connectez votre propre clé API (OpenAI, Claude ou Mistral) pour bénéficier d'un assistant IA directement dans SYNC.PLANNER. Il peut s'appuyer sur vos projets pour vous aider à prioriser votre production, analyser vos deadlines, préparer vos livraisons et répondre à vos questions.","faq6-q":"L'assistant IA a-t-il accès à mes données ?","faq6-a":"L'IA est entièrement optionnelle. SYNC.PLANNER fonctionne sans intelligence artificielle. Si vous activez l'assistant en renseignant votre propre clé API, les informations nécessaires à votre demande peuvent être transmises au fournisseur d'IA choisi afin de générer la réponse. SYNC.PLANNER ne nécessite aucune clé API pour ses fonctions normales de gestion.",
+    "cta-final-mac-arm":"Mac (Apple Silicon) — Télécharger","cta-final-mac-intel":"Mac (Intel) — Télécharger","cta-final-win":"Windows — En développement","pricing-trial-link":"✓ Tester gratuitement pendant 14 jours — aucune carte bancaire",
+    "footer-legal":"Mentions légales","footer-cgv":"CGV","feat7-title":"🎁 Bonus — Assistant IA intégré (Beta)","feat7-body":"Connectez votre propre clé API (OpenAI, Claude ou Mistral) pour bénéficier d'un assistant IA directement dans SYNC.PLANNER. Il peut s'appuyer sur vos projets pour vous aider à prioriser votre production, analyser vos deadlines, préparer vos livraisons et répondre à vos questions.","faq6-q":"L'assistant IA a-t-il accès à mes données ?","faq6-a":"L'IA est entièrement optionnelle. SYNC.PLANNER fonctionne sans intelligence artificielle. Si vous activez l'assistant en renseignant votre propre clé API, les informations nécessaires à votre demande peuvent être transmises au fournisseur d'IA choisi afin de générer la réponse, et cet usage peut entraîner une facturation séparée directement auprès de ce fournisseur (OpenAI, Anthropic ou Mistral), indépendante de votre abonnement SYNC.PLANNER. SYNC.PLANNER ne nécessite aucune clé API pour ses fonctions normales de gestion.",
   },
   en: {
         "forwhom-eyebrow":"Who it's for",
@@ -838,7 +843,7 @@ const T = {
     "seo-eyebrow":"Why SYNC.PLANNER",
     "seo-title":"The tool composers<br><em>actually needed</em>",
     "seo-h3-1":"For sync music",
-    "seo-p1":"SYNC.PLANNER is the only project management tool built specifically for sync music composers — library, film, TV, video games and advertising. Unlike generic tools like Notion or Trello, it understands the real workflow of a professional composer: albums, tracks, publishers, deadlines and follow-ups.",
+    "seo-p1":"SYNC.PLANNER is a project management tool built specifically for sync music composers — library, film, TV, video games and advertising. Unlike generic tools like Notion or Trello, it's built around the real workflow of a professional composer: albums, tracks, publishers, deadlines and follow-ups.",
     "seo-h3-2":"Your data stays with you",
     "seo-p2":"100% local by default. No cloud, no audio data sent. Your projects, tracks and client information stay on your Mac — unless you enable the optional AI assistant with your own API key, in which case your requests are sent to the AI provider you chose. No €30/month cloud subscription. SYNC.PLANNER works even offline.",
     "seo-h3-3":"Automated publisher follow-ups",
@@ -851,7 +856,8 @@ const T = {
     "seo-row2":"Publisher follow-ups",
     "seo-row3":"AI production coach",
     "seo-row4":"100% local & private",
-    "seo-rowSacem":"SACEM/BMI revenue + Logic Pro time",
+    "seo-rowSacem":"SACEM revenue + Logic Pro time",
+    "seo-table-note":"Comparison based on native features available at time of writing (excluding third-party plugins or configurations), for guidance only — not exhaustive and may change as each tool is updated. SACEM revenue tracking is natively supported; BMI tracking is under consideration.",
     "seo-row5":"Price",
     "seo-forwhom-title":"SYNC.PLANNER is made for you if...",
     "seo-for1-title":"Library composer",
@@ -867,8 +873,8 @@ const T = {
     "hero-h1":"No more<br>chaos.<br><span style='color:var(--violet)'>Stay focused.</span>",
     "hero-sub":"Lots of tracks in progress, multiple clients, deadlines piling up — it can get messy fast. SYNC.PLANNER keeps everything in one place so nothing slips through.",
     "hero-sub2":"SYNC.PLANNER is the project management tool for composers who work with publishers and music libraries — whether you're just starting out or already established.",
-    "btn-mac":"Mac — Download","btn-win":"Windows — In development","btn-demo-txt":"Explore features — interactive demo",
-    "hero-note":"✓ No credit card required &nbsp;·&nbsp; ✓ 100% local data &nbsp;·&nbsp; ✓ Mac (Windows coming soon)",
+    "btn-mac-arm":"Mac (Apple Silicon) — Download","btn-mac-intel":"Mac (Intel) — Download","btn-win":"Windows — In development","btn-demo-txt":"Explore features — interactive demo","mac-arch-help":"Apple chip (M1/M2/M3/M4) → Apple Silicon. Older Intel Mac → Intel. Requires macOS 12 (Monterey) or later.",
+    "hero-note":"✓ No credit card required &nbsp;·&nbsp; ✓ 100% local data &nbsp;·&nbsp; ✓ macOS 12+ (Apple Silicon & Intel) — Windows coming soon",
     "hero-evolving":"🔄 Constantly evolving app — regular updates included",
     "problem-eyebrow":"The problem","problem-title":"Too many tools,<br><em>not enough clarity.</em>",
     "problem-body":"A Google Sheet for deadlines, another for tracks, scattered notes, emails with clients... Result: missed follow-ups, late deliveries, confusion. SYNC.PLANNER brings everything together in one clear, structured place.",
@@ -917,8 +923,8 @@ const T = {
     "faq11-q":"Can you manage multiple publishers and albums simultaneously?","faq11-a":"Yes — that's exactly what SYNC.PLANNER was designed for. Unlimited albums with different publishers, each with its own deadline, tracks and follow-up statuses. The monthly Kanban view gives a global overview of all your tracks. Statistics let you compare your validation rates by publisher to identify the most productive collaborations.",
     "cta-final-title":"Manage your <span style='color:var(--violet2)'>music projects</span><br>without losing track.",
     "cta-final-sub":"14-day free trial, no credit card. See if SYNC.PLANNER fits your workflow.",
-    "cta-final-mac":"Mac — Download","cta-final-win":"Windows — In development","pricing-trial-link":"✓ Try free for 14 days — no credit card required",
-    "footer-legal":"Legal notice","footer-cgv":"Terms","feat7-title":"🎁 Bonus — Built-in AI assistant (Beta)","feat7-body":"Connect your own API key (OpenAI, Claude or Mistral) to get an AI assistant right inside SYNC.PLANNER. It can draw on your projects to help you prioritize production, analyze deadlines, prepare deliveries and answer your questions.","faq6-q":"Does the AI assistant have access to my data?","faq6-a":"The AI is entirely optional. SYNC.PLANNER works without artificial intelligence. If you enable the assistant by entering your own API key, the information needed for your request may be sent to the AI provider you chose in order to generate the response. SYNC.PLANNER doesn't require any API key for its normal management features.",
+    "cta-final-mac-arm":"Mac (Apple Silicon) — Download","cta-final-mac-intel":"Mac (Intel) — Download","cta-final-win":"Windows — In development","pricing-trial-link":"✓ Try free for 14 days — no credit card required",
+    "footer-legal":"Legal notice","footer-cgv":"Terms","feat7-title":"🎁 Bonus — Built-in AI assistant (Beta)","feat7-body":"Connect your own API key (OpenAI, Claude or Mistral) to get an AI assistant right inside SYNC.PLANNER. It can draw on your projects to help you prioritize production, analyze deadlines, prepare deliveries and answer your questions.","faq6-q":"Does the AI assistant have access to my data?","faq6-a":"The AI is entirely optional. SYNC.PLANNER works without artificial intelligence. If you enable the assistant by entering your own API key, the information needed for your request may be sent to the AI provider you chose in order to generate the response, and this usage may result in separate billing directly from that provider (OpenAI, Anthropic or Mistral), independent of your SYNC.PLANNER subscription. SYNC.PLANNER doesn't require any API key for its normal management features.",
   }
 };
 
@@ -970,26 +976,33 @@ window.addEventListener('load', () => {
 });
 </script>
 <script>
-// Résout automatiquement le lien de téléchargement Mac vers la dernière
-// release GitHub publiée, pour ne plus jamais avoir à mettre ce lien à jour
-// manuellement à chaque nouvelle version. Si l'API GitHub échoue (rate
-// limit, hors-ligne...), on garde simplement le lien codé en dur ci-dessus
-// (pointant vers la dernière version connue au moment de ce déploiement)
-// comme repli silencieux.
+// Résout automatiquement les liens de téléchargement Mac (Apple Silicon ET
+// Intel, distinctement) vers la dernière release GitHub publiée, pour ne
+// plus jamais avoir à mettre ces liens à jour manuellement à chaque nouvelle
+// version. Si l'API GitHub échoue (rate limit, hors-ligne...), on garde
+// simplement les liens codés en dur ci-dessus (pointant vers la dernière
+// version connue au moment de ce déploiement) comme repli silencieux.
 (function() {
   fetch('https://api.github.com/repos/SyncPlanner/SyncPlanner-app/releases/latest')
     .then(function(r) { return r.ok ? r.json() : Promise.reject(); })
     .then(function(data) {
-      var asset = (data.assets || []).find(function(a) {
-        return /\.dmg$/i.test(a.name) && !/arm64/i.test(a.name);
-      });
-      if (!asset) return;
-      ['btn-mac', 'cta-final-mac', 'nav-cta', 'nav-cta-mobile', 'pricing-trial-link'].forEach(function(id) {
-        var el = document.getElementById(id);
-        if (el) el.href = asset.browser_download_url;
-      });
+      var assets = data.assets || [];
+      var armAsset = assets.find(function(a) { return /\.dmg$/i.test(a.name) && /arm64/i.test(a.name); });
+      var intelAsset = assets.find(function(a) { return /\.dmg$/i.test(a.name) && !/arm64/i.test(a.name); });
+      if (armAsset) {
+        ['btn-mac-arm', 'cta-final-mac-arm'].forEach(function(id) {
+          var el = document.getElementById(id);
+          if (el) el.href = armAsset.browser_download_url;
+        });
+      }
+      if (intelAsset) {
+        ['btn-mac-intel', 'cta-final-mac-intel'].forEach(function(id) {
+          var el = document.getElementById(id);
+          if (el) el.href = intelAsset.browser_download_url;
+        });
+      }
     })
-    .catch(function() { /* on garde le lien codé en dur en repli */ });
+    .catch(function() { /* on garde les liens codés en dur en repli */ });
 })();
 </script>
 </body>
