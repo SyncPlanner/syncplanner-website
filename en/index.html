@@ -211,6 +211,7 @@
   .demo-tabs2 .demo-tab:hover { color:var(--creme); }
   .demo-tabs2 .demo-tab.active { color:var(--creme);border-bottom-color:var(--violet2);background:transparent; }
   .feat-new { display:inline-block;margin-left:8px;font-size:10px;font-weight:600;color:#34D399;border:1px solid rgba(52,211,153,.4);border-radius:6px;padding:0 6px;vertical-align:middle; }
+.pf-chip{font-size:12.5px;color:#C9C6E6;background:rgba(124,58,237,.10);border:1px solid rgba(167,139,250,.25);border-radius:100px;padding:5px 12px;white-space:nowrap}
 </style>
 </head>
 <body>
@@ -237,12 +238,13 @@
 <div class="hero-content">
 <div class="hero-badge" id="hero-badge">For demanding composers</div>
 <h1 id="hero-h1">No more<br/>chaos.<br/><span style="color:var(--violet)">Stay focused.</span></h1>
-<p class="hero-sub" id="hero-sub">Lots of tracks in progress, multiple publishers, deadlines piling up — it can get messy fast. SYNC.PLANNER keeps everything in one place so nothing slips through.</p>
-<p class="hero-sub2" id="hero-sub2">SYNC.PLANNER is the project management tool for composers who work with publishers and music libraries — whether you're just starting out or already established.</p>
+<p class="hero-sub" id="hero-sub">Run your whole sync production, from Logic Pro to your SACEM royalties.</p>
+<p class="hero-sub2" id="hero-sub2">Albums, tracks, deadlines, stems, publishers, follow-ups and profitability: your entire workflow in one app built specifically for composers.</p>
+    <p id="hero-keys" style="font-size:13px;color:#C4B5FD;margin:-4px 0 18px;letter-spacing:.01em">Automatic Logic Pro project detection · Deliverables check · SACEM royalties tracking · Local data</p>
 <div id="mac-download-label" style="font-size:11px;color:#8582B0;margin-bottom:8px">Download for Mac — pick your chip:</div>
 <div class="hero-btns" id="download">
-<a class="btn-primary" href="https://github.com/SyncPlanner/SyncPlanner-app/releases/download/v1.1.3/SYNC.PLANNER-1.1.3-arm64.dmg" id="btn-mac-arm">🍎 Apple Silicon (M1-M4)</a>
-<a class="btn-secondary" href="https://github.com/SyncPlanner/SyncPlanner-app/releases/download/v1.1.3/SYNC.PLANNER-1.1.3.dmg" id="btn-mac-intel">Intel</a>
+<a class="btn-primary" href="https://github.com/SyncPlanner/SyncPlanner-app/releases/download/v1.1.5/SYNC.PLANNER-1.1.5-arm64.dmg" id="btn-mac-arm">🍎 Apple Silicon (M1-M4)</a>
+<a class="btn-secondary" href="https://github.com/SyncPlanner/SyncPlanner-app/releases/download/v1.1.5/SYNC.PLANNER-1.1.5.dmg" id="btn-mac-intel">Intel</a>
 <span class="btn-primary btn-win" id="btn-win" style="opacity:0.45;cursor:not-allowed;pointer-events:none">Windows — In development</span>
 </div>
 <div id="mac-arch-help" style="margin-top:8px;font-size:11px;color:#8582B0">Not sure which chip? Apple menu ▸ "About This Mac" shows "Apple chip" or "Intel processor". Requires macOS 12 (Monterey) or later.</div>
@@ -444,16 +446,16 @@
 <h2 class="section-title" id="pricing-title">Simple.<br/><em>No surprises.</em></h2>
 <p id="pricing-sub" style="color:var(--texte);font-size:15px;margin-top:12px">14-day free trial. No credit card required to get started.</p>
 <div style="text-align:center;margin-bottom:36px"><a href="#download" id="pricing-trial-link" style="font-size:13px;color:#A78BFA;text-decoration:none;border:1px solid rgba(167,139,250,0.35);border-radius:100px;padding:8px 20px;display:inline-block">✓ Try free for 14 days — no credit card required</a></div>
+  <p id="pricing-same" style="text-align:center;color:#C4B5FD;font-size:14px;margin:-18px 0 30px">Every plan includes the same features. Only the billing changes.</p>
+  <div id="pricing-feats" style="display:flex;flex-wrap:wrap;justify-content:center;gap:8px;max-width:760px;margin:-14px auto 34px"><span class="pf-chip">✓ Logic Pro integration</span> <span class="pf-chip">✓ SACEM royalties & profitability</span> <span class="pf-chip">✓ Stems analysis</span> <span class="pf-chip">✓ Works registrations check</span> <span class="pf-chip">✓ Unlimited albums & tracks</span> <span class="pf-chip">✓ Updates included</span></div>
 <div class="pricing-cards">
 <div class="price-card">
 <div class="price-tier" id="plan1-tier">Monthly</div>
 <div class="price-amount"><sup>€</sup><span id="plan1-price">9</span></div>
 <div class="price-period" id="plan1-period">per month · cancel anytime</div>
 <ul class="price-items" id="plan1-items">
-<li id="feat-unlimited">Unlimited projects &amp; tracks</li>
-<li id="feat-clients">Publisher tracking</li>
-<li id="feat-stats">Full statistics</li>
-<li id="feat-kanban">Kanban &amp; Calendar</li>
+<li id="feat-unlimited">All features included</li>
+<li id="feat-clients">Unlimited albums & tracks</li>
 <li id="feat-mac">Mac (Windows coming soon)</li>
 </ul>
 <a class="price-cta cta-outline" href="https://buy.stripe.com/bJe5kDcG5dTm2eL3AXak002" id="cta-btn1" target="_blank">Subscribe — €9/mo</a>
@@ -461,10 +463,10 @@
 <div class="price-card featured">
 <div class="price-badge" id="price-badge-popular">⭐ Most popular</div>
 <div class="price-tier" id="plan2-tier">Annual</div>
-<div class="price-amount"><sup>€</sup><span id="plan2-price">7,5</span><span style="font-size:14px;font-weight:500;color:#8582B0">/mois</span></div>
+<div class="price-amount"><sup>€</sup><span id="plan2-price">7.5</span><span id="plan2-unit" style="font-size:14px;font-weight:500;color:#8582B0">/month</span></div>
 <div id="plan2-period" style="font-size:12px;color:#8582B0;margin-top:2px">i.e. €90/year · billed at once</div>
 <ul class="price-items">
-<li id="feat-all">Everything in Monthly</li>
+<li id="feat-all">All features</li>
 <li id="feat-updates">2 months free (save €18)</li>
 </ul>
 <a class="price-cta cta-main" href="https://buy.stripe.com/28E00j0Xn3eI7z58Vhak001" id="cta-btn2" target="_blank">Subscribe — €90/yr</a>
@@ -474,7 +476,7 @@
 <div class="price-amount"><sup>€</sup><span id="plan3-price">149</span></div>
 <div class="price-period" id="plan3-period">one-time payment · lifetime access</div>
 <ul class="price-items">
-<li id="feat-all2">Everything in Annual</li>
+<li id="feat-all2">All features</li>
 <li id="feat-future">Access to future versions</li>
 <li id="feat-once">One-time payment</li>
 </ul>
@@ -541,8 +543,8 @@
 <h2 id="cta-final-title">Manage your <span style="color:var(--violet2)">music projects</span><br/>without losing track.</h2>
 <p id="cta-final-sub">14-day free trial, no credit card. See if SYNC.PLANNER fits your workflow.</p>
 <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
-<a class="btn-primary" href="https://github.com/SyncPlanner/SyncPlanner-app/releases/download/v1.1.3/SYNC.PLANNER-1.1.3-arm64.dmg" id="cta-final-mac-arm">🍎 Apple Silicon (M1-M4)</a>
-<a class="btn-secondary" href="https://github.com/SyncPlanner/SyncPlanner-app/releases/download/v1.1.3/SYNC.PLANNER-1.1.3.dmg" id="cta-final-mac-intel">Intel</a>
+<a class="btn-primary" href="https://github.com/SyncPlanner/SyncPlanner-app/releases/download/v1.1.5/SYNC.PLANNER-1.1.5-arm64.dmg" id="cta-final-mac-arm">🍎 Apple Silicon (M1-M4)</a>
+<a class="btn-secondary" href="https://github.com/SyncPlanner/SyncPlanner-app/releases/download/v1.1.5/SYNC.PLANNER-1.1.5.dmg" id="cta-final-mac-intel">Intel</a>
 <span class="btn-primary btn-win" id="cta-final-win" style="opacity:0.45;cursor:not-allowed;pointer-events:none">Windows — In development</span>
 </div>
 <div id="cta-final-arch-help" style="margin-top:10px;font-size:11px;color:#8582B0;text-align:center">Not sure which chip? Apple menu ▸ "About This Mac".</div>
@@ -619,8 +621,8 @@ const T = {
     "nav-features":"Fonctionnalités","nav-pricing":"Tarifs","nav-faq":"FAQ","nav-cta":"Télécharger — 14j gratuit","nav-cta-mobile":"Télécharger — 14j gratuit",
     "hero-badge":"Pour les compositeurs qui livrent",
     "hero-h1":"Fini le<br>désordre.<br><span style='color:var(--violet)'>Restez focus.</span>",
-    "hero-sub":"Beaucoup de tracks en cours, plusieurs éditeurs, des deadlines qui s'accumulent — ça peut vite devenir le foutoir. SYNC.PLANNER centralise tout au même endroit pour ne rien oublier.",
-    "hero-sub2":"Pour tous les compositeurs qui travaillent avec des éditeurs, publishers et bibliothèques musicales — gérez vos tracks, deadlines et relances depuis un seul endroit.",
+    "hero-sub":"Pilotez toute votre production sync, de Logic Pro aux revenus SACEM.",
+    "hero-sub2":"Albums, tracks, deadlines, stems, éditeurs, relances et rentabilité : tout votre workflow est centralisé dans une application conçue spécifiquement pour les compositeurs.","hero-keys":"Détection automatique des projets Logic Pro · Contrôle des livrables · Suivi SACEM · Données locales",
     "mac-download-label":"Télécharger pour Mac — choisissez votre puce :",
     "btn-mac-arm":"🍎 Apple Silicon (M1-M4)","btn-mac-intel":"Intel","btn-win":"Windows — En développement","btn-demo-txt":"Explorer les fonctionnalités — démo interactive","mac-arch-help":"Pas sûr de votre puce ? Menu Pomme ▸ \"À propos de ce Mac\" indique \"Puce Apple\" ou \"Processeur Intel\". Nécessite macOS 12 (Monterey) ou plus récent.",
     "cta-final-arch-help":"Pas sûr de votre puce ? Menu Pomme ▸ \"À propos de ce Mac\".",
@@ -652,14 +654,14 @@ const T = {
     "m1":"Jan","m2":"Fév","m3":"Mar","m4":"Avr","m5":"Mai","m6":"Jun","m7":"Jul","m8":"Aoû","m9":"Sep","m10":"Oct","m11":"Nov","m12":"Déc",
     "chart-leg1":"Produites","chart-leg2":"Validées",
     "pricing-eyebrow":"Tarifs","pricing-title":"Simple.<br><em>Sans surprise.</em>",
-    "pricing-sub":"14 jours d'essai gratuit. Aucune carte bancaire requise pour commencer.",
+    "pricing-sub":"14 jours d'essai gratuit. Aucune carte bancaire requise pour commencer.","pricing-same":"Toutes les formules donnent accès aux mêmes fonctionnalités. Seul le mode de paiement change.","pricing-feats":"<span class=\"pf-chip\">✓ Intégration Logic Pro</span> <span class=\"pf-chip\">✓ Revenus SACEM & rentabilité</span> <span class=\"pf-chip\">✓ Analyse des stems</span> <span class=\"pf-chip\">✓ Déclarations d'œuvres</span> <span class=\"pf-chip\">✓ Albums & tracks illimités</span> <span class=\"pf-chip\">✓ Mises à jour incluses</span>",
     "plan1-tier":"Mensuel","plan1-period":"par mois · résiliable à tout moment",
-    "plan2-tier":"Annuel","plan2-period":"soit 90€ par an · facturé en une fois",
+    "plan2-tier":"Annuel","plan2-period":"soit 90€ par an · facturé en une fois","plan2-price":"7,5","plan2-unit":"/mois",
     "plan3-tier":"Lifetime","plan3-period":"paiement unique · accès à vie",
     "price-badge-popular":"⭐ Le plus populaire",
-    "feat-unlimited":"Albums et tracks illimités","feat-clients":"Suivi des éditeurs","feat-stats":"Stats complètes","feat-kanban":"Kanban & Calendrier","feat-mac":"Mac (Windows bientôt)",
-    "feat-all":"Tout du plan mensuel","feat-updates":"2 mois offerts (18€ d'économie)","feat-support":"Support prioritaire",
-    "feat-all2":"Tout du plan annuel","feat-future":"Accès aux futures versions","feat-once":"Un seul paiement",
+    "feat-unlimited":"Toutes les fonctionnalités incluses","feat-clients":"Albums et tracks illimités","feat-stats":"Revenus SACEM & rentabilité","feat-kanban":"Analyse des stems","feat-decl":"Déclarations d'œuvres","feat-upd":"Mises à jour incluses","feat-mac":"Mac (Windows bientôt)",
+    "feat-all":"Toutes les fonctionnalités","feat-updates":"2 mois offerts (18€ d'économie)","feat-support":"Support prioritaire",
+    "feat-all2":"Toutes les fonctionnalités","feat-future":"Accès aux futures versions","feat-once":"Un seul paiement",
     "cta-btn1":"S'abonner — 9€/mois","cta-btn2":"S'abonner — 90€/an","cta-btn3":"Acheter à vie — 149€",
     "faq-title":"Questions fréquentes",
     "faq1-q":"Est-ce que mes données sont en sécurité ?","faq1-a":"Oui — toutes les données sont stockées localement sur l'ordinateur de l'utilisateur. Aucune donnée ne transite par nos serveurs, à l'exception de la vérification de licence.",
@@ -715,8 +717,8 @@ const T = {
     "nav-features":"Features","nav-pricing":"Pricing","nav-faq":"FAQ","nav-cta":"Download — 14 days free","nav-cta-mobile":"Download — 14 days free",
     "hero-badge":"For demanding composers",
     "hero-h1":"No more<br>chaos.<br><span style='color:var(--violet)'>Stay focused.</span>",
-    "hero-sub":"Lots of tracks in progress, multiple publishers, deadlines piling up — it can get messy fast. SYNC.PLANNER keeps everything in one place so nothing slips through.",
-    "hero-sub2":"SYNC.PLANNER is the project management tool for composers who work with publishers and music libraries — whether you're just starting out or already established.",
+    "hero-sub":"Run your whole sync production, from Logic Pro to your SACEM royalties.",
+    "hero-sub2":"Albums, tracks, deadlines, stems, publishers, follow-ups and profitability: your entire workflow in one app built specifically for composers.","hero-keys":"Automatic Logic Pro project detection · Deliverables check · SACEM royalties tracking · Local data",
     "mac-download-label":"Download for Mac — pick your chip:",
     "btn-mac-arm":"🍎 Apple Silicon (M1-M4)","btn-mac-intel":"Intel","btn-win":"Windows — In development","btn-demo-txt":"Explore features — interactive demo","mac-arch-help":"Not sure which chip? Apple menu ▸ \"About This Mac\" shows \"Apple chip\" or \"Intel processor\". Requires macOS 12 (Monterey) or later.",
     "cta-final-arch-help":"Not sure which chip? Apple menu ▸ \"About This Mac\".",
@@ -748,14 +750,14 @@ const T = {
     "m1":"Jan","m2":"Feb","m3":"Mar","m4":"Apr","m5":"May","m6":"Jun","m7":"Jul","m8":"Aug","m9":"Sep","m10":"Oct","m11":"Nov","m12":"Dec",
     "chart-leg1":"Produced","chart-leg2":"Validated",
     "pricing-eyebrow":"Pricing","pricing-title":"Simple.<br><em>No surprises.</em>",
-    "pricing-sub":"14-day free trial. No credit card required to get started.",
+    "pricing-sub":"14-day free trial. No credit card required to get started.","pricing-same":"Every plan includes the same features. Only the billing changes.","pricing-feats":"<span class=\"pf-chip\">✓ Logic Pro integration</span> <span class=\"pf-chip\">✓ SACEM royalties & profitability</span> <span class=\"pf-chip\">✓ Stems analysis</span> <span class=\"pf-chip\">✓ Works registrations check</span> <span class=\"pf-chip\">✓ Unlimited albums & tracks</span> <span class=\"pf-chip\">✓ Updates included</span>",
     "plan1-tier":"Monthly","plan1-period":"per month · cancel anytime",
-    "plan2-tier":"Annual","plan2-period":"i.e. €90/year · billed at once",
+    "plan2-tier":"Annual","plan2-period":"i.e. €90/year · billed at once","plan2-price":"7.5","plan2-unit":"/month",
     "plan3-tier":"Lifetime","plan3-period":"one-time payment · lifetime access",
     "price-badge-popular":"⭐ Most popular",
-    "feat-unlimited":"Unlimited projects & tracks","feat-clients":"Publisher tracking","feat-stats":"Full statistics","feat-kanban":"Kanban & Calendar","feat-mac":"Mac (Windows coming soon)",
-    "feat-all":"Everything in Monthly","feat-updates":"2 months free (save €18)","feat-support":"Priority support",
-    "feat-all2":"Everything in Annual","feat-future":"Access to future versions","feat-once":"One-time payment",
+    "feat-unlimited":"All features included","feat-clients":"Unlimited albums & tracks","feat-stats":"SACEM royalties & profitability","feat-kanban":"Stems analysis","feat-decl":"Works registrations check","feat-upd":"Updates included","feat-mac":"Mac (Windows coming soon)",
+    "feat-all":"All features","feat-updates":"2 months free (save €18)","feat-support":"Priority support",
+    "feat-all2":"All features","feat-future":"Access to future versions","feat-once":"One-time payment",
     "cta-btn1":"Subscribe — €9/mo","cta-btn2":"Subscribe — €90/yr","cta-btn3":"Buy lifetime — €149",
     "faq-title":"Frequently asked questions",
     "faq1-q":"Is my data safe?","faq1-a":"Yes — all data is stored locally on the user's computer. Nothing passes through our servers except licence verification.",
