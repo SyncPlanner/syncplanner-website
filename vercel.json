@@ -1,8 +1,32 @@
 {
   "rewrites": [
-    { "source": "/help", "destination": "/help.html" },
-    { "source": "/help-en", "destination": "/help-en.html" },
-    { "source": "/mentions-legales-en", "destination": "/mentions-legales-en.html" },
-    { "source": "/cgv-en", "destination": "/cgv-en.html" }
+    {
+      "source": "/help",
+      "destination": "/help.html"
+    },
+    {
+      "source": "/help-en",
+      "destination": "/help-en.html"
+    },
+    {
+      "source": "/mentions-legales-en",
+      "destination": "/mentions-legales-en.html"
+    },
+    {
+      "source": "/cgv-en",
+      "destination": "/cgv-en.html"
+    },
+    {
+      "source": "/confidentialite",
+      "destination": "/confidentialite.html"
+    },
+    {
+      "source": "/confidentialite-en",
+      "destination": "/confidentialite-en.html"
+    },
+    {
+      "source": "/privacy",
+      "destination": "/confidentialite-en.html"
+    }
   ]
 }

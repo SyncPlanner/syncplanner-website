@@ -190,7 +190,7 @@
   .cta-final h2 { font-family:'Space Grotesk',sans-serif;font-size:clamp(30px,5vw,56px);font-weight:700;line-height:1.1;letter-spacing:-0.02em;color:var(--creme);margin-bottom:16px; }
   .cta-final h2 span { color:var(--violet2); }
   .cta-final p { font-size:16px;color:var(--texte);margin-bottom:40px; }
-  footer { padding:32px 60px;border-top:1px solid #1E1C38;display:flex;justify-content:space-between;align-items:center;font-size:12px;color:#8582B0; }
+  footer { padding:32px 60px;border-top:1px solid #1E1C38;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;row-gap:10px;font-size:12px;color:#8582B0; }
   footer a { color:#8582B0;text-decoration:none; }
   footer a:hover { color:var(--texte); }
   @media(max-width:900px){
@@ -510,7 +510,7 @@
   <h2 id="faq-title">Questions fréquentes</h2>
   <div class="faq-item">
     <button type="button" class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq1-a"><span id="faq1-q">Est-ce que mes données sont en sécurité ?</span><span class="faq-arrow">▼</span></button>
-    <div class="faq-a" id="faq1-a" role="region" aria-labelledby="faq1-q">Oui — toutes les données sont stockées localement sur l'ordinateur de l'utilisateur. Aucune donnée ne transite par nos serveurs, à l'exception de la vérification de licence.</div>
+    <div class="faq-a" id="faq1-a" role="region" aria-labelledby="faq1-q">Oui. Toutes vos données (albums, tracks, éditeurs, relevés, contrats) sont enregistrées uniquement sur votre Mac, dans un dossier que vous pouvez déplacer. Rien ne passe par nos serveurs, à part la vérification de licence (votre email et un identifiant de l'appareil). Les seules autres connexions sont celles que vous déclenchez : l'assistant IA, la recherche d'affiches (TMDB) et la vérification des mises à jour. Tout est détaillé dans notre <a href="/confidentialite.html">politique de confidentialité</a>.</div>
   </div>
   <div class="faq-item">
     <button type="button" class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq2-a"><span id="faq2-q">Ça fonctionne sur Mac et PC ?</span><span class="faq-arrow">▼</span></button>
@@ -526,11 +526,11 @@
   </div>
   <div class="faq-item">
     <button type="button" class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq6-a"><span id="faq6-q">L'assistant IA a-t-il accès à mes données ?</span><span class="faq-arrow">▼</span></button>
-    <div class="faq-a" id="faq6-a" role="region" aria-labelledby="faq6-q">L'IA est entièrement optionnelle. SYNC.PLANNER fonctionne sans intelligence artificielle. Si vous activez l'assistant en renseignant votre propre clé API, les informations nécessaires à votre demande peuvent être transmises au fournisseur d'IA choisi afin de générer la réponse, et cet usage peut entraîner une facturation séparée directement auprès de ce fournisseur (OpenAI, Anthropic ou Mistral), indépendante de votre abonnement SYNC.PLANNER. SYNC.PLANNER ne nécessite aucune clé API pour ses fonctions normales de gestion.</div>
+    <div class="faq-a" id="faq6-a" role="region" aria-labelledby="faq6-q">L'IA est entièrement optionnelle : SYNC.PLANNER fonctionne sans elle et ne demande aucune clé API pour ses fonctions de gestion. Si vous activez l'assistant avec votre propre clé API, votre demande et les informations utiles pour y répondre partent <b>directement de votre Mac vers le fournisseur choisi</b> (Anthropic, OpenAI ou Mistral) : elles ne passent jamais par nos serveurs. Cet usage est facturé séparément par le fournisseur, indépendamment de votre abonnement SYNC.PLANNER.</div>
   </div>
   <div class="faq-item">
     <button type="button" class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq7-a"><span id="faq7-q">Sur Mac, une alerte de sécurité apparaît — que faire ?</span><span class="faq-arrow">▼</span></button>
-    <div class="faq-a" id="faq7-a" role="region" aria-labelledby="faq7-q">C'est une protection standard de macOS. Pour ouvrir SYNC.PLANNER : clic droit sur l'app → "Ouvrir" → "Ouvrir quand même".</div>
+    <div class="faq-a" id="faq7-a" role="region" aria-labelledby="faq7-q">C'est une protection standard de macOS pour les apps téléchargées hors App Store. <b>Sur macOS 15 Sequoia et plus récent</b> : ouvrez SYNC.PLANNER une première fois (macOS le bloque), puis allez dans Réglages Système → Confidentialité et sécurité, descendez jusqu'au message concernant SYNC.PLANNER, cliquez « Ouvrir quand même » et confirmez avec votre mot de passe. <b>Sur macOS 14 et antérieur</b> : clic droit sur l'app → « Ouvrir » → « Ouvrir ». À faire une seule fois.</div>
   </div>
   <div class="faq-item">
     <button type="button" class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq13-a"><span id="faq13-q">La détection Logic Pro ne fonctionne pas — que faire ?</span><span class="faq-arrow">▼</span></button>
@@ -558,7 +558,7 @@
   </div>
   <div class="faq-item">
     <button type="button" class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq12-a"><span id="faq12-q">Comment sauvegarder ou restaurer mes projets ?</span><span class="faq-arrow">▼</span></button>
-    <div class="faq-a" id="faq12-a" role="region" aria-labelledby="faq12-q">SYNC.PLANNER sauvegarde automatiquement toutes vos données en local à chaque modification, sans action de votre part. Pour une sauvegarde manuelle — avant une mise à jour, ou pour en garder une copie ailleurs — le bouton "Sauvegarder" exporte l'intégralité de vos données dans un fichier JSON que vous enregistrez où vous voulez. Pour tout restaurer, sur le même ordinateur ou sur un autre, il suffit d'utiliser "Charger" et de sélectionner ce fichier.</div>
+    <div class="faq-a" id="faq12-a" role="region" aria-labelledby="faq12-q">SYNC.PLANNER enregistre automatiquement toutes vos données sur votre Mac à chaque modification, dans un dossier dédié, sans limite de taille. Vous pouvez aussi activer une sauvegarde automatique quotidienne vers le dossier de votre choix (Google Drive, iCloud Drive, disque externe…). Pour une sauvegarde manuelle, le bouton « Sauvegarder » exporte l'intégralité de vos données dans un fichier JSON ; pour tout restaurer, sur le même ordinateur ou sur un autre, utilisez « Charger » et sélectionnez ce fichier.</div>
   </div>
 </div>
 
@@ -579,12 +579,14 @@
 </section>
 
 <footer>
+  <div id="footer-trust" style="width:100%;text-align:center;font-size:12.5px;color:#A5A1D0;margin-bottom:6px">🔒 Confidentialité totale : vos données restent sur votre Mac</div>
   <div>© 2026 SYNC.PLANNER</div>
-  <div style="font-size:11px;color:#8582B0;text-align:center">Logiciel de gestion pour compositeurs sync · music library · publisher · production music · sync licensing · bibliothèque musicale · éditeur musical</div>
+  <div style="font-size:11px;color:#8582B0;text-align:center" id="footer-kw">Logiciel de gestion pour compositeurs sync · music library · publisher · production music · sync licensing · bibliothèque musicale · éditeur musical</div>
   <div style="display:flex;gap:24px">
     <a href="mailto:contact@syncplanner.app">Contact</a>
     <a href="/mentions-legales.html" id="footer-legal">Mentions légales</a>
     <a href="/cgv.html" id="footer-cgv">CGV</a>
+    <a href="/confidentialite.html" id="footer-privacy">Confidentialité</a>
   </div>
 <div style="text-align:center;padding:12px 0;border-top:1px solid #1E1C38;font-size:11px;color:#3D3A60">
   Made by <a href="https://www.cinematicscoring.com" target="_blank" style="color:#8582B0;text-decoration:none;transition:color 0.15s" onmouseover="this.style.color='#A78BFA'" onmouseout="this.style.color='#5B5880'">Joeffrey Longagnani</a>
@@ -610,10 +612,13 @@ function showDemo(tab) {
 }
 
 const T = {
+    "footer-kw":"Logiciel de gestion pour compositeurs sync · music library · publisher · production music · sync licensing · bibliothèque musicale · éditeur musical",
+    "footer-trust":"🔒 Confidentialité totale : vos données restent sur votre Mac",
+    "footer-privacy":"Confidentialité",
   fr: {
     "faq13-a":"SYNC.PLANNER lit le projet ouvert dans Logic Pro grâce à l'autorisation Accessibilité de macOS. Ouvrez Réglages Système → Confidentialité et sécurité → Accessibilité, ajoutez SYNC.PLANNER avec le bouton + et activez-le, puis relancez l'app. Si macOS demande l'autorisation de contrôler « System Events », cliquez sur OK. Après une mise à jour de l'app, macOS peut retirer cette autorisation : il suffit de la réactiver.",
     "faq13-q":"La détection Logic Pro ne fonctionne pas — que faire ?",
-    "faq7-a":"C'est une protection standard de macOS. Pour ouvrir SYNC.PLANNER : clic droit sur l'app → \"Ouvrir\" → \"Ouvrir quand même\".",
+    "faq7-a":"C'est une protection standard de macOS pour les apps téléchargées hors App Store. <b>Sur macOS 15 Sequoia et plus récent</b> : ouvrez SYNC.PLANNER une première fois (macOS le bloque), puis allez dans Réglages Système → Confidentialité et sécurité, descendez jusqu'au message concernant SYNC.PLANNER, cliquez « Ouvrir quand même » et confirmez avec votre mot de passe. <b>Sur macOS 14 et antérieur</b> : clic droit sur l'app → « Ouvrir » → « Ouvrir ». À faire une seule fois.",
     "faq7-q":"Sur Mac, une alerte de sécurité apparaît — que faire ?",
     "seo-rowLogic":"Détection Logic Pro (BPM, tonalité, temps)",
     "featLogic-body":"Ouvrez un projet dans Logic Pro : SYNC.PLANNER le détecte tout seul, récupère le BPM, la tonalité et la mesure, et compte le temps passé sur chaque track (en pause automatiquement après 10 minutes d'inactivité). Projet renommé ? Il vous propose de le relier en un clic. Aucune saisie manuelle.",
@@ -690,7 +695,7 @@ const T = {
     "feat-all2":"Toutes les fonctionnalités","feat-future":"Accès aux futures versions","feat-once":"Un seul paiement",
     "cta-btn1":"S'abonner — 9€/mois","cta-btn2":"S'abonner — 90€/an","cta-btn3":"Acheter à vie — 149€",
     "faq-title":"Questions fréquentes",
-    "faq1-q":"Est-ce que mes données sont en sécurité ?","faq1-a":"Oui — toutes les données sont stockées localement sur l'ordinateur de l'utilisateur. Aucune donnée ne transite par nos serveurs, à l'exception de la vérification de licence.",
+    "faq1-q":"Est-ce que mes données sont en sécurité ?","faq1-a":"Oui. Toutes vos données (albums, tracks, éditeurs, relevés, contrats) sont enregistrées uniquement sur votre Mac, dans un dossier que vous pouvez déplacer. Rien ne passe par nos serveurs, à part la vérification de licence (votre email et un identifiant de l'appareil). Les seules autres connexions sont celles que vous déclenchez : l'assistant IA, la recherche d'affiches (TMDB) et la vérification des mises à jour. Tout est détaillé dans notre <a href=\"/confidentialite.html\">politique de confidentialité</a>.",
     "faq2-q":"Ça fonctionne sur Mac et PC ?","faq2-a":"SYNC.PLANNER est disponible sur Mac (.dmg) dès maintenant. La version Windows/PC est en développement — pas encore disponible au téléchargement.",
     "faq3-q":"Je peux annuler à tout moment ?","faq3-a":"Oui, sans conditions. L'annulation se fait en un clic depuis l'espace Stripe. L'accès reste actif jusqu'à la fin de la période payée.",
     "faq4-q":"C'est quoi le plan Lifetime exactement ?","faq4-a":"Un paiement unique de 149€ donne un accès permanent à SYNC.PLANNER, ainsi qu'aux futures versions de l'application.",
@@ -699,17 +704,20 @@ const T = {
     "faq9-q":"Qu'est-ce que la musique sync et à qui s'adresse cet outil ?","faq9-a":"La musique sync (synchronisation musicale) désigne l'utilisation d'une musique dans un contenu audiovisuel : films, séries TV, jeux vidéo, publicités. Les compositeurs sync travaillent avec des éditeurs ou bibliothèques musicales qui envoient des briefs avec deadlines. SYNC.PLANNER est conçu pour ces compositeurs qui gèrent plusieurs albums et dizaines de tracks simultanément.",
     "faq10-q":"Comment fonctionne le workflow de production musicale dans SYNC.PLANNER ?","faq10-a":"Créez un projet (album) pour chaque commande d'un éditeur, ajoutez vos tracks avec leur statut (Composition → Envoyée → Révision → Mix → Livrée), définissez une deadline. SYNC.PLANNER calcule la progression, vous alerte sur les deadlines proches et vous rappelle de relancer les éditeurs. L'assistant IA analyse votre production et vous aide à prioriser.",
     "faq11-q":"Peut-on gérer plusieurs éditeurs et albums simultanément ?","faq11-a":"Oui — c'est exactement pour ça que SYNC.PLANNER a été conçu. Nombre illimité d'albums avec différents éditeurs, chacun avec sa deadline et ses statuts de relance. La vue Kanban mensuelle donne une vision globale de toutes vos tracks. Les statistiques comparent vos taux de validation par éditeur.",
-    "faq12-q":"Comment sauvegarder ou restaurer mes projets ?","faq12-a":"SYNC.PLANNER sauvegarde automatiquement toutes vos données en local à chaque modification, sans action de votre part. Pour une sauvegarde manuelle — avant une mise à jour, ou pour en garder une copie ailleurs — le bouton \"Sauvegarder\" exporte l'intégralité de vos données dans un fichier JSON que vous enregistrez où vous voulez. Pour tout restaurer, sur le même ordinateur ou sur un autre, il suffit d'utiliser \"Charger\" et de sélectionner ce fichier.",
+    "faq12-q":"Comment sauvegarder ou restaurer mes projets ?","faq12-a":"SYNC.PLANNER enregistre automatiquement toutes vos données sur votre Mac à chaque modification, dans un dossier dédié, sans limite de taille. Vous pouvez aussi activer une sauvegarde automatique quotidienne vers le dossier de votre choix (Google Drive, iCloud Drive, disque externe…). Pour une sauvegarde manuelle, le bouton « Sauvegarder » exporte l'intégralité de vos données dans un fichier JSON ; pour tout restaurer, sur le même ordinateur ou sur un autre, utilisez « Charger » et sélectionnez ce fichier.",
     "founder-label":"Qui a créé SYNC.PLANNER ?", "founder-body":"Je suis <a href=\"https://www.cinematicscoring.com\" target=\"_blank\" style=\"color:var(--violet)\">Joeffrey Longagnani</a>, compositeur de musique de library pour la TV, les bandes-annonces et le documentaire. Au début, tout allait bien : quelques tracks à gérer, rien de compliqué. Mais mon catalogue a grossi de mois en mois, et je ne m'y retrouvais plus. J'ai cherché un outil adapté sur le net, sans rien trouver de comparable. J'ai donc créé ma propre app. Résultat : je sais en permanence où j'en suis. Les relances éditeurs sont quasi automatiques, et je vois en un clic quand j'ai relancé et si l'éditeur a répondu. Plus besoin de fouiller mes mails ou ma Dropbox pour retrouver un brief : le lien est directement dans l'app. <em>J'espère qu'il aidera d'autres compositeurs dans la même situation que moi !</em>",
     "cta-final-title":"Gérez vos <span style='color:var(--violet2)'>projets musicaux</span><br>sans vous perdre.",
     "cta-final-sub":"14 jours d'essai gratuit, sans carte bancaire. Le temps de voir si SYNC.PLANNER correspond au workflow.",
     "cta-final-mac-arm":"🍎 Apple Silicon (M1-M4)","cta-final-mac-intel":"Intel","cta-final-win":"Windows — En développement","pricing-trial-link":"✓ Tester gratuitement pendant 14 jours — aucune carte bancaire",
-    "footer-legal":"Mentions légales","footer-cgv":"CGV","feat7-title":"🎁 Bonus — Assistant IA intégré (Beta)","feat7-body":"Connectez votre propre clé API (OpenAI, Claude ou Mistral) pour bénéficier d'un assistant IA directement dans SYNC.PLANNER. Il peut s'appuyer sur vos projets pour vous aider à prioriser votre production, analyser vos deadlines, préparer vos livraisons et répondre à vos questions.","faq6-q":"L'assistant IA a-t-il accès à mes données ?","faq6-a":"L'IA est entièrement optionnelle. SYNC.PLANNER fonctionne sans intelligence artificielle. Si vous activez l'assistant en renseignant votre propre clé API, les informations nécessaires à votre demande peuvent être transmises au fournisseur d'IA choisi afin de générer la réponse, et cet usage peut entraîner une facturation séparée directement auprès de ce fournisseur (OpenAI, Anthropic ou Mistral), indépendante de votre abonnement SYNC.PLANNER. SYNC.PLANNER ne nécessite aucune clé API pour ses fonctions normales de gestion.",
+    "footer-legal":"Mentions légales","footer-cgv":"CGV","feat7-title":"🎁 Bonus — Assistant IA intégré (Beta)","feat7-body":"Connectez votre propre clé API (OpenAI, Claude ou Mistral) pour bénéficier d'un assistant IA directement dans SYNC.PLANNER. Il peut s'appuyer sur vos projets pour vous aider à prioriser votre production, analyser vos deadlines, préparer vos livraisons et répondre à vos questions.","faq6-q":"L'assistant IA a-t-il accès à mes données ?","faq6-a":"L'IA est entièrement optionnelle : SYNC.PLANNER fonctionne sans elle et ne demande aucune clé API pour ses fonctions de gestion. Si vous activez l'assistant avec votre propre clé API, votre demande et les informations utiles pour y répondre partent <b>directement de votre Mac vers le fournisseur choisi</b> (Anthropic, OpenAI ou Mistral) : elles ne passent jamais par nos serveurs. Cet usage est facturé séparément par le fournisseur, indépendamment de votre abonnement SYNC.PLANNER.",
   },
   en: {
+    "footer-kw":"Project management software for sync composers · music library · publisher · production music · sync licensing · library music · music publishing",
+    "footer-trust":"🔒 Total privacy: your data stays on your Mac",
+    "footer-privacy":"Privacy",
     "faq13-a":"SYNC.PLANNER reads the project open in Logic Pro through macOS's Accessibility permission. Open System Settings → Privacy & Security → Accessibility, add SYNC.PLANNER with the + button and switch it on, then relaunch the app. If macOS asks to allow control of “System Events”, click OK. After an app update, macOS may remove this permission: just switch it back on.",
     "faq13-q":"Logic Pro detection isn't working — what should I do?",
-    "faq7-a":"It's a standard macOS protection. To open SYNC.PLANNER: right-click the app → \"Open\" → \"Open anyway\".",
+    "faq7-a":"It's a standard macOS protection for apps downloaded outside the App Store. <b>On macOS 15 Sequoia and later</b>: open SYNC.PLANNER once (macOS blocks it), then go to System Settings → Privacy &amp; Security, scroll down to the message about SYNC.PLANNER, click “Open Anyway” and confirm with your password. <b>On macOS 14 and earlier</b>: right-click the app → “Open” → “Open”. You only need to do this once.",
     "faq7-q":"On Mac, a security warning appears — what should I do?",
     "seo-rowLogic":"Logic Pro detection (BPM, key, time)",
     "featLogic-body":"Open a project in Logic Pro: SYNC.PLANNER detects it on its own, picks up the BPM, key and time signature, and tracks the time spent on each track (automatically paused after 10 minutes of inactivity). Renamed a project? It offers to relink it in one click. No manual entry.",
@@ -786,7 +794,7 @@ const T = {
     "feat-all2":"All features","feat-future":"Access to future versions","feat-once":"One-time payment",
     "cta-btn1":"Subscribe — €9/mo","cta-btn2":"Subscribe — €90/yr","cta-btn3":"Buy lifetime — €149",
     "faq-title":"Frequently asked questions",
-    "faq1-q":"Is my data safe?","faq1-a":"Yes — all data is stored locally on the user's computer. Nothing passes through our servers except licence verification.",
+    "faq1-q":"Is my data safe?","faq1-a":"Yes. All your data (albums, tracks, publishers, statements, contracts) is saved only on your Mac, in a folder you can move. Nothing goes through our servers except licence verification (your email and a device identifier). The only other connections are the ones you trigger: the AI assistant, poster lookup (TMDB) and the update check. Everything is detailed in our <a href=\"/confidentialite-en.html\">privacy policy</a>.",
     "faq2-q":"Does it work on Mac and PC?","faq2-a":"SYNC.PLANNER is available on Mac (.dmg) right now. A Windows/PC version is in development — not yet available for download.",
     "faq3-q":"Can I cancel anytime?","faq3-a":"Yes, no strings attached. Cancel in one click from your Stripe dashboard. Access stays active until the end of the paid period.",
     "faq4-q":"What is the Lifetime plan exactly?","faq4-a":"A one-time payment of €149 gives permanent access to SYNC.PLANNER, including all future versions.",
@@ -795,12 +803,12 @@ const T = {
     "faq9-q":"What is sync music and who is this tool for?","faq9-a":"Sync music (music synchronization) refers to the use of music in audiovisual content: films, TV series, video games, advertising. Sync composers typically work with publishers or music libraries that send them briefs with specific deadlines. SYNC.PLANNER is designed for professional composers managing multiple albums and dozens of tracks simultaneously.",
     "faq10-q":"How does the music production workflow work in SYNC.PLANNER?","faq10-a":"Create a project (album) for each publisher order, add your tracks with their status (Composition → Sent → Revision → Mix → Delivered), set a deadline. SYNC.PLANNER automatically calculates progress, alerts you when deadlines approach, and reminds you to follow up with publishers who haven't responded. The AI assistant can analyze your production and help you prioritize tasks.",
     "faq11-q":"Can you manage multiple publishers and albums simultaneously?","faq11-a":"Yes — that's exactly what SYNC.PLANNER was designed for. Unlimited albums with different publishers, each with its own deadline, tracks and follow-up statuses. The monthly Kanban view gives a global overview of all your tracks. Statistics let you compare your validation rates by publisher to identify the most productive collaborations.",
-    "faq12-q":"How do I back up or restore my projects?","faq12-a":"SYNC.PLANNER automatically saves all your data locally with every change, with nothing for you to do. For a manual backup — before an update, or to keep a copy elsewhere — the \"Back up\" button exports all your data to a JSON file you save wherever you like. To restore everything, on the same computer or a different one, just use \"Load\" and select that file.",
+    "faq12-q":"How do I back up or restore my projects?","faq12-a":"SYNC.PLANNER automatically saves all your data on your Mac with every change, in a dedicated folder with no size limit. You can also turn on a daily automatic backup to the folder of your choice (Google Drive, iCloud Drive, external drive…). For a manual backup, the “Back up” button exports all your data to a JSON file; to restore everything, on the same computer or another one, use “Load” and select that file.",
     "founder-label":"Who built SYNC.PLANNER?", "founder-body":"I'm <a href=\"https://www.cinematicscoring.com\" target=\"_blank\" style=\"color:var(--violet)\">Joeffrey Longagnani</a>, a library music composer for TV, trailers and documentaries. At first everything was fine — just a few tracks to manage. But as my catalogue grew month after month, I lost track of it all. I searched online for a suitable tool and found nothing comparable, so I built my own app. The result: I always know where I stand. Publisher follow-ups are almost automatic, and one click shows me when I last followed up and whether the publisher replied. No more digging through emails or Dropbox to find a brief: the link is right there in the app. <em>I hope it helps other composers in the same situation!</em>",
     "cta-final-title":"Manage your <span style='color:var(--violet2)'>music projects</span><br>without losing track.",
     "cta-final-sub":"14-day free trial, no credit card. See if SYNC.PLANNER fits your workflow.",
     "cta-final-mac-arm":"🍎 Apple Silicon (M1-M4)","cta-final-mac-intel":"Intel","cta-final-win":"Windows — In development","pricing-trial-link":"✓ Try free for 14 days — no credit card required",
-    "footer-legal":"Legal notice","footer-cgv":"Terms","feat7-title":"🎁 Bonus — Built-in AI assistant (Beta)","feat7-body":"Connect your own API key (OpenAI, Claude or Mistral) to get an AI assistant right inside SYNC.PLANNER. It can draw on your projects to help you prioritize production, analyze deadlines, prepare deliveries and answer your questions.","faq6-q":"Does the AI assistant have access to my data?","faq6-a":"The AI is entirely optional. SYNC.PLANNER works without artificial intelligence. If you enable the assistant by entering your own API key, the information needed for your request may be sent to the AI provider you chose in order to generate the response, and this usage may result in separate billing directly from that provider (OpenAI, Anthropic or Mistral), independent of your SYNC.PLANNER subscription. SYNC.PLANNER doesn't require any API key for its normal management features.",
+    "footer-legal":"Legal notice","footer-cgv":"Terms","feat7-title":"🎁 Bonus — Built-in AI assistant (Beta)","feat7-body":"Connect your own API key (OpenAI, Claude or Mistral) to get an AI assistant right inside SYNC.PLANNER. It can draw on your projects to help you prioritize production, analyze deadlines, prepare deliveries and answer your questions.","faq6-q":"Does the AI assistant have access to my data?","faq6-a":"The AI is entirely optional: SYNC.PLANNER works without it and needs no API key for its management features. If you enable the assistant with your own API key, your request and the information needed to answer it go <b>straight from your Mac to the provider you chose</b> (Anthropic, OpenAI or Mistral): it never goes through our servers. This usage is billed separately by the provider, independently of your SYNC.PLANNER subscription.",
   }
 };
 
