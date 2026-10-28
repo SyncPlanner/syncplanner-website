@@ -121,6 +121,7 @@
   .btn-primary { display:inline-flex;align-items:center;gap:8px;padding:15px 32px;background:var(--violet);color:white;border-radius:10px;font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600;text-decoration:none;box-shadow:0 8px 24px rgba(124,58,237,0.35);transition:transform 0.2s,box-shadow 0.2s; }
   .btn-primary:hover { transform:translateY(-2px);box-shadow:0 12px 32px rgba(124,58,237,0.5); }
   .btn-win { background:#2D1B69;box-shadow:0 8px 24px rgba(45,27,105,0.4); }
+  .dl-tile{flex-direction:column;justify-content:center;gap:2px;min-width:200px;padding:12px 18px!important;line-height:1.2;text-align:center}.dl-tile small{font-size:12px;font-weight:500;opacity:.8}
   .btn-secondary { display:inline-flex;align-items:center;gap:8px;padding:15px 28px;background:transparent;color:var(--violet2);border:1px solid rgba(167,139,250,0.4);border-radius:10px;font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600;text-decoration:none;transition:border-color 0.2s; }
   .btn-secondary:hover { border-color:var(--violet2); }
   .hero-note { font-size:12px;color:#8582B0; }
@@ -256,13 +257,13 @@
 <p class="hero-sub" id="hero-sub">Run your whole sync production, from Logic Pro to your SACEM royalties.</p>
 <p class="hero-sub2" id="hero-sub2">Albums, tracks, deadlines, stems, publishers, follow-ups and profitability: your entire workflow in one app built specifically for composers.</p>
     <p id="hero-keys" style="font-size:13px;color:#C4B5FD;margin:-4px 0 18px;letter-spacing:.01em">Automatic Logic Pro project detection · Deliverables check · SACEM royalties tracking · Local data</p>
-<div id="mac-download-label" style="font-size:11px;color:#8582B0;margin-bottom:8px">Download for Mac — pick your chip:</div>
+<div id="mac-download-label" style="font-size:11px;color:#8582B0;margin-bottom:8px">Download for Mac:</div>
 <div class="hero-btns" id="download">
-<a class="btn-primary" href="https://github.com/SyncPlanner/SyncPlanner-app/releases/latest/download/SYNC.PLANNER-arm64.dmg" id="btn-mac-arm">🍎 Apple Silicon (M1-M4)</a>
-<a class="btn-secondary" href="https://github.com/SyncPlanner/SyncPlanner-app/releases/latest/download/SYNC.PLANNER-x64.dmg" id="btn-mac-intel">Intel</a>
-<span class="btn-primary btn-win" id="btn-win" style="opacity:0.45;cursor:not-allowed;pointer-events:none">Windows — In development</span>
+<a class="btn-primary dl-tile" href="https://github.com/SyncPlanner/SyncPlanner-app/releases/latest/download/SYNC.PLANNER-arm64.dmg" id="btn-mac-arm">Mac 2021 or later<small>Apple M1, M2, M3… chip</small></a>
+<a class="btn-primary dl-tile" href="https://github.com/SyncPlanner/SyncPlanner-app/releases/latest/download/SYNC.PLANNER-x64.dmg" id="btn-mac-intel">Mac 2020 or earlier<small>Intel processor</small></a>
+<span class="btn-primary btn-win dl-tile" id="btn-win" style="opacity:0.45;cursor:not-allowed;pointer-events:none">Windows<small>in development</small></span>
 </div>
-<div id="mac-arch-help" style="margin-top:8px;font-size:11px;color:#8582B0">Not sure which chip? Apple menu ▸ "About This Mac" shows "Apple chip" or "Intel processor". Requires macOS 12 (Monterey) or later.</div>
+<div id="mac-arch-help" style="margin-top:8px;font-size:11px;color:#8582B0">2020 Mac? Apple menu ▸ “About This Mac”: “Apple chip” or “Intel”. macOS 12 or later.</div>
 <div style="margin:14px 0 22px">
 <a href="/demo.html" id="btn-demo" onmouseout="this.style.background='rgba(124,58,237,0.08)';this.style.borderColor='rgba(167,139,250,0.25)'" onmouseover="this.style.background='rgba(124,58,237,0.18)';this.style.borderColor='rgba(167,139,250,0.5)'" style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#A78BFA;text-decoration:none;border:1px solid rgba(167,139,250,0.25);border-radius:8px;padding:8px 16px;background:rgba(124,58,237,0.08);transition:all 0.2s">
 <svg fill="none" height="14" stroke="currentColor" stroke-linecap="round" stroke-width="1.8" style="vertical-align:middle" viewbox="0 0 24 24" width="14"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg> <span id="btn-demo-txt">Explore features — interactive demo</span>
@@ -575,11 +576,11 @@
 <h2 id="cta-final-title">Manage your <span style="color:var(--violet2)">music projects</span><br/>without losing track.</h2>
 <p id="cta-final-sub">14-day free trial, no credit card. See if SYNC.PLANNER fits your workflow.</p>
 <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
-<a class="btn-primary" href="https://github.com/SyncPlanner/SyncPlanner-app/releases/latest/download/SYNC.PLANNER-arm64.dmg" id="cta-final-mac-arm">🍎 Apple Silicon (M1-M4)</a>
-<a class="btn-secondary" href="https://github.com/SyncPlanner/SyncPlanner-app/releases/latest/download/SYNC.PLANNER-x64.dmg" id="cta-final-mac-intel">Intel</a>
-<span class="btn-primary btn-win" id="cta-final-win" style="opacity:0.45;cursor:not-allowed;pointer-events:none">Windows — In development</span>
+<a class="btn-primary dl-tile" href="https://github.com/SyncPlanner/SyncPlanner-app/releases/latest/download/SYNC.PLANNER-arm64.dmg" id="cta-final-mac-arm">Mac 2021 or later<small>Apple M1, M2, M3… chip</small></a>
+<a class="btn-primary dl-tile" href="https://github.com/SyncPlanner/SyncPlanner-app/releases/latest/download/SYNC.PLANNER-x64.dmg" id="cta-final-mac-intel">Mac 2020 or earlier<small>Intel processor</small></a>
+<span class="btn-primary btn-win dl-tile" id="cta-final-win" style="opacity:0.45;cursor:not-allowed;pointer-events:none">Windows<small>in development</small></span>
 </div>
-<div id="cta-final-arch-help" style="margin-top:10px;font-size:11px;color:#8582B0;text-align:center">Not sure which chip? Apple menu ▸ "About This Mac".</div>
+<div id="cta-final-arch-help" style="margin-top:10px;font-size:11px;color:#8582B0;text-align:center">2020 Mac? Apple menu ▸ “About This Mac”.</div>
 </section>
 <section style="max-width:640px;margin:0 auto;padding:40px 24px;text-align:center;border-top:1px solid #1E1C38">
 <div id="founder-label" style="font-size:11px;color:#8582B0;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:10px">Who built SYNC.PLANNER?</div>
@@ -660,9 +661,9 @@ const T = {
     "hero-h1":"Albums, deadlines,<br>relances, revenus.<br><span style='color:var(--violet)'>Au même endroit.</span>",
     "hero-sub":"Pilotez toute votre production sync, de Logic Pro aux revenus SACEM.",
     "hero-sub2":"Albums, tracks, deadlines, stems, éditeurs, relances et rentabilité : tout votre workflow est centralisé dans une application conçue spécifiquement pour les compositeurs.","hero-keys":"Détection automatique des projets Logic Pro · Contrôle des livrables · Suivi SACEM · Données locales",
-    "mac-download-label":"Télécharger pour Mac — choisissez votre puce :",
-    "btn-mac-arm":"🍎 Apple Silicon (M1-M4)","btn-mac-intel":"Intel","btn-win":"Windows — En développement","btn-demo-txt":"Explorer les fonctionnalités — démo interactive","mac-arch-help":"Pas sûr de votre puce ? Menu Pomme ▸ \"À propos de ce Mac\" indique \"Puce Apple\" ou \"Processeur Intel\". Nécessite macOS 12 (Monterey) ou plus récent.",
-    "cta-final-arch-help":"Pas sûr de votre puce ? Menu Pomme ▸ \"À propos de ce Mac\".",
+    "mac-download-label":"Télécharger pour Mac :",
+    "btn-mac-arm":"Mac 2021 et après<small>puce Apple M1, M2, M3…</small>","btn-mac-intel":"Mac 2020 et avant<small>processeur Intel</small>","btn-win":"Windows<small>en développement</small>","btn-demo-txt":"Explorer les fonctionnalités — démo interactive","mac-arch-help":"Mac de 2020 ? Menu Pomme ▸ « À propos de ce Mac » : « Puce Apple » ou « Intel ». macOS 12 minimum.",
+    "cta-final-arch-help":"Mac de 2020 ? Menu Pomme ▸ « À propos de ce Mac ».",
     "hero-note":"✓ Aucune carte bancaire requise &nbsp;·&nbsp; ✓ Données de gestion 100% locales &nbsp;·&nbsp; ✓ macOS 12+ (Apple Silicon & Intel) — Windows bientôt",
     "hero-evolving":"🔄 Application en constante évolution — mises à jour régulières incluses",
     "problem-eyebrow":"Le problème","problem-title":"Trop d'outils,<br><em>pas assez de clarté.</em>",
@@ -714,7 +715,7 @@ const T = {
     "founder-label":"Qui a créé SYNC.PLANNER ?", "founder-body":"Je suis <a href=\"https://www.cinematicscoring.com\" target=\"_blank\" style=\"color:var(--violet)\">Joeffrey Longagnani</a>, compositeur de musique de library pour la TV, les bandes-annonces et le documentaire. Au début, tout allait bien : quelques tracks à gérer, rien de compliqué. Mais mon catalogue a grossi de mois en mois, et je ne m'y retrouvais plus. J'ai cherché un outil adapté sur le net, sans rien trouver de comparable. J'ai donc créé ma propre app. Résultat : je sais en permanence où j'en suis. Les relances éditeurs sont quasi automatiques, et je vois en un clic quand j'ai relancé et si l'éditeur a répondu. Plus besoin de fouiller mes mails ou ma Dropbox pour retrouver un brief : le lien est directement dans l'app. <em>J'espère qu'il aidera d'autres compositeurs dans la même situation que moi !</em>",
     "cta-final-title":"Gérez vos <span style='color:var(--violet2)'>projets musicaux</span><br>sans vous perdre.",
     "cta-final-sub":"14 jours d'essai gratuit, sans carte bancaire. Le temps de voir si SYNC.PLANNER correspond au workflow.",
-    "cta-final-mac-arm":"🍎 Apple Silicon (M1-M4)","cta-final-mac-intel":"Intel","cta-final-win":"Windows — En développement","pricing-trial-link":"✓ Tester gratuitement pendant 14 jours — aucune carte bancaire",
+    "cta-final-mac-arm":"Mac 2021 et après<small>puce Apple M1, M2, M3…</small>","cta-final-mac-intel":"Mac 2020 et avant<small>processeur Intel</small>","cta-final-win":"Windows<small>en développement</small>","pricing-trial-link":"✓ Tester gratuitement pendant 14 jours — aucune carte bancaire",
     "footer-legal":"Mentions légales","footer-cgv":"CGV","feat7-title":"🎁 Bonus — Assistant IA intégré (Beta)","feat7-body":"Connectez votre propre clé API (OpenAI, Claude ou Mistral) pour bénéficier d'un assistant IA directement dans SYNC.PLANNER. Il peut s'appuyer sur vos projets pour vous aider à prioriser votre production, analyser vos deadlines, préparer vos livraisons et répondre à vos questions.","faq6-q":"L'assistant IA a-t-il accès à mes données ?","faq6-a":"L'IA est entièrement optionnelle : SYNC.PLANNER fonctionne sans elle et ne demande aucune clé API pour ses fonctions de gestion. Si vous activez l'assistant avec votre propre clé API, votre demande et les informations utiles pour y répondre partent <b>directement de votre Mac vers le fournisseur choisi</b> (Anthropic, OpenAI ou Mistral) : elles ne passent jamais par nos serveurs. Cet usage est facturé séparément par le fournisseur, indépendamment de votre abonnement SYNC.PLANNER.",
   },
   en: {
@@ -759,9 +760,9 @@ const T = {
     "hero-h1":"Albums, deadlines,<br>follow-ups, royalties.<br><span style='color:var(--violet)'>All in one place.</span>",
     "hero-sub":"Run your whole sync production, from Logic Pro to your SACEM royalties.",
     "hero-sub2":"Albums, tracks, deadlines, stems, publishers, follow-ups and profitability: your entire workflow in one app built specifically for composers.","hero-keys":"Automatic Logic Pro project detection · Deliverables check · SACEM royalties tracking · Local data",
-    "mac-download-label":"Download for Mac — pick your chip:",
-    "btn-mac-arm":"🍎 Apple Silicon (M1-M4)","btn-mac-intel":"Intel","btn-win":"Windows — In development","btn-demo-txt":"Explore features — interactive demo","mac-arch-help":"Not sure which chip? Apple menu ▸ \"About This Mac\" shows \"Apple chip\" or \"Intel processor\". Requires macOS 12 (Monterey) or later.",
-    "cta-final-arch-help":"Not sure which chip? Apple menu ▸ \"About This Mac\".",
+    "mac-download-label":"Download for Mac:",
+    "btn-mac-arm":"Mac 2021 or later<small>Apple M1, M2, M3… chip</small>","btn-mac-intel":"Mac 2020 or earlier<small>Intel processor</small>","btn-win":"Windows<small>in development</small>","btn-demo-txt":"Explore features — interactive demo","mac-arch-help":"2020 Mac? Apple menu ▸ “About This Mac”: “Apple chip” or “Intel”. macOS 12 or later.",
+    "cta-final-arch-help":"2020 Mac? Apple menu ▸ “About This Mac”.",
     "hero-note":"✓ No credit card required &nbsp;·&nbsp; ✓ 100% local data &nbsp;·&nbsp; ✓ macOS 12+ (Apple Silicon & Intel) — Windows coming soon",
     "hero-evolving":"🔄 Constantly evolving app — regular updates included",
     "problem-eyebrow":"The problem","problem-title":"Too many tools,<br><em>not enough clarity.</em>",
@@ -813,7 +814,7 @@ const T = {
     "founder-label":"Who built SYNC.PLANNER?", "founder-body":"I'm <a href=\"https://www.cinematicscoring.com\" target=\"_blank\" style=\"color:var(--violet)\">Joeffrey Longagnani</a>, a library music composer for TV, trailers and documentaries. At first everything was fine — just a few tracks to manage. But as my catalogue grew month after month, I lost track of it all. I searched online for a suitable tool and found nothing comparable, so I built my own app. The result: I always know where I stand. Publisher follow-ups are almost automatic, and one click shows me when I last followed up and whether the publisher replied. No more digging through emails or Dropbox to find a brief: the link is right there in the app. <em>I hope it helps other composers in the same situation!</em>",
     "cta-final-title":"Manage your <span style='color:var(--violet2)'>music projects</span><br>without losing track.",
     "cta-final-sub":"14-day free trial, no credit card. See if SYNC.PLANNER fits your workflow.",
-    "cta-final-mac-arm":"🍎 Apple Silicon (M1-M4)","cta-final-mac-intel":"Intel","cta-final-win":"Windows — In development","pricing-trial-link":"✓ Try free for 14 days — no credit card required",
+    "cta-final-mac-arm":"Mac 2021 or later<small>Apple M1, M2, M3… chip</small>","cta-final-mac-intel":"Mac 2020 or earlier<small>Intel processor</small>","cta-final-win":"Windows<small>in development</small>","pricing-trial-link":"✓ Try free for 14 days — no credit card required",
     "footer-legal":"Legal notice","footer-cgv":"Terms","feat7-title":"🎁 Bonus — Built-in AI assistant (Beta)","feat7-body":"Connect your own API key (OpenAI, Claude or Mistral) to get an AI assistant right inside SYNC.PLANNER. It can draw on your projects to help you prioritize production, analyze deadlines, prepare deliveries and answer your questions.","faq6-q":"Does the AI assistant have access to my data?","faq6-a":"The AI is entirely optional: SYNC.PLANNER works without it and needs no API key for its management features. If you enable the assistant with your own API key, your request and the information needed to answer it go <b>straight from your Mac to the provider you chose</b> (Anthropic, OpenAI or Mistral): it never goes through our servers. This usage is billed separately by the provider, independently of your SYNC.PLANNER subscription.",
   }
 };
