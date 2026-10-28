@@ -4,7 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SYNC.PLANNER — Guide d'utilisation</title>
-<meta name="description" content="Guide complet de SYNC.PLANNER : gérez vos projets sync, tracks, deadlines et relances éditeurs.">
+<meta name="description" content="Guide complet de SYNC.PLANNER : radar des deadlines, suivi des tracks, relances éditeurs, livrables, revenus SACEM, Logic Pro et sauvegardes.">
+<link rel="canonical" href="https://syncplanner.app/help">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -186,6 +187,7 @@ footer p{font-size:12px;color:var(--text4)}
   .stat-grid{grid-template-columns:repeat(2,1fr)}
   .kb-board{grid-template-columns:repeat(2,1fr)}
 }
+.section{scroll-margin-top:76px}
 </style>
 </head>
 <body>
@@ -197,8 +199,8 @@ footer p{font-size:12px;color:var(--text4)}
       SYNC.PLANNER
     </a>
     <div class="lang-switch">
-      <button class="lang-btn active" onclick="setLang('fr')">🇫🇷 FR</button>
-      <button class="lang-btn" onclick="setLang('en')">🇬🇧 EN</button>
+      <button class="lang-btn active" onclick="setLang('fr')">FR</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
     </div>
   </div>
 </nav>
@@ -223,668 +225,536 @@ footer p{font-size:12px;color:var(--text4)}
 <footer><div class="container"><p>© 2026 SYNC.PLANNER · <a href="https://syncplanner.app">syncplanner.app</a> · <a href="mailto:contact@syncplanner.app">contact@syncplanner.app</a></p></div></footer>
 
 <script>
+// Guide en ligne — généré le 27/10/2026 à partir du guide intégré à l'appli (même contenu, FR / EN)
 let LANG = 'fr';
 const T = {
   badge:{fr:"Guide d'utilisation",en:"User Guide"},
   title:{fr:"Guide complet",en:"Complete Guide"},
-  sub:{fr:"Tout ce qu'il faut savoir pour utiliser SYNC.PLANNER — fonctionnalités, workflow et démos interactives.",en:"Everything you need to use SYNC.PLANNER — features, workflow and interactive demos."},
+  sub:{fr:"Toutes les fonctionnalités de SYNC.PLANNER expliquées, écran par écran. Le même guide est disponible dans l'appli (menu Aide).",en:"Every SYNC.PLANNER feature explained, screen by screen. The same guide is available in the app (Help menu)."},
   search:{fr:"Rechercher dans le guide…",en:"Search the guide…"},
-  demo_hint:{fr:"👆 Démo interactive — clique pour tester",en:"👆 Interactive demo — click to try"},
+  empty:{fr:"Aucun résultat — essaie un autre mot.",en:"No results — try another word."},
+  demo:{fr:"Voir la démo interactive →",en:"Try the interactive demo →"},
 };
-
-// ─── SECTIONS DATA ─────────────────────────────────────────
 const SECTIONS = [
-{
-  id:'projects', color:'#60A5FA', bg:'rgba(96,165,250,0.12)',
-  icon:`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="1.8" stroke-linecap="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>`,
-  title:{fr:'Projets & Albums',en:'Projects & Albums'},
-  sub:{fr:'Créer, organiser et suivre vos albums',en:'Create, organise and track your albums'},
-  items:[
-    {fr:'<b>Créer un projet</b> — clique sur "+ Nouveau projet", renseigne le titre, l\'éditeur, la deadline et le statut.',en:'<b>Create a project</b> — click "+ New Project", fill in the title, publisher, deadline and status.'},
-    {fr:'<b>Statuts projet</b> — En production · Envoyé · Terminé · Abandonné. Se met à jour automatiquement quand toutes les tracks sont validées ou livrées.',en:'<b>Project statuses</b> — In Production · Submitted · Completed · Abandoned. Updates automatically when all tracks are validated or delivered.'},
-    {fr:'<b>Statuts de track</b> — Composition · Envoyée · Révision · Mix · Mix envoyé · Validée · Livrée · Refusée. Clique sur un statut pour le changer instantanément.',en:'<b>Track statuses</b> — Composition · Submitted · Revision · Mix · Mix Submitted · Validated · Delivered · Refused. Click a status to change it instantly.'},
-    {fr:'<b>Date d\'envoi</b> — quand une track passe en "Envoyée", définis la date d\'envoi pour démarrer le compteur J+X.',en:'<b>Send date</b> — when a track switches to "Submitted", set the send date to start the J+X timer.'},
-    {fr:'<b>BPM · Tonalité · Durée</b> — métadonnées éditables sur chaque track.',en:'<b>BPM · Key · Duration</b> — editable metadata on each track.'},
-    {fr:'<b>Moods</b> — 16 moods : Epic, Dark, Tension, Action, Ambient, Emotional, Upbeat, Cinematic, Hybrid, Corporate, Orchestral, Mystical, Playful, Dramatic, Fantasy, Neo-Classic.',en:'<b>Moods</b> — 16 moods: Epic, Dark, Tension, Action, Ambient, Emotional, Upbeat, Cinematic, Hybrid, Corporate, Orchestral, Mystical, Playful, Dramatic, Fantasy, Neo-Classic.'},
-    {fr:'<b>Collaborateurs</b> — ajoute compositeur, arrangeur, mix engineer, musicien… par album ou par track avec leur % de parts.',en:'<b>Collaborators</b> — add composer, arranger, mix engineer, musician… per album or per track with their share %.'},
-    {fr:'<b>Recycler ♻️</b> — transfère une track refusée vers un autre album via le bouton ♻️.',en:'<b>Recycle ♻️</b> — transfer a refused track to another album via the ♻️ button.'},
-    {fr:'<b>Archiver</b> — projets terminés archivés, restent dans les stats.',en:'<b>Archive</b> — completed projects archived, still counted in stats.'},
-    {fr:'<b>Import audio</b> — importe des MP3/WAV pour créer les tracks automatiquement depuis les noms de fichiers.',en:'<b>Audio import</b> — import MP3/WAV to auto-create tracks from filenames.'},
-    {fr:'<b>Cover</b> — ajoute une pochette par URL ou upload. Visible dans la Galerie.',en:'<b>Cover</b> — add a cover by URL or upload. Visible in the Gallery.'},
-  ],
-  demo: buildTrackDemo
-},
-{
-  id:'kanban', color:'#A78BFA', bg:'rgba(167,139,250,0.12)',
-  icon:`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="3" width="7" height="18" rx="1"/><rect x="14" y="3" width="7" height="18" rx="1"/></svg>`,
-  title:{fr:'Suivi par étape — Kanban',en:'Track Progress — Kanban'},
-  sub:{fr:'Vue mensuelle de toutes vos tracks par statut',en:'Monthly view of all your tracks by status'},
-  items:[
-    {fr:'<b>Vue mensuelle</b> — tracks des projets dont la deadline tombe dans le mois sélectionné. Navigue avec ← →.',en:'<b>Monthly view</b> — tracks from projects whose deadline falls in the selected month. Navigate with ← →.'},
-    {fr:'<b>En-têtes fixes</b> — les colonnes restent visibles en haut même en scrollant.',en:'<b>Fixed headers</b> — columns stay visible at top even while scrolling.'},
-    {fr:'<b>Cartes track</b> — titre, album, logo éditeur, BPM, tonalité, moods, badge J+X si en attente.',en:'<b>Track cards</b> — title, album, publisher logo, BPM, key, moods, J+X badge if awaiting reply.'},
-    {fr:'<b>Glisser-déposer</b> — fais glisser une carte vers une autre colonne pour changer le statut.',en:'<b>Drag & drop</b> — drag a card to another column to change its status.'},
-    {fr:'<b>Fiche track (clic)</b> — ouvre la fiche complète : modifier titre, BPM, tonalité, durée, statut, moods, notes, date d\'envoi, deadline, réponse reçue, email relance.',en:'<b>Track sheet (click)</b> — opens the full sheet: edit title, BPM, key, duration, status, moods, notes, send date, deadline, reply received, follow-up email.'},
-  ],
-  demo: buildKanbanDemo
-},
-{
-  id:'alerts', color:'#F87171', bg:'rgba(248,113,113,0.12)',
-  icon:`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F87171" stroke-width="1.8" stroke-linecap="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>`,
-  title:{fr:'Alertes & Relances',en:'Alerts & Follow-ups'},
-  sub:{fr:'Système J+X et notifications en temps réel',en:'J+X system and real-time notifications'},
-  items:[
-    {fr:'<b>Panel alertes</b> — icône cloche dans la barre latérale, alertes en temps réel : deadlines dépassées + relances sans réponse.',en:'<b>Alert panel</b> — bell icon in the sidebar, real-time alerts: overdue deadlines + unanswered follow-ups.'},
-    {fr:'<b>Badge J+X</b> — jours depuis la date d\'envoi. Bleu &lt;15j · Orange 15–30j · Rouge &gt;30j.',en:'<b>J+X badge</b> — days since the send date. Blue &lt;15d · Orange 15–30d · Red &gt;30d.'},
-    {fr:'<b>Seuil de relance</b> — délai d\'alerte configurable par track (défaut 15 jours).',en:'<b>Follow-up threshold</b> — configurable alert delay per track (default 15 days).'},
-    {fr:'<b>Réponse reçue</b> — clique pour arrêter le compteur. Automatique si la track passe en Validée ou Livrée.',en:'<b>Reply received</b> — click to stop the counter. Automatic when a track becomes Validated or Delivered.'},
-    {fr:'<b>Email de relance</b> — bouton enveloppe pour ouvrir un email pré-rempli depuis le template éditeur.',en:'<b>Follow-up email</b> — envelope button to open a pre-filled email from the publisher template.'},
-    {fr:'<b>Deadlines dépassées</b> — apparaissent en 🚨 rouge avec "dépassée de X jours".',en:'<b>Overdue deadlines</b> — shown as 🚨 red with "overdue by X days".'},
-    {fr:'<b>Briefing quotidien</b> — résumé du jour : stats, deadlines proches, tracks à relancer, projets inactifs depuis 14j.',en:'<b>Daily briefing</b> — day\'s summary: stats, upcoming deadlines, tracks to follow up, projects inactive 14+ days.'},
-  ],
-  demo: buildAlertsDemo
-},
-{
-  id:'stats', color:'#FBBF24', bg:'rgba(251,191,36,0.12)',
-  icon:`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FBBF24" stroke-width="1.8" stroke-linecap="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>`,
-  title:{fr:'Statistiques',en:'Statistics'},
-  sub:{fr:'Graphiques interactifs, collabs et éditeurs',en:'Interactive charts, collabs and publishers'},
-  items:[
-    {fr:'<b>Par année</b> — graphique barres mensuel : produites, validées, refusées, en cours. Clique sur les légendes pour masquer/afficher — les barres se redimensionnent.',en:'<b>By year</b> — monthly bar chart: produced, validated, refused, in progress. Click legends to hide/show — bars resize.'},
-    {fr:'<b>Mensuel</b> — vue détaillée par mois avec comparateur.',en:'<b>Monthly</b> — detailed view by month with comparator.'},
-    {fr:'<b>Total</b> — cumul depuis le début.',en:'<b>All Time</b> — lifetime totals.'},
-    {fr:'<b>Collabs</b> — classement par nombre de tracks. Recherche par nom, accordéon pour voir les tracks. Avatar ou "Fiche" pour ouvrir le profil complet.',en:'<b>Collabs</b> — ranking by number of tracks. Search by name, accordion for tracks. Avatar or "Profile" to open full sheet.'},
-    {fr:'<b>Éditeurs</b> — validées, refusées, taux d\'acceptation, délai moyen de réponse.',en:'<b>Publishers</b> — validated, refused, acceptance rate, average response time.'},
-  ],
-  demo: buildStatsDemo
-},
-{
-  id:'goals', color:'#10B981', bg:'rgba(16,185,129,0.12)',
-  icon:`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2" fill="#10B981" stroke="none"/></svg>`,
-  title:{fr:'Objectifs',en:'Goals'},
-  sub:{fr:'Fixer et suivre vos objectifs annuels',en:'Set and track your annual targets'},
-  items:[
-    {fr:'<b>Objectifs annuels</b> — nombre cible de tracks à produire, livrer et valider.',en:'<b>Annual goals</b> — target number of tracks to produce, deliver and validate.'},
-    {fr:'<b>Progression temps réel</b> — barre qui se met à jour à chaque changement de statut.',en:'<b>Real-time progress</b> — bar updates with every status change.'},
-    {fr:'<b>Projection fin d\'année</b> — résultat estimé selon le rythme actuel.',en:'<b>Year-end projection</b> — estimated result based on current pace.'},
-    {fr:'<b>Verrouiller</b> — protège les objectifs contre les modifications accidentelles.',en:'<b>Lock</b> — protects goals from accidental changes.'},
-    {fr:'<b>Sélecteur d\'année</b> — navigue de N-5 à N+5.',en:'<b>Year selector</b> — navigate from N-5 to N+5.'},
-  ],
-  demo: buildGoalsDemo
-},
-{
-  id:'publishers', color:'#34D399', bg:'rgba(52,211,153,0.12)',
-  icon:`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="1.8" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>`,
-  title:{fr:'Éditeurs',en:'Publishers'},
-  sub:{fr:'Fiches contacts, templates email, statistiques',en:'Contact sheets, email templates, statistics'},
-  items:[
-    {fr:'<b>Fiche éditeur</b> — nom, email, téléphone, site web, logo (affiché dans projets, stats et Kanban).',en:'<b>Publisher sheet</b> — name, email, phone, website, logo (shown in projects, stats and Kanban).'},
-    {fr:'<b>Template relance FR + EN</b> — variables : <code>{composer}</code> <code>{track}</code> <code>{album}</code> <code>{date}</code>.',en:'<b>Follow-up template FR + EN</b> — variables: <code>{composer}</code> <code>{track}</code> <code>{album}</code> <code>{date}</code>.'},
-    {fr:'<b>Stats par éditeur</b> — validées, refusées, taux d\'acceptation, délai moyen de réponse.',en:'<b>Publisher stats</b> — validated, refused, acceptance rate, average response time.'},
-    {fr:'<b>Bordure active</b> — orange si des tracks attendent >15j, rouge >30j.',en:'<b>Active border</b> — orange if tracks waiting >15d, red >30d.'},
-  ],
-  demo: buildPublisherDemo
-},
-{
-  id:'collabs', color:'#C4B5FD', bg:'rgba(196,181,253,0.12)',
-  icon:`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C4B5FD" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>`,
-  title:{fr:'Collaborateurs',en:'Collaborators'},
-  sub:{fr:'Répertoire pro et stats de collaboration',en:'Pro directory and collaboration stats'},
-  items:[
-    {fr:'<b>Ajouter</b> — par album ou par track, avec le % de parts.',en:'<b>Add</b> — per album or per track, with share %.'},
-    {fr:'<b>Fiche complète</b> — rôle, photo, email, téléphone, ville, Facebook, Instagram, Spotify, site web, Dropbox/Drive, notes.',en:'<b>Full profile</b> — role, photo, email, phone, city, Facebook, Instagram, Spotify, website, Dropbox/Drive, notes.'},
-    {fr:'<b>Liens sociaux</b> — bouton → pour ouvrir directement dans le navigateur.',en:'<b>Social links</b> — → button to open directly in the browser.'},
-    {fr:'<b>Recherche</b> — barre de recherche pour filtrer par nom.',en:'<b>Search</b> — search bar to filter by name.'},
-    {fr:'<b>Stats</b> — tracks ensemble, albums, parts moyennes, taux validées/refusées. Accordéon pour la liste détaillée.',en:'<b>Stats</b> — tracks together, albums, avg share, validated/refused rate. Accordion for detailed list.'},
-  ],
-  demo: buildCollabDemo
-},
-{
-  id:'gallery', color:'#FB923C', bg:'rgba(251,146,60,0.12)',
-  icon:`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FB923C" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>`,
-  title:{fr:'Galerie',en:'Gallery'},
-  sub:{fr:'Vue visuelle de tous vos albums',en:'Visual view of all your albums'},
-  items:[
-    {fr:'<b>Grille de covers</b> — tous les albums avec leurs pochettes.',en:'<b>Cover grid</b> — all albums with their covers.'},
-    {fr:'<b>Filtres</b> — par statut, par éditeur, avec/sans cover.',en:'<b>Filters</b> — by status, by publisher, with/without cover.'},
-    {fr:'<b>Cliquer un album</b> — ouvre directement dans Projets.',en:'<b>Click an album</b> — opens directly in Projects.'},
-  ],
-  demo: buildGalleryDemo
-},
-{
-  id:'calendar', color:'#38BDF8', bg:'rgba(56,189,248,0.12)',
-  icon:`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="16" y1="2" x2="16" y2="6"/></svg>`,
-  title:{fr:'Calendrier',en:'Calendar'},
-  sub:{fr:'Toutes vos deadlines sur un calendrier',en:'All your deadlines on a calendar'},
-  items:[
-    {fr:'<b>Vue mensuelle</b> — chaque deadline apparaît sur le bon jour.',en:'<b>Monthly view</b> — each deadline appears on the right day.'},
-    {fr:'<b>Navigation</b> — ← → pour changer de mois. Bouton "Aujourd\'hui" pour revenir.',en:'<b>Navigation</b> — ← → to change month. "Today" button to return.'},
-    {fr:'<b>Mini-calendrier</b> — toujours visible dans la barre latérale.',en:'<b>Mini-calendar</b> — always visible in the sidebar.'},
-  ],
-  demo: buildCalendarDemo
-},
-{
-  id:'ai', color:'#A78BFA', bg:'rgba(167,139,250,0.12)',
-  icon:`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="1.8" stroke-linecap="round"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/></svg>`,
-  title:{fr:'Assistant IA (Beta)',en:'AI Assistant (Beta)'},
-  sub:{fr:'Analyse intelligente de vos données',en:'Smart analysis of your data'},
-  items:[
-    {fr:'<b>12 prompts rapides</b> — Mes deadlines urgentes · Analyse mes stats · Conseils du jour · Tracks à recycler · Veille Sync · Moods tendance · Analyse des risques · Rapport semaine · Que faire aujourd\'hui ? · Tracks bloquées · Ma mémoire · Prédire ma deadline.',en:'<b>12 quick prompts</b> — My urgent deadlines · Analyze my stats · Today\'s advice · Tracks to recycle · Sync Watch · Trending Moods · Risk Analysis · Weekly Report · What to do today? · Blocked Tracks · My Memory · Predict my deadline.'},
-    {fr:'<b>Saisie libre</b> — pose n\'importe quelle question sur tes projets, tracks ou éditeurs.',en:'<b>Free input</b> — ask any question about your projects, tracks or publishers.'},
-    {fr:'<b>Beta</b> — travaille depuis tes vraies données app. Vérifie toujours les informations critiques.',en:'<b>Beta</b> — works from your real app data. Always verify critical information.'},
-  ],
-  demo: buildAIDemo
-},
-{
-  id:'sacem', color:'#FBBF24', bg:'rgba(251,191,36,0.12)',
-  icon:`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FBBF24" stroke-width="1.8" stroke-linecap="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>`,
-  title:{fr:'Revenus SACEM (Beta)',en:'SACEM Revenue (Beta)'},
-  sub:{fr:'Import de relevés et croisement temps/revenu',en:'Statement import and time-vs-revenue crossing'},
-  items:[
-    {fr:'<b>Importer un relevé</b> — sélectionne le dossier contenant tes exports CSV SACEM ; tu peux importer plusieurs relevés d\'un coup (Export 1, 2, 3…). L\'encodage (UTF-8 / Windows-1252) est détecté automatiquement.',en:'<b>Import a statement</b> — pick the folder containing your SACEM CSV exports; you can import several statements at once (Export 1, 2, 3…). Encoding (UTF-8 / Windows-1252) is detected automatically.'},
-    {fr:'<b>Matching automatique</b> — chaque ligne SACEM est reliée à une track par titre normalisé. Si plusieurs tracks partagent exactement le même titre, rien n\'est deviné — la ligne part en validation manuelle.',en:'<b>Automatic matching</b> — each SACEM line is matched to a track by normalized title. If several tracks share the exact same title, nothing is guessed — the line is sent to manual review instead.'},
-    {fr:'<b>Titres en double</b> — signale les tracks qui partagent un nom ET apparaissent dans un relevé importé, pour éviter d\'attribuer les revenus à la mauvaise track.',en:'<b>Duplicate titles</b> — flags tracks that share a name AND appear in an imported statement, to avoid attributing revenue to the wrong track.'},
-    {fr:'<b>Filtre de répartition</b> — avec plusieurs imports, coche/décoche chaque relevé pour l\'inclure ou non dans les totaux affichés.',en:'<b>Breakdown filter</b> — with several imports, check/uncheck each statement to include or exclude it from the totals shown.'},
-    {fr:'<b>Temps vs revenu (€/h/an)</b> — croise le temps Logic Pro passé et le revenu SACEM annuel moyen par track, annualisé pour ne pas avantager les tracks anciennes.',en:'<b>Time vs revenue (€/h/yr)</b> — crosses Logic Pro time spent with the average yearly SACEM revenue per track, annualized so older tracks don\'t get an unfair edge.'},
-    {fr:'<b>Beta</b> — module récent : la précision du matching et les calculs vont continuer à s\'améliorer au fil des prochaines mises à jour. Vérifie toujours les chiffres avant de t\'y fier pour quelque chose d\'important.',en:'<b>Beta</b> — recent module: matching accuracy and calculations will keep improving with future updates. Always double-check figures before relying on them for anything important.'},
-  ],
-  demo: null
-},
-{
-  id:'placements', color:'#F472B6', bg:'rgba(244,114,182,0.12)',
-  icon:`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F472B6" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8" cy="10" r="2"/><path d="M3 16l5-4 4 3 3-3 4 4"/></svg>`,
-  title:{fr:'Placements (Beta)',en:'Placements (Beta)'},
-  sub:{fr:'Détection des diffusions TV/ciné et rapprochement SACEM',en:'TV/film screening detection and SACEM matching'},
-  items:[
-    {fr:'<b>Détection automatique</b> — récupère via TMDB les films/séries dans lesquels tes tracks ont été placées, sous forme de cartes avec affiche.',en:'<b>Automatic detection</b> — pulls, via TMDB, the films/shows your tracks were placed in, shown as cards with a poster.'},
-    {fr:'<b>Vue détail</b> — clique une carte pour voir le détail du placement.',en:'<b>Detail view</b> — click a card to see the placement\'s detail view.'},
-    {fr:'<b>Corriger l\'affiche</b> — dans la vue détail, clique l\'image pour la remplacer si l\'affiche récupérée automatiquement n\'est pas la bonne.',en:'<b>Fixing the poster</b> — inside the detail view, click the image to replace it if the automatically fetched poster isn\'t the right one.'},
-    {fr:'<b>Corriger un rapprochement SACEM</b> — clique une track pour la réassigner ou la délier si le rapprochement automatique avec un relevé SACEM est incorrect ; Cmd+Z permet toujours d\'annuler.',en:'<b>Correcting a SACEM match</b> — click a track to reassign or unlink it if the automatic match with a SACEM statement is wrong; Cmd+Z always lets you undo.'},
-    {fr:'<b>Fusionner des doublons</b> — deux cartes pour le même titre ? Utilise "🔗 Lier des cartes" pour les fusionner en une seule.',en:'<b>Merging duplicates</b> — two cards for the same title? Use "🔗 Link cards" to merge them into one.'},
-    {fr:'<b>Beta</b> — module récent, la détection et le matching vont continuer à s\'affiner avec les prochaines mises à jour.',en:'<b>Beta</b> — recent module: detection and matching will keep getting refined with future updates.'},
-  ],
-  demo: null
-},
-{
-  id:'logicpro', color:'#38BDF8', bg:'rgba(56,189,248,0.12)',
-  icon:`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="15" r="2"/><path d="M11 15V6l6-1v9"/></svg>`,
-  title:{fr:'Intégration Logic Pro',en:'Logic Pro Integration'},
-  sub:{fr:'Détection auto et suivi du temps de composition',en:'Auto-detection and composition time tracking'},
-  items:[
-    {fr:'<b>Détection automatique</b> — ouvrir un projet Logic Pro affiche un bandeau proposant trois choix : créer une nouvelle track, l\'ajouter à un album existant, ou la lier à une track déjà présente dans ton catalogue (suggestion basée sur le titre, toujours à confirmer — jamais appliquée silencieusement).',en:'<b>Automatic detection</b> — opening a Logic Pro project shows a banner offering three choices: create a new track, add it to an existing album, or link it to a track already in your catalog (title-based suggestion, always requires confirmation — never applied silently).'},
-    {fr:'<b>Suivi du temps</b> — une fois une track liée, le temps passé dessus (Logic au premier plan, sans inactivité système) est comptabilisé automatiquement. Visible sur la track, ou regroupé par track/album/éditeur dans Statistiques → Temps Logic.',en:'<b>Time tracking</b> — once a track is linked, time spent working on it (Logic in the foreground, no system idle) is logged automatically. See it on the track, or grouped by track/album/publisher in Statistics → Logic time.'},
-    {fr:'<b>Lier une track manuellement</b> — sur toute track jamais liée à Logic Pro (Kanban ou fiche Projets/Albums), un bouton "Lier à un projet Logic Pro…" permet de la connecter toi-même.',en:'<b>Link a track manually</b> — on any track never linked to Logic Pro (Kanban card or Projects/Albums sheet), a "Link to a Logic Pro project…" button lets you connect it yourself.'},
-    {fr:'<b>Réparer un lien cassé</b> — si un projet Logic Pro est renommé ou déplacé, le lien est signalé cassé ; utilise "Relier…" pour le repointer vers son nouvel emplacement.',en:'<b>Broken link repair</b> — if a Logic Pro project is renamed or moved, the link is flagged broken; use "Relink…" to point it to its new location.'},
-    {fr:'<b>Protection anti-collision</b> — un même projet Logic Pro ne peut jamais se retrouver lié à deux tracks différentes en même temps.',en:'<b>Collision protection</b> — a single Logic Pro project can never end up linked to two different tracks at once.'},
-  ],
-  demo: null
-},
-{
-  id:'settings', color:'#7B78A8', bg:'rgba(123,120,168,0.12)',
-  icon:`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7B78A8" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>`,
-  title:{fr:'Paramètres',en:'Settings'},
-  sub:{fr:'Langue, profil, templates et sauvegarde',en:'Language, profile, templates and backup'},
-  items:[
-    {fr:'<b>Langue</b> — bascule FR/EN, toute l\'interface se met à jour.',en:'<b>Language</b> — switch FR/EN, the entire interface updates.'},
-    {fr:'<b>Nom du compositeur</b> — utilisé dans les templates d\'email (<code>{composer}</code>).',en:'<b>Composer name</b> — used in email templates (<code>{composer}</code>).'},
-    {fr:'<b>Template d\'email</b> — personnalise les messages de relance. Bouton "Restaurer" pour revenir au défaut.',en:'<b>Email template</b> — customise follow-up messages. "Restore" button to go back to default.'},
-    {fr:'<b>Alertes deadlines</b> — seuils configurables : 1, 7, 15 ou 30 jours.',en:'<b>Deadline alerts</b> — configurable thresholds: 1, 7, 15 or 30 days.'},
-    {fr:'<b>Sauvegarder / Charger</b> — export JSON complet. Toujours sauvegarder avant une mise à jour.',en:'<b>Save / Load</b> — full JSON export. Always save before an update.'},
-  ],
-  demo: null
-},
+ {
+  "id": "dashboard",
+  "color": "#A78BFA",
+  "bg": "rgba(167,139,250,0.12)",
+  "icon": "<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#A78BFA\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3\" y=\"3\" width=\"7\" height=\"9\" rx=\"1\"/><rect x=\"14\" y=\"3\" width=\"7\" height=\"5\" rx=\"1\"/><rect x=\"14\" y=\"12\" width=\"7\" height=\"9\" rx=\"1\"/><rect x=\"3\" y=\"16\" width=\"7\" height=\"5\" rx=\"1\"/></svg>",
+  "title": {
+   "fr": "Dashboard & Briefing",
+   "en": "Dashboard & Briefing"
+  },
+  "sub": {
+   "fr": "Bande de chiffres · Aujourd’hui · Radar des deadlines · Graphique mensuel cliquable …",
+   "en": "Key figures band · Today · Deadline radar · Clickable monthly chart …"
+  },
+  "items": [
+   {
+    "fr": "<b>Bande de chiffres</b> — en un coup d’œil : total, en production, validées / refusées, publiées, albums terminés, top collab et revenus.",
+    "en": "<b>Key figures band</b> — at a glance: total, in production, validated / refused, released, finished albums, top collaborator and revenue."
+   },
+   {
+    "fr": "<b>Aujourd’hui</b> — la tuile regroupe les deadlines proches et tout ce qui est à traiter (relances, œuvres introuvables, dispo pour un replacement…).",
+    "en": "<b>Today</b> — this tile gathers upcoming deadlines and everything to handle (follow-ups, works not found, tracks available for replacement…)."
+   },
+   {
+    "fr": "<b>Radar des deadlines</b> — distance au centre = jours avant la deadline, taille = tracks à finir, couleur = éditeur (un secteur par éditeur). Fin contour rouge = en retard ou dû dans 2 jours. « ✓ Livrés » ouvre les albums livrés, pour les archiver.",
+    "en": "<b>Deadline radar</b> — distance from the centre = days to the deadline, size = tracks left, colour = publisher (one sector per publisher). A thin red outline = late or due within 2 days. « ✓ Delivered » opens the delivered albums, to archive them."
+   },
+   {
+    "fr": "<b>Graphique mensuel cliquable</b> — clique un mois pour ouvrir ses tracks et changer leur statut directement.",
+    "en": "<b>Clickable monthly chart</b> — click a month to open its tracks and change their status directly."
+   },
+   {
+    "fr": "<b>Briefing du jour</b> — un résumé en onglets avec des badges : rouge = urgent, gris = en stock, point = nouveau. « Ignorer » masque un élément.",
+    "en": "<b>Daily briefing</b> — a tabbed summary with badges: red = urgent, grey = backlog, dot = new. \"Ignore\" hides an item."
+   },
+   {
+    "fr": "<b>Rappels</b> — paiement trimestriel SACEM, répertoire à réimporter, contrats et déclarations manquants (comptés par album).",
+    "en": "<b>Reminders</b> — quarterly PRO payment, works list to re-import, missing contracts and registrations (counted per album)."
+   }
+  ]
+ },
+ {
+  "id": "projects",
+  "color": "#60A5FA",
+  "bg": "rgba(96,165,250,0.12)",
+  "icon": "<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#60A5FA\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z\"/></svg>",
+  "title": {
+   "fr": "Projets & albums",
+   "en": "Projects & albums"
+  },
+  "sub": {
+   "fr": "Créer un album · Onglets de l’album · Statuts de track · Importer un album …",
+   "en": "Create an album · Album tabs · Track statuses · Import an album …"
+  },
+  "items": [
+   {
+    "fr": "<b>Créer un album</b> — « + Nouveau projet » : titre, éditeur, deadline, type (Album · EP · Participation · Catalogue · Commande).",
+    "en": "<b>Create an album</b> — \"+ New project\": title, publisher, deadline, type (Album · EP · Participation · Catalog · Commission)."
+   },
+   {
+    "fr": "<b>Onglets de l’album</b> — Tracks · Infos (contact, fil de suivi éditeur) · Collabs · Documents · Notes.",
+    "en": "<b>Album tabs</b> — Tracks · Info (contact, publisher thread) · Collabs · Documents · Notes."
+   },
+   {
+    "fr": "<b>Statuts de track</b> — Composition · Envoyée · Révision · Mix · Mix envoyé · Validée · Livrée · Refusée. Clique le statut pour le changer.",
+    "en": "<b>Track statuses</b> — Composition · Submitted · Revision · Mix · Mix submitted · Validated · Delivered · Refused. Click the status to change it."
+   },
+   {
+    "fr": "<b>Importer un album</b> — depuis des fichiers audio ou un ZIP. Pour un ancien album, choisis « Déjà livré » et son mois de production : les tracks passent en Livrée.",
+    "en": "<b>Import an album</b> — from audio files or a ZIP. For an older album, pick \"Already delivered\" and its production month: tracks are set to Delivered."
+   },
+   {
+    "fr": "<b>Couleur, cover, archives</b> — couleur personnalisée (reprise dans le Suivi), pochette par fichier ou URL, archivage des albums terminés.",
+    "en": "<b>Color, cover, archive</b> — custom color (used in Track tracking), cover from a file or URL, archive finished albums."
+   },
+   {
+    "fr": "<b>Recycler</b> — une track refusée peut être transférée vers un autre album.",
+    "en": "<b>Recycle</b> — a refused track can be moved to another album."
+   },
+   {
+    "fr": "<b>Recherche</b> — trouve un album (ouvert sur Infos) ou une track (ouverte et dépliée).",
+    "en": "<b>Search</b> — finds an album (opened on Info) or a track (opened and expanded)."
+   }
+  ]
+ },
+ {
+  "id": "tracks",
+  "color": "#A78BFA",
+  "bg": "rgba(167,139,250,0.12)",
+  "icon": "<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#A78BFA\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3\" y=\"3\" width=\"7\" height=\"18\" rx=\"1\"/><rect x=\"14\" y=\"3\" width=\"7\" height=\"18\" rx=\"1\"/></svg>",
+  "title": {
+   "fr": "Suivi des tracks",
+   "en": "Track status"
+  },
+  "sub": {
+   "fr": "Vue Tableau · Colonnes · Sélection multiple · Fiche track …",
+   "en": "Table view · Columns · Multi-select · Track sheet …"
+  },
+  "items": [
+   {
+    "fr": "<b>Vue Tableau</b> — toutes les tracks en cours : statut, deadline, BPM · ton · durée modifiables sur place, suivi (J+X sans réponse, réponse reçue, à publier).",
+    "en": "<b>Table view</b> — every active track: status, deadline, editable BPM · key · length, follow-up (D+X no reply, reply received, to release)."
+   },
+   {
+    "fr": "<b>Colonnes</b> — « Colonnes ▾ » ajoute Éditeur, Temps Logic, Activité ou Moods.",
+    "en": "<b>Columns</b> — \"Columns ▾\" adds Publisher, Logic time, Activity or Moods."
+   },
+   {
+    "fr": "<b>Sélection multiple</b> — coche des tracks pour changer leur statut en masse ou les envoyer par mail en une fois.",
+    "en": "<b>Multi-select</b> — tick tracks to change their status in bulk or email them in one go."
+   },
+   {
+    "fr": "<b>Fiche track</b> — clique une track : infos, statut Logic, moods, droits & sortie, collaborateurs, et à droite la carte « Suivi éditeur ».",
+    "en": "<b>Track sheet</b> — click a track: details, Logic status, moods, rights & release, collaborators, and the \"Publisher follow-up\" card on the right."
+   },
+   {
+    "fr": "<b>Export CSV</b> — exporte la vue filtrée et triée.",
+    "en": "<b>CSV export</b> — exports the filtered, sorted view."
+   }
+  ]
+ },
+ {
+  "id": "sending",
+  "color": "#34D399",
+  "bg": "rgba(52,211,153,0.12)",
+  "icon": "<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#34D399\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"2\" y=\"4\" width=\"20\" height=\"16\" rx=\"2\"/><path d=\"M22 6l-10 7L2 6\"/></svg>",
+  "title": {
+   "fr": "Envoi aux éditeurs & relances",
+   "en": "Sending to publishers & follow-ups"
+  },
+  "sub": {
+   "fr": "Email d’envoi · Envoi groupé · Par éditeur · Fil de suivi …",
+   "en": "Submission email · Bulk send · Per publisher · Follow-up thread …"
+  },
+  "items": [
+   {
+    "fr": "<b>Email d’envoi</b> — prépare le mail avec le MP3 ou WAV joint (trouvé automatiquement près du projet Logic). Une fenêtre de contrôle montre le fichier, sa durée et un lecteur avant l’envoi.",
+    "en": "<b>Submission email</b> — prepares the email with the MP3 or WAV attached (found automatically next to the Logic project). A check window shows the file, its length and a player before sending."
+   },
+   {
+    "fr": "<b>Envoi groupé</b> — plusieurs tracks d’un même éditeur dans un seul mail, avec le poids total (alerte au-delà de 20 Mo).",
+    "en": "<b>Bulk send</b> — several tracks for the same publisher in one email, with total size (warning above 20 MB)."
+   },
+   {
+    "fr": "<b>Par éditeur</b> — dans sa fiche contact : pièces jointes ou lien de téléchargement, et format MP3 / WAV.",
+    "en": "<b>Per publisher</b> — in the contact sheet: attachments or download link, and MP3 / WAV format."
+   },
+   {
+    "fr": "<b>Fil de suivi</b> — dans l’onglet Infos de l’album : Envoyer · Relancer · Réponse reçue (décision par track) · Contact hors app. Le bandeau indique les tracks en attente et la date de relance conseillée.",
+    "en": "<b>Follow-up thread</b> — in the album’s Info tab: Send · Follow up · Reply received (decision per track) · Off-app contact. The banner shows pending tracks and the suggested follow-up date."
+   },
+   {
+    "fr": "<b>Compteur J+X</b> — part de l’envoi ou de la dernière relance. Délai d’alerte réglable par track (15 jours par défaut).",
+    "en": "<b>D+X counter</b> — counts from the send or the latest follow-up. Alert delay can be set per track (15 days by default)."
+   },
+   {
+    "fr": "<b>Révision → renvoi</b> — renvoyer une track en Révision la repasse en Envoyée et relance le compteur.",
+    "en": "<b>Revision → resend</b> — re-sending a track in Revision moves it back to Submitted and restarts the counter."
+   }
+  ]
+ },
+ {
+  "id": "deliverables",
+  "color": "#F472B6",
+  "bg": "rgba(244,114,182,0.12)",
+  "icon": "<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#F472B6\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M21 8l-9-5-9 5v8l9 5 9-5z\"/><path d=\"M3 8l9 5 9-5M12 13v8\"/></svg>",
+  "title": {
+   "fr": "Livrables & stems",
+   "en": "Deliverables & stems"
+  },
+  "sub": {
+   "fr": "Dossier Deliverables · Bouton STEMS · Contrôles · C’est normal",
+   "en": "Deliverables folder · STEMS button · Checks · That’s normal"
+  },
+  "items": [
+   {
+    "fr": "<b>Dossier Deliverables</b> — trouvé à côté des projets Logic de l’album (ou choisi avec « Changer de dossier »), un sous-dossier par track.",
+    "en": "<b>Deliverables folder</b> — found next to the album’s Logic projects (or picked with \"Change folder\"), one subfolder per track."
+   },
+   {
+    "fr": "<b>Bouton STEMS</b> — rose = OK, rouge = erreurs, violet = rien exporté. Visible dès « Validée ».",
+    "en": "<b>STEMS button</b> — pink = OK, red = errors, purple = nothing exported. Visible from \"Validated\"."
+   },
+   {
+    "fr": "<b>Contrôles</b> — Main manquante, stem présent sur les autres tracks mais absent ici, décalage de départ, format différent de la Main, fichier vide.",
+    "en": "<b>Checks</b> — missing Main, stem found on other tracks but missing here, start offset, format different from the Main, empty file."
+   },
+   {
+    "fr": "<b>C’est normal</b> — marque une alerte comme voulue. « Rescanner » relit le disque.",
+    "en": "<b>That’s normal</b> — marks an alert as intended. \"Rescan\" reads the disk again."
+   }
+  ]
+ },
+ {
+  "id": "documents",
+  "color": "#FBBF24",
+  "bg": "rgba(251,191,36,0.12)",
+  "icon": "<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#FBBF24\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\"/><polyline points=\"14 2 14 8 20 8\"/><line x1=\"8\" y1=\"13\" x2=\"16\" y2=\"13\"/><line x1=\"8\" y1=\"17\" x2=\"13\" y2=\"17\"/></svg>",
+  "title": {
+   "fr": "Contrats & documents",
+   "en": "Contracts & documents"
+  },
+  "sub": {
+   "fr": "Onglet Documents · Copie sécurisée · Visionneuse PDF · Prime de commande",
+   "en": "Documents tab · Safe copy · PDF viewer · Commission fee"
+  },
+  "items": [
+   {
+    "fr": "<b>Onglet Documents</b> — dans chaque album : contrats, avenants et autres fichiers, import de plusieurs fichiers à la fois.",
+    "en": "<b>Documents tab</b> — in each album: contracts, amendments and other files, several files at once."
+   },
+   {
+    "fr": "<b>Copie sécurisée</b> — les fichiers sont copiés dans le dossier « Contrats et documents » de ton dossier des données, l’original n’est pas déplacé.",
+    "en": "<b>Safe copy</b> — files are copied to the “Contrats et documents” folder inside your data folder, the original stays where it is."
+   },
+   {
+    "fr": "<b>Visionneuse PDF</b> — ouvre les PDF directement dans l’app.",
+    "en": "<b>PDF viewer</b> — opens PDFs right inside the app."
+   },
+   {
+    "fr": "<b>Prime de commande</b> — un montant par album, suivi dans Éditeurs et dans la carte Statistiques « Primes de commande » (séparée des revenus SACEM).",
+    "en": "<b>Commission fee</b> — one amount per album, tracked in Publishers and in the \"Commission fees\" Stats card (separate from PRO revenue)."
+   }
+  ]
+ },
+ {
+  "id": "revenue",
+  "color": "#FBBF24",
+  "bg": "rgba(251,191,36,0.12)",
+  "icon": "<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#FBBF24\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6\"/></svg>",
+  "title": {
+   "fr": "Revenus & Déclarations",
+   "en": "Revenue & registrations"
+  },
+  "sub": {
+   "fr": "Importer un relevé · Aperçu & Rentabilité · Déclarations · Parts & homonymes …",
+   "en": "Import a statement · Overview & Profitability · Registrations · Shares & homonyms …"
+  },
+  "items": [
+   {
+    "fr": "<b>Importer un relevé</b> — Données & imports : plusieurs relevés CSV d’un coup, encodage détecté automatiquement. Chaque ligne est reliée à une track par son titre ; en cas de doute, rien n’est deviné.",
+    "en": "<b>Import a statement</b> — Data & imports: several CSV statements at once, encoding detected automatically. Each line is matched to a track by title; when in doubt, nothing is guessed."
+   },
+   {
+    "fr": "<b>Aperçu & Rentabilité</b> — revenus par track, versé estimé après précompte (modifiable), €/heure/an croisé avec le temps Logic, rentabilité par mood.",
+    "en": "<b>Overview & Profitability</b> — revenue per track, estimated payout after withholding (editable), €/hour/year crossed with Logic time, profitability by mood."
+   },
+   {
+    "fr": "<b>Déclarations</b> — choisis ta société de gestion dans Paramètres, importe ton répertoire d’œuvres (CSV / XLSX) : l’app classe chaque track en déclarée, introuvable au répertoire ou pas encore publiée. Chaque nouvel export (ex. du 1er au 15 octobre) s’ajoute au répertoire déjà importé, sans rien effacer — « Remplacer tout » reste possible.",
+    "en": "<b>Registrations</b> — pick your PRO in Settings, import your works list (CSV / XLSX): each track is marked registered, not found in the works list, or not released yet. Each new export (e.g. October 1–15) is added to the works list you already imported, nothing is erased — “Replace everything” is still available."
+   },
+   {
+    "fr": "<b>Parts & homonymes</b> — parts des ayants droit par track, alerte « homonyme ? » si une œuvre semble trop ancienne, « Associer » pour relier à la main.",
+    "en": "<b>Shares & homonyms</b> — rights holders’ shares per track, \"homonym?\" warning when a work looks too old, \"Link\" to match by hand."
+   },
+   {
+    "fr": "<b>Export PDF</b> — liste « Œuvres à vérifier » à envoyer à l’éditeur, en FR ou EN.",
+    "en": "<b>PDF export</b> — a \"Works to check\" list to send to the publisher, in FR or EN."
+   },
+   {
+    "fr": "<b>Beta</b> — vérifie toujours les chiffres avant de t’y fier.",
+    "en": "<b>Beta</b> — always double-check figures before relying on them."
+   }
+  ]
+ },
+ {
+  "id": "placements",
+  "color": "#F472B6",
+  "bg": "rgba(244,114,182,0.12)",
+  "icon": "<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#F472B6\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3\" y=\"5\" width=\"18\" height=\"14\" rx=\"2\"/><circle cx=\"8\" cy=\"10\" r=\"2\"/><path d=\"M3 16l5-4 4 3 3-3 4 4\"/></svg>",
+  "title": {
+   "fr": "Placements (Beta)",
+   "en": "Placements (Beta)"
+  },
+  "sub": {
+   "fr": "Détection automatique · Fiche détaillée · Même programme, titres différents",
+   "en": "Automatic detection · Detail sheet · Same show, different titles"
+  },
+  "items": [
+   {
+    "fr": "<b>Détection automatique</b> — chaque programme trouvé dans tes relevés a sa fiche, avec une affiche trouvée via TMDB (clé API dans Paramètres → Intégrations).",
+    "en": "<b>Automatic detection</b> — each show found in your statements gets its own card, with a poster found via TMDB (API key in Settings → Integrations)."
+   },
+   {
+    "fr": "<b>Fiche détaillée</b> — affiche, revenu total et tracks placées. Clique l’image pour corriger l’affiche, ou une track pour réassigner une ligne de relevé.",
+    "en": "<b>Detail sheet</b> — poster, total revenue and placed tracks. Click the image to fix the poster, or a track to reassign a statement line."
+   },
+   {
+    "fr": "<b>Même programme, titres différents</b> — « Lier des cartes » fusionne les fiches pour cumuler leurs revenus.",
+    "en": "<b>Same show, different titles</b> — \"Link cards\" merges cards so their revenue adds up."
+   }
+  ]
+ },
+ {
+  "id": "logic",
+  "color": "#38BDF8",
+  "bg": "rgba(56,189,248,0.12)",
+  "icon": "<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#38BDF8\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"9\" cy=\"15\" r=\"2\"/><path d=\"M11 15V6l6-1v9\"/></svg>",
+  "title": {
+   "fr": "Logic Pro",
+   "en": "Logic Pro"
+  },
+  "sub": {
+   "fr": "Détection · BPM, tonalité, mesure · Temps passé · Projet renommé …",
+   "en": "Detection · BPM, key, time signature · Time spent · Renamed project …"
+  },
+  "items": [
+   {
+    "fr": "<b>Détection</b> — ouvrir un projet Logic propose de créer une track, l’ajouter à un album ou la lier à une track existante. Rien n’est lié sans ta confirmation.",
+    "en": "<b>Detection</b> — opening a Logic project offers to create a track, add it to an album or link it to an existing track. Nothing is linked without your confirmation."
+   },
+   {
+    "fr": "<b>BPM, tonalité, mesure</b> — repris de Logic. La tonalité écrite dans le nom du projet est prioritaire ; une saisie manuelle n’est jamais écrasée.",
+    "en": "<b>BPM, key, time signature</b> — taken from Logic. A key written in the project name wins; a manual entry is never overwritten."
+   },
+   {
+    "fr": "<b>Temps passé</b> — compté automatiquement quand Logic est au premier plan. « Temps manuel » pour les anciennes tracks.",
+    "en": "<b>Time spent</b> — counted automatically while Logic is in front. \"Manual time\" for older tracks."
+   },
+   {
+    "fr": "<b>Projet renommé</b> — l’app propose « Relier à « X » » pour retrouver la track. Un projet ne peut être lié qu’à une seule track.",
+    "en": "<b>Renamed project</b> — the app offers \"Relink to \"X\"\" to find the track again. A project can only be linked to one track."
+   },
+   {
+    "fr": "<b>Durée automatique</b> — lue dans le MP3/WAV exporté (badge AUTO) ; une durée saisie à la main n’est pas écrasée.",
+    "en": "<b>Automatic length</b> — read from the exported MP3/WAV (AUTO badge); a length typed by hand is kept."
+   },
+   {
+    "fr": "<b>Rien ne se passe ?</b> — Réglages Système → Confidentialité et sécurité → Accessibilité → active SYNC.PLANNER (à refaire parfois après une mise à jour).",
+    "en": "<b>Nothing happens?</b> — System Settings → Privacy & Security → Accessibility → enable SYNC.PLANNER (sometimes needed again after an update)."
+   }
+  ]
+ },
+ {
+  "id": "stats",
+  "color": "#FBBF24",
+  "bg": "rgba(251,191,36,0.12)",
+  "icon": "<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#FBBF24\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M18 20V10\"/><path d=\"M12 20V4\"/><path d=\"M6 20v-6\"/></svg>",
+  "title": {
+   "fr": "Statistiques & objectifs",
+   "en": "Statistics & goals"
+  },
+  "sub": {
+   "fr": "4 onglets · Graphiques cliquables · Primes de commande · Objectifs annuels",
+   "en": "4 tabs · Clickable charts · Commission fees · Annual goals"
+  },
+  "items": [
+   {
+    "fr": "<b>4 onglets</b> — Par année (Annuel | Mensuel) · Total · Collabs · Temps Logic.",
+    "en": "<b>4 tabs</b> — By year (Annual | Monthly) · Total · Collabs · Logic time."
+   },
+   {
+    "fr": "<b>Graphiques cliquables</b> — clique un mois pour voir ses tracks. Clique une légende pour masquer une série.",
+    "en": "<b>Clickable charts</b> — click a month to see its tracks. Click a legend to hide a series."
+   },
+   {
+    "fr": "<b>Primes de commande</b> — carte dédiée, à part des revenus SACEM.",
+    "en": "<b>Commission fees</b> — a dedicated card, separate from PRO revenue."
+   },
+   {
+    "fr": "<b>Objectifs annuels</b> — tracks à produire, livrer et valider, progression, projection de fin d’année, verrouillage.",
+    "en": "<b>Annual goals</b> — tracks to produce, deliver and validate, progress, year-end projection, lock."
+   }
+  ]
+ },
+ {
+  "id": "gallery",
+  "color": "#FB923C",
+  "bg": "rgba(251,146,60,0.12)",
+  "icon": "<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#FB923C\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"/><circle cx=\"8.5\" cy=\"8.5\" r=\"1.5\"/><polyline points=\"21 15 16 10 5 21\"/></svg>",
+  "title": {
+   "fr": "Galerie covers",
+   "en": "Cover gallery"
+  },
+  "sub": {
+   "fr": "Galerie · Marquer publié",
+   "en": "Gallery · Mark released"
+  },
+  "items": [
+   {
+    "fr": "<b>Galerie</b> — toutes les covers avec titre, éditeur et avancement. Filtres en onglets : statut, à publier, introuvables, sans contrat, avec / sans cover, archivés.",
+    "en": "<b>Gallery</b> — every cover with title, publisher and progress. Tab filters: status, to release, not found, no contract, with / without cover, archived."
+   },
+   {
+    "fr": "<b>Marquer publié</b> — sur une cover : toutes les tracks terminées passent en publiées, avec la date de publication choisie.",
+    "en": "<b>Mark released</b> — on a cover: all finished tracks become released, with the release date you pick."
+   }
+  ]
+ },
+ {
+  "id": "publishers",
+  "color": "#C4B5FD",
+  "bg": "rgba(196,181,253,0.12)",
+  "icon": "<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#C4B5FD\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"9\" cy=\"8\" r=\"4\"/><path d=\"M2 21c0-4 3-7 7-7s7 3 7 7\"/><path d=\"M16 4a4 4 0 0 1 0 8M22 21c0-3-1.5-5.5-4-6.5\"/></svg>",
+  "title": {
+   "fr": "Éditeurs & collaborateurs",
+   "en": "Publishers & collaborators"
+  },
+  "sub": {
+   "fr": "Éditeurs · Fiche contact · Collaborateurs · Fiche collaborateur",
+   "en": "Publishers · Contact sheet · Collaborators · Collaborator sheet"
+  },
+  "items": [
+   {
+    "fr": "<b>Éditeurs</b> — par éditeur : albums, tracks, publiées, à publier, taux d’acceptation, délai moyen de réponse, filtre par année.",
+    "en": "<b>Publishers</b> — per publisher: albums, tracks, released, to release, acceptance rate, average reply time, year filter."
+   },
+   {
+    "fr": "<b>Fiche contact</b> — email, téléphone, lien de soumission, logo (URL ou fichier), type de contrat, mode et format d’envoi.",
+    "en": "<b>Contact sheet</b> — email, phone, submission link, logo (URL or file), contract type, sending mode and format."
+   },
+   {
+    "fr": "<b>Collaborateurs</b> — par album ou par track avec leur % ; la répartition apparaît dans les mails d’envoi.",
+    "en": "<b>Collaborators</b> — per album or per track with their %; the split appears in submission emails."
+   },
+   {
+    "fr": "<b>Fiche collaborateur</b> — rôle, contacts, réseaux, PRO / IPI, notes ; stats des tracks faites ensemble.",
+    "en": "<b>Collaborator sheet</b> — role, contacts, socials, PRO / IPI, notes; stats on tracks made together."
+   }
+  ]
+ },
+ {
+  "id": "ai",
+  "color": "#A78BFA",
+  "bg": "rgba(167,139,250,0.12)",
+  "icon": "<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#A78BFA\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z\"/><path d=\"M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z\"/></svg>",
+  "title": {
+   "fr": "Assistant IA (Beta)",
+   "en": "AI assistant (Beta)"
+  },
+  "sub": {
+   "fr": "Ton fournisseur · Prompts rapides & saisie libre · Analyser avec l’IA · Beta",
+   "en": "Your provider · Quick prompts & free text · Analyze with AI · Beta"
+  },
+  "items": [
+   {
+    "fr": "<b>Ton fournisseur</b> — Claude, GPT-4o ou Mistral, avec ta propre clé API (Paramètres → Intégrations). Les requêtes partent directement chez le fournisseur.",
+    "en": "<b>Your provider</b> — Claude, GPT-4o or Mistral, with your own API key (Settings → Integrations). Requests go straight to the provider."
+   },
+   {
+    "fr": "<b>Prompts rapides & saisie libre</b> — deadlines, stats, tracks bloquées, rentabilité… ou n’importe quelle question sur ton catalogue.",
+    "en": "<b>Quick prompts & free text</b> — deadlines, stats, stuck tracks, profitability… or any question about your catalog."
+   },
+   {
+    "fr": "<b>Analyser avec l’IA</b> — dans les notes d’une track, résume un retour éditeur.",
+    "en": "<b>Analyze with AI</b> — in a track’s notes, summarizes publisher feedback."
+   },
+   {
+    "fr": "<b>Beta</b> — l’IA lit tes vraies données mais peut se tromper. Vérifie les infos importantes.",
+    "en": "<b>Beta</b> — the AI reads your real data but can be wrong. Check anything important."
+   }
+  ]
+ },
+ {
+  "id": "settings",
+  "color": "#7B78A8",
+  "bg": "rgba(123,120,168,0.12)",
+  "icon": "<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#7B78A8\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"12\" r=\"3\"/><path d=\"M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83\"/></svg>",
+  "title": {
+   "fr": "Paramètres & sauvegarde",
+   "en": "Settings & backup"
+  },
+  "sub": {
+   "fr": "Général · Emails · Intégrations · Sauvegarde automatique …",
+   "en": "General · Emails · Integrations · Automatic backup …"
+  },
+  "items": [
+   {
+    "fr": "<b>Général</b> — langue, profil compositeur, société de gestion (SACEM, BMI, ASCAP, GEMA, PRS, SOCAN, SIAE, SABAM), IPI / COAD.",
+    "en": "<b>General</b> — language, composer profile, PRO (SACEM, BMI, ASCAP, GEMA, PRS, SOCAN, SIAE, SABAM), IPI / COAD."
+   },
+   {
+    "fr": "<b>Emails</b> — client mail (Mail, Gmail ou copie), modèles d’envoi, de relance et d’envoi groupé en FR et EN, pièce jointe par défaut, notifications de relance.",
+    "en": "<b>Emails</b> — mail client (Mail, Gmail or copy), submission, follow-up and bulk email templates in FR and EN, default attachment, follow-up notifications."
+   },
+   {
+    "fr": "<b>Intégrations</b> — Logic Pro, TMDB, Assistant IA.",
+    "en": "<b>Integrations</b> — Logic Pro, TMDB, AI assistant."
+   },
+   {
+    "fr": "<b>Sauvegarde automatique</b> — un fichier par jour (30 gardés) dans Google Drive ou le dossier de ton choix.",
+    "en": "<b>Automatic backup</b> — one file per day (30 kept) in Google Drive or a folder of your choice."
+   },
+   {
+    "fr": "<b>Dossier des données</b> — tout ce que SYNC.PLANNER enregistre (albums, relevés, covers, pièces jointes, contrats) est rangé dans un seul dossier sur ton Mac, sans limite de taille. Paramètres → Général affiche sa taille et permet de le déplacer (disque externe…). Ne le supprime pas à la main.",
+    "en": "<b>Data folder</b> — everything SYNC.PLANNER saves (albums, statements, covers, attachments, contracts) lives in one folder on your Mac, with no size limit. Settings → General shows its size and lets you move it (external drive…). Don’t delete it by hand."
+   },
+   {
+    "fr": "<b>Versions de secours</b> — copies automatiques : une par jour (30 jours), à chaque lancement et juste avant chaque opération importante (import d’un relevé, chargement d’un fichier, restauration). Paramètres → Général : choisis une date et restaure — tes données actuelles sont d’abord copiées, tu peux donc revenir en arrière.",
+    "en": "<b>Backup versions</b> — automatic copies: one per day (30 days), at each launch and right before every major operation (statement import, file load, restore). Settings → General: pick a date and restore — your current data is copied first, so you can always go back."
+   },
+   {
+    "fr": "<b>Exporter / Charger</b> — Paramètres → Général › Langue et fichiers : « Exporter mes données… » crée une copie .json à part (utile pour changer d’ordinateur) ; « Charger un fichier… » affiche un résumé et demande confirmation avant de remplacer quoi que ce soit.",
+    "en": "<b>Export / Load</b> — Settings → General › Language & files: \"Export my data…\" makes a separate .json copy (handy to move to another computer); \"Load a file…\" shows a summary and asks before replacing anything."
+   },
+   {
+    "fr": "<b>Apparence</b> — Classique (nuit) ou Papier, en haut des Paramètres. En Papier, « Fond crayonné sombre » garde un fond graphite derrière les tuiles. Tes données sont les mêmes dans les deux.",
+    "en": "<b>Appearance</b> — Classic (night) or Paper, at the top of Settings. In Paper, \"Dark pencil background\" keeps a dark sketched background behind the tiles. Your data is the same in both."
+   },
+   {
+    "fr": "<b>Albums d’exemple</b> — au premier lancement, « Explorer avec des exemples » charge quelques albums fictifs ; ils ne se mélangent jamais à tes données et se retirent avec « Retirer les exemples ».",
+    "en": "<b>Example albums</b> — on a first launch, \"Explore with examples\" loads a few fictional albums; they never mix with your data and go away with \"Remove examples\"."
+   }
+  ]
+ }
 ];
+// anciens liens (#kanban, #calendar…) → nouvelles sections
+const ALIAS = {kanban:'tracks', alerts:'sending', goals:'stats', collabs:'publishers', calendar:'dashboard', sacem:'revenue', logicpro:'logic'};
 
-// ─── DEMO BUILDERS ────────────────────────────────────────
-
-const STATUSES = {
-  composition:{fr:'Composition',en:'Composition',color:'#A78BFA',bg:'rgba(167,139,250,0.12)'},
-  sent:{fr:'Envoyée',en:'Submitted',color:'#60A5FA',bg:'rgba(96,165,250,0.12)'},
-  revision:{fr:'Révision',en:'Revision',color:'#FBBF24',bg:'rgba(251,191,36,0.12)'},
-  mix:{fr:'Mix',en:'Mix',color:'#38BDF8',bg:'rgba(56,189,248,0.12)'},
-  validated:{fr:'Validée',en:'Validated',color:'#10B981',bg:'rgba(16,185,129,0.12)'},
-  delivered:{fr:'Livrée',en:'Delivered',color:'#34D399',bg:'rgba(52,211,153,0.12)'},
-  refused:{fr:'Refusée',en:'Refused',color:'#F87171',bg:'rgba(248,113,113,0.12)'},
-};
-const STATUS_KEYS = ['composition','sent','revision','mix','validated','delivered','refused'];
-
-function badge(statusKey) {
-  const s = STATUSES[statusKey];
-  return `<span class="sbadge" style="background:${s.bg};color:${s.color};border:1px solid ${s.color}44">${s[LANG]}</span>`;
-}
-
-function buildTrackDemo(id) {
-  const tracks = [
-    {title:'Track 01 — Pulse Drive', status:'composition', bpm:'130', mood:'Epic'},
-    {title:'Track 02 — Shadow Sync', status:'sent', bpm:'120', mood:'Dark'},
-    {title:'Track 03 — Neon Rush', status:'validated', bpm:'128', mood:'Action'},
-  ];
-  let html = `<div class="demo-wrap" id="demo-${id}"><div class="demo-label">DEMO</div>`;
-  html += `<div style="font-size:11px;color:var(--text4);margin-bottom:10px">Neon Horizon · Label Sync</div>`;
-  tracks.forEach((t,i) => {
-    const s = STATUSES[t.status];
-    html += `<div class="track-row" id="trow-${id}-${i}">
-      <div class="track-dot" id="tdot-${id}-${i}" style="background:${s.color}"></div>
-      <div class="track-title">${t.title}</div>
-      <div class="track-meta">${t.bpm}bpm · ${t.mood}</div>
-      <span class="sbadge" id="tbadge-${id}-${i}" style="background:${s.bg};color:${s.color};border:1px solid ${s.color}44;cursor:pointer" onclick="cycleStatus('${id}',${i})">${s[LANG]}</span>
-    </div>`;
-  });
-  html += `<div class="prog-bar"><div class="prog-fill" id="tprog-${id}" style="width:33%;background:linear-gradient(90deg,#7C3AED,#A78BFA)"></div></div>`;
-  html += `<p class="demo-hint" id="hint-track-${id}"></p></div>`;
-
-  // store state
-  window._trackStates = window._trackStates || {};
-  window._trackStates[id] = tracks.map(t=>t.status);
-  return html;
-}
-
-window.cycleStatus = function(id, i) {
-  const states = window._trackStates[id];
-  const cur = STATUS_KEYS.indexOf(states[i]);
-  const next = STATUS_KEYS[(cur+1)%STATUS_KEYS.length];
-  states[i] = next;
-  const s = STATUSES[next];
-  document.getElementById(`tdot-${id}-${i}`).style.background = s.color;
-  const b = document.getElementById(`tbadge-${id}-${i}`);
-  b.style.background = s.bg; b.style.color = s.color; b.style.borderColor = s.color+'44';
-  b.textContent = s[LANG];
-  // update progress
-  const done = states.filter(st=>['validated','delivered'].includes(st)).length;
-  document.getElementById(`tprog-${id}`).style.width = Math.round(done/states.length*100)+'%';
-};
-
-function buildKanbanDemo(id) {
-  const cols = [
-    {key:'composition',cards:[{title:'Pulse Drive',sub:'Neon Horizon',tags:['130bpm','Epic']},{title:'Shadow Bass',sub:'Dark Matter',tags:['Dark']}]},
-    {key:'sent',cards:[{title:'Neon City',sub:'Label Sync',jx:18,tags:[]}]},
-    {key:'mix',cards:[{title:'Dark Horizon',sub:'Avalon',tags:['120bpm']}]},
-    {key:'validated',cards:[{title:'Storm Rising',sub:'Sync Co.',tags:[]}]},
-  ];
-  let html = `<div class="demo-wrap" id="demo-${id}"><div class="demo-label">DEMO</div>`;
-  html += `<div class="kb-board" style="grid-template-columns:repeat(4,1fr)">`;
-  cols.forEach(col => {
-    const s = STATUSES[col.key];
-    html += `<div class="kb-col">
-      <div class="kb-col-hdr" style="border-left:3px solid ${s.color}">
-        <span class="kb-col-title" style="color:${s.color}">${s[LANG]}</span>
-        <span class="kb-col-count" style="color:${s.color};background:${s.bg}">${col.cards.length}</span>
-      </div>
-      <div class="kb-col-body" id="kbcol-${id}-${col.key}" 
-        ondragover="event.preventDefault();this.classList.add('drag-over')"
-        ondragleave="this.classList.remove('drag-over')"
-        ondrop="kbDrop(event,'${id}','${col.key}')">`;
-    col.cards.forEach((card,ci) => {
-      html += `<div class="kb-card" draggable="true" id="kbc-${id}-${col.key}-${ci}"
-        ondragstart="kbDragStart(event,'${id}','${col.key}',${ci})">
-        <div class="kb-card-title">${card.title}</div>
-        <div class="kb-card-sub">${card.sub}</div>
-        <div class="kb-tags">
-          ${card.jx?`<span class="kb-tag" style="background:rgba(251,191,36,0.12);color:#FBBF24;border-color:rgba(251,191,36,0.3)">J+${card.jx}</span>`:''}
-          ${card.tags.map(t=>`<span class="kb-tag">${t}</span>`).join('')}
-        </div>
-      </div>`;
-    });
-    html += `</div></div>`;
-  });
-  html += `</div><p class="demo-hint" id="hint-kb-${id}"></p></div>`;
-
-  window._kbDrag = null;
-  return html;
-}
-
-window.kbDragStart = function(e, demoId, colKey, ci) {
-  window._kbDrag = {demoId, colKey, ci};
-  e.dataTransfer.effectAllowed = 'move';
-  setTimeout(()=>{ const el = document.getElementById(`kbc-${demoId}-${colKey}-${ci}`); if(el) el.classList.add('dragging'); },0);
-};
-window.kbDrop = function(e, demoId, toCol) {
-  e.preventDefault();
-  document.querySelectorAll('.kb-col-body').forEach(c=>c.classList.remove('drag-over'));
-  if(!window._kbDrag || window._kbDrag.demoId !== demoId) return;
-  const {colKey, ci} = window._kbDrag;
-  const card = document.getElementById(`kbc-${demoId}-${colKey}-${ci}`);
-  if(card && colKey !== toCol) {
-    card.classList.remove('dragging');
-    document.getElementById(`kbcol-${demoId}-${toCol}`).appendChild(card);
-    // update card id
-    card.id = `kbc-${demoId}-${toCol}-${Date.now()}`;
-    card.ondragstart = null;
-  }
-  window._kbDrag = null;
-};
-
-function buildAlertsDemo(id) {
-  let html = `<div class="demo-wrap" id="demo-${id}"><div class="demo-label">DEMO</div>`;
-  html += `<div id="alerts-list-${id}" style="display:flex;flex-direction:column;gap:6px">
-    <div class="alert-row urgent">
-      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#F87171" stroke-width="2" stroke-linecap="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-      <span style="font-size:11px;color:#F87171;font-weight:600;flex:1" data-fr='"Neon Horizon" — deadline dépassée de 4 jours' data-en='"Neon Horizon" — deadline overdue by 4 days'></span>
-    </div>
-    <div class="alert-row relance" id="alert-relance-${id}">
-      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#FB923C" stroke-width="1.8" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-      <span style="font-size:11px;color:#FB923C;font-weight:600;flex:1" data-fr='"Shadow Sync" — Label Sync · 22j sans réponse' data-en='"Shadow Sync" — Label Sync · 22 days without reply'></span>
-      <button class="btn-demo" style="font-size:10px;padding:3px 8px" onclick="alertReply('${id}')" data-fr="✓ Réponse reçue" data-en="✓ Reply received"></button>
-    </div>
-    <div class="alert-row warning">
-      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#FBBF24" stroke-width="2" stroke-linecap="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-      <span style="font-size:11px;color:#FBBF24;font-weight:600;flex:1" data-fr='"Dark Matter" — deadline dans 5 jours' data-en='"Dark Matter" — deadline in 5 days'></span>
-    </div>
-  </div>
-  <p class="demo-hint" id="hint-alerts-${id}" data-fr="👆 Clique '✓ Réponse reçue' pour voir l'alerte disparaître" data-en="👆 Click '✓ Reply received' to see the alert disappear"></p>
-  </div>`;
-  return html;
-}
-
-window.alertReply = function(id) {
-  const el = document.getElementById(`alert-relance-${id}`);
-  if(el) { el.style.transition='all 0.4s'; el.style.opacity='0'; el.style.transform='translateX(20px)'; setTimeout(()=>el.remove(),400); }
-};
-
-function buildStatsDemo(id) {
-  const data = [3,5,4,7,6,8,5,9,4,6,3,2];
-  const months = ['J','F','M','A','M','J','J','A','S','O','N','D'];
-  const mx = Math.max(...data);
-  let html = '<div class="demo-wrap" id="demo-'+id+'"><div class="demo-label">DEMO</div>';
-  html += '<div class="stat-grid">';
-  html += '<div class="stat-card"><div class="stat-val" style="color:#A78BFA">62</div><div class="stat-lbl" data-fr="Produites" data-en="Produced"></div></div>';
-  html += '<div class="stat-card"><div class="stat-val" style="color:#10B981">41</div><div class="stat-lbl" data-fr="Validées" data-en="Validated"></div></div>';
-  html += '<div class="stat-card"><div class="stat-val" style="color:#F87171">8</div><div class="stat-lbl" data-fr="Refusées" data-en="Refused"></div></div>';
-  html += '<div class="stat-card"><div class="stat-val" style="color:#FBBF24">66%</div><div class="stat-lbl" data-fr="Taux" data-en="Rate"></div></div>';
-  html += '</div>';
-  const barHtml = data.map((v,i)=>{
-    const h = Math.round(v/mx*56);
-    const isAug = i===7;
-    return '<div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%">'
-      + '<div style="font-size:8px;color:'+(isAug?'var(--purple2)':'var(--text4)')+';font-weight:'+(isAug?800:400)+';margin-bottom:2px">'+v+'</div>'
-      + '<div style="width:100%;border-radius:3px 3px 0 0;height:'+h+'px;background:'+(isAug?'linear-gradient(180deg,#A78BFA,#7C3AED)':'rgba(167,139,250,0.3)')+'"></div>'
-      + '</div>';
-  }).join('');
-  const monthHtml = months.map(m=>'<div style="flex:1;text-align:center;font-size:8px;color:var(--text4)">'+m+'</div>').join('');
-  html += '<div style="display:flex;align-items:flex-end;gap:3px;height:80px;margin:12px 0 0">'+barHtml+'</div>';
-  html += '<div style="display:flex;gap:3px;margin:4px 0 10px">'+monthHtml+'</div>';
-  html += '<div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:center">';
-  html += "<span class=\"chart-leg-item active\" id=\"leg-prod-"+id+"\" style=\"color:#A78BFA\" onclick=\"toggleLeg('"+id+"','prod','#A78BFA')\">"+"<span class=\"chart-leg-dot\" style=\"background:#A78BFA\"></span><span data-fr=\"Produites\" data-en=\"Produced\"></span></span>";
-  html += "<span class=\"chart-leg-item active\" id=\"leg-val-"+id+"\" style=\"color:#10B981\" onclick=\"toggleLeg('"+id+"','val','#10B981')\">"+"<span class=\"chart-leg-dot\" style=\"background:#10B981\"></span><span data-fr=\"Validées\" data-en=\"Validated\"></span></span>";
-  html += "<span class=\"chart-leg-item active\" id=\"leg-ref-"+id+"\" style=\"color:#F87171\" onclick=\"toggleLeg('"+id+"','ref','#F87171')\">"+"<span class=\"chart-leg-dot\" style=\"background:#F87171\"></span><span data-fr=\"Refusées\" data-en=\"Refused\"></span></span>";
-  html += '</div>';
-  html += '<p class="demo-hint" data-fr="👆 Clique sur une légende pour masquer/afficher la série" data-en="👆 Click a legend to hide/show the series"></p>';
-  html += '</div>';
-  return html;
-}
-
-window.toggleLeg = function(id, key, color) {
-  const btn = document.getElementById(`leg-${key}-${id}`);
-  const active = btn.classList.toggle('active');
-  btn.style.opacity = active ? '1' : '0.4';
-  btn.style.textDecoration = active ? 'none' : 'line-through';
-};
-
-function buildGoalsDemo(id) {
-  const goals = [
-    {key:'produce',color:'#A78BFA',grad:'#7C3AED,#A78BFA',cur:31,target:50},
-    {key:'validate',color:'#FBBF24',grad:'#D97706,#FBBF24',cur:18,target:30},
-    {key:'deliver',color:'#10B981',grad:'#059669,#10B981',cur:12,target:20},
-  ];
-  const labels = {
-    produce:{fr:'Tracks produites',en:'Tracks produced'},
-    validate:{fr:'Validations',en:'Validations'},
-    deliver:{fr:'Tracks livrées',en:'Tracks delivered'},
-  };
-  let html = `<div class="demo-wrap" id="demo-${id}"><div class="demo-label">DEMO</div>`;
-  goals.forEach(g => {
-    const pct = Math.round(g.cur/g.target*100);
-    html += `<div class="goal-row">
-      <div class="goal-hdr">
-        <span class="goal-label" data-fr="${labels[g.key].fr}" data-en="${labels[g.key].en}"></span>
-        <span class="goal-val" style="color:${g.color}">${g.cur} / <span id="gtgt-${id}-${g.key}">${g.target}</span></span>
-      </div>
-      <div class="prog-bar"><div class="prog-fill" id="gprog-${id}-${g.key}" style="width:${pct}%;background:linear-gradient(90deg,${g.grad})"></div></div>
-      <div class="goal-proj" id="gproj-${id}-${g.key}" data-fr="Projection : ~${Math.round(g.cur/7*12)} d'ici fin 2026" data-en="Projection: ~${Math.round(g.cur/7*12)} by end of 2026"></div>
-    </div>`;
-  });
-  html += `<div style="display:flex;gap:6px;margin-top:10px">
-    <button class="btn-demo btn-primary" onclick="addGoalProgress('${id}')" data-fr="+ Simuler une track" data-en="+ Simulate a track"></button>
-    <button class="btn-demo" onclick="resetGoalDemo('${id}')" data-fr="Réinitialiser" data-en="Reset"></button>
-  </div>
-  <p class="demo-hint" data-fr="👆 Clique pour simuler une progression" data-en="👆 Click to simulate progress"></p>
-  </div>`;
-
-  window._goalState = window._goalState || {};
-  window._goalState[id] = {produce:31,validate:18,deliver:12};
-  return html;
-}
-
-window.addGoalProgress = function(id) {
-  const s = window._goalState[id];
-  const targets = {produce:50,validate:30,deliver:20};
-  const grad = {produce:'#7C3AED,#A78BFA',validate:'#D97706,#FBBF24',deliver:'#059669,#10B981'};
-  ['produce','validate','deliver'].forEach((k,i)=>{
-    if(i===0||Math.random()>0.4) {
-      s[k] = Math.min(s[k]+1, targets[k]);
-      const pct = Math.round(s[k]/targets[k]*100);
-      const bar = document.getElementById(`gprog-${id}-${k}`);
-      if(bar) bar.style.width = pct+'%';
-      const tgt = document.getElementById(`gtgt-${id}-${k}`);
-      if(tgt) tgt.textContent = targets[k];
-      const lbl = document.querySelector(`#demo-${id} [data-fr="Tracks produites"]`)?.closest('.goal-row')?.querySelector('.goal-val');
-      // update val display
-      const valEl = document.getElementById(`gprog-${id}-${k}`)?.closest('.goal-row')?.querySelector('.goal-val');
-      if(valEl) { const sp = valEl.querySelector('span'); if(sp) valEl.firstChild.textContent = s[k]+' / '; }
-    }
-  });
-};
-window.resetGoalDemo = function(id) {
-  window._goalState[id] = {produce:31,validate:18,deliver:12};
-  const targets = {produce:50,validate:30,deliver:20};
-  ['produce','validate','deliver'].forEach(k=>{
-    const bar = document.getElementById(`gprog-${id}-${k}`);
-    if(bar) bar.style.width = Math.round(31/50*100)+'%';
-  });
-};
-
-function buildPublisherDemo(id) {
-  let html = `<div class="demo-wrap" id="demo-${id}"><div class="demo-label">DEMO</div>`;
-  const pubs = [
-    {name:'Sync Library',color:'#A78BFA',v:12,r:3,rate:80,delay:18},
-    {name:'Label Sync',color:'#60A5FA',v:8,r:4,rate:67,delay:24,jx:28},
-  ];
-  pubs.forEach(p => {
-    const rateColor = p.rate>=70?'#10B981':p.rate>=40?'#FBBF24':'#F87171';
-    html += `<div class="pub-card" style="border-left:3px solid ${p.jx?'#F87171':'#2A2750'}">
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
-        <div style="width:32px;height:32px;border-radius:7px;background:${p.color}18;border:1px solid ${p.color}44;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:${p.color}">${p.name.charAt(0)}</div>
-        <div>
-          <div style="font-size:13px;font-weight:700;color:var(--text)">${p.name}</div>
-          ${p.jx?`<span class="jx-badge" style="background:rgba(248,113,113,0.12);color:#F87171;border:1px solid rgba(248,113,113,0.3)" data-fr="J+${p.jx} sans réponse" data-en="J+${p.jx} without reply"></span>`:''}
-        </div>
-      </div>
-      <div style="display:flex;gap:8px">
-        <div class="pub-stat"><div class="pub-stat-val" style="color:#10B981">${p.v}</div><div class="pub-stat-lbl" data-fr="Validées" data-en="Validated"></div></div>
-        <div class="pub-stat"><div class="pub-stat-val" style="color:#F87171">${p.r}</div><div class="pub-stat-lbl" data-fr="Refusées" data-en="Refused"></div></div>
-        <div class="pub-stat"><div class="pub-stat-val" style="color:${rateColor}">${p.rate}%</div><div class="pub-stat-lbl" data-fr="Taux" data-en="Rate"></div></div>
-        <div class="pub-stat"><div class="pub-stat-val" style="color:#60A5FA">${p.delay}j</div><div class="pub-stat-lbl" data-fr="Délai moy." data-en="Avg delay"></div></div>
-      </div>
-      <div class="pub-rate-bar"><div style="height:100%;width:${p.rate}%;background:${rateColor};border-radius:3px;transition:width 0.5s"></div></div>
-    </div>`;
-  });
-  html += `<div style="margin-top:12px">
-    <div style="font-size:10px;font-weight:700;color:var(--text4);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px" data-fr="Aperçu email de relance" data-en="Follow-up email preview"></div>
-    <div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:12px;font-size:11px;color:var(--text2);line-height:1.7">
-      <div style="margin-bottom:6px"><span style="color:var(--text4)" data-fr="À :" data-en="To:"></span> <span style="color:var(--blue)">contact@synclibrary.com</span></div>
-      <div style="margin-bottom:8px"><span style="color:var(--text4)" data-fr="Objet :" data-en="Subject:"></span> <span id="email-subj-publishers" data-fr="Relance — Shadow Sync / Neon Horizon" data-en="Follow-up — Shadow Sync / Neon Horizon"></span></div>
-      <div style="border-top:1px solid var(--border);padding-top:8px;color:var(--text2)" id="email-body-publishers" data-fr="Bonjour,<br><br>J'espère que vous allez bien. Je me permets de revenir vers vous concernant la track <b>Shadow Sync</b> soumise pour l'album <b>Neon Horizon</b>.<br><br>Je souhaitais savoir si vous aviez eu l'occasion de l'écouter et si vous aviez des retours à me partager.<br><br>Cordialement,<br><b>Jean Dupont</b>" data-en="Hello,<br><br>I hope you are well. I'm following up regarding the track <b>Shadow Sync</b> submitted for the album <b>Neon Horizon</b>.<br><br>I wanted to check if you had the chance to listen to it and if you have any feedback to share.<br><br>Best regards,<br><b>Jean Dupont</b>"></div>
-    </div>
-    <button class="btn-demo btn-primary" style="margin-top:8px;font-size:11px" onclick="simulateEmail()" data-fr="✉️ Ouvrir dans le client mail" data-en="✉️ Open in mail client"></button>
-    <span id="email-toast" style="font-size:10px;color:#10B981;margin-left:8px;opacity:0;transition:opacity 0.3s"></span>
-  </div>
-  <p class="demo-hint" data-fr="La bordure rouge indique des tracks en attente de réponse >30j" data-en="Red border indicates tracks awaiting reply >30d"></p></div>`;
-  return html;
-}
-
-function buildCollabDemo(id) {
-  const collabs = [
-    {init:'J',name:'Joeffrey L.',role:{fr:'Compositeur · Paris',en:'Composer · Paris'},color:'#A78BFA',tracks:24,rate:78},
-    {init:'M',name:'Marc D.',role:{fr:'Mix Engineer · Lyon',en:'Mix Engineer · Lyon'},color:'#10B981',tracks:14,rate:64},
-    {init:'S',name:'Sophie R.',role:{fr:'Arrangeur',en:'Arranger'},color:'#FB923C',tracks:8,rate:55},
-  ];
-  let html = `<div class="demo-wrap" id="demo-${id}"><div class="demo-label">DEMO</div>`;
-  collabs.forEach((c,ci)=>{
-    html += `<div>
-      <div class="collab-row" onclick="toggleCollab('${id}',${ci})">
-        <div class="collab-avatar" style="background:${c.color}18;border:2px solid ${c.color}44;color:${c.color}">${c.init}</div>
-        <div style="flex:1">
-          <div style="font-size:12px;font-weight:700;color:var(--text)">${c.name}</div>
-          <div style="font-size:10px;color:var(--text4)" id="crole-${id}-${ci}" data-fr="${c.role.fr}" data-en="${c.role.en}"></div>
-          <div class="prog-bar" style="margin-top:4px"><div style="height:100%;width:${Math.round(c.tracks/24*100)}%;background:${c.color};border-radius:2px;transition:width 0.4s"></div></div>
-        </div>
-        <div style="text-align:right;flex-shrink:0">
-          <div style="font-size:16px;font-weight:900;color:${c.color}">${c.tracks}</div>
-          <div style="font-size:9px;color:var(--text4)">tracks</div>
-        </div>
-        <div style="font-size:11px;color:var(--text4)" id="carrow-${id}-${ci}">▼</div>
-      </div>
-      <div class="collab-tracks" id="ctracks-${id}-${ci}">
-        <div class="track-row" style="margin-bottom:4px"><div class="track-dot" style="background:#10B981"></div><div class="track-title" style="font-size:11px">Pulse Drive</div><span class="sbadge" style="background:rgba(16,185,129,0.1);color:#10B981;border:1px solid rgba(16,185,129,0.3);font-size:9px" data-fr="Validée" data-en="Validated"></span></div>
-        <div class="track-row"><div class="track-dot" style="background:#60A5FA"></div><div class="track-title" style="font-size:11px">Shadow Sync</div><span class="sbadge" style="background:rgba(96,165,250,0.1);color:#60A5FA;border:1px solid rgba(96,165,250,0.3);font-size:9px" data-fr="Envoyée" data-en="Submitted"></span></div>
-      </div>
-    </div>`;
-  });
-  html += `<p class="demo-hint" data-fr="👆 Clique pour voir les tracks travaillées ensemble" data-en="👆 Click to see tracks worked on together"></p></div>`;
-  return html;
-}
-window.toggleCollab = function(id, ci) {
-  const el = document.getElementById(`ctracks-${id}-${ci}`);
-  const arrow = document.getElementById(`carrow-${id}-${ci}`);
-  const open = el.style.display === 'block';
-  el.style.display = open ? 'none' : 'block';
-  if(arrow) arrow.textContent = open ? '▼' : '▲';
-};
-
-function buildGalleryDemo(id) {
-  const albums = [
-    {title:'Neon Horizon',color:'#A78BFA',pct:72,status:{fr:'En production',en:'In Production'}},
-    {title:'Dark Matter',color:'#60A5FA',pct:45,status:{fr:'En production',en:'In Production'}},
-    {title:'Storm Rising',color:'#10B981',pct:100,status:{fr:'Terminé',en:'Completed'}},
-    {title:'Urban Pulse',color:'#FB923C',pct:20,status:{fr:'En production',en:'In Production'}},
-    {title:'Cyber Wave',color:'#F87171',pct:0,status:{fr:'Abandonné',en:'Abandoned'}},
-    {title:'Echo Lab',color:'#FBBF24',pct:60,status:{fr:'En production',en:'In Production'}},
-  ];
-  let html = `<div class="demo-wrap" id="demo-${id}"><div class="demo-label">DEMO</div>`;
-  html += `<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px">`;
-  albums.forEach((a,ai)=>{
-    html += `<div style="background:var(--bg3);border:1px solid var(--border);border-radius:9px;overflow:hidden;cursor:pointer;transition:transform 0.15s;transform:translateY(0)" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='translateY(0)'">
-      <div style="height:64px;background:linear-gradient(135deg,${a.color}22,${a.color}44);display:flex;align-items:center;justify-content:center;position:relative">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="${a.color}" stroke-width="1.5" stroke-linecap="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
-        ${a.pct===100?`<div style="position:absolute;top:4px;right:4px;font-size:9px;font-weight:700;color:#10B981;background:rgba(16,185,129,0.15);border:1px solid rgba(16,185,129,0.3);border-radius:4px;padding:1px 5px">✓</div>`:''}
-      </div>
-      <div style="padding:7px 8px">
-        <div style="font-size:11px;font-weight:700;color:var(--text);margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${a.title}</div>
-        <div class="prog-bar"><div style="height:100%;width:${a.pct}%;background:${a.color};border-radius:2px"></div></div>
-        <div style="font-size:9px;color:var(--text4);margin-top:3px" data-fr="${a.status.fr}" data-en="${a.status.en}"></div>
-      </div>
-    </div>`;
-  });
-  html += `</div><p class="demo-hint" data-fr="👆 Survole un album pour voir l'effet" data-en="👆 Hover an album to see the effect"></p></div>`;
-  return html;
-}
-
-function buildCalendarDemo(id) {
-  const deadlines = {5:'#F87171',12:'#FB923C',19:'#FBBF24',28:'#A78BFA'};
-  const dlabels = {5:'Neon Horizon',12:'Dark Matter',19:'Storm Project',28:'Urban Pulse'};
-  const days = ['L','M','M','J','V','S','D'];
-  let html = `<div class="demo-wrap" id="demo-${id}"><div class="demo-label">DEMO</div>`;
-  html += `<div style="display:flex;align-items:center;gap:8px;margin-bottom:12px">
-    <button class="btn-demo" style="padding:5px 10px" onclick="calNav('${id}',-1)">←</button>
-    <div style="flex:1;text-align:center;font-size:13px;font-weight:700;color:var(--text)" id="calmonth-${id}"></div>
-    <button class="btn-demo" style="padding:5px 10px" onclick="calNav('${id}',1)">→</button>
-  </div>
-  <div class="cal-grid">`;
-  days.forEach(d=>{ html+=`<div class="cal-day-hdr">${d}</div>`; });
-  for(let i=0;i<31;i++){
-    const day=i+1;
-    const color=deadlines[day];
-    html+=`<div class="cal-day ${color?'has-deadline':''}" style="${color?`color:${color};background:${color}18`:''}">
-      ${day}
-      ${color?`<div class="cal-dot" style="background:${color}"></div>`:''}
-    </div>`;
-  }
-  html += `</div>
-  <div style="margin-top:10px;display:flex;flex-direction:column;gap:3px" id="cal-deadlines-${id}">
-    ${Object.entries(dlabels).map(([d,n])=>`<div style="font-size:10px;color:${deadlines[d]};font-weight:600">● ${d} — ${n}</div>`).join('')}
-  </div>
-  <p class="demo-hint" data-fr="👆 Navigue entre les mois" data-en="👆 Navigate between months"></p></div>`;
-
-  window._calMonth = window._calMonth || {};
-  window._calMonth[id] = new Date().getMonth();
-  return html;
-}
-
-const MONTHS_FR=['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
-const MONTHS_EN=['January','February','March','April','May','June','July','August','September','October','November','December'];
-window.calNav = function(id, dir) {
-  window._calMonth[id] = ((window._calMonth[id]||0)+dir+12)%12;
-  const m = window._calMonth[id];
-  const el = document.getElementById(`calmonth-${id}`);
-  if(el) el.textContent = (LANG==='fr'?MONTHS_FR:MONTHS_EN)[m]+' 2026';
-};
-
-function buildAIDemo(id) {
-  const prompts = [
-    {fr:'⚠️ Mes deadlines urgentes',en:'⚠️ My urgent deadlines',resp:{fr:'🎯 Tu as <b style="color:#F87171">2 deadlines urgentes</b> cette semaine. "Neon Horizon" est dans 4 jours (3 tracks encore en Composition). Je recommande de prioriser Track 01 et Track 02 en premier.',en:'🎯 You have <b style="color:#F87171">2 urgent deadlines</b> this week. "Neon Horizon" is in 4 days (3 tracks still in Composition). I recommend prioritising Track 01 and Track 02 first.'}},
-    {fr:'📊 Analyse mes stats',en:'📊 Analyze my stats',resp:{fr:'📈 Ton taux de validation global est de <b style="color:#FBBF24">66%</b> — au-dessus de la moyenne sync. Sync Library est ton meilleur éditeur à <b style="color:#10B981">80%</b>. Août est ton mois le plus productif avec 9 tracks.',en:'📈 Your overall validation rate is <b style="color:#FBBF24">66%</b> — above the sync average. Sync Library is your best publisher at <b style="color:#10B981">80%</b>. August is your most productive month with 9 tracks.'}},
-    {fr:'💡 Conseils du jour',en:'💡 Today\'s advice',resp:{fr:'💡 Tu as <b>3 tracks en Mix</b> depuis plus de 10 jours. C\'est souvent là que les projets stagnent. Je te suggère de finaliser "Dark Horizon" avant de commencer de nouvelles compositions.',en:'💡 You have <b>3 tracks in Mix</b> for more than 10 days. That\'s often where projects stall. I suggest finalising "Dark Horizon" before starting new compositions.'}},
-    {fr:'♻️ Tracks à recycler',en:'♻️ Tracks to recycle',resp:{fr:'♻️ Tu as <b>4 tracks refusées</b> disponibles pour recyclage. "Urban Bass 03" (130bpm, Dark) et "Pulse 07" (125bpm, Epic) correspondent aux briefs actifs d\'Infinity Score.',en:'♻️ You have <b>4 refused tracks</b> available for recycling. "Urban Bass 03" (130bpm, Dark) and "Pulse 07" (125bpm, Epic) match active briefs from Infinity Score.'}},
-  ];
-  let html = `<div class="demo-wrap" id="demo-${id}"><div class="demo-label">DEMO</div>`;
-  html += `<div id="ai-prompts-${id}" style="display:flex;flex-direction:column;gap:5px;margin-bottom:8px">`;
-  prompts.forEach((p,pi)=>{
-    html += `<div class="ai-prompt" onclick="aiClick('${id}',${pi})">
-      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/></svg>
-      <span id="aip-${id}-${pi}" data-fr="${p.fr}" data-en="${p.en}"></span>
-    </div>`;
-  });
-  html += `</div>
-  <div class="ai-response" id="ai-resp-${id}"></div>
-  <p class="demo-hint" data-fr="👆 Clique sur un prompt pour voir la réponse IA" data-en="👆 Click a prompt to see the AI response"></p></div>`;
-
-  window._aiPrompts = window._aiPrompts || {};
-  window._aiPrompts[id] = prompts;
-  return html;
-}
-
-window.aiClick = function(id, pi) {
-  const prompts = window._aiPrompts[id];
-  const resp = document.getElementById(`ai-resp-${id}`);
-  if(!resp) return;
-  resp.classList.remove('visible');
-  setTimeout(()=>{
-    resp.innerHTML = prompts[pi].resp[LANG];
-    resp.classList.add('visible');
-  }, 150);
-};
-
-// ─── RENDER ────────────────────────────────────────────────
 function renderSections() {
-  const pillsEl = document.getElementById('pills');
-  const sectionsEl = document.getElementById('sections');
-  pillsEl.innerHTML = '';
-  sectionsEl.innerHTML = '';
-
+  const pillsEl = document.getElementById('pills'), sectionsEl = document.getElementById('sections');
+  pillsEl.innerHTML = ''; sectionsEl.innerHTML = '';
   SECTIONS.forEach(s => {
-    // Pill
     const pill = document.createElement('a');
-    pill.className = 'nav-pill';
-    pill.href = '#'+s.id;
+    pill.className = 'nav-pill'; pill.href = '#' + s.id;
     pill.innerHTML = `<span style="color:${s.color}">${s.icon}</span><span>${s.title[LANG]}</span>`;
-    pill.onclick = (e) => { e.preventDefault(); openSection(s.id); };
+    pill.onclick = e => { e.preventDefault(); openSection(s.id); history.replaceState(null, '', '#' + s.id); };
     pillsEl.appendChild(pill);
-
-    // Section
     const sec = document.createElement('div');
-    sec.className = 'section';
-    sec.id = 'section-'+s.id;
-    const demoHtml = s.demo ? s.demo(s.id) : '';
+    sec.className = 'section'; sec.id = 'section-' + s.id;
     sec.innerHTML = `
       <div class="section-hdr" onclick="toggleSection('${s.id}')">
         <div class="section-icon" style="background:${s.bg}">${s.icon}</div>
@@ -894,91 +764,54 @@ function renderSections() {
         </div>
         <span class="section-chevron">▼</span>
       </div>
-      <div class="section-body">
-        <div class="section-content">
-          <div class="item-list">
-            ${s.items.map(item=>`<div class="item">
-              <div class="item-dot" style="background:${s.color}"></div>
-              <div class="item-text">${item[LANG]}</div>
-            </div>`).join('')}
-          </div>
-          ${demoHtml}
-        </div>
-      </div>`;
+      <div class="section-body"><div class="section-content"><div class="item-list">
+        ${s.items.map(item => `<div class="item"><div class="item-dot" style="background:${s.color}"></div><div class="item-text">${item[LANG]}</div></div>`).join('')}
+      </div></div></div>`;
     sectionsEl.appendChild(sec);
   });
-
-  applyLangToDemo();
-  // Init calendar months
-  document.querySelectorAll('[id^="calmonth-"]').forEach(el=>{
-    const id = el.id.replace('calmonth-','');
-    el.textContent = (LANG==='fr'?MONTHS_FR:MONTHS_EN)[window._calMonth?.[id]||new Date().getMonth()]+' 2026';
-  });
+  const empty = document.createElement('p'); empty.id = 'no-result'; empty.style.cssText = 'display:none;text-align:center;color:var(--text4,#8582B0);font-size:13px;margin:24px 0';
+  empty.textContent = T.empty[LANG]; sectionsEl.appendChild(empty);
+  const demo = document.createElement('p'); demo.style.cssText = 'text-align:center;margin:28px 0 8px';
+  demo.innerHTML = `<a href="/demo.html?lang=${LANG}" style="color:#A78BFA;font-size:13px;text-decoration:none">${T.demo[LANG]}</a>`;
+  sectionsEl.appendChild(demo);
 }
-
-function applyLangToDemo() {
-  document.querySelectorAll('[data-fr][data-en]').forEach(el=>{
-    const val = el.dataset[LANG];
-    if(val !== undefined) el.innerHTML = val;
-  });
-}
-
-function toggleSection(id) {
-  document.getElementById('section-'+id).classList.toggle('open');
-}
+function toggleSection(id) { document.getElementById('section-' + id).classList.toggle('open'); }
 function openSection(id) {
-  const el = document.getElementById('section-'+id);
-  if(!el.classList.contains('open')) el.classList.add('open');
-  setTimeout(()=>el.scrollIntoView({behavior:'smooth',block:'start'}),50);
+  id = ALIAS[id] || id; const el = document.getElementById('section-' + id); if(!el) return;
+  el.classList.add('open'); setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
 }
-
 function setLang(lang) {
-  LANG = lang;
-  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));
-  document.querySelector(lang==='fr'?'.lang-btn:first-child':'.lang-btn:last-child').classList.add('active');
-  document.getElementById('h-badge').textContent = T.badge[lang];
-  document.getElementById('h-title').textContent = T.title[lang];
-  document.getElementById('h-sub').textContent = T.sub[lang];
-  const searchEl = document.getElementById('search');
-  searchEl.placeholder = T.search[lang];
-  // The demo widgets (Kanban, calendar, alerts...) are built once from the
-  // current LANG and don't listen for language changes on their own — a partial
-  // text patch left them stuck in French. Rebuilding the sections from scratch
-  // regenerates everything (including the demos) in the new language, so we
-  // just remember which sections were open and any active search, then restore
-  // both after the rebuild.
+  LANG = lang === 'en' ? 'en' : 'fr';
+  document.documentElement.lang = LANG;
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  document.querySelector(LANG === 'fr' ? '.lang-btn:first-child' : '.lang-btn:last-child').classList.add('active');
+  document.getElementById('h-badge').textContent = T.badge[LANG];
+  document.getElementById('h-title').textContent = T.title[LANG];
+  document.getElementById('h-sub').textContent = T.sub[LANG];
+  document.title = LANG === 'fr' ? "SYNC.PLANNER — Guide d'utilisation" : 'SYNC.PLANNER — User Guide';
+  const searchEl = document.getElementById('search'); searchEl.placeholder = T.search[LANG];
   const openIds = Array.from(document.querySelectorAll('.section.open')).map(el => el.id.replace('section-', ''));
   renderSections();
   openIds.forEach(id => document.getElementById('section-' + id)?.classList.add('open'));
   if (searchEl.value) doSearch(searchEl.value);
+  try { const u = new URL(location.href); u.searchParams.set('lang', LANG); history.replaceState(null, '', u); } catch(e) {}
 }
-
 function doSearch(q) {
-  const s = q.toLowerCase().trim();
-  document.querySelectorAll('.section').forEach(sec=>{
-    if(!s){ sec.style.display=''; return; }
-    const text = sec.textContent.toLowerCase();
-    const match = text.includes(s);
-    sec.style.display = match?'':'none';
-    if(match && !sec.classList.contains('open')) sec.classList.add('open');
+  const s = q.toLowerCase().trim(); let n = 0;
+  document.querySelectorAll('.section').forEach(sec => {
+    if(!s) { sec.style.display = ''; n++; return; }
+    const match = sec.textContent.toLowerCase().includes(s);
+    sec.style.display = match ? '' : 'none'; if(match) { n++; sec.classList.add('open'); }
   });
+  const e = document.getElementById('no-result'); if(e) e.style.display = n ? 'none' : 'block';
 }
-
-window.simulateEmail = function() {
-  const toast = document.getElementById('email-toast');
-  if(toast) {
-    toast.textContent = LANG==='fr' ? '✓ Client mail ouvert !' : '✓ Mail client opened!';
-    toast.style.opacity = '1';
-    setTimeout(()=>{ toast.style.opacity='0'; }, 2500);
-  }
-};
-
-// Init
-renderSections();
-if(location.hash){
-  const id = location.hash.replace('#','');
-  setTimeout(()=>openSection(id),150);
-}
+// Init : ?lang=en (lien depuis l'appli en anglais), sinon langue du navigateur
+(function() {
+  let l = 'fr';
+  try { const p = new URLSearchParams(location.search).get('lang'); if(p) l = p; else if(!/^fr/i.test(navigator.language || 'fr')) l = 'en'; } catch(e) {}
+  if(l === 'en') setLang('en'); else renderSections();
+  if(location.hash) setTimeout(() => openSection(location.hash.slice(1)), 150);
+})();
 </script>
 </body>
 </html>
