@@ -71,10 +71,10 @@
   "keywords": "compositeur sync, gestion projet musical, sync music, library music, film TV game music, deadlines compositeur, revenus sacem, suivi logic pro, rentabilité composition"
 }
 </script>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root { --noir:#0A0910;--violet:#7C3AED;--violet2:#A78BFA;--or:#D4AF6A;--creme:#F0EEF8;--gris:#2A2750;--texte:#C4C0E8; }
+  :root { --noir:#F3EEE3;--violet:#1F1C17;--violet2:#8A8273;--or:#8A5408;--creme:#1F1C17;--gris:#D6CEBF;--texte:#3A352D; }
   html { scroll-behavior: smooth; }
   /* Empêche la barre de navigation fixe de cacher le haut d'une section
      ciblée par une ancre (#download, #features, #pricing, #faq...) — sans
@@ -90,19 +90,19 @@
       scroll-behavior: auto !important;
     }
   }
-  nav { position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 60px;display:flex;align-items:center;justify-content:space-between;background:rgba(10,9,16,0.85);backdrop-filter:blur(20px);border-bottom:1px solid rgba(42,39,80,0.5); }
+  nav { position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 60px;display:flex;align-items:center;justify-content:space-between;background:rgba(243,238,227,0.85);backdrop-filter:blur(20px);border-bottom:1px solid rgba(214,206,191,0.5); }
   .nav-left { display:flex;align-items:center;gap:16px; }
-  .nav-logo { font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:700;color:var(--creme);letter-spacing:0.04em; }
+  .nav-logo { font-family:'Inter',sans-serif;font-size:16px;font-weight:700;color:var(--creme);letter-spacing:0.04em; }
   .nav-logo span { color:var(--violet); }
-  .lang-switcher { display:flex;align-items:center;gap:4px;background:rgba(42,39,80,0.6);border:1px solid #2A2750;border-radius:8px;padding:4px; }
+  .lang-switcher { display:flex;align-items:center;gap:4px;background:rgba(214,206,191,0.6);border:1px solid #D6CEBF;border-radius:8px;padding:4px; }
   .lang-btn { background:none;border:none;font-size:18px;cursor:pointer;padding:4px 6px;border-radius:6px;transition:background 0.15s;line-height:1; }
-  .lang-btn.active { background:rgba(124,58,237,0.3); }
-  .lang-btn:hover { background:rgba(124,58,237,0.2); }
+  .lang-btn.active { background:rgba(31,28,23,0.17); }
+  .lang-btn:hover { background:rgba(31,28,23,0.11); }
   .nav-links { display:flex;gap:32px; }
   .nav-links a { font-size:13px;color:var(--texte);text-decoration:none;transition:color 0.15s; }
   .nav-links a:hover { color:var(--creme); }
-  .nav-cta { padding:9px 22px;background:var(--violet);color:white;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none; }
-  .nav-burger { display:none;background:none;border:1px solid #2A2750;border-radius:8px;width:38px;height:38px;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0; }
+  .nav-cta { padding:9px 22px;background:var(--violet);color:#F3EEE3;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none; }
+  .nav-burger { display:none;background:none;border:1px solid #D6CEBF;border-radius:8px;width:38px;height:38px;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0; }
   .nav-burger span, .nav-burger span::before, .nav-burger span::after { content:'';display:block;width:16px;height:2px;background:var(--creme);position:relative;transition:transform 0.2s,opacity 0.2s; }
   .nav-burger span::before { position:absolute;top:-5px; }
   .nav-burger span::after { position:absolute;top:5px; }
@@ -110,98 +110,98 @@
   .nav-burger.open span::before { transform:translateY(5px) rotate(45deg);opacity:1; }
   .nav-burger.open span::after { transform:translateY(-5px) rotate(-45deg);opacity:1; }
   .hero { min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 60px 80px;position:relative;overflow:hidden; }
-  .hero-bg { position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse 70% 60% at 65% 50%,#3b1d8a1a 0%,transparent 70%); }
-  .hero-grid { position:absolute;inset:0;z-index:0;background-image:linear-gradient(rgba(124,58,237,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(124,58,237,0.03) 1px,transparent 1px);background-size:60px 60px; }
+  .hero-bg { position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse 70% 60% at 65% 50%,transparent 0%,transparent 70%); }
+  .hero-grid { position:absolute;inset:0;z-index:0;background-image:linear-gradient(rgba(31,28,23,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(31,28,23,0.02) 1px,transparent 1px);background-size:60px 60px; }
   .hero-content { position:relative;z-index:1;max-width:680px;margin:0 auto;text-align:center; }
-  .hero-badge { display:inline-flex;align-items:center;gap:8px;background:rgba(124,58,237,0.12);border:1px solid rgba(124,58,237,0.35);border-radius:100px;padding:6px 16px;font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:600;color:var(--violet2);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:28px; }
+  .hero-badge { display:inline-flex;align-items:center;gap:8px;background:rgba(31,28,23,0.07);border:1px solid rgba(31,28,23,0.19);border-radius:100px;padding:6px 16px;font-family:'Inter',sans-serif;font-size:12px;font-weight:600;color:var(--violet2);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:28px; }
   .hero-badge::before { content:'';width:6px;height:6px;border-radius:50%;background:var(--violet2);animation:blink 2s ease-in-out infinite; }
   @keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
-  .hero h1 { font-family:'Space Grotesk',sans-serif;font-size:clamp(40px,6vw,76px);font-weight:700;line-height:1.0;letter-spacing:-0.03em;color:var(--creme);margin-bottom:24px; }
+  .hero h1 { font-family:'Inter',sans-serif;font-size:clamp(40px,6vw,76px);font-weight:700;line-height:1.0;letter-spacing:-0.03em;color:var(--creme);margin-bottom:24px; }
   .hero h1 span { color:var(--violet); }
   .hero-sub { font-size:clamp(16px,2vw,19px);color:var(--texte);margin:0 auto 16px;max-width:540px;line-height:1.7; }
-  .hero-sub2 { font-size:15px;color:#8582B0;margin:0 auto 44px;max-width:480px;line-height:1.6; }
+  .hero-sub2 { font-size:15px;color:#5A544A;margin:0 auto 44px;max-width:480px;line-height:1.6; }
   .hero-btns { display:flex;gap:14px;flex-wrap:wrap;margin-bottom:24px;justify-content:center; }
-  .btn-primary { display:inline-flex;align-items:center;gap:8px;padding:15px 32px;background:var(--violet);color:white;border-radius:10px;font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600;text-decoration:none;box-shadow:0 8px 24px rgba(124,58,237,0.35);transition:transform 0.2s,box-shadow 0.2s; }
-  .btn-primary:hover { transform:translateY(-2px);box-shadow:0 12px 32px rgba(124,58,237,0.5); }
-  .btn-win { background:#2D1B69;box-shadow:0 8px 24px rgba(45,27,105,0.4); }
+  .btn-primary { display:inline-flex;align-items:center;gap:8px;padding:15px 32px;background:var(--violet);color:#F3EEE3;border-radius:10px;font-family:'Inter',sans-serif;font-size:15px;font-weight:600;text-decoration:none;box-shadow:0 8px 24px rgba(31,28,23,0.19);transition:transform 0.2s,box-shadow 0.2s; }
+  .btn-primary:hover { transform:translateY(-2px);box-shadow:0 12px 32px rgba(31,28,23,0.28); }
+  .btn-win { background:#1F1C17;box-shadow:0 8px 24px rgba(31,28,23,0.22); }
   .dl-tile{flex-direction:column;justify-content:center;gap:2px;min-width:200px;padding:12px 18px!important;line-height:1.2;text-align:center}.dl-tile small{font-size:12px;font-weight:500;opacity:.8}
-  .btn-secondary { display:inline-flex;align-items:center;gap:8px;padding:15px 28px;background:transparent;color:var(--violet2);border:1px solid rgba(167,139,250,0.4);border-radius:10px;font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600;text-decoration:none;transition:border-color 0.2s; }
+  .btn-secondary { display:inline-flex;align-items:center;gap:8px;padding:15px 28px;background:transparent;color:var(--violet2);border:1px solid rgba(31,28,23,0.22);border-radius:10px;font-family:'Inter',sans-serif;font-size:15px;font-weight:600;text-decoration:none;transition:border-color 0.2s; }
   .btn-secondary:hover { border-color:var(--violet2); }
-  .hero-note { font-size:12px;color:#8582B0; }
-  .eyebrow { font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--or);margin-bottom:16px; }
-  .section-title { font-family:'Space Grotesk',sans-serif;font-size:clamp(28px,4vw,46px);font-weight:700;line-height:1.1;letter-spacing:-0.02em;color:var(--creme);margin-bottom:16px; }
+  .hero-note { font-size:12px;color:#5A544A; }
+  .eyebrow { font-family:'Inter',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--or);margin-bottom:16px; }
+  .section-title { font-family:'Inter',sans-serif;font-size:clamp(28px,4vw,46px);font-weight:700;line-height:1.1;letter-spacing:-0.02em;color:var(--creme);margin-bottom:16px; }
   .section-title em { color:var(--violet2);font-style:normal; }
-  .problem { padding:100px 60px;background:#0D0C1A;border-top:1px solid #1E1C38;text-align:center; }
+  .problem { padding:100px 60px;background:#EEE8DC;border-top:1px solid #D6CEBF;text-align:center; }
   .problem-inner { max-width:680px;margin:0 auto; }
   .problem p { font-size:16px;color:var(--texte);line-height:1.75; }
-  .preview { padding:80px 60px;background:#0D0C1A; }
+  .preview { padding:80px 60px;background:#EEE8DC; }
   .preview-header { text-align:center;margin-bottom:40px; }
-  .preview-inner { max-width:800px;margin:0 auto;background:#13122A;border:1px solid #2A2750;border-radius:16px;overflow:hidden; }
-  .preview-bar { padding:14px 18px;background:#0F0E1A;border-bottom:1px solid #1E1C38;display:flex;align-items:center;gap:8px; }
+  .preview-inner { max-width:800px;margin:0 auto;background:#E9E4D9;border:1px solid #D6CEBF;border-radius:16px;overflow:hidden; }
+  .preview-bar { padding:14px 18px;background:#E3DDD1;border-bottom:1px solid #D6CEBF;display:flex;align-items:center;gap:8px; }
   .dot { width:10px;height:10px;border-radius:50%; }
-  .preview-title { font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:600;color:#8582B0;letter-spacing:0.1em;text-transform:uppercase;margin-left:8px; }
+  .preview-title { font-family:'Inter',sans-serif;font-size:12px;font-weight:600;color:#5A544A;letter-spacing:0.1em;text-transform:uppercase;margin-left:8px; }
   .preview-content { padding:24px; }
-  .album-row { display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid #1E1C38; }
+  .album-row { display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid #D6CEBF; }
   .album-row:last-child { border-bottom:none; }
-  .album-name { font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:600;color:var(--creme);flex:1; }
-  .album-edit { font-size:12px;color:#8582B0;min-width:90px; }
-  .album-bar-wrap { flex:1;height:6px;background:#2A2750;border-radius:100px;overflow:visible; }
+  .album-name { font-family:'Inter',sans-serif;font-size:14px;font-weight:600;color:var(--creme);flex:1; }
+  .album-edit { font-size:12px;color:#5A544A;min-width:90px; }
+  .album-bar-wrap { flex:1;height:6px;background:#D6CEBF;border-radius:100px;overflow:visible; }
   .album-bar { height:100%;border-radius:100px;width:0%;transition:width 1.2s cubic-bezier(.22,.68,0,1.2); }
   .album-pct { font-size:12px;font-weight:700;min-width:36px;text-align:right; }
   .album-deadline { font-size:11px;padding:3px 10px;border-radius:100px;font-weight:600;min-width:70px;text-align:center; }
   .features { padding:100px 60px; }
   .features-header { text-align:center;margin-bottom:56px; }
-  .features-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#1E1C38;border:1px solid #1E1C38;border-radius:16px;overflow:hidden;max-width:1000px;margin:0 auto; } .features-grid .feat:last-child { grid-column:1/-1; }
-  .feat { background:#13122A;padding:36px 28px;transition:background 0.2s; }
-  .feat:hover { background:#1A1838; }
-  .feat-icon { width:44px;height:44px;background:rgba(124,58,237,0.12);border:1px solid rgba(124,58,237,0.2);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px; }
+  .features-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#D6CEBF;border:1px solid #D6CEBF;border-radius:16px;overflow:hidden;max-width:1000px;margin:0 auto; } .features-grid .feat:last-child { grid-column:1/-1; }
+  .feat { background:#E9E4D9;padding:36px 28px;transition:background 0.2s; }
+  .feat:hover { background:#E3DDD1; }
+  .feat-icon { width:44px;height:44px;background:rgba(31,28,23,0.07);border:1px solid rgba(31,28,23,0.11);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px; }
   .feat-icon svg { width:22px;height:22px; }
-  .feat-title { font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:600;color:var(--creme);margin-bottom:10px; }
+  .feat-title { font-family:'Inter',sans-serif;font-size:16px;font-weight:600;color:var(--creme);margin-bottom:10px; }
   .feat-body { font-size:14px;color:var(--texte);line-height:1.65; }
-  .demo-tab { padding:9px 18px;background:#13122A;border:1px solid #2A2750;border-radius:8px;font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:600;color:#8582B0;cursor:pointer;transition:all 0.15s; }
-  .demo-tab:hover { border-color:#7C3AED;color:#C4B5FD; }
-  .demo-tab.active { background:#2D1B69;border-color:#7C3AED;color:#C4B5FD; }
+  .demo-tab { padding:9px 18px;background:#E9E4D9;border:1px solid #D6CEBF;border-radius:8px;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;color:#5A544A;cursor:pointer;transition:all 0.15s; }
+  .demo-tab:hover { border-color:#1F1C17;color:#3A352D; }
+  .demo-tab.active { background:#1F1C17;border-color:#1F1C17;color:#3A352D; }
   .pricing { padding:100px 60px;text-align:center; }
   .pricing-cards { display:flex;gap:20px;justify-content:center;margin-top:48px;flex-wrap:wrap; }
-  .price-card { background:#13122A;border:1px solid #2A2750;border-radius:18px;padding:36px 28px;min-width:220px;max-width:255px;position:relative;transition:transform 0.2s;text-align:left;display:flex;flex-direction:column; }
+  .price-card { background:#E9E4D9;border:1px solid #D6CEBF;border-radius:18px;padding:36px 28px;min-width:220px;max-width:255px;position:relative;transition:transform 0.2s;text-align:left;display:flex;flex-direction:column; }
   .price-card:hover { transform:translateY(-4px); }
-  .price-card.featured { border-color:var(--violet);background:linear-gradient(160deg,#1A1050,#13122A); }
-  .price-badge { position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--violet);color:white;font-size:10px;font-weight:700;padding:3px 14px;border-radius:100px;letter-spacing:0.08em;text-transform:uppercase;white-space:nowrap; }
+  .price-card.featured { border-color:var(--violet);background:linear-gradient(160deg,#E9E4D9,#E9E4D9); }
+  .price-badge { position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--violet);color:#F3EEE3;font-size:10px;font-weight:700;padding:3px 14px;border-radius:100px;letter-spacing:0.08em;text-transform:uppercase;white-space:nowrap; }
   .price-tier { font-size:11px;font-weight:600;color:var(--or);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:14px; }
-  .price-amount { font-family:'Space Grotesk',sans-serif;font-size:44px;font-weight:700;color:var(--creme);line-height:1; }
+  .price-amount { font-family:'Inter',sans-serif;font-size:44px;font-weight:700;color:var(--creme);line-height:1; }
   .price-amount sup { font-size:20px;font-weight:400;color:var(--texte);vertical-align:top;margin-top:8px; }
   .price-period { font-size:13px;color:var(--texte);margin-top:4px;margin-bottom:22px; }
-  .price-note { font-size:11px;color:#8582B0;text-align:center;margin-bottom:16px;margin-top:-8px; }
+  .price-note { font-size:11px;color:#5A544A;text-align:center;margin-bottom:16px;margin-top:-8px; }
   .price-items { list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:26px;flex:1; }
   .price-items li { font-size:13px;color:var(--texte);display:flex;gap:8px;align-items:flex-start; }
-  .price-items li::before { content:'✓';color:#10B981;font-weight:700;flex-shrink:0; }
-  .price-cta { display:block;padding:13px;text-align:center;border-radius:9px;font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:600;text-decoration:none;cursor:pointer;border:none;transition:opacity 0.2s;margin-top:auto; }
+  .price-items li::before { content:'✓';color:#16683C;font-weight:700;flex-shrink:0; }
+  .price-cta { display:block;padding:13px;text-align:center;border-radius:9px;font-family:'Inter',sans-serif;font-size:14px;font-weight:600;text-decoration:none;cursor:pointer;border:none;transition:opacity 0.2s;margin-top:auto; }
   .price-cta:hover { opacity:0.85; }
-  .cta-main { background:var(--violet);color:white; }
-  .cta-outline { background:transparent;color:var(--violet2);border:1px solid rgba(167,139,250,0.4); }
+  .cta-main { background:var(--violet);color:#F3EEE3; }
+  .cta-outline { background:transparent;color:var(--violet2);border:1px solid rgba(31,28,23,0.22); }
   .faq { padding:80px 60px;max-width:700px;margin:0 auto; }
-  .faq h2 { font-family:'Space Grotesk',sans-serif;font-size:32px;font-weight:700;color:var(--creme);margin-bottom:40px;text-align:center; }
-  .faq-item { border-bottom:1px solid #1E1C38;padding:20px 0; }
-  .faq-q { font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600;color:var(--creme);cursor:pointer;display:flex;width:100%;justify-content:space-between;align-items:center;background:none;border:none;padding:0;text-align:left; }
+  .faq h2 { font-family:'Inter',sans-serif;font-size:32px;font-weight:700;color:var(--creme);margin-bottom:40px;text-align:center; }
+  .faq-item { border-bottom:1px solid #D6CEBF;padding:20px 0; }
+  .faq-q { font-family:'Inter',sans-serif;font-size:15px;font-weight:600;color:var(--creme);cursor:pointer;display:flex;width:100%;justify-content:space-between;align-items:center;background:none;border:none;padding:0;text-align:left; }
   .faq-a { font-size:14px;color:var(--texte);line-height:1.7;margin-top:12px;display:none; }
   .faq-item.open .faq-a { display:block; }
   .faq-arrow { transition:transform 0.2s;color:var(--violet2); }
   .faq-item.open .faq-arrow { transform:rotate(180deg); }
-  .cta-final { text-align:center;padding:100px 60px;background:radial-gradient(ellipse 60% 80% at 50% 50%,#2D0A6A18 0%,transparent 70%);border-top:1px solid #1E1C38; }
-  .cta-final h2 { font-family:'Space Grotesk',sans-serif;font-size:clamp(30px,5vw,56px);font-weight:700;line-height:1.1;letter-spacing:-0.02em;color:var(--creme);margin-bottom:16px; }
+  .cta-final { text-align:center;padding:100px 60px;background:radial-gradient(ellipse 60% 80% at 50% 50%,transparent 0%,transparent 70%);border-top:1px solid #D6CEBF; }
+  .cta-final h2 { font-family:'Inter',sans-serif;font-size:clamp(30px,5vw,56px);font-weight:700;line-height:1.1;letter-spacing:-0.02em;color:var(--creme);margin-bottom:16px; }
   .cta-final h2 span { color:var(--violet2); }
   .cta-final p { font-size:16px;color:var(--texte);margin-bottom:40px; }
-  footer { padding:32px 60px;border-top:1px solid #1E1C38;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;row-gap:10px;font-size:12px;color:#8582B0; }
-  footer a { color:#8582B0;text-decoration:none; }
+  footer { padding:32px 60px;border-top:1px solid #D6CEBF;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;row-gap:10px;font-size:12px;color:#5A544A; }
+  footer a { color:#5A544A;text-decoration:none; }
   footer a:hover { color:var(--texte); }
   @media(max-width:900px){
     nav{padding:14px 20px;flex-wrap:wrap;}
     .nav-cta{display:none;}
     .nav-burger{display:flex;}
-    .nav-links{display:none;width:100%;flex-direction:column;gap:0;order:3;background:rgba(13,12,26,0.98);border-top:1px solid #1E1C38;margin-top:14px;padding:6px 0;}
+    .nav-links{display:none;width:100%;flex-direction:column;gap:0;order:3;background:rgba(243,238,227,0.98);border-top:1px solid #D6CEBF;margin-top:14px;padding:6px 0;}
     .nav-links.mobile-open{display:flex;}
-    .nav-links a{padding:12px 4px;border-bottom:1px solid #1E1C38;}
-    .nav-links .nav-cta-mobile{display:inline-block;margin:10px 4px 4px;padding:11px 18px;background:var(--violet);color:white;border-radius:8px;font-size:13px;font-weight:600;text-align:center;text-decoration:none;}
+    .nav-links a{padding:12px 4px;border-bottom:1px solid #D6CEBF;}
+    .nav-links .nav-cta-mobile{display:inline-block;margin:10px 4px 4px;padding:11px 18px;background:var(--violet);color:#F3EEE3;border-radius:8px;font-size:13px;font-weight:600;text-align:center;text-decoration:none;}
     .hero,.problem,.preview,.features,.pricing,.cta-final{padding:60px 24px;}
     .features-grid{grid-template-columns:1fr;}
     .pricing-cards{flex-direction:column;align-items:center;}
@@ -210,27 +210,69 @@
   .preview-inner { max-width:1100px; }
   .shot { display:block;width:100%;height:auto; }
   .demo-cap { text-align:center;color:var(--texte);font-size:14px;margin:18px auto 0;max-width:640px; }
-  .demo-tabs2 { display:flex;justify-content:center;gap:2px;margin:0 auto 26px;flex-wrap:wrap;border-bottom:1px solid #1E1C38;max-width:1100px; }
-  .demo-tabs2 .demo-tab { background:transparent;border:0;border-bottom:2px solid transparent;border-radius:0;color:#8E8AB5;font-family:'Inter',sans-serif;font-size:14px;font-weight:600;padding:10px 14px;cursor:pointer; }
+  .demo-tabs2 { display:flex;justify-content:center;gap:2px;margin:0 auto 26px;flex-wrap:wrap;border-bottom:1px solid #D6CEBF;max-width:1100px; }
+  .demo-tabs2 .demo-tab { background:transparent;border:0;border-bottom:2px solid transparent;border-radius:0;color:#5A544A;font-family:'Inter',sans-serif;font-size:14px;font-weight:600;padding:10px 14px;cursor:pointer; }
   .demo-tabs2 .demo-tab:hover { color:var(--creme); }
   .demo-tabs2 .demo-tab.active { color:var(--creme);border-bottom-color:var(--violet2);background:transparent; }
-  .feat-new { display:inline-block;margin-left:8px;font-size:10px;font-weight:600;color:#34D399;border:1px solid rgba(52,211,153,.4);border-radius:6px;padding:0 6px;vertical-align:middle; }
-.pf-chip{font-size:12.5px;color:#C9C6E6;background:rgba(124,58,237,.10);border:1px solid rgba(167,139,250,.25);border-radius:100px;padding:5px 12px;white-space:nowrap}
+  .feat-new { display:inline-block;margin-left:8px;font-size:10px;font-weight:600;color:#16683C;border:1px solid rgba(22,104,60,.4);border-radius:6px;padding:0 6px;vertical-align:middle; }
+.pf-chip{font-size:12.5px;color:#3A352D;background:rgba(31,28,23,0.06);border:1px solid rgba(31,28,23,0.14);border-radius:100px;padding:5px 12px;white-space:nowrap}
 
   .orb-sub { color:var(--texte);font-size:16px;max-width:620px;margin:14px auto 0;line-height:1.7;text-align:center; }
-  video.shot { display:block;width:100%;height:auto;background:#0F0E1A; }
-  .orb3 { padding:90px 60px;border-top:1px solid #1E1C38; }
+  video.shot { display:block;width:100%;height:auto;background:#E3DDD1; }
+  .orb3 { padding:90px 60px;border-top:1px solid #D6CEBF; }
   .orb3-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:1240px;margin:40px auto 0; }
-  .orb3-card { margin:0;background:#13122A;border:1px solid #2A2750;border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:transform .25s,border-color .25s; }
-  .orb3-card:hover { transform:translateY(-3px);border-color:#3A3760; }
-  .orb3-card img { display:block;width:100%;height:auto;border-bottom:1px solid #1E1C38; }
+  .orb3-card { margin:0;background:#E9E4D9;border:1px solid #D6CEBF;border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:transform .25s,border-color .25s; }
+  .orb3-card:hover { transform:translateY(-3px);border-color:#BFB6A6; }
+  .orb3-card img { display:block;width:100%;height:auto;border-bottom:1px solid #D6CEBF; }
   .orb3-card figcaption { padding:18px 20px 22px;display:flex;flex-direction:column;gap:8px; }
-  .orb3-card b { font-family:'Space Grotesk',sans-serif;font-size:17px;color:var(--creme); }
+  .orb3-card b { font-family:'Inter',sans-serif;font-size:17px;color:var(--creme); }
   .orb3-card span { font-size:14px;line-height:1.65;color:var(--texte); }
   .feat-w2 { grid-column:1/-1; }
   @media (max-width:900px) { .fw-grid { grid-template-columns:1fr 1fr !important; } .fw-sec { padding:60px 20px !important; } }
   @media (max-width:560px) { .fw-grid { grid-template-columns:1fr !important; } }
   @media (max-width:900px) { .feat-w2 { grid-column:auto; } .orb3 { padding:70px 20px; } .orb3-grid { grid-template-columns:1fr;max-width:560px; } }
+
+  /* ── Direction Papier (28/10) ── */
+  body { -webkit-font-smoothing:antialiased; }
+  nav { background:rgba(243,238,227,0.92); border-bottom:1px solid #D6CEBF; }
+  .nav-logo span { color:#A0281C; }
+  .lang-switcher { background:transparent; }
+  .lang-btn.active { background:#E3DDD1; } .lang-btn:hover { background:#E9E4D9; }
+  .hero { min-height:auto; padding:132px 60px 40px; }
+  .hero-content { max-width:860px; }
+  .hero-kicker { font-size:14px;color:#5A544A;margin-bottom:22px; }
+  .hero h1 { font-size:clamp(40px,6.2vw,72px);font-weight:700;letter-spacing:-0.04em;line-height:1.02;margin-bottom:24px; }
+  .hero h1 span { color:#8A8273; }
+  .hero-sub { color:#5A544A;max-width:560px;margin-bottom:32px; }
+  .btn-primary, .btn-primary:hover { box-shadow:none;transform:none; }
+  .btn-primary:hover, .cta-main:hover { background:#3A352D;opacity:1; }
+  .dl-row { display:flex;gap:12px;justify-content:center;flex-wrap:wrap; }
+  .dl-main { padding:15px 26px;font-size:16px;flex-direction:column;gap:2px;line-height:1.25; }
+  .dl-main small { font-size:12px;font-weight:500;opacity:.75; }
+  .dl-demo { display:inline-flex;align-items:center;gap:8px;padding:15px 22px;border:1px solid #BFB6A6;border-radius:10px;font-size:16px;font-weight:600;color:#1F1C17;text-decoration:none;align-self:stretch; }
+  .dl-demo:hover { border-color:#1F1C17; }
+  .dl-alt { font-size:13px;color:#5A544A;margin-top:16px; }
+  .dl-alt a { color:#1F1C17;text-decoration:underline;text-decoration-color:#BFB6A6;text-underline-offset:3px;cursor:pointer; }
+  .dl-alt a:hover { text-decoration-color:#1F1C17; }
+  .dl-help { display:none;font-size:12.5px;color:#5A544A;margin:8px auto 0;max-width:520px; }
+  .dl-help.open { display:block; }
+  .hero-note { font-size:13px;color:#5A544A;margin-top:8px; }
+  .hero-shot { max-width:1124px;margin:44px auto 0;position:relative;z-index:1; }
+  .hero-shot video { display:block;width:100%;height:auto;border-radius:14px;border:1px solid #D6CEBF;background:#2E2B28;box-shadow:0 30px 60px -34px rgba(60,45,25,.5); }
+  .hero-cap { font-size:14px;color:#5A544A;max-width:640px;margin:16px auto 0;line-height:1.6;text-align:center; }
+  .hero-more { text-align:center;font-size:13px;color:#5A544A;padding:20px 24px 56px;line-height:1.7; }
+  .eyebrow { letter-spacing:0.14em; }
+  .section-title { letter-spacing:-0.03em; }
+  .feat-icon { background:#E3DDD1;border-color:#D6CEBF; }
+  .price-card.featured { background:#E9E4D9;border:1.5px solid #1F1C17; }
+  .price-badge { background:#1F1C17; }
+  .cta-outline { color:#1F1C17;border-color:#BFB6A6; }
+  .demo-tabs2 .demo-tab.active { border-bottom-color:#1F1C17; }
+  .demo-tab.active { background:#1F1C17;color:#F3EEE3; }
+  .cta-final { background:#EEE8DC; }
+  .preview-bar .dot { background:#BFB6A6!important; }
+  .orb3-card, .preview-inner { box-shadow:0 20px 40px -30px rgba(60,45,25,.45); }
+  @media(max-width:900px){ .hero { padding:96px 20px 24px; } .dl-main, .dl-demo { width:100%;justify-content:center; } .hero-shot { margin-top:30px; } }
 </style>
 </head>
 <body>
@@ -254,35 +296,26 @@
 </nav>
 
 <section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-grid"></div>
-  <div class="hero-content">
-    <div class="hero-badge" id="hero-badge">Pour les compositeurs qui livrent</div>
-    <h1 id="hero-h1">Albums, deadlines,<br>relances, revenus.<br><span style='color:var(--violet)'>Au même endroit.</span></h1>
+  <div class="hero-content dl-wrap">
+    <div class="hero-kicker" id="hero-badge">Pour les compositeurs qui livrent</div>
+    <h1 id="hero-h1">Albums, deadlines,<br>relances, revenus.<br><span>Au même endroit.</span></h1>
     <p class="hero-sub" id="hero-sub">Pilotez toute votre production sync, de Logic Pro aux revenus SACEM.</p>
-    <p class="hero-sub2" id="hero-sub2">Albums, tracks, deadlines, stems, éditeurs, relances et rentabilité : tout votre workflow est centralisé dans une application conçue spécifiquement pour les compositeurs.</p>
-    <p id="hero-keys" style="font-size:13px;color:#C4B5FD;margin:-4px 0 18px;letter-spacing:.01em">Détection automatique des projets Logic Pro · Contrôle des livrables · Suivi SACEM · Données locales</p>
-    <div style="font-size:11px;color:#8582B0;margin-bottom:8px" id="mac-download-label">Télécharger pour Mac :</div>
-    <div class="hero-btns" id="download">
-      <a href="https://github.com/SyncPlanner/SyncPlanner-app/releases/latest/download/SYNC.PLANNER-arm64.dmg" class="btn-primary dl-tile" id="btn-mac-arm">Mac 2021 et après<small>puce Apple M1, M2, M3…</small></a>
-      <a href="https://github.com/SyncPlanner/SyncPlanner-app/releases/latest/download/SYNC.PLANNER-x64.dmg" class="btn-primary dl-tile" id="btn-mac-intel">Mac 2020 et avant<small>processeur Intel</small></a>
-      <span class="btn-primary btn-win dl-tile" id="btn-win" style="opacity:0.45;cursor:not-allowed;pointer-events:none">Windows<small>en développement</small></span>
+    <div id="download">
+    <div class="dl-row"><a href="https://github.com/SyncPlanner/SyncPlanner-app/releases/latest/download/SYNC.PLANNER-arm64.dmg" class="btn-primary dl-main" data-dl="main" id="dl-main"><span>Télécharger pour Mac — essai gratuit</span><small data-dl="sub">Pour Mac Apple Silicon (M1, M2, M3…)</small></a><a href="/demo.html" class="dl-demo" id="btn-demo"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="5 3 19 12 5 21 5 3"/></svg> <span id="btn-demo-txt">Essayer la démo</span></a></div>
+    <div class="dl-alt">Autre Mac : <a href="https://github.com/SyncPlanner/SyncPlanner-app/releases/latest/download/SYNC.PLANNER-arm64.dmg" data-dl="arm" id="dl-arm">Apple Silicon</a> · <a href="https://github.com/SyncPlanner/SyncPlanner-app/releases/latest/download/SYNC.PLANNER-x64.dmg" data-dl="intel" id="dl-intel">Intel</a> · <a role="button" tabindex="0" onclick="this.closest('.dl-wrap').querySelector('.dl-help').classList.toggle('open')">Comment choisir ?</a> · Windows en développement</div>
+    <div class="dl-help">Menu Pomme ▸ « À propos de ce Mac » : « Puce Apple M… » → Apple Silicon, « Processeur Intel » → Intel. macOS 12 minimum.</div>
     </div>
-    <div style="margin-top:8px;font-size:11px;color:#8582B0" id="mac-arch-help">Mac de 2020 ? Menu Pomme ▸ « À propos de ce Mac » : « Puce Apple » ou « Intel ». macOS 12 minimum.</div>
-    <div style="margin:14px 0 22px">
-      <a href="/demo.html" id="btn-demo" style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#A78BFA;text-decoration:none;border:1px solid rgba(167,139,250,0.25);border-radius:8px;padding:8px 16px;background:rgba(124,58,237,0.08);transition:all 0.2s"
-        onmouseover="this.style.background='rgba(124,58,237,0.18)';this.style.borderColor='rgba(167,139,250,0.5)'"
-        onmouseout="this.style.background='rgba(124,58,237,0.08)';this.style.borderColor='rgba(167,139,250,0.25)'">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" style="vertical-align:middle"><polygon points="5 3 19 12 5 21 5 3"/></svg> <span id="btn-demo-txt">Explorer les fonctionnalités — démo interactive</span>
-      </a>
-    </div>
-    <div class="hero-note" id="hero-note">✓ Aucune carte bancaire requise &nbsp;·&nbsp; ✓ Données sur votre Mac (sauf Assistant IA) &nbsp;·&nbsp; ✓ macOS 12+ (Apple Silicon & Intel) — Windows bientôt</div>
-    <div style="margin-top:10px;font-size:11px;color:#8582B0;text-align:center" id="hero-evolving">🔄 Application en constante évolution — mises à jour régulières incluses</div>
+    <div class="hero-note" id="hero-note">14 jours gratuits, sans carte bancaire &nbsp;·&nbsp; Données sur votre Mac (sauf Assistant IA)</div>
+  </div>
+  <div class="hero-shot">
+    <video poster="/img/app/p/radar-poster.jpg" autoplay muted loop playsinline preload="metadata" width="1124" height="744" aria-label="Radar orbital de SYNC.PLANNER"><source src="/img/app/p/radar.mp4" type="video/mp4"></video>
+    <p class="hero-cap" id="preview-sub">Vos albums gravitent autour d'aujourd'hui : plus une deadline approche, plus l'album se rapproche du centre. Entrez dans un album, puis dans une track — tout se règle sur place.</p>
   </div>
 </section>
+<div class="hero-more"><span id="hero-keys">Détection automatique des projets Logic Pro · Contrôle des livrables · Suivi SACEM · Données locales</span><br><span id="hero-evolving">macOS 12+ · Application en constante évolution — mises à jour régulières incluses</span></div>
 
 <!-- POUR QUI -->
-<section class="fw-sec" style="padding:60px 60px;background:#0D0C1E;border-top:1px solid #1E1C38">
+<section class="fw-sec" style="padding:60px 60px;background:#EEE8DC;border-top:1px solid #D6CEBF">
   <div style="max-width:1000px;margin:0 auto">
     <div style="text-align:center;margin-bottom:40px">
       <div class="eyebrow" id="forwhom-eyebrow">Pour qui</div>
@@ -291,43 +324,43 @@
     <div class="fw-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
 
       <!-- Library -->
-      <div style="background:#13122A;border:1px solid #2A2750;border-top:3px solid #A78BFA;border-radius:14px;padding:24px;transition:transform 0.2s" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
-        <div style="width:46px;height:46px;background:rgba(167,139,250,0.12);border:1px solid rgba(167,139,250,0.25);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="1.6" stroke-linecap="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+      <div style="background:#E9E4D9;border:1px solid #D6CEBF;border-top:3px solid #1F1C17;border-radius:14px;padding:24px;transition:transform 0.2s" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
+        <div style="width:46px;height:46px;background:rgba(31,28,23,0.07);border:1px solid rgba(31,28,23,0.14);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1F1C17" stroke-width="1.6" stroke-linecap="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
         </div>
-        <div style="font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:700;color:#F0EEF8;margin-bottom:8px" id="fw1-title">Library / Sync</div>
-        <div style="font-size:13px;color:#8582B0;line-height:1.65" id="fw1-body">Plusieurs albums en parallèle, des éditeurs différents, des deadlines qui s'accumulent — tout centralisé en un seul endroit.</div>
+        <div style="font-family:'Inter',sans-serif;font-size:15px;font-weight:700;color:#1F1C17;margin-bottom:8px" id="fw1-title">Library / Sync</div>
+        <div style="font-size:13px;color:#5A544A;line-height:1.65" id="fw1-body">Plusieurs albums en parallèle, des éditeurs différents, des deadlines qui s'accumulent — tout centralisé en un seul endroit.</div>
       </div>
 
       <!-- Jeux vidéo -->
-      <div style="background:#13122A;border:1px solid #2A2750;border-top:3px solid #60A5FA;border-radius:14px;padding:24px;transition:transform 0.2s" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
-        <div style="width:46px;height:46px;background:rgba(96,165,250,0.12);border:1px solid rgba(96,165,250,0.25);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="1.6" stroke-linecap="round"><rect x="2" y="6" width="20" height="12" rx="4"/><path d="M6 12h4M8 10v4"/><circle cx="16" cy="11" r="1.2" fill="#60A5FA"/><circle cx="18" cy="13" r="1.2" fill="#60A5FA"/></svg>
+      <div style="background:#E9E4D9;border:1px solid #D6CEBF;border-top:3px solid #1A5492;border-radius:14px;padding:24px;transition:transform 0.2s" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
+        <div style="width:46px;height:46px;background:rgba(26,84,146,0.12);border:1px solid rgba(26,84,146,0.25);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1A5492" stroke-width="1.6" stroke-linecap="round"><rect x="2" y="6" width="20" height="12" rx="4"/><path d="M6 12h4M8 10v4"/><circle cx="16" cy="11" r="1.2" fill="#1A5492"/><circle cx="18" cy="13" r="1.2" fill="#1A5492"/></svg>
         </div>
-        <div style="font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:700;color:#F0EEF8;margin-bottom:8px" id="fw2-title">Jeux vidéo</div>
-        <div style="font-size:13px;color:#8582B0;line-height:1.65" id="fw2-body">Briefs techniques précis, versions multiples, livraisons par lots — suivez chaque statut sans vous perdre.</div>
+        <div style="font-family:'Inter',sans-serif;font-size:15px;font-weight:700;color:#1F1C17;margin-bottom:8px" id="fw2-title">Jeux vidéo</div>
+        <div style="font-size:13px;color:#5A544A;line-height:1.65" id="fw2-body">Briefs techniques précis, versions multiples, livraisons par lots — suivez chaque statut sans vous perdre.</div>
       </div>
 
       <!-- Film & TV -->
-      <div style="background:#13122A;border:1px solid #2A2750;border-top:3px solid #34D399;border-radius:14px;padding:24px;transition:transform 0.2s" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
-        <div style="width:46px;height:46px;background:rgba(52,211,153,0.12);border:1px solid rgba(52,211,153,0.25);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="1.6" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+      <div style="background:#E9E4D9;border:1px solid #D6CEBF;border-top:3px solid #16683C;border-radius:14px;padding:24px;transition:transform 0.2s" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
+        <div style="width:46px;height:46px;background:rgba(22,104,60,0.12);border:1px solid rgba(22,104,60,0.25);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#16683C" stroke-width="1.6" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
         </div>
-        <div style="font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:700;color:#F0EEF8;margin-bottom:8px" id="fw3-title">Film & TV</div>
-        <div style="font-size:13px;color:#8582B0;line-height:1.65" id="fw3-body">Allers-retours clients, versions alternatives, révisions — chaque statut tracé, chaque deadline visible.</div>
+        <div style="font-family:'Inter',sans-serif;font-size:15px;font-weight:700;color:#1F1C17;margin-bottom:8px" id="fw3-title">Film & TV</div>
+        <div style="font-size:13px;color:#5A544A;line-height:1.65" id="fw3-body">Allers-retours clients, versions alternatives, révisions — chaque statut tracé, chaque deadline visible.</div>
       </div>
 
       <!-- Pub -->
-      <div style="background:#13122A;border:1px solid #2A2750;border-top:3px solid #FBBF24;border-radius:14px;padding:24px;transition:transform 0.2s" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
-        <div style="width:46px;height:46px;background:rgba(251,191,36,0.12);border:1px solid rgba(251,191,36,0.25);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FBBF24" stroke-width="1.6" stroke-linecap="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+      <div style="background:#E9E4D9;border:1px solid #D6CEBF;border-top:3px solid #8A5408;border-radius:14px;padding:24px;transition:transform 0.2s" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
+        <div style="width:46px;height:46px;background:rgba(138,84,8,0.12);border:1px solid rgba(138,84,8,0.25);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8A5408" stroke-width="1.6" stroke-linecap="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
         </div>
-        <div style="font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:700;color:#F0EEF8;margin-bottom:8px" id="fw4-title">Publicité</div>
-        <div style="font-size:13px;color:#8582B0;line-height:1.65" id="fw4-body">Contraintes de durée, versions multiples (30s, 60s, sting), deadlines courtes — gérez tout depuis un seul outil.</div>
+        <div style="font-family:'Inter',sans-serif;font-size:15px;font-weight:700;color:#1F1C17;margin-bottom:8px" id="fw4-title">Publicité</div>
+        <div style="font-size:13px;color:#5A544A;line-height:1.65" id="fw4-body">Contraintes de durée, versions multiples (30s, 60s, sting), deadlines courtes — gérez tout depuis un seul outil.</div>
       </div>
 
     </div>
-    <div style="text-align:center;margin-top:20px;font-size:13px;color:#8582B0" id="fw-note">Peu importe votre domaine — si vous livrez des tracks à des éditeurs et gérez des deadlines, SYNC.PLANNER est fait pour vous.</div>
+    <div style="text-align:center;margin-top:20px;font-size:13px;color:#5A544A" id="fw-note">Peu importe votre domaine — si vous livrez des tracks à des éditeurs et gérez des deadlines, SYNC.PLANNER est fait pour vous.</div>
   </div>
 </section>
 
@@ -339,137 +372,119 @@
   </div>
 </div>
 
-<div class="preview" id="features">
-  <div class="preview-header">
-    <div class="eyebrow" id="preview-eyebrow">Nouveau · le radar orbital</div>
-    <h2 class="section-title" id="preview-title">Vos deadlines,<br><em>en orbite</em></h2>
-    <p class="orb-sub" id="preview-sub">Vos albums gravitent autour d'aujourd'hui : plus une deadline approche, plus l'album se rapproche du centre. Entrez dans un album, puis dans une track — tout se règle sur place.</p>
-  </div>
-  <div class="preview-inner">
-    <div class="preview-bar">
-      <div class="dot" style="background:#F87171"></div>
-      <div class="dot" style="background:#FBBF24"></div>
-      <div class="dot" style="background:#10B981"></div>
-      <div class="preview-title">SYNC.PLANNER</div>
-    </div>
-    <video class="shot" poster="/img/app/radar-poster.jpg" autoplay muted loop playsinline preload="metadata" width="1124" height="690" aria-label="Radar orbital de SYNC.PLANNER"><source src="/img/app/radar.webm" type="video/webm"><source src="/img/app/radar.mp4" type="video/mp4"></video>
-  </div>
-</div>
-
-
 <section class="orb3" id="orbital">
   <div class="features-header"><div class="eyebrow" id="orb3-eyebrow">Le radar orbital</div><h2 class="section-title" id="orb3-title">Trois niveaux,<br><em>un seul geste</em></h2></div>
-  <div class="orb3-grid"><figure class="orb3-card"><img src="/img/app/orb-radar.jpg" alt="Radar" loading="lazy" width="1600" height="1160"><figcaption><b id="orb3-a-title">Le radar</b><span id="orb3-a-body">Tous vos albums d'un coup d'œil, classés par urgence. Les retards se voient tout de suite, le projet ouvert dans Logic Pro s'allume, et les tracks refusées attendent d'être recasées.</span></figcaption></figure><figure class="orb3-card"><img src="/img/app/orb-album.jpg" alt="Album" loading="lazy" width="1600" height="1141"><figcaption><b id="orb3-b-title">L'album</b><span id="orb3-b-body">Ses tracks en orbite autour de la cover, avec leur statut. Glissez une track sur une autre pour changer l'ordre — l'éditeur veut qu'elle soit la n° 4 ? C'est fait.</span></figcaption></figure><figure class="orb3-card"><img src="/img/app/orb-track.jpg" alt="Track" loading="lazy" width="1600" height="1141"><figcaption><b id="orb3-c-title">La track</b><span id="orb3-c-body">Ses infos tournent autour d'elle et se modifient d'un clic : BPM, tonalité, dates, titre. ‹ › ou les flèches du clavier pour passer à la suivante, en boucle.</span></figcaption></figure></div>
+  <div class="orb3-grid"><figure class="orb3-card"><img src="/img/app/p/orb-radar.jpg" alt="Radar" loading="lazy" width="1600" height="1160"><figcaption><b id="orb3-a-title">Le radar</b><span id="orb3-a-body">Tous vos albums d'un coup d'œil, classés par urgence. Les retards se voient tout de suite, le projet ouvert dans Logic Pro s'allume, et les tracks refusées attendent d'être recasées.</span></figcaption></figure><figure class="orb3-card"><img src="/img/app/p/orb-album.jpg" alt="Album" loading="lazy" width="1600" height="1141"><figcaption><b id="orb3-b-title">L'album</b><span id="orb3-b-body">Ses tracks en orbite autour de la cover, avec leur statut. Glissez une track sur une autre pour changer l'ordre — l'éditeur veut qu'elle soit la n° 4 ? C'est fait.</span></figcaption></figure><figure class="orb3-card"><img src="/img/app/p/orb-track.jpg" alt="Track" loading="lazy" width="1600" height="1141"><figcaption><b id="orb3-c-title">La track</b><span id="orb3-c-body">Ses infos tournent autour d'elle et se modifient d'un clic : BPM, tonalité, dates, titre. ‹ › ou les flèches du clavier pour passer à la suivante, en boucle.</span></figcaption></figure></div>
 </section>
-<section class="features">
+<section class="features" id="features">
   <div class="features-header">
     <div class="eyebrow" id="features-eyebrow">Fonctionnalités</div>
     <h2 class="section-title" id="features-title">Ce que ça fait<br><em>concrètement</em></h2>
   </div>
   <div class="features-grid">
-    <div class="feat"><div class="feat-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="1.6" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="16" y1="2" x2="16" y2="6"/></svg></div><div class="feat-title" id="feat1-title">Deadlines sous contrôle</div><div class="feat-body" id="feat1-body">Une vue claire de ce qui est urgent, de ce qui est en cours, et de ce qui a déjà été livré. Plus de mauvaises surprises.</div></div>
-    <div class="feat"><div class="feat-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="1.6" stroke-linecap="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div><div class="feat-title" id="feat2-title">Suivi de chaque track</div><div class="feat-body" id="feat2-body">Composition, révision, mix, livraison — chaque track dispose de son propre statut. La progression de chaque projet est visible en temps réel.</div></div>
-    <div class="feat"><div class="feat-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="1.6" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><div class="feat-title" id="feat3-title">Suivi des éditeurs</div><div class="feat-body" id="feat3-body">Coordonnées, taux de validation, délai moyen de réponse, historique des relances : toutes les infos sur vos éditeurs au même endroit.</div></div>
-    <div class="feat"><div class="feat-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="1.6" stroke-linecap="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg></div><div class="feat-title" id="feat4-title">Stats de production</div><div class="feat-body" id="feat4-body">Nombre de tracks produites, taux de validation par éditeur, évolution mensuelle. Des données concrètes pour mieux organiser la production.</div></div>
-    <div class="feat"><div class="feat-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="1.6" stroke-linecap="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-3.51"/></svg></div><div class="feat-title" id="feat5-title">Rien ne se perd</div><div class="feat-body" id="feat5-body">Une track refusée ne disparaît jamais : elle rejoint « À recaser » sur le radar jusqu'à ce que vous la proposiez ailleurs, avec l'historique de ses refus.</div></div>
-    <div class="feat"><div class="feat-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="1.6" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div><div class="feat-title" id="feat6-title">Vos données restent sur votre Mac</div><div class="feat-body" id="feat6-body">Toutes les données de gestion restent sur l'ordinateur de l'utilisateur. Aucun cloud, aucun serveur tiers par défaut — seule l'utilisation optionnelle de l'assistant IA transmet des données, et uniquement si vous l'activez.</div></div>
-    <div class="feat"><div class="feat-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/></svg></div><div class="feat-title"><span id="featn-decl-title">Déclarations SACEM, BMI, PRS…</span></div><div class="feat-body" id="featn-decl-body">Importez votre répertoire d'œuvres : SYNC.PLANNER repère les tracks publiées introuvables et prépare un PDF clair à envoyer à votre éditeur.</div></div>
-    <div class="feat"><div class="feat-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4z"/></svg></div><div class="feat-title"><span id="featn-send-title">Envoi aux éditeurs</span></div><div class="feat-body" id="featn-send-body">Email d'envoi prêt en un clic, MP3 ou WAV joint, envoi groupé de plusieurs tracks, et tout l'historique envois / relances / réponses sur chaque track.</div></div>
-    <div class="feat"><div class="feat-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h3l3-8 4 16 3-8h5"/></svg></div><div class="feat-title"><span id="featn-stems-title">Livrables qui se cochent tout seuls</span><span class="feat-new" id="featr-new1">Nouveau</span></div><div class="feat-body" id="featn-stems-body">Une checklist par track : Main, stems, Alt. Elle se coche toute seule pendant que vous exportez, retient ce que vous livrez d'habitude à chaque éditeur (« Alt No Perc » oubliée ?) et repère les noms de fichiers mal écrits avant l'envoi.</div></div>
-    <div class="feat"><div class="feat-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M9 15l2 2 4-4"/></svg></div><div class="feat-title"><span id="featv-cal-title">Aujourd'hui et briefing du jour</span></div><div class="feat-body" id="featv-cal-body">La tuile « Aujourd'hui » rassemble les prochaines deadlines et tout ce qui est à traiter : relances dues, œuvres introuvables, tracks à recaser. Le briefing du jour résume le reste, classé par urgence.</div></div>
-    <div class="feat"><div class="feat-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg></div><div class="feat-title"><span id="featv-dup-title">Alerte titre en double</span></div><div class="feat-body" id="featv-dup-body">En tapant un titre, SYNC.PLANNER signale un titre identique ou très proche déjà utilisé dans votre catalogue ou votre répertoire SACEM — codes catalogue, accents et pluriels ignorés.</div></div>
-    <div class="feat"><div class="feat-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div><div class="feat-title"><span id="featv-store-title">Aucune limite de stockage</span></div><div class="feat-body" id="featv-store-body">Covers, contrats, pièces jointes : tout est rangé dans un dossier SYNC.PLANNER sur votre Mac, que vous pouvez déplacer sur un disque externe. Une copie de secours est faite chaque jour (30 jours gardés) et avant chaque opération importante : vous revenez à la date de votre choix en un clic.</div></div>
-    <div class="feat feat-w2"><div class="feat-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><polyline points="21 3 21 9 15 9"/></svg></div><div class="feat-title"><span id="featr-rel-title">Relances au bon moment</span><span class="feat-new" id="featr-new2">Nouveau</span></div><div class="feat-body" id="featr-rel-body">Une track sans réponse depuis 15 jours est signalée. Vous relancez : le compteur repart de votre relance, et l'alerte ne revient que si l'éditeur ne répond toujours pas.</div></div>
-    <div class="feat" style="grid-column:1/-1;background:#0C1E33;border-top:1px solid #60A5FA44"><div class="feat-icon" style="background:rgba(96,165,250,0.12);border-color:rgba(96,165,250,0.25)"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg></div><div class="feat-title" id="featLogic-title">Intégration Logic Pro automatique</div><div class="feat-body" id="featLogic-body">Ouvrez un projet dans Logic Pro : SYNC.PLANNER le détecte tout seul, récupère le BPM, la tonalité et la mesure, et compte le temps passé sur chaque track (en pause automatiquement après 10 minutes d'inactivité). Projet renommé ? Il vous propose de le relier en un clic. Aucune saisie manuelle.</div></div>
-    <div class="feat" style="grid-column:1/-1;background:#0E2620;border-top:1px solid #34D39944"><div class="feat-icon" style="background:rgba(52,211,153,0.12);border-color:rgba(52,211,153,0.25)"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="1.6" stroke-linecap="round"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M9 15V9M12 15V6M15 15v-4"/></svg></div><div class="feat-title" id="featSacem-title">Revenus SACEM & rentabilité €/heure</div><div class="feat-body" id="featSacem-body">Importez vos relevés SACEM : ils sont automatiquement rapprochés de vos tracks, avec le revenu par album, par éditeur et le temps composé sur Logic Pro pour calculer votre rentabilité en €/heure. Les œuvres ignorées le restent d'un relevé à l'autre, et les tracks nommées avec un code catalogue sont reliées toutes seules. Une intégration BMI (droits d'exécution US) est à l'étude pour les compositeurs actifs sur le marché américain.</div></div>
-    <div class="feat" style="grid-column:1/-1;background:#1A1050;border-top:1px solid #7C3AED44"><div class="feat-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="1.6" stroke-linecap="round"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/></svg></div><div class="feat-title" id="feat7-title">🎁 Bonus — Assistant IA intégré (Beta)</div><div class="feat-body" id="feat7-body">Connectez votre propre clé API (OpenAI, Claude ou Mistral) pour bénéficier d'un assistant IA directement dans SYNC.PLANNER. Il peut s'appuyer sur vos projets pour vous aider à prioriser votre production, analyser vos deadlines, préparer vos livraisons et répondre à vos questions.</div></div>
+    <div class="feat"><div class="feat-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1F1C17" stroke-width="1.6" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="16" y1="2" x2="16" y2="6"/></svg></div><div class="feat-title" id="feat1-title">Deadlines sous contrôle</div><div class="feat-body" id="feat1-body">Une vue claire de ce qui est urgent, de ce qui est en cours, et de ce qui a déjà été livré. Plus de mauvaises surprises.</div></div>
+    <div class="feat"><div class="feat-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1F1C17" stroke-width="1.6" stroke-linecap="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div><div class="feat-title" id="feat2-title">Suivi de chaque track</div><div class="feat-body" id="feat2-body">Composition, révision, mix, livraison — chaque track dispose de son propre statut. La progression de chaque projet est visible en temps réel.</div></div>
+    <div class="feat"><div class="feat-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1F1C17" stroke-width="1.6" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><div class="feat-title" id="feat3-title">Suivi des éditeurs</div><div class="feat-body" id="feat3-body">Coordonnées, taux de validation, délai moyen de réponse, historique des relances : toutes les infos sur vos éditeurs au même endroit.</div></div>
+    <div class="feat"><div class="feat-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1F1C17" stroke-width="1.6" stroke-linecap="round"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg></div><div class="feat-title" id="feat4-title">Stats de production</div><div class="feat-body" id="feat4-body">Nombre de tracks produites, taux de validation par éditeur, évolution mensuelle. Des données concrètes pour mieux organiser la production.</div></div>
+    <div class="feat"><div class="feat-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1F1C17" stroke-width="1.6" stroke-linecap="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-3.51"/></svg></div><div class="feat-title" id="feat5-title">Rien ne se perd</div><div class="feat-body" id="feat5-body">Une track refusée ne disparaît jamais : elle rejoint « À recaser » sur le radar jusqu'à ce que vous la proposiez ailleurs, avec l'historique de ses refus.</div></div>
+    <div class="feat"><div class="feat-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1F1C17" stroke-width="1.6" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div><div class="feat-title" id="feat6-title">Vos données restent sur votre Mac</div><div class="feat-body" id="feat6-body">Toutes les données de gestion restent sur l'ordinateur de l'utilisateur. Aucun cloud, aucun serveur tiers par défaut — seule l'utilisation optionnelle de l'assistant IA transmet des données, et uniquement si vous l'activez.</div></div>
+    <div class="feat"><div class="feat-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1F1C17" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/></svg></div><div class="feat-title"><span id="featn-decl-title">Déclarations SACEM, BMI, PRS…</span></div><div class="feat-body" id="featn-decl-body">Importez votre répertoire d'œuvres : SYNC.PLANNER repère les tracks publiées introuvables et prépare un PDF clair à envoyer à votre éditeur.</div></div>
+    <div class="feat"><div class="feat-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1F1C17" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4z"/></svg></div><div class="feat-title"><span id="featn-send-title">Envoi aux éditeurs</span></div><div class="feat-body" id="featn-send-body">Email d'envoi prêt en un clic, MP3 ou WAV joint, envoi groupé de plusieurs tracks, et tout l'historique envois / relances / réponses sur chaque track.</div></div>
+    <div class="feat"><div class="feat-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1F1C17" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h3l3-8 4 16 3-8h5"/></svg></div><div class="feat-title"><span id="featn-stems-title">Livrables qui se cochent tout seuls</span><span class="feat-new" id="featr-new1">Nouveau</span></div><div class="feat-body" id="featn-stems-body">Une checklist par track : Main, stems, Alt. Elle se coche toute seule pendant que vous exportez, retient ce que vous livrez d'habitude à chaque éditeur (« Alt No Perc » oubliée ?) et repère les noms de fichiers mal écrits avant l'envoi.</div></div>
+    <div class="feat"><div class="feat-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1F1C17" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M9 15l2 2 4-4"/></svg></div><div class="feat-title"><span id="featv-cal-title">Aujourd'hui et briefing du jour</span></div><div class="feat-body" id="featv-cal-body">La tuile « Aujourd'hui » rassemble les prochaines deadlines et tout ce qui est à traiter : relances dues, œuvres introuvables, tracks à recaser. Le briefing du jour résume le reste, classé par urgence.</div></div>
+    <div class="feat"><div class="feat-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1F1C17" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg></div><div class="feat-title"><span id="featv-dup-title">Alerte titre en double</span></div><div class="feat-body" id="featv-dup-body">En tapant un titre, SYNC.PLANNER signale un titre identique ou très proche déjà utilisé dans votre catalogue ou votre répertoire SACEM — codes catalogue, accents et pluriels ignorés.</div></div>
+    <div class="feat"><div class="feat-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1F1C17" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div><div class="feat-title"><span id="featv-store-title">Aucune limite de stockage</span></div><div class="feat-body" id="featv-store-body">Covers, contrats, pièces jointes : tout est rangé dans un dossier SYNC.PLANNER sur votre Mac, que vous pouvez déplacer sur un disque externe. Une copie de secours est faite chaque jour (30 jours gardés) et avant chaque opération importante : vous revenez à la date de votre choix en un clic.</div></div>
+    <div class="feat feat-w2"><div class="feat-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1F1C17" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><polyline points="21 3 21 9 15 9"/></svg></div><div class="feat-title"><span id="featr-rel-title">Relances au bon moment</span><span class="feat-new" id="featr-new2">Nouveau</span></div><div class="feat-body" id="featr-rel-body">Une track sans réponse depuis 15 jours est signalée. Vous relancez : le compteur repart de votre relance, et l'alerte ne revient que si l'éditeur ne répond toujours pas.</div></div>
+    <div class="feat" style="grid-column:1/-1;background:#DFE5EC;border-top:1px solid #60A5FA44"><div class="feat-icon" style="background:rgba(26,84,146,0.12);border-color:rgba(26,84,146,0.25)"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1A5492" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg></div><div class="feat-title" id="featLogic-title">Intégration Logic Pro automatique</div><div class="feat-body" id="featLogic-body">Ouvrez un projet dans Logic Pro : SYNC.PLANNER le détecte tout seul, récupère le BPM, la tonalité et la mesure, et compte le temps passé sur chaque track (en pause automatiquement après 10 minutes d'inactivité). Projet renommé ? Il vous propose de le relier en un clic. Aucune saisie manuelle.</div></div>
+    <div class="feat" style="grid-column:1/-1;background:#E2E8DC;border-top:1px solid #34D39944"><div class="feat-icon" style="background:rgba(22,104,60,0.12);border-color:rgba(22,104,60,0.25)"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#16683C" stroke-width="1.6" stroke-linecap="round"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M9 15V9M12 15V6M15 15v-4"/></svg></div><div class="feat-title" id="featSacem-title">Revenus SACEM & rentabilité €/heure</div><div class="feat-body" id="featSacem-body">Importez vos relevés SACEM : ils sont automatiquement rapprochés de vos tracks, avec le revenu par album, par éditeur et le temps composé sur Logic Pro pour calculer votre rentabilité en €/heure. Les œuvres ignorées le restent d'un relevé à l'autre, et les tracks nommées avec un code catalogue sont reliées toutes seules. Une intégration BMI (droits d'exécution US) est à l'étude pour les compositeurs actifs sur le marché américain.</div></div>
+    <div class="feat" style="grid-column:1/-1;background:#E9E4D9;border-top:1px solid #7C3AED44"><div class="feat-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1F1C17" stroke-width="1.6" stroke-linecap="round"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/></svg></div><div class="feat-title" id="feat7-title">🎁 Bonus — Assistant IA intégré (Beta)</div><div class="feat-body" id="feat7-body">Connectez votre propre clé API (OpenAI, Claude ou Mistral) pour bénéficier d'un assistant IA directement dans SYNC.PLANNER. Il peut s'appuyer sur vos projets pour vous aider à prioriser votre production, analyser vos deadlines, préparer vos livraisons et répondre à vos questions.</div></div>
   </div>
 </section>
 
 <!-- SEO CONTENT SECTION -->
-<section style="padding:100px 60px;background:#0D0C1E;border-top:1px solid #1E1C38">
+<section style="padding:100px 60px;background:#EEE8DC;border-top:1px solid #D6CEBF">
   <div style="max-width:800px;margin:0 auto">
     <div class="eyebrow" style="text-align:center;margin-bottom:16px" id="seo-eyebrow">Pourquoi SYNC.PLANNER</div>
     <h2 class="section-title" style="text-align:center;margin-bottom:48px" id="seo-title">Construit pour votre<br><em>métier de compositeur sync</em></h2>
 
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-bottom:60px">
       <div>
-        <h3 style="font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;color:var(--creme);margin-bottom:12px" id="seo-h3-1">Pour la musique sync</h3>
+        <h3 style="font-family:'Inter',sans-serif;font-size:18px;font-weight:700;color:var(--creme);margin-bottom:12px" id="seo-h3-1">Pour la musique sync</h3>
         <p style="font-size:14px;color:var(--texte);line-height:1.8" id="seo-p1">SYNC.PLANNER est un outil de gestion de projets pour les compositeurs de musique sync — library, film, TV, jeux vidéo et publicité. Contrairement aux outils génériques comme Notion ou Trello, il est construit autour du workflow réel d'un compositeur professionnel : albums, tracks, éditeurs, deadlines et relances.</p>
       </div>
       <div>
-        <h3 style="font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;color:var(--creme);margin-bottom:12px" id="seo-h3-2">Vos données restent chez vous</h3>
+        <h3 style="font-family:'Inter',sans-serif;font-size:18px;font-weight:700;color:var(--creme);margin-bottom:12px" id="seo-h3-2">Vos données restent chez vous</h3>
         <p style="font-size:14px;color:var(--texte);line-height:1.8" id="seo-p2">Vos projets restent stockés localement sur votre Mac, sans transiter par nos serveurs — et l'application fonctionne même hors connexion.</p>
       </div>
       <div>
-        <h3 style="font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;color:var(--creme);margin-bottom:12px" id="seo-h3-3">Suivi des relances automatique</h3>
+        <h3 style="font-family:'Inter',sans-serif;font-size:18px;font-weight:700;color:var(--creme);margin-bottom:12px" id="seo-h3-3">Suivi des relances automatique</h3>
         <p style="font-size:14px;color:var(--texte);line-height:1.8" id="seo-p3">Les éditeurs peuvent mettre des semaines ou des mois à répondre. SYNC.PLANNER surveille automatiquement vos relances — par album et par track. Quand le délai est dépassé, une alerte apparaît et un email de relance professionnel est prêt, avec votre signature et le contexte complet — il ne reste qu'à cliquer pour l'envoyer.</p>
       </div>
       <div>
-        <h3 style="font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;color:var(--creme);margin-bottom:12px" id="seo-h3-4">Un assistant IA en bonus</h3>
+        <h3 style="font-family:'Inter',sans-serif;font-size:18px;font-weight:700;color:var(--creme);margin-bottom:12px" id="seo-h3-4">Un assistant IA en bonus</h3>
         <p style="font-size:14px;color:var(--texte);line-height:1.8" id="seo-p4">SYNC.PLANNER fonctionne parfaitement sans IA : les alertes de deadlines et le suivi des tracks sont déjà automatisés nativement, et les relances vous sont signalées au bon moment. L'assistant IA reste une option en plus, pour qui veut aller plus loin.</p>
       </div>
     </div>
 
     <!-- Comparaison -->
-    <div style="background:#13122A;border:1px solid #2A2750;border-radius:16px;padding:32px;margin-bottom:60px">
-      <h3 style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;color:var(--creme);margin-bottom:24px;text-align:center" id="seo-compare-title">SYNC.PLANNER vs les alternatives</h3>
+    <div style="background:#E9E4D9;border:1px solid #D6CEBF;border-radius:16px;padding:32px;margin-bottom:60px">
+      <h3 style="font-family:'Inter',sans-serif;font-size:20px;font-weight:700;color:var(--creme);margin-bottom:24px;text-align:center" id="seo-compare-title">SYNC.PLANNER vs les alternatives</h3>
       <div style="overflow-x:auto">
         <table style="width:100%;border-collapse:collapse;font-size:13px">
           <thead>
-            <tr style="border-bottom:1px solid #2A2750">
-              <th style="text-align:left;padding:10px;color:#8582B0;font-weight:600" id="seo-th-feature">Fonctionnalité</th>
-              <th style="text-align:center;padding:10px;color:#A78BFA;font-weight:700">SYNC.PLANNER</th>
-              <th style="text-align:center;padding:10px;color:#8582B0">Tableurs<br><span style="font-weight:400;font-size:11px">Excel, Sheets</span></th>
-              <th style="text-align:center;padding:10px;color:#8582B0">Outils généralistes<br><span style="font-weight:400;font-size:11px">Notion, Trello</span></th>
+            <tr style="border-bottom:1px solid #D6CEBF">
+              <th style="text-align:left;padding:10px;color:#5A544A;font-weight:600" id="seo-th-feature">Fonctionnalité</th>
+              <th style="text-align:center;padding:10px;color:#1F1C17;font-weight:700">SYNC.PLANNER</th>
+              <th style="text-align:center;padding:10px;color:#5A544A">Tableurs<br><span style="font-weight:400;font-size:11px">Excel, Sheets</span></th>
+              <th style="text-align:center;padding:10px;color:#5A544A">Outils généralistes<br><span style="font-weight:400;font-size:11px">Notion, Trello</span></th>
             </tr>
           </thead>
           <tbody>
-            <tr style="border-bottom:1px solid #1E1C38">
+            <tr style="border-bottom:1px solid #D6CEBF">
               <td style="padding:10px;color:var(--texte)" id="seo-row1">Gestion albums & tracks</td>
-              <td style="text-align:center;padding:10px;color:#10B981">✅</td>
-              <td style="text-align:center;padding:10px;color:#FBBF24">Manuel</td>
-              <td style="text-align:center;padding:10px;color:#FBBF24">Manuel</td>
+              <td style="text-align:center;padding:10px;color:#16683C">✅</td>
+              <td style="text-align:center;padding:10px;color:#8A5408">Manuel</td>
+              <td style="text-align:center;padding:10px;color:#8A5408">Manuel</td>
             </tr>
-            <tr style="border-bottom:1px solid #1E1C38">
+            <tr style="border-bottom:1px solid #D6CEBF">
               <td style="padding:10px;color:var(--texte)" id="seo-row2">Relances éditeurs</td>
-              <td style="text-align:center;padding:10px;color:#10B981">✅</td>
-              <td style="text-align:center;padding:10px;color:#F87171">❌</td>
-              <td style="text-align:center;padding:10px;color:#FBBF24">Manuel</td>
+              <td style="text-align:center;padding:10px;color:#16683C">✅</td>
+              <td style="text-align:center;padding:10px;color:#A0281C">❌</td>
+              <td style="text-align:center;padding:10px;color:#8A5408">Manuel</td>
             </tr>
-            <tr style="border-bottom:1px solid #1E1C38">
+            <tr style="border-bottom:1px solid #D6CEBF">
               <td style="padding:10px;color:var(--texte)" id="seo-rowLogic">Détection Logic Pro (BPM, tonalité, temps)</td>
-              <td style="text-align:center;padding:10px;color:#10B981">✅</td>
-              <td style="text-align:center;padding:10px;color:#F87171">❌</td>
-              <td style="text-align:center;padding:10px;color:#F87171">❌</td>
+              <td style="text-align:center;padding:10px;color:#16683C">✅</td>
+              <td style="text-align:center;padding:10px;color:#A0281C">❌</td>
+              <td style="text-align:center;padding:10px;color:#A0281C">❌</td>
             </tr>
-            <tr style="border-bottom:1px solid #1E1C38">
+            <tr style="border-bottom:1px solid #D6CEBF">
               <td style="padding:10px;color:var(--texte)" id="seo-rowSacem">Revenus SACEM + temps Logic Pro</td>
-              <td style="text-align:center;padding:10px;color:#10B981">✅</td>
-              <td style="text-align:center;padding:10px;color:#FBBF24">Manuel</td>
-              <td style="text-align:center;padding:10px;color:#F87171">❌</td>
+              <td style="text-align:center;padding:10px;color:#16683C">✅</td>
+              <td style="text-align:center;padding:10px;color:#8A5408">Manuel</td>
+              <td style="text-align:center;padding:10px;color:#A0281C">❌</td>
             </tr>
-            <tr style="border-bottom:1px solid #1E1C38">
+            <tr style="border-bottom:1px solid #D6CEBF">
               <td style="padding:10px;color:var(--texte)" id="seo-row3">IA coach production</td>
-              <td style="text-align:center;padding:10px;color:#10B981">✅</td>
-              <td style="text-align:center;padding:10px;color:#F87171">❌</td>
-              <td style="text-align:center;padding:10px;color:#FBBF24">Selon l'outil</td>
+              <td style="text-align:center;padding:10px;color:#16683C">✅</td>
+              <td style="text-align:center;padding:10px;color:#A0281C">❌</td>
+              <td style="text-align:center;padding:10px;color:#8A5408">Selon l'outil</td>
             </tr>
-            <tr style="border-bottom:1px solid #1E1C38">
+            <tr style="border-bottom:1px solid #D6CEBF">
               <td style="padding:10px;color:var(--texte)" id="seo-rowDup">Alerte titres en double</td>
-              <td style="text-align:center;padding:10px;color:#10B981">✅</td>
-              <td style="text-align:center;padding:10px;color:#FBBF24">Manuel</td>
-              <td style="text-align:center;padding:10px;color:#F87171">❌</td>
+              <td style="text-align:center;padding:10px;color:#16683C">✅</td>
+              <td style="text-align:center;padding:10px;color:#8A5408">Manuel</td>
+              <td style="text-align:center;padding:10px;color:#A0281C">❌</td>
             </tr>
             <tr>
               <td style="padding:10px;color:var(--texte)" id="seo-row4">Données sur votre Mac (sauf Assistant IA)</td>
-              <td style="text-align:center;padding:10px;color:#10B981">✅</td>
-              <td style="text-align:center;padding:10px;color:#FBBF24">Selon l'outil</td>
-              <td style="text-align:center;padding:10px;color:#F87171">❌</td>
+              <td style="text-align:center;padding:10px;color:#16683C">✅</td>
+              <td style="text-align:center;padding:10px;color:#8A5408">Selon l'outil</td>
+              <td style="text-align:center;padding:10px;color:#A0281C">❌</td>
             </tr>
           </tbody>
         </table>
-        <p style="font-size:12px;color:#8582B0;margin-top:10px;line-height:1.6" id="seo-table-note">Comparatif indicatif avec les outils que les compositeurs utilisent le plus souvent pour s'organiser : tableurs (Excel, Google Sheets) et outils généralistes (Notion, Trello), hors configurations personnalisées. Les revenus SACEM sont pris en charge nativement ; le suivi BMI est à l'étude.</p>
+        <p style="font-size:12px;color:#5A544A;margin-top:10px;line-height:1.6" id="seo-table-note">Comparatif indicatif avec les outils que les compositeurs utilisent le plus souvent pour s'organiser : tableurs (Excel, Google Sheets) et outils généralistes (Notion, Trello), hors configurations personnalisées. Les revenus SACEM sont pris en charge nativement ; le suivi BMI est à l'étude.</p>
       </div>
     </div>
 
@@ -477,19 +492,19 @@
 </section>
 
 <!-- DEMO SECTION -->
-<section style="padding:100px 60px;background:#0D0C1A;border-top:1px solid #1E1C38" id="demo">
+<section style="padding:100px 60px;background:#EEE8DC;border-top:1px solid #D6CEBF" id="demo">
   <div style="text-align:center;margin-bottom:56px">
     <div class="eyebrow" id="demo-eyebrow">Tour de l'application</div>
     <h2 class="section-title" id="demo-title">Toutes les vues,<br><em>dans le détail</em></h2>
     <p style="color:var(--texte);font-size:15px;max-width:560px;margin:0 auto" id="demo-sub">Voici à quoi ressemble SYNC.PLANNER au quotidien.</p>
   </div>
-  <div class="demo-tabs2"><button onclick="showDemo('radar')" id="tab-radar" class="demo-tab active">Radar</button><button onclick="showDemo('suivi')" id="tab-suivi" class="demo-tab">Suivi des tracks</button><button onclick="showDemo('fiche')" id="tab-fiche" class="demo-tab">Fiche track</button><button onclick="showDemo('livrables')" id="tab-livrables" class="demo-tab">Livrables</button><button onclick="showDemo('projets')" id="tab-projets" class="demo-tab">Albums</button><button onclick="showDemo('galerie')" id="tab-galerie" class="demo-tab">Galerie</button><button onclick="showDemo('calendrier')" id="tab-calendrier" class="demo-tab">Papier</button><button onclick="showDemo('editeurs')" id="tab-editeurs" class="demo-tab">Éditeurs</button><button onclick="showDemo('stats')" id="tab-stats" class="demo-tab">Statistiques</button><button onclick="showDemo('declarations')" id="tab-declarations" class="demo-tab">Déclarations</button><button onclick="showDemo('placements')" id="tab-placements" class="demo-tab">Placements</button></div>
-  <div style="max-width:1100px;margin:0 auto;background:#13122A;border:1px solid #2A2750;border-radius:16px;overflow:hidden;box-shadow:0 30px 80px rgba(124,58,237,.16)">
-    <div style="padding:12px 18px;background:#0F0E1A;border-bottom:1px solid #1E1C38;display:flex;align-items:center;gap:8px">
-      <div style="width:10px;height:10px;border-radius:50%;background:#F87171"></div><div style="width:10px;height:10px;border-radius:50%;background:#FBBF24"></div><div style="width:10px;height:10px;border-radius:50%;background:#10B981"></div>
-      <div id="demo-title-bar" style="font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:600;color:#8582B0;letter-spacing:0.1em;text-transform:uppercase;margin-left:8px">SYNC.PLANNER — Radar des deadlines</div>
+  <div class="demo-tabs2"><button onclick="showDemo('radar')" id="tab-radar" class="demo-tab active">Radar</button><button onclick="showDemo('suivi')" id="tab-suivi" class="demo-tab">Suivi des tracks</button><button onclick="showDemo('fiche')" id="tab-fiche" class="demo-tab">Fiche track</button><button onclick="showDemo('livrables')" id="tab-livrables" class="demo-tab">Livrables</button><button onclick="showDemo('projets')" id="tab-projets" class="demo-tab">Albums</button><button onclick="showDemo('galerie')" id="tab-galerie" class="demo-tab">Galerie</button><button onclick="showDemo('calendrier')" id="tab-calendrier" class="demo-tab">Classique</button><button onclick="showDemo('editeurs')" id="tab-editeurs" class="demo-tab">Éditeurs</button><button onclick="showDemo('stats')" id="tab-stats" class="demo-tab">Statistiques</button><button onclick="showDemo('declarations')" id="tab-declarations" class="demo-tab">Déclarations</button><button onclick="showDemo('placements')" id="tab-placements" class="demo-tab">Placements</button></div>
+  <div style="max-width:1100px;margin:0 auto;background:#E9E4D9;border:1px solid #D6CEBF;border-radius:16px;overflow:hidden;box-shadow:0 30px 80px rgba(31,28,23,0.09)">
+    <div style="padding:12px 18px;background:#E3DDD1;border-bottom:1px solid #D6CEBF;display:flex;align-items:center;gap:8px">
+      <div style="width:10px;height:10px;border-radius:50%;background:#A0281C"></div><div style="width:10px;height:10px;border-radius:50%;background:#8A5408"></div><div style="width:10px;height:10px;border-radius:50%;background:#16683C"></div>
+      <div id="demo-title-bar" style="font-family:'Inter',sans-serif;font-size:11px;font-weight:600;color:#5A544A;letter-spacing:0.1em;text-transform:uppercase;margin-left:8px">SYNC.PLANNER — Radar des deadlines</div>
     </div>
-    <div id="demo-radar" class="demo-panel" style="display:block"><img class="shot" src="/img/app/orb-radar.jpg" alt="SYNC.PLANNER — Radar" loading="lazy" width="1600" height="1160"></div><div id="demo-livrables" class="demo-panel" style="display:none;background:#0F0E1A;padding:24px"><img class="shot" src="/img/app/orb-livrables.jpg" alt="SYNC.PLANNER — Livrables" loading="lazy" width="1400" height="586" style="border-radius:12px"></div><div id="demo-suivi" class="demo-panel" style="display:none"><img class="shot" src="/img/app/suivi.jpg" alt="SYNC.PLANNER — Suivi des tracks" loading="lazy" width="1600" height="1000"></div><div id="demo-fiche" class="demo-panel" style="display:none"><img class="shot" src="/img/app/fiche.jpg" alt="SYNC.PLANNER — Fiche track" loading="lazy" width="1600" height="1000"></div><div id="demo-projets" class="demo-panel" style="display:none"><img class="shot" src="/img/app/projets.jpg" alt="SYNC.PLANNER — Albums" loading="lazy" width="1600" height="1000"></div><div id="demo-galerie" class="demo-panel" style="display:none"><img class="shot" src="/img/app/galerie.jpg" alt="SYNC.PLANNER — Galerie" loading="lazy" width="1600" height="1000"></div><div id="demo-calendrier" class="demo-panel" style="display:none"><img class="shot" src="/img/app/papier.jpg" alt="SYNC.PLANNER — thème Papier" loading="lazy" width="1600" height="1000"></div><div id="demo-editeurs" class="demo-panel" style="display:none"><img class="shot" src="/img/app/editeurs.jpg" alt="SYNC.PLANNER — Éditeurs" loading="lazy" width="1600" height="1000"></div><div id="demo-stats" class="demo-panel" style="display:none"><img class="shot" src="/img/app/stats.jpg" alt="SYNC.PLANNER — Statistiques" loading="lazy" width="1600" height="1000"></div><div id="demo-declarations" class="demo-panel" style="display:none"><img class="shot" src="/img/app/declarations.jpg" alt="SYNC.PLANNER — Déclarations" loading="lazy" width="1600" height="1000"></div><div id="demo-placements" class="demo-panel" style="display:none"><img class="shot" src="/img/app/placements.jpg" alt="SYNC.PLANNER — Placements" loading="lazy" width="1600" height="1000"></div>
+    <div id="demo-radar" class="demo-panel" style="display:block"><img class="shot" src="/img/app/p/orb-radar.jpg" alt="SYNC.PLANNER — Radar" loading="lazy" width="1600" height="1160"></div><div id="demo-livrables" class="demo-panel" style="display:none;background:#E3DDD1;padding:24px"><img class="shot" src="/img/app/orb-livrables.jpg" alt="SYNC.PLANNER — Livrables" loading="lazy" width="1400" height="586" style="border-radius:12px"></div><div id="demo-suivi" class="demo-panel" style="display:none"><img class="shot" src="/img/app/p/suivi.jpg" alt="SYNC.PLANNER — Suivi des tracks" loading="lazy" width="1600" height="1000"></div><div id="demo-fiche" class="demo-panel" style="display:none"><img class="shot" src="/img/app/p/fiche.jpg" alt="SYNC.PLANNER — Fiche track" loading="lazy" width="1600" height="1000"></div><div id="demo-projets" class="demo-panel" style="display:none"><img class="shot" src="/img/app/p/projets.jpg" alt="SYNC.PLANNER — Albums" loading="lazy" width="1600" height="1000"></div><div id="demo-galerie" class="demo-panel" style="display:none"><img class="shot" src="/img/app/p/galerie.jpg" alt="SYNC.PLANNER — Galerie" loading="lazy" width="1600" height="1000"></div><div id="demo-calendrier" class="demo-panel" style="display:none"><img class="shot" src="/img/app/p/classique.jpg" alt="SYNC.PLANNER — thème Papier" loading="lazy" width="1600" height="1000"></div><div id="demo-editeurs" class="demo-panel" style="display:none"><img class="shot" src="/img/app/p/editeurs.jpg" alt="SYNC.PLANNER — Éditeurs" loading="lazy" width="1600" height="1000"></div><div id="demo-stats" class="demo-panel" style="display:none"><img class="shot" src="/img/app/p/stats.jpg" alt="SYNC.PLANNER — Statistiques" loading="lazy" width="1600" height="1000"></div><div id="demo-declarations" class="demo-panel" style="display:none"><img class="shot" src="/img/app/p/declarations.jpg" alt="SYNC.PLANNER — Déclarations" loading="lazy" width="1600" height="1000"></div><div id="demo-placements" class="demo-panel" style="display:none"><img class="shot" src="/img/app/p/placements.jpg" alt="SYNC.PLANNER — Placements" loading="lazy" width="1600" height="1000"></div>
   </div>
   <p class="demo-cap" id="demo-cap">Le radar orbital : vos albums autour d'aujourd'hui, l'album ouvert, et la track avec ses infos modifiables d'un clic.</p>
 </section>
@@ -498,9 +513,9 @@
   <div class="eyebrow" id="pricing-eyebrow">Tarifs</div>
   <h2 class="section-title" id="pricing-title">Simple.<br><em>Sans surprise.</em></h2>
   <p style="color:var(--texte);font-size:15px;margin-top:12px" id="pricing-sub">14 jours d'essai gratuit. Aucune carte bancaire requise pour commencer.</p>
-    <div style="text-align:center;margin-bottom:36px"><a href="#download" style="font-size:13px;color:#A78BFA;text-decoration:none;border:1px solid rgba(167,139,250,0.35);border-radius:100px;padding:8px 20px;display:inline-block" id="pricing-trial-link">✓ Tester gratuitement pendant 14 jours — aucune carte bancaire</a></div>
-  <p id="pricing-same" style="text-align:center;color:#C4B5FD;font-size:14px;margin:-18px 0 30px">Toutes les formules donnent accès aux mêmes fonctionnalités. Seul le mode de paiement change.</p>
-  <p id="pricing-guarantee" style="text-align:center;color:#34D399;font-size:13px;margin:-22px 0 30px">↩ Satisfait ou remboursé : 14 jours après l'achat, sans justification.</p>
+    <div style="text-align:center;margin-bottom:36px"><a href="#download" style="font-size:13px;color:#1F1C17;text-decoration:none;border:1px solid rgba(31,28,23,0.19);border-radius:100px;padding:8px 20px;display:inline-block" id="pricing-trial-link">✓ Tester gratuitement pendant 14 jours — aucune carte bancaire</a></div>
+  <p id="pricing-same" style="text-align:center;color:#3A352D;font-size:14px;margin:-18px 0 30px">Toutes les formules donnent accès aux mêmes fonctionnalités. Seul le mode de paiement change.</p>
+  <p id="pricing-guarantee" style="text-align:center;color:#16683C;font-size:13px;margin:-22px 0 30px">↩ Satisfait ou remboursé : 14 jours après l'achat, sans justification.</p>
   <div id="pricing-feats" style="display:flex;flex-wrap:wrap;justify-content:center;gap:8px;max-width:760px;margin:-14px auto 34px"><span class="pf-chip">✓ Intégration Logic Pro</span> <span class="pf-chip">✓ Revenus SACEM & rentabilité</span> <span class="pf-chip">✓ Livrables & stems</span> <span class="pf-chip">✓ Déclarations d'œuvres</span> <span class="pf-chip">✓ Albums & tracks illimités</span> <span class="pf-chip">✓ Mises à jour incluses</span></div>
   <div class="pricing-cards">
     <div class="price-card">
@@ -517,8 +532,8 @@
     <div class="price-card featured">
       <div class="price-badge" id="price-badge-popular">⭐ Le plus populaire</div>
       <div class="price-tier" id="plan2-tier">Annuel</div>
-      <div class="price-amount"><sup>€</sup><span id="plan2-price">7,5</span><span id="plan2-unit" style="font-size:14px;font-weight:500;color:#8582B0">/mois</span></div>
-      <div style="font-size:12px;color:#8582B0;margin-top:2px" id="plan2-period">soit 90€ par an · facturé en une fois</div>
+      <div class="price-amount"><sup>€</sup><span id="plan2-price">7,5</span><span id="plan2-unit" style="font-size:14px;font-weight:500;color:#5A544A">/mois</span></div>
+      <div style="font-size:12px;color:#5A544A;margin-top:2px" id="plan2-period">soit 90€ par an · facturé en une fois</div>
       <ul class="price-items">
         <li id="feat-all">Toutes les fonctionnalités</li>
         <li id="feat-updates">2 mois offerts (18€ d'économie)</li>
@@ -598,31 +613,30 @@
 <section class="cta-final">
   <h2 id="cta-final-title">Gérez vos <span>projets musicaux</span><br>sans vous perdre.</h2>
   <p id="cta-final-sub">14 jours d'essai gratuit, sans carte bancaire. Le temps de voir si SYNC.PLANNER correspond au workflow.</p>
-  <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
-    <a href="https://github.com/SyncPlanner/SyncPlanner-app/releases/latest/download/SYNC.PLANNER-arm64.dmg" class="btn-primary dl-tile" id="cta-final-mac-arm">Mac 2021 et après<small>puce Apple M1, M2, M3…</small></a>
-    <a href="https://github.com/SyncPlanner/SyncPlanner-app/releases/latest/download/SYNC.PLANNER-x64.dmg" class="btn-primary dl-tile" id="cta-final-mac-intel">Mac 2020 et avant<small>processeur Intel</small></a>
-    <span class="btn-primary btn-win dl-tile" id="cta-final-win" style="opacity:0.45;cursor:not-allowed;pointer-events:none">Windows<small>en développement</small></span>
+  <div class="dl-wrap">
+    <div class="dl-row"><a href="https://github.com/SyncPlanner/SyncPlanner-app/releases/latest/download/SYNC.PLANNER-arm64.dmg" class="btn-primary dl-main" data-dl="main" id="ctadl-main"><span>Télécharger pour Mac — essai gratuit</span><small data-dl="sub">Pour Mac Apple Silicon (M1, M2, M3…)</small></a></div>
+    <div class="dl-alt">Autre Mac : <a href="https://github.com/SyncPlanner/SyncPlanner-app/releases/latest/download/SYNC.PLANNER-arm64.dmg" data-dl="arm" id="ctadl-arm">Apple Silicon</a> · <a href="https://github.com/SyncPlanner/SyncPlanner-app/releases/latest/download/SYNC.PLANNER-x64.dmg" data-dl="intel" id="ctadl-intel">Intel</a> · <a role="button" tabindex="0" onclick="this.closest('.dl-wrap').querySelector('.dl-help').classList.toggle('open')">Comment choisir ?</a> · Windows en développement</div>
+    <div class="dl-help">Menu Pomme ▸ « À propos de ce Mac » : « Puce Apple M… » → Apple Silicon, « Processeur Intel » → Intel. macOS 12 minimum.</div>
   </div>
-  <div style="margin-top:10px;font-size:11px;color:#8582B0;text-align:center" id="cta-final-arch-help">Mac de 2020 ? Menu Pomme ▸ « À propos de ce Mac ».</div>
 </section>
 
-<section style="max-width:640px;margin:0 auto;padding:40px 24px;text-align:center;border-top:1px solid #1E1C38">
-  <div style="font-size:11px;color:#8582B0;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:10px" id="founder-label">Qui a créé SYNC.PLANNER ?</div>
+<section style="max-width:640px;margin:0 auto;padding:40px 24px;text-align:center;border-top:1px solid #D6CEBF">
+  <div style="font-size:11px;color:#5A544A;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:10px" id="founder-label">Qui a créé SYNC.PLANNER ?</div>
   <p style="font-size:14px;color:var(--texte);line-height:1.7" id="founder-body">Je suis <a href="https://www.cinematicscoring.com" target="_blank" style="color:var(--violet)">Joeffrey Longagnani</a>, compositeur de musique de library pour la TV, les bandes-annonces et le documentaire. Au début, tout allait bien : quelques tracks à gérer, rien de compliqué. Mais mon catalogue a grossi de mois en mois, et je ne m'y retrouvais plus. J'ai cherché un outil adapté sur le net, sans rien trouver de comparable. J'ai donc créé ma propre app. Résultat : je sais en permanence où j'en suis. Les relances éditeurs sont quasi automatiques, et je vois en un clic quand j'ai relancé et si l'éditeur a répondu. Plus besoin de fouiller mes mails ou ma Dropbox pour retrouver un brief : le lien est directement dans l'app. <em>J'espère qu'il aidera d'autres compositeurs dans la même situation que moi !</em></p>
 </section>
 
 <footer>
-  <div id="footer-trust" style="width:100%;text-align:center;font-size:12.5px;color:#A5A1D0;margin-bottom:6px">🔒 Vos données restent sur votre Mac (sauf si vous utilisez l'Assistant IA)</div>
+  <div id="footer-trust" style="width:100%;text-align:center;font-size:12.5px;color:#5A544A;margin-bottom:6px">Vos données restent sur votre Mac (sauf si vous utilisez l'Assistant IA)</div>
   <div>© 2026 SYNC.PLANNER</div>
-  <div style="font-size:11px;color:#8582B0;text-align:center" id="footer-kw">Logiciel de gestion pour compositeurs sync · music library · publisher · production music · sync licensing · bibliothèque musicale · éditeur musical</div>
+  <div style="font-size:11px;color:#5A544A;text-align:center" id="footer-kw">Logiciel de gestion pour compositeurs sync · music library · publisher · production music · sync licensing · bibliothèque musicale · éditeur musical</div>
   <div style="display:flex;gap:24px">
     <a href="mailto:contact@syncplanner.app">Contact</a>
     <a href="/mentions-legales.html" id="footer-legal">Mentions légales</a>
     <a href="/cgv.html" id="footer-cgv">CGV</a>
     <a href="/confidentialite.html" id="footer-privacy">Confidentialité</a>
   </div>
-<div style="text-align:center;padding:12px 0;border-top:1px solid #1E1C38;font-size:11px;color:#3D3A60">
-  Made by <a href="https://www.cinematicscoring.com" target="_blank" style="color:#8582B0;text-decoration:none;transition:color 0.15s" onmouseover="this.style.color='#A78BFA'" onmouseout="this.style.color='#5B5880'">Joeffrey Longagnani</a>
+<div style="text-align:center;padding:12px 0;border-top:1px solid #D6CEBF;font-size:11px;color:#BFB6A6">
+  Made by <a href="https://www.cinematicscoring.com" target="_blank" style="color:#5A544A;text-decoration:none;transition:color 0.15s" onmouseover="this.style.color='#1F1C17'" onmouseout="this.style.color='#8A8273'">Joeffrey Longagnani</a>
 </div>
 </footer>
 
@@ -632,7 +646,7 @@ function toggleFaq(el) {
   el.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
 }
 
-const DEMO_TABS = {"radar": {"fr": ["Radar des deadlines", "Le radar orbital : vos albums autour d'aujourd'hui, l'album ouvert, et la track avec ses infos modifiables d'un clic."], "en": ["Deadline radar", "The orbital radar: your albums around today, an open album, and a track with its details editable in one click."]}, "livrables": {"fr": ["Livrables", "Main, stems et Alt de chaque track de l'album, cochés au fil de vos exports."], "en": ["Deliverables", "Main, stems and Alts for every track of the album, ticked off as you export."]}, "suivi": {"fr": ["Suivi des tracks", "Toutes vos tracks dans un seul tableau : statut, deadline, BPM, tonalité, publication."], "en": ["Track tracker", "All your tracks in one table: status, deadline, BPM, key, release."]}, "fiche": {"fr": ["Fiche track", "Chaque track a sa fiche : infos Logic Pro, statut, collaborateurs, droits, envois et relances."], "en": ["Track sheet", "Each track has its own sheet: Logic Pro info, status, collaborators, rights, sends and follow-ups."]}, "projets": {"fr": ["Albums", "Vos albums avec l'avancement track par track, les deadlines et les collabs."], "en": ["Albums", "Your albums with track-by-track progress, deadlines and collaborators."]}, "galerie": {"fr": ["Galerie", "Vos albums en un coup d'œil, avec l'avancement et les alertes de déclaration."], "en": ["Gallery", "Your albums at a glance, with progress and registration alerts."]}, "calendrier": {"fr": ["Thème Papier", "La même appli en version papier — ici avec le fond crayonné sombre. Un clic dans les Paramètres pour passer de l'une à l'autre."], "en": ["Paper theme", "The same app in a paper look — here with the dark pencil background. One click in Settings to switch."]}, "editeurs": {"fr": ["Éditeurs", "Taux de validation, tracks en attente, coordonnées et revenus par éditeur."], "en": ["Publishers", "Validation rate, pending tracks, contact details and revenue per publisher."]}, "stats": {"fr": ["Statistiques", "Production par mois, taux de validation, collaborations et temps passé sur Logic Pro."], "en": ["Statistics", "Monthly output, validation rate, collaborations and time spent in Logic Pro."]}, "declarations": {"fr": ["Déclarations", "Vérifiez que chaque track publiée est bien déclarée à votre société de gestion (SACEM, BMI, PRS…)."], "en": ["Registrations", "Check that every released track is registered with your PRO (SACEM, BMI, PRS…)."]}, "placements": {"fr": ["Placements", "Les programmes où vos tracks ont été diffusées, à partir de vos relevés de droits."], "en": ["Placements", "The shows where your tracks were broadcast, from your royalty statements."]}};
+const DEMO_TABS = {"radar": {"fr": ["Radar des deadlines", "Le radar orbital : vos albums autour d'aujourd'hui, l'album ouvert, et la track avec ses infos modifiables d'un clic."], "en": ["Deadline radar", "The orbital radar: your albums around today, an open album, and a track with its details editable in one click."]}, "livrables": {"fr": ["Livrables", "Main, stems et Alt de chaque track de l'album, cochés au fil de vos exports."], "en": ["Deliverables", "Main, stems and Alts for every track of the album, ticked off as you export."]}, "suivi": {"fr": ["Suivi des tracks", "Toutes vos tracks dans un seul tableau : statut, deadline, BPM, tonalité, publication."], "en": ["Track tracker", "All your tracks in one table: status, deadline, BPM, key, release."]}, "fiche": {"fr": ["Fiche track", "Chaque track a sa fiche : infos Logic Pro, statut, collaborateurs, droits, envois et relances."], "en": ["Track sheet", "Each track has its own sheet: Logic Pro info, status, collaborators, rights, sends and follow-ups."]}, "projets": {"fr": ["Albums", "Vos albums avec l'avancement track par track, les deadlines et les collabs."], "en": ["Albums", "Your albums with track-by-track progress, deadlines and collaborators."]}, "galerie": {"fr": ["Galerie", "Vos albums en un coup d'œil, avec l'avancement et les alertes de déclaration."], "en": ["Gallery", "Your albums at a glance, with progress and registration alerts."]}, "calendrier": {"fr": ["Thème Classique", "La même appli en version sombre, pour le travail de nuit. Un clic dans les Paramètres pour passer de l'une à l'autre : vos données ne changent pas."], "en": ["Classic theme", "The same app in a dark version, for late-night sessions. One click in Settings to switch: your data stays the same."]}, "editeurs": {"fr": ["Éditeurs", "Taux de validation, tracks en attente, coordonnées et revenus par éditeur."], "en": ["Publishers", "Validation rate, pending tracks, contact details and revenue per publisher."]}, "stats": {"fr": ["Statistiques", "Production par mois, taux de validation, collaborations et temps passé sur Logic Pro."], "en": ["Statistics", "Monthly output, validation rate, collaborations and time spent in Logic Pro."]}, "declarations": {"fr": ["Déclarations", "Vérifiez que chaque track publiée est bien déclarée à votre société de gestion (SACEM, BMI, PRS…)."], "en": ["Registrations", "Check that every released track is registered with your PRO (SACEM, BMI, PRS…)."]}, "placements": {"fr": ["Placements", "Les programmes où vos tracks ont été diffusées, à partir de vos relevés de droits."], "en": ["Placements", "The shows where your tracks were broadcast, from your royalty statements."]}};
 function showDemo(tab) {
   document.querySelectorAll('.demo-panel').forEach(p => p.style.display = 'none');
   document.querySelectorAll('.demo-tab').forEach(t => t.classList.remove('active'));
@@ -646,7 +660,7 @@ function showDemo(tab) {
 
 const T = {
     "footer-kw":"Logiciel de gestion pour compositeurs sync · music library · publisher · production music · sync licensing · bibliothèque musicale · éditeur musical",
-    "footer-trust":"🔒 Vos données restent sur votre Mac (sauf si vous utilisez l'Assistant IA)",
+    "footer-trust":"Vos données restent sur votre Mac (sauf si vous utilisez l'Assistant IA)",
     "footer-privacy":"Confidentialité",
   fr: {
     "faq13-a":"SYNC.PLANNER lit le projet ouvert dans Logic Pro grâce à l'autorisation Accessibilité de macOS. Ouvrez Réglages Système → Confidentialité et sécurité → Accessibilité, ajoutez SYNC.PLANNER avec le bouton + et activez-le, puis relancez l'app. Si macOS demande l'autorisation de contrôler « System Events », cliquez sur OK. Après une mise à jour de l'app, macOS peut retirer cette autorisation : il suffit de la réactiver.",
@@ -684,14 +698,14 @@ const T = {
     "seo-row5":"Prix",
     "nav-features":"Fonctionnalités","nav-pricing":"Tarifs","nav-faq":"FAQ","nav-cta":"Télécharger — 14j gratuit","nav-cta-mobile":"Télécharger — 14j gratuit",
     "hero-badge":"Pour les compositeurs qui livrent",
-    "hero-h1":"Albums, deadlines,<br>relances, revenus.<br><span style='color:var(--violet)'>Au même endroit.</span>",
+    "hero-h1":"Albums, deadlines,<br>relances, revenus.<br><span>Au même endroit.</span>",
     "hero-sub":"Pilotez toute votre production sync, de Logic Pro aux revenus SACEM.",
     "hero-sub2":"Albums, tracks, deadlines, stems, éditeurs, relances et rentabilité : tout votre workflow est centralisé dans une application conçue spécifiquement pour les compositeurs.","hero-keys":"Détection automatique des projets Logic Pro · Contrôle des livrables · Suivi SACEM · Données locales",
     "mac-download-label":"Télécharger pour Mac :",
-    "btn-mac-arm":"Mac 2021 et après<small>puce Apple M1, M2, M3…</small>","btn-mac-intel":"Mac 2020 et avant<small>processeur Intel</small>","btn-win":"Windows<small>en développement</small>","btn-demo-txt":"Explorer les fonctionnalités — démo interactive","mac-arch-help":"Mac de 2020 ? Menu Pomme ▸ « À propos de ce Mac » : « Puce Apple » ou « Intel ». macOS 12 minimum.",
+    "btn-mac-arm":"Mac 2021 et après<small>puce Apple M1, M2, M3…</small>","btn-mac-intel":"Mac 2020 et avant<small>processeur Intel</small>","btn-win":"Windows<small>en développement</small>","btn-demo-txt":"Essayer la démo","mac-arch-help":"Mac de 2020 ? Menu Pomme ▸ « À propos de ce Mac » : « Puce Apple » ou « Intel ». macOS 12 minimum.",
     "cta-final-arch-help":"Mac de 2020 ? Menu Pomme ▸ « À propos de ce Mac ».",
-    "hero-note":"✓ Aucune carte bancaire requise &nbsp;·&nbsp; ✓ Données sur votre Mac (sauf Assistant IA) &nbsp;·&nbsp; ✓ macOS 12+ (Apple Silicon & Intel) — Windows bientôt",
-    "hero-evolving":"🔄 Application en constante évolution — mises à jour régulières incluses",
+    "hero-note":"14 jours gratuits, sans carte bancaire &nbsp;·&nbsp; Données sur votre Mac (sauf Assistant IA)",
+    "hero-evolving":"macOS 12+ · Application en constante évolution — mises à jour régulières incluses",
     "problem-eyebrow":"Le problème","problem-title":"Trop d'outils,<br><em>pas assez de clarté.</em>",
     "problem-body":"Un Google Sheet pour les deadlines, un autre pour les tracks, des notes éparpillées, des mails avec les éditeurs... Résultat : des relances oubliées, des deadlines ratées, de la confusion. SYNC.PLANNER regroupe tout en un seul endroit, clair et structuré.",
     
@@ -703,7 +717,7 @@ const T = {
     
     "feat6-title":"Vos données restent sur votre Mac","feat6-body":"Toutes les données de gestion restent sur l'ordinateur de l'utilisateur. Aucun cloud, aucun serveur tiers par défaut — seule l'utilisation optionnelle de l'assistant IA transmet des données, et uniquement si vous l'activez.",
     "featSacem-title":"Revenus SACEM & rentabilité €/heure","featSacem-body":"Importez vos relevés SACEM : ils sont automatiquement rapprochés de vos tracks, avec le revenu par album, par éditeur et le temps composé sur Logic Pro pour calculer votre rentabilité en €/heure. Les œuvres ignorées le restent d'un relevé à l'autre, et les tracks nommées avec un code catalogue sont reliées toutes seules. Une intégration BMI (droits d'exécution US) est à l'étude pour les compositeurs actifs sur le marché américain.",
-    "preview-eyebrow":"Nouveau · le radar orbital","preview-title":"Vos deadlines,<br><em>en orbite</em>","preview-sub":"Vos albums gravitent autour d'aujourd'hui : plus une deadline approche, plus l'album se rapproche du centre. Entrez dans un album, puis dans une track — tout se règle sur place.","orb3-eyebrow":"Le radar orbital","orb3-title":"Trois niveaux,<br><em>un seul geste</em>","orb3-a-title":"Le radar","orb3-a-body":"Tous vos albums d'un coup d'œil, classés par urgence. Les retards se voient tout de suite, le projet ouvert dans Logic Pro s'allume, et les tracks refusées attendent d'être recasées.","orb3-b-title":"L'album","orb3-b-body":"Ses tracks en orbite autour de la cover, avec leur statut. Glissez une track sur une autre pour changer l'ordre — l'éditeur veut qu'elle soit la n° 4 ? C'est fait.","orb3-c-title":"La track","orb3-c-body":"Ses infos tournent autour d'elle et se modifient d'un clic : BPM, tonalité, dates, titre. ‹ › ou les flèches du clavier pour passer à la suivante, en boucle.","featn-stems-title":"Livrables qui se cochent tout seuls","featn-stems-body":"Une checklist par track : Main, stems, Alt. Elle se coche toute seule pendant que vous exportez, retient ce que vous livrez d'habitude à chaque éditeur (« Alt No Perc » oubliée ?) et repère les noms de fichiers mal écrits avant l'envoi.","featr-rel-title":"Relances au bon moment","featr-rel-body":"Une track sans réponse depuis 15 jours est signalée. Vous relancez : le compteur repart de votre relance, et l'alerte ne revient que si l'éditeur ne répond toujours pas.","featr-rec-title":"Rien ne se perd","featr-rec-body":"Une track refusée ne disparaît jamais : elle rejoint « À recaser » sur le radar jusqu'à ce que vous la proposiez ailleurs, avec l'historique de ses refus.","featr-new1":"Nouveau","featr-new2":"Nouveau","featr-new3":"Nouveau","tab-radar":"Radar","tab-livrables":"Livrables","feat5-title":"Rien ne se perd","feat5-body":"Une track refusée ne disparaît jamais : elle rejoint « À recaser » sur le radar jusqu'à ce que vous la proposiez ailleurs, avec l'historique de ses refus.","demo-eyebrow":"Tour de l'application","demo-title":"Toutes les vues,<br><em>dans le détail</em>","demo-sub":"Voici à quoi ressemble SYNC.PLANNER au quotidien.","tab-suivi":"Suivi des tracks","tab-fiche":"Fiche track","tab-projets":"Albums","tab-galerie":"Galerie","tab-calendrier":"Papier","tab-editeurs":"Éditeurs","tab-stats":"Statistiques","tab-declarations":"Déclarations","tab-placements":"Placements","featn-decl-title":"Déclarations SACEM, BMI, PRS…","featn-decl-body":"Importez votre répertoire d'œuvres : SYNC.PLANNER repère les tracks publiées introuvables et prépare un PDF clair à envoyer à votre éditeur.","featn-decl-new":"Nouveau","featn-send-title":"Envoi aux éditeurs","featn-send-body":"Email d'envoi prêt en un clic, MP3 ou WAV joint, envoi groupé de plusieurs tracks, et tout l'historique envois / relances / réponses sur chaque track.","featn-send-new":"Nouveau","featv-store-title":"Aucune limite de stockage","featv-store-body":"Covers, contrats, pièces jointes : tout est rangé dans un dossier SYNC.PLANNER sur votre Mac, que vous pouvez déplacer sur un disque externe. Une copie de secours est faite chaque jour (30 jours gardés) et avant chaque opération importante : vous revenez à la date de votre choix en un clic.","featv-dup-title":"Alerte titre en double","featv-dup-body":"En tapant un titre, SYNC.PLANNER signale un titre identique ou très proche déjà utilisé dans votre catalogue ou votre répertoire SACEM — codes catalogue, accents et pluriels ignorés.","featv-cal-title":"Aujourd'hui et briefing du jour","featv-cal-body":"La tuile « Aujourd'hui » rassemble les prochaines deadlines et tout ce qui est à traiter : relances dues, œuvres introuvables, tracks à recaser. Le briefing du jour résume le reste, classé par urgence.","featv-store-new":"Nouveau","featv-dup-new":"Nouveau","featv-cal-new":"Nouveau","seo-rowDup":"Alerte titres en double","pricing-guarantee":"↩ Satisfait ou remboursé : 14 jours après l'achat, sans justification.","featn-stems-new":"Nouveau",
+    "preview-eyebrow":"Nouveau · le radar orbital","preview-title":"Vos deadlines,<br><em>en orbite</em>","preview-sub":"Vos albums gravitent autour d'aujourd'hui : plus une deadline approche, plus l'album se rapproche du centre. Entrez dans un album, puis dans une track — tout se règle sur place.","orb3-eyebrow":"Le radar orbital","orb3-title":"Trois niveaux,<br><em>un seul geste</em>","orb3-a-title":"Le radar","orb3-a-body":"Tous vos albums d'un coup d'œil, classés par urgence. Les retards se voient tout de suite, le projet ouvert dans Logic Pro s'allume, et les tracks refusées attendent d'être recasées.","orb3-b-title":"L'album","orb3-b-body":"Ses tracks en orbite autour de la cover, avec leur statut. Glissez une track sur une autre pour changer l'ordre — l'éditeur veut qu'elle soit la n° 4 ? C'est fait.","orb3-c-title":"La track","orb3-c-body":"Ses infos tournent autour d'elle et se modifient d'un clic : BPM, tonalité, dates, titre. ‹ › ou les flèches du clavier pour passer à la suivante, en boucle.","featn-stems-title":"Livrables qui se cochent tout seuls","featn-stems-body":"Une checklist par track : Main, stems, Alt. Elle se coche toute seule pendant que vous exportez, retient ce que vous livrez d'habitude à chaque éditeur (« Alt No Perc » oubliée ?) et repère les noms de fichiers mal écrits avant l'envoi.","featr-rel-title":"Relances au bon moment","featr-rel-body":"Une track sans réponse depuis 15 jours est signalée. Vous relancez : le compteur repart de votre relance, et l'alerte ne revient que si l'éditeur ne répond toujours pas.","featr-rec-title":"Rien ne se perd","featr-rec-body":"Une track refusée ne disparaît jamais : elle rejoint « À recaser » sur le radar jusqu'à ce que vous la proposiez ailleurs, avec l'historique de ses refus.","featr-new1":"Nouveau","featr-new2":"Nouveau","featr-new3":"Nouveau","tab-radar":"Radar","tab-livrables":"Livrables","feat5-title":"Rien ne se perd","feat5-body":"Une track refusée ne disparaît jamais : elle rejoint « À recaser » sur le radar jusqu'à ce que vous la proposiez ailleurs, avec l'historique de ses refus.","demo-eyebrow":"Tour de l'application","demo-title":"Toutes les vues,<br><em>dans le détail</em>","demo-sub":"Voici à quoi ressemble SYNC.PLANNER au quotidien.","tab-suivi":"Suivi des tracks","tab-fiche":"Fiche track","tab-projets":"Albums","tab-galerie":"Galerie","tab-calendrier":"Classique","tab-editeurs":"Éditeurs","tab-stats":"Statistiques","tab-declarations":"Déclarations","tab-placements":"Placements","featn-decl-title":"Déclarations SACEM, BMI, PRS…","featn-decl-body":"Importez votre répertoire d'œuvres : SYNC.PLANNER repère les tracks publiées introuvables et prépare un PDF clair à envoyer à votre éditeur.","featn-decl-new":"Nouveau","featn-send-title":"Envoi aux éditeurs","featn-send-body":"Email d'envoi prêt en un clic, MP3 ou WAV joint, envoi groupé de plusieurs tracks, et tout l'historique envois / relances / réponses sur chaque track.","featn-send-new":"Nouveau","featv-store-title":"Aucune limite de stockage","featv-store-body":"Covers, contrats, pièces jointes : tout est rangé dans un dossier SYNC.PLANNER sur votre Mac, que vous pouvez déplacer sur un disque externe. Une copie de secours est faite chaque jour (30 jours gardés) et avant chaque opération importante : vous revenez à la date de votre choix en un clic.","featv-dup-title":"Alerte titre en double","featv-dup-body":"En tapant un titre, SYNC.PLANNER signale un titre identique ou très proche déjà utilisé dans votre catalogue ou votre répertoire SACEM — codes catalogue, accents et pluriels ignorés.","featv-cal-title":"Aujourd'hui et briefing du jour","featv-cal-body":"La tuile « Aujourd'hui » rassemble les prochaines deadlines et tout ce qui est à traiter : relances dues, œuvres introuvables, tracks à recaser. Le briefing du jour résume le reste, classé par urgence.","featv-store-new":"Nouveau","featv-dup-new":"Nouveau","featv-cal-new":"Nouveau","seo-rowDup":"Alerte titres en double","pricing-guarantee":"↩ Satisfait ou remboursé : 14 jours après l'achat, sans justification.","featn-stems-new":"Nouveau",
     "dash-stat1":"Albums actifs","dash-stat2":"Validées","dash-stat3":"Taux valid.","dash-stat4":"Total tracks",
     "dash-alert":"2 deadlines urgentes — Dark Matter (J-3) · Urban Bass (J-6)",
     "badge-done":"✓ Livré","badge-j12":"J-12","badge-j28":"J-28","badge-j3":"⚠️ J-3","badge-j3b":"⚠️ J-3",
@@ -746,7 +760,7 @@ const T = {
   },
   en: {
     "footer-kw":"Project management software for sync composers · music library · publisher · production music · sync licensing · library music · music publishing",
-    "footer-trust":"🔒 Your data stays on your Mac (unless you use the AI Assistant)",
+    "footer-trust":"Your data stays on your Mac (unless you use the AI Assistant)",
     "footer-privacy":"Privacy",
     "faq13-a":"SYNC.PLANNER reads the project open in Logic Pro through macOS's Accessibility permission. Open System Settings → Privacy & Security → Accessibility, add SYNC.PLANNER with the + button and switch it on, then relaunch the app. If macOS asks to allow control of “System Events”, click OK. After an app update, macOS may remove this permission: just switch it back on.",
     "faq13-q":"Logic Pro detection isn't working — what should I do?",
@@ -783,14 +797,14 @@ const T = {
     "seo-row5":"Price",
     "nav-features":"Features","nav-pricing":"Pricing","nav-faq":"FAQ","nav-cta":"Download — 14 days free","nav-cta-mobile":"Download — 14 days free",
     "hero-badge":"For demanding composers",
-    "hero-h1":"Albums, deadlines,<br>follow-ups, royalties.<br><span style='color:var(--violet)'>All in one place.</span>",
+    "hero-h1":"Albums, deadlines,<br>follow-ups, royalties.<br><span>All in one place.</span>",
     "hero-sub":"Run your whole sync production, from Logic Pro to your SACEM royalties.",
     "hero-sub2":"Albums, tracks, deadlines, stems, publishers, follow-ups and profitability: your entire workflow in one app built specifically for composers.","hero-keys":"Automatic Logic Pro project detection · Deliverables check · SACEM royalties tracking · Local data",
     "mac-download-label":"Download for Mac:",
-    "btn-mac-arm":"Mac 2021 or later<small>Apple M1, M2, M3… chip</small>","btn-mac-intel":"Mac 2020 or earlier<small>Intel processor</small>","btn-win":"Windows<small>in development</small>","btn-demo-txt":"Explore features — interactive demo","mac-arch-help":"2020 Mac? Apple menu ▸ “About This Mac”: “Apple chip” or “Intel”. macOS 12 or later.",
+    "btn-mac-arm":"Mac 2021 or later<small>Apple M1, M2, M3… chip</small>","btn-mac-intel":"Mac 2020 or earlier<small>Intel processor</small>","btn-win":"Windows<small>in development</small>","btn-demo-txt":"Try the demo","mac-arch-help":"2020 Mac? Apple menu ▸ “About This Mac”: “Apple chip” or “Intel”. macOS 12 or later.",
     "cta-final-arch-help":"2020 Mac? Apple menu ▸ “About This Mac”.",
-    "hero-note":"✓ No credit card required &nbsp;·&nbsp; ✓ Data stays on your Mac (except AI Assistant) &nbsp;·&nbsp; ✓ macOS 12+ (Apple Silicon & Intel) — Windows coming soon",
-    "hero-evolving":"🔄 Constantly evolving app — regular updates included",
+    "hero-note":"14 days free, no credit card &nbsp;·&nbsp; Data stays on your Mac (except AI Assistant)",
+    "hero-evolving":"macOS 12+ · Constantly evolving app — regular updates included",
     "problem-eyebrow":"The problem","problem-title":"Too many tools,<br><em>not enough clarity.</em>",
     "problem-body":"A Google Sheet for deadlines, another for tracks, scattered notes, emails with publishers... Result: missed follow-ups, late deliveries, confusion. SYNC.PLANNER brings everything together in one clear, structured place.",
     
@@ -802,7 +816,7 @@ const T = {
     
     "feat6-title":"Your data stays on your Mac","feat6-body":"All management data stays on the user's computer. No cloud, no third-party server by default — only the optional AI Assistant sends data, and only if you turn it on.",
     "featSacem-title":"SACEM revenue & €/hour profitability","featSacem-body":"Import your SACEM statements: they're automatically matched to your tracks, with revenue by album and by publisher, plus the time you composed in Logic Pro to work out your profitability per hour. Ignored works stay ignored from one statement to the next, and tracks named with a catalog code are matched on their own. A BMI (US performing rights) integration is under consideration for composers also active on the US market.",
-    "preview-eyebrow":"New · the orbital radar","preview-title":"Your deadlines,<br><em>in orbit</em>","preview-sub":"Your albums orbit around today: the closer a deadline, the closer the album gets to the centre. Step into an album, then into a track — everything is edited right there.","orb3-eyebrow":"The orbital radar","orb3-title":"Three levels,<br><em>one gesture</em>","orb3-a-title":"The radar","orb3-a-body":"All your albums at a glance, sorted by urgency. Late albums stand out, the project open in Logic Pro lights up, and rejected tracks wait to be re-pitched.","orb3-b-title":"The album","orb3-b-body":"Its tracks orbit the cover, with their status. Drag one track onto another to reorder — the publisher wants it as no. 4? Done.","orb3-c-title":"The track","orb3-c-body":"Its details orbit around it and can be edited in one click: BPM, key, dates, title. ‹ › or the arrow keys move to the next track, in a loop.","featn-stems-title":"Deliverables that tick themselves","featn-stems-body":"One checklist per track: Main, stems, Alts. It ticks itself while you export, remembers what each publisher usually gets (forgot the “Alt No Perc”?) and spots misspelled file names before you send.","featr-rel-title":"Follow-ups at the right time","featr-rel-body":"A track without an answer for 15 days is flagged. Follow up: the counter restarts from your follow-up, and the alert only comes back if the publisher still doesn't reply.","featr-rec-title":"Nothing gets lost","featr-rec-body":"A rejected track never disappears: it joins “To re-pitch” on the radar until you pitch it elsewhere, with its rejection history.","featr-new1":"New","featr-new2":"New","featr-new3":"New","tab-radar":"Radar","tab-livrables":"Deliverables","feat5-title":"Nothing gets lost","feat5-body":"A rejected track never disappears: it joins “To re-pitch” on the radar until you pitch it elsewhere, with its rejection history.","demo-eyebrow":"App tour","demo-title":"Every view,<br><em>in detail</em>","demo-sub":"Here's what SYNC.PLANNER looks like day to day.","tab-suivi":"Track tracker","tab-fiche":"Track sheet","tab-projets":"Albums","tab-galerie":"Gallery","tab-calendrier":"Paper","tab-editeurs":"Publishers","tab-stats":"Statistics","tab-declarations":"Registrations","tab-placements":"Placements","featn-decl-title":"PRO registrations (SACEM, BMI, PRS…)","featn-decl-body":"Import your works list: SYNC.PLANNER spots released tracks that can't be found and prepares a clear PDF to send to your publisher.","featn-decl-new":"New","featn-send-title":"Sending to publishers","featn-send-body":"Submission email ready in one click, MP3 or WAV attached, bulk send of several tracks, and the full send / follow-up / reply history on each track.","featn-send-new":"New","featv-store-title":"No storage limit","featv-store-body":"Covers, contracts, attachments: everything is kept in a SYNC.PLANNER folder on your Mac, which you can move to an external drive. A backup copy is made every day (30 days kept) and before every major operation: go back to any date in one click.","featv-dup-title":"Duplicate title warning","featv-dup-body":"As you type a title, SYNC.PLANNER flags an identical or very similar title already used in your catalog or your PRO works list — ignoring catalog codes, accents and plurals.","featv-cal-title":"Today panel and daily briefing","featv-cal-body":"The “Today” tile gathers upcoming deadlines and everything to handle: follow-ups due, works not found, tracks to re-pitch. The daily briefing sums up the rest, sorted by urgency.","featv-store-new":"New","featv-dup-new":"New","featv-cal-new":"New","seo-rowDup":"Duplicate title warning","pricing-guarantee":"↩ Money-back guarantee: 14 days after purchase, no questions asked.","featn-stems-new":"New",
+    "preview-eyebrow":"New · the orbital radar","preview-title":"Your deadlines,<br><em>in orbit</em>","preview-sub":"Your albums orbit around today: the closer a deadline, the closer the album gets to the centre. Step into an album, then into a track — everything is edited right there.","orb3-eyebrow":"The orbital radar","orb3-title":"Three levels,<br><em>one gesture</em>","orb3-a-title":"The radar","orb3-a-body":"All your albums at a glance, sorted by urgency. Late albums stand out, the project open in Logic Pro lights up, and rejected tracks wait to be re-pitched.","orb3-b-title":"The album","orb3-b-body":"Its tracks orbit the cover, with their status. Drag one track onto another to reorder — the publisher wants it as no. 4? Done.","orb3-c-title":"The track","orb3-c-body":"Its details orbit around it and can be edited in one click: BPM, key, dates, title. ‹ › or the arrow keys move to the next track, in a loop.","featn-stems-title":"Deliverables that tick themselves","featn-stems-body":"One checklist per track: Main, stems, Alts. It ticks itself while you export, remembers what each publisher usually gets (forgot the “Alt No Perc”?) and spots misspelled file names before you send.","featr-rel-title":"Follow-ups at the right time","featr-rel-body":"A track without an answer for 15 days is flagged. Follow up: the counter restarts from your follow-up, and the alert only comes back if the publisher still doesn't reply.","featr-rec-title":"Nothing gets lost","featr-rec-body":"A rejected track never disappears: it joins “To re-pitch” on the radar until you pitch it elsewhere, with its rejection history.","featr-new1":"New","featr-new2":"New","featr-new3":"New","tab-radar":"Radar","tab-livrables":"Deliverables","feat5-title":"Nothing gets lost","feat5-body":"A rejected track never disappears: it joins “To re-pitch” on the radar until you pitch it elsewhere, with its rejection history.","demo-eyebrow":"App tour","demo-title":"Every view,<br><em>in detail</em>","demo-sub":"Here's what SYNC.PLANNER looks like day to day.","tab-suivi":"Track tracker","tab-fiche":"Track sheet","tab-projets":"Albums","tab-galerie":"Gallery","tab-calendrier":"Classic","tab-editeurs":"Publishers","tab-stats":"Statistics","tab-declarations":"Registrations","tab-placements":"Placements","featn-decl-title":"PRO registrations (SACEM, BMI, PRS…)","featn-decl-body":"Import your works list: SYNC.PLANNER spots released tracks that can't be found and prepares a clear PDF to send to your publisher.","featn-decl-new":"New","featn-send-title":"Sending to publishers","featn-send-body":"Submission email ready in one click, MP3 or WAV attached, bulk send of several tracks, and the full send / follow-up / reply history on each track.","featn-send-new":"New","featv-store-title":"No storage limit","featv-store-body":"Covers, contracts, attachments: everything is kept in a SYNC.PLANNER folder on your Mac, which you can move to an external drive. A backup copy is made every day (30 days kept) and before every major operation: go back to any date in one click.","featv-dup-title":"Duplicate title warning","featv-dup-body":"As you type a title, SYNC.PLANNER flags an identical or very similar title already used in your catalog or your PRO works list — ignoring catalog codes, accents and plurals.","featv-cal-title":"Today panel and daily briefing","featv-cal-body":"The “Today” tile gathers upcoming deadlines and everything to handle: follow-ups due, works not found, tracks to re-pitch. The daily briefing sums up the rest, sorted by urgency.","featv-store-new":"New","featv-dup-new":"New","featv-cal-new":"New","seo-rowDup":"Duplicate title warning","pricing-guarantee":"↩ Money-back guarantee: 14 days after purchase, no questions asked.","featn-stems-new":"New",
     "dash-stat1":"Active projects","dash-stat2":"Validated","dash-stat3":"Val. rate","dash-stat4":"Total tracks",
     "dash-alert":"2 urgent deadlines — Dark Matter (D-3) · Urban Bass (D-6)",
     "badge-done":"✓ Delivered","badge-j12":"D-12","badge-j28":"D-28","badge-j3":"⚠️ D-3","badge-j3b":"⚠️ D-3",
@@ -912,34 +926,37 @@ window.addEventListener('load', () => {
 });
 </script>
 <script>
-// Résout automatiquement les liens de téléchargement Mac (Apple Silicon ET
-// Intel, distinctement) vers la dernière release GitHub publiée, pour ne
-// plus jamais avoir à mettre ces liens à jour manuellement à chaque nouvelle
-// version. Si l'API GitHub échoue (rate limit, hors-ligne...), on garde
-// simplement les liens codés en dur ci-dessus (pointant vers la dernière
-// version connue au moment de ce déploiement) comme repli silencieux.
-(function() {
-  fetch('https://api.github.com/repos/SyncPlanner/SyncPlanner-app/releases/latest')
-    .then(function(r) { return r.ok ? r.json() : Promise.reject(); })
-    .then(function(data) {
-      var assets = data.assets || [];
-      var armAsset = assets.find(function(a) { return /\.dmg$/i.test(a.name) && /arm64/i.test(a.name); });
-      var intelAsset = assets.find(function(a) { return /\.dmg$/i.test(a.name) && !/arm64/i.test(a.name); });
-      if (armAsset) {
-        ['btn-mac-arm', 'cta-final-mac-arm'].forEach(function(id) {
-          var el = document.getElementById(id);
-          if (el) el.href = armAsset.browser_download_url;
-        });
-      }
-      if (intelAsset) {
-        ['btn-mac-intel', 'cta-final-mac-intel'].forEach(function(id) {
-          var el = document.getElementById(id);
-          if (el) el.href = intelAsset.browser_download_url;
-        });
-      }
-    })
-    .catch(function() { /* on garde les liens codés en dur en repli */ });
+// Bouton principal : télécharge la version qui correspond au Mac du visiteur.
+// Chrome/Edge donnent l'architecture (User-Agent Client Hints) ; sinon on lit la carte graphique WebGL
+// (« Apple M… » = Apple Silicon, Intel/AMD = Intel). Safari masque ces infos : on propose alors
+// Apple Silicon (tous les Mac vendus depuis fin 2020) et les liens « Autre Mac » restent visibles.
+(function(){
+  var TX = ["Apple Silicon détecté · M1, M2, M3…","Intel détecté","Pour Mac Apple Silicon (M1, M2, M3…)"];
+  function apply(arch){
+    document.querySelectorAll('[data-dl="main"]').forEach(function(m){
+      var w = m.closest('.dl-wrap'), arm = w && w.querySelector('[data-dl="arm"]'), intel = w && w.querySelector('[data-dl="intel"]');
+      if(arch === 'intel' && intel) m.href = intel.href; else if(arm) m.href = arm.href;
+      var sub = m.querySelector('[data-dl="sub"]'); if(sub) sub.textContent = arch === 'arm' ? TX[0] : arch === 'intel' ? TX[1] : TX[2];
+    });
+  }
+  function gl(){ try { var c = document.createElement('canvas').getContext('webgl'); var e = c && c.getExtension('WEBGL_debug_renderer_info'); var r = e ? c.getParameter(e.UNMASKED_RENDERER_WEBGL) : ''; if(/Apple M\d/i.test(r)) return 'arm'; if(/Intel|AMD|Radeon|NVIDIA/i.test(r)) return 'intel'; } catch(e){} return ''; }
+  function detect(){
+    if(!/Mac/i.test(navigator.platform || navigator.userAgent)) { apply(''); return; }
+    var uad = navigator.userAgentData;
+    if(uad && uad.getHighEntropyValues) uad.getHighEntropyValues(['architecture']).then(function(v){ apply(v.architecture === 'arm' ? 'arm' : v.architecture === 'x86' ? 'intel' : gl()); }).catch(function(){ apply(gl()); });
+    else apply(gl());
+  }
+  window.spDlDetect = detect;
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', detect); else detect();
+  // Liens vers la dernière release (repli : les liens « latest/download » codés en dur)
+  fetch('https://api.github.com/repos/SyncPlanner/SyncPlanner-app/releases/latest').then(function(r){ return r.ok ? r.json() : Promise.reject(); }).then(function(d){
+    var as = d.assets || [], a = as.find(function(x){ return /\.dmg$/i.test(x.name) && /arm64/i.test(x.name); }), i = as.find(function(x){ return /\.dmg$/i.test(x.name) && !/arm64/i.test(x.name); });
+    if(a) document.querySelectorAll('[data-dl="arm"]').forEach(function(e){ e.href = a.browser_download_url; });
+    if(i) document.querySelectorAll('[data-dl="intel"]').forEach(function(e){ e.href = i.browser_download_url; });
+    detect();
+  }).catch(function(){});
 })();
 </script>
+
 </body>
 </html>
