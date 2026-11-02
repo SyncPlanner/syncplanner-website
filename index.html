@@ -273,13 +273,18 @@
   .preview-bar .dot { background:#BFB6A6!important; }
   .orb3-card, .preview-inner { box-shadow:0 20px 40px -30px rgba(60,45,25,.45); }
   @media(max-width:900px){ .hero { padding:96px 20px 24px; } .dl-main, .dl-demo { width:100%;justify-content:center; } .hero-shot { margin-top:30px; } }
+
+  /* ── Logo radar orbital (02/11) ── */
+  .nav-logo { display:flex;align-items:center;gap:9px;font-weight:800;letter-spacing:-0.02em;color:#1F1C17; }
+  .nav-logo .nav-mark { width:26px;height:26px;flex-shrink:0; }
+  .nav-logo span { color:#4E8A5E !important; }
 </style>
 </head>
 <body>
 
 <nav>
   <div class="nav-left">
-    <div class="nav-logo">SYNC<span>.</span>PLANNER</div>
+    <div class="nav-logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="120 120 784 784" class="nav-mark" aria-hidden="true"><circle cx="512" cy="512" r="175" fill="none" stroke="currentColor" stroke-width="22" opacity=".3"/><circle cx="512" cy="512" r="255" fill="none" stroke="currentColor" stroke-width="22" opacity=".3"/><circle cx="512" cy="512" r="335" fill="none" stroke="currentColor" stroke-width="22" opacity=".3"/><circle cx="512" cy="512" r="96" fill="currentColor"/><circle cx="438" cy="671" r="50" fill="#C8695A"/><circle cx="272" cy="425" r="56" fill="#D4A24C"/><circle cx="704" cy="238" r="62" fill="#5E8F6A"/></svg><div>Sync<span>Planner</span></div></div>
     <div class="lang-switcher">
       <button class="lang-btn active" id="btn-fr" onclick="goToLang('fr')" title="Français">🇫🇷</button>
       <button class="lang-btn" id="btn-en" onclick="goToLang('en')" title="English">🇬🇧</button>
