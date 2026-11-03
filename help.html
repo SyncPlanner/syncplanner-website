@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SYNC.PLANNER — Guide d'utilisation</title>
-<meta name="description" content="Guide complet de SYNC.PLANNER : radar des deadlines, suivi des tracks, relances éditeurs, livrables, revenus SACEM, Logic Pro et sauvegardes.">
+<title>SyncPlanner — Guide d'utilisation</title>
+<meta name="description" content="Guide complet de SyncPlanner : radar des deadlines, suivi des tracks, relances éditeurs, livrables, revenus SACEM, Logic Pro et sauvegardes.">
 <link rel="canonical" href="https://syncplanner.app/help">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -200,7 +200,7 @@ footer p{font-size:12px;color:var(--text4)}
   <div class="container topbar-inner">
     <a href="https://syncplanner.app" class="logo">
       <div class="logo-dot"></div>
-      SYNC.PLANNER
+      SyncPlanner
     </a>
     <div class="lang-switch">
       <button class="lang-btn active" onclick="setLang('fr')">FR</button>
@@ -215,8 +215,8 @@ footer p{font-size:12px;color:var(--text4)}
       <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
       <span id="h-badge">Guide d'utilisation</span>
     </div>
-    <h1><span class="grad">SYNC.PLANNER</span><br><span id="h-title">Guide complet</span></h1>
-    <p id="h-sub">Tout ce qu'il faut savoir pour utiliser SYNC.PLANNER — fonctionnalités, workflow et démos interactives.</p>
+    <h1><span class="grad">SyncPlanner</span><br><span id="h-title">Guide complet</span></h1>
+    <p id="h-sub">Tout ce qu'il faut savoir pour utiliser SyncPlanner — fonctionnalités, workflow et démos interactives.</p>
     <div class="search-wrap">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8A8273" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
       <input class="search-input" id="search" type="text" oninput="doSearch(this.value)" placeholder="Rechercher dans le guide…">
@@ -226,7 +226,7 @@ footer p{font-size:12px;color:var(--text4)}
   <div class="sections" id="sections"></div>
 </div>
 
-<footer><div class="container"><p>© 2026 SYNC.PLANNER · <a href="https://syncplanner.app">syncplanner.app</a> · <a href="mailto:contact@syncplanner.app">contact@syncplanner.app</a></p></div></footer>
+<footer><div class="container"><p>© 2026 SyncPlanner · <a href="https://syncplanner.app">syncplanner.app</a> · <a href="mailto:contact@syncplanner.app">contact@syncplanner.app</a></p></div></footer>
 
 <script>
 // Guide en ligne — généré le 27/10/2026 à partir du guide intégré à l'appli (même contenu, FR / EN)
@@ -234,7 +234,7 @@ let LANG = 'fr';
 const T = {
   badge:{fr:"Guide d'utilisation",en:"User Guide"},
   title:{fr:"Guide complet",en:"Complete Guide"},
-  sub:{fr:"Toutes les fonctionnalités de SYNC.PLANNER expliquées, écran par écran. Le même guide est disponible dans l'appli (menu Aide).",en:"Every SYNC.PLANNER feature explained, screen by screen. The same guide is available in the app (Help menu)."},
+  sub:{fr:"Toutes les fonctionnalités de SyncPlanner expliquées, écran par écran. Le même guide est disponible dans l'appli (menu Aide).",en:"Every SyncPlanner feature explained, screen by screen. The same guide is available in the app (Help menu)."},
   search:{fr:"Rechercher dans le guide…",en:"Search the guide…"},
   empty:{fr:"Aucun résultat — essaie un autre mot.",en:"No results — try another word."},
   demo:{fr:"Voir la démo interactive →",en:"Try the interactive demo →"},
@@ -723,8 +723,8 @@ const SECTIONS = [
     "en": "<b>Automatic backup</b> — one file per day (30 kept) in Google Drive or a folder of your choice."
    },
    {
-    "fr": "<b>Dossier des données</b> — tout ce que SYNC.PLANNER enregistre (albums, relevés, covers, pièces jointes, contrats) est rangé dans un seul dossier sur ton Mac, sans limite de taille. Paramètres → Général affiche sa taille et permet de le déplacer (disque externe…). Ne le supprime pas à la main.",
-    "en": "<b>Data folder</b> — everything SYNC.PLANNER saves (albums, statements, covers, attachments, contracts) lives in one folder on your Mac, with no size limit. Settings → General shows its size and lets you move it (external drive…). Don’t delete it by hand."
+    "fr": "<b>Dossier des données</b> — tout ce que SyncPlanner enregistre (albums, relevés, covers, pièces jointes, contrats) est rangé dans un seul dossier sur ton Mac, sans limite de taille. Paramètres → Général affiche sa taille et permet de le déplacer (disque externe…). Ne le supprime pas à la main.",
+    "en": "<b>Data folder</b> — everything SyncPlanner saves (albums, statements, covers, attachments, contracts) lives in one folder on your Mac, with no size limit. Settings → General shows its size and lets you move it (external drive…). Don’t delete it by hand."
    },
    {
     "fr": "<b>Versions de secours</b> — copies automatiques : une par jour (30 jours), à chaque lancement et juste avant chaque opération importante (import d’un relevé, chargement d’un fichier, restauration). Paramètres → Général : choisis une date et restaure — tes données actuelles sont d’abord copiées, tu peux donc revenir en arrière.",
@@ -792,7 +792,7 @@ function setLang(lang) {
   document.getElementById('h-badge').textContent = T.badge[LANG];
   document.getElementById('h-title').textContent = T.title[LANG];
   document.getElementById('h-sub').textContent = T.sub[LANG];
-  document.title = LANG === 'fr' ? "SYNC.PLANNER — Guide d'utilisation" : 'SYNC.PLANNER — User Guide';
+  document.title = LANG === 'fr' ? "SyncPlanner — Guide d'utilisation" : 'SyncPlanner — User Guide';
   const searchEl = document.getElementById('search'); searchEl.placeholder = T.search[LANG];
   const openIds = Array.from(document.querySelectorAll('.section.open')).map(el => el.id.replace('section-', ''));
   renderSections();
